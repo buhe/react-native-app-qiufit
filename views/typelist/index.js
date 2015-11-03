@@ -2,6 +2,7 @@
  * Created by guguyanhua on 10/30/15.
  */
 var React = require('react-native');
+var StepList = require('../steplist');
 //var Reflux = require('reflux');
 //var _ = require('lodash');
 
@@ -14,8 +15,10 @@ var {
     Navigator,
     TouchableOpacity,
     ScrollView,
-    Image
+    Image,
+    NavigatorIOS
     } = React;
+var Router = require('../router');
 
 var typeList = [
   {
@@ -53,7 +56,7 @@ var typeList = [
 
 var TypeItem = React.createClass({
   pushPaperById(){
-
+    this.props.navigator.push(Router.getStepList());
   },
   render: function () {
     return (
@@ -82,6 +85,7 @@ var TypesView = React.createClass({
   render: function () {
     return (
         <View>
+          <View style={styles.nav}><Text style={{color:'white', padding:20}}>囚徒健身</Text></View>
           <ListView
               dataSource={this.state.dataSource.cloneWithRows(this.state.typeList)}
               renderRow={this.renderType}
@@ -103,13 +107,18 @@ var TypesView = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
 
+var styles = StyleSheet.create({
   listView: {
-    backgroundColor: '#F6F6EF',
     flex: 1,
   },
+  nav: {
+    flex: 1,
+    height: 64,
+    backgroundColor: 'black'
+  },
   container: {
+    flex: 1,
     flexDirection: 'row',
     //justifyContent: 'center',
     alignItems: 'center',

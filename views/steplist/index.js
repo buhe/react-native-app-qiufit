@@ -64,6 +64,9 @@ var StepItem = React.createClass({
 });
 
 var StepsView = React.createClass({
+  pop(){
+    this.props.navigator.pop();
+  },
   getInitialState: function () {
     //ResumesActionCreators.fetchResumes();
     return {
@@ -76,7 +79,12 @@ var StepsView = React.createClass({
   render: function () {
     return (
         <View>
-          <Text style={styles.title}>俯卧撑系列升级表</Text>
+          <View style={styles.nav}>
+            <TouchableOpacity onPress={this.pop}>
+              <Text style={{marginLeft:20,marginTop:20}}>关闭</Text>
+            </TouchableOpacity>
+            <Text style={{marginLeft:40}}>俯卧撑系列升级表</Text>
+          </View>
           <ListView
               dataSource={this.state.dataSource.cloneWithRows(this.state.stepList)}
               renderRow={this.renderType}
@@ -106,6 +114,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   container: {
+    flex: 1,
     //flexDirection: 'row',
     //justifyContent: 'center',
     backgroundColor: 'black',
@@ -114,10 +123,14 @@ var styles = StyleSheet.create({
     marginBottom: 5,
     marginLeft: 20,
     marginRight: 20,
-    padding:10
+    padding: 10
+  },
+  nav: {
+    flex: 1,
+    height: 64,
   },
   content: {
-    color:'white'
+    color: 'white'
   },
   separator: {
     height: 0.5,
