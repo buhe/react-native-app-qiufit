@@ -6,26 +6,32 @@
 
 var React = require('react-native');
 var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} = React;
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Navigator,
+    } = React;
+import ExNavigator from '@exponent/react-native-navigator';
+var Router = require('./views/router');
+var TypeList = require('./views/typelist');
+
+var renderFunc = function (props) {
+  return (
+      <Navigator.NavigationBar {...props} />
+  );
+};
 
 var PrisonerFitness = React.createClass({
-  render: function() {
+  render: function () {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <ExNavigator
+            initialRoute={Router.getTypeList()}
+            style={{ flex: 1 }}
+            //sceneStyle={{ paddingTop: 64 }}
+            //renderNavigationBar={renderFunc}
+            showNavigationBar={false}
+            />
     );
   }
 });

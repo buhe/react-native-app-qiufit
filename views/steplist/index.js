@@ -16,6 +16,7 @@ var {
     ScrollView,
     Image
     } = React;
+var Modal = require('react-native-fs-modal');
 
 var stepList = [
   {
@@ -48,17 +49,20 @@ var stepList = [
 
 var StepItem = React.createClass({
   pushPaperById(){
-
+    this.props.showModal();
   },
   render: function () {
     return (
-        <TouchableOpacity onPress={this.pushPaperById}>
-          <View style={styles.container}>
-            <Text style={styles.content}>{this.props.stepname}</Text>
-            <Text style={styles.content}>{this.props.desc}</Text>
-            <Text style={styles.content}>{this.props.next}</Text>
-          </View>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity onPress={this.pushPaperById}>
+            <View style={styles.container}>
+              <Text style={styles.content}>{this.props.stepname}</Text>
+              <Text style={styles.content}>{this.props.desc}</Text>
+              <Text style={styles.content}>{this.props.next}</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
     );
   }
 });
@@ -76,6 +80,13 @@ var StepsView = React.createClass({
       stepList: stepList
     };
   },
+  showModal () {
+    this.refs.modal.show();
+  },
+
+  hideModal () {
+    this.refs.modal.close();
+  },
   render: function () {
     return (
         <View>
@@ -90,6 +101,34 @@ var StepsView = React.createClass({
               renderRow={this.renderType}
               style={styles.listView}
               />
+          <Modal
+              // Use ref to allow open/close
+              ref={'modal'}
+
+              // Duration of animation (defaults 500)
+              duration={10}
+
+              // Any tween function (defaults 'easeOutBack')
+              tween={'linear'}
+
+              // Pass styles to modal
+              modalStyle={{borderRadius: 0}}
+
+              // Hide/show UIStatusBar (defaults to true)
+              hideStatusBar={true}
+              >
+            <View>
+              <View style={{padding:30}}>
+                <Text>第一式</Text>
+                <Text>墙壁俯卧撑</Text>
+                <TouchableOpacity
+                    onPress={this.hideModal.bind(this)}
+                    >
+                  <Text>开始</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
         </View>
     );
 
@@ -100,6 +139,7 @@ var StepsView = React.createClass({
             stepname={q.stepname}
             desc={q.desc}
             next={q.next}
+            showModal={this.showModal}
             {...this.props}
             />
     );

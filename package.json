@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@exponent/react-native-navigator": "^0.2.6",
-    "react-native": "^0.13.2"
+    "react-native": "^0.13.2",
+    "react-native-fs-modal": "^0.1.0"
   }
 }
