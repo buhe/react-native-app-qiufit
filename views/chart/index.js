@@ -3,7 +3,7 @@
  */
 var React = require('react-native');
 var StepList = require('../steplist');
-var Chart = require('../../ios/RNChat/RNChart');
+var Chart = require('../../components/RNChart');
 //var Reflux = require('reflux');
 //var _ = require('lodash');
 
