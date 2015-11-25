@@ -120,7 +120,7 @@
 		78B25B451C044A3500A6A92F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B25AA61C044A3500A6A92F /* Info.plist */; };
 		78B25B531C044BAA00A6A92F /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B521C044BAA00A6A92F /* BalloonMarker.swift */; };
 		78B25B571C0450F000A6A92F /* RCTChartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B561C0450F000A6A92F /* RCTChartManager.m */; };
-		78B25B5B1C0457AF00A6A92F /* RCTChartDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B5A1C0457AF00A6A92F /* RCTChartDemo.m */; };
+		78B25B5B1C0457AF00A6A92F /* RCTChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B5A1C0457AF00A6A92F /* RCTChart.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -327,8 +327,8 @@
 		78B25B521C044BAA00A6A92F /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		78B25B551C0450F000A6A92F /* RCTChartManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTChartManager.h; path = RNChat/RCTChartManager.h; sourceTree = "<group>"; };
 		78B25B561C0450F000A6A92F /* RCTChartManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTChartManager.m; path = RNChat/RCTChartManager.m; sourceTree = "<group>"; };
-		78B25B591C0457AF00A6A92F /* RCTChartDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTChartDemo.h; path = RNChat/RCTChartDemo.h; sourceTree = "<group>"; };
-		78B25B5A1C0457AF00A6A92F /* RCTChartDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTChartDemo.m; path = RNChat/RCTChartDemo.m; sourceTree = "<group>"; };
+		78B25B591C0457AF00A6A92F /* RCTChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTChart.h; path = RNChat/RCTChart.h; sourceTree = "<group>"; };
+		78B25B5A1C0457AF00A6A92F /* RCTChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTChart.m; path = RNChat/RCTChart.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -665,8 +665,8 @@
 			children = (
 				78B25B551C0450F000A6A92F /* RCTChartManager.h */,
 				78B25B561C0450F000A6A92F /* RCTChartManager.m */,
-				78B25B591C0457AF00A6A92F /* RCTChartDemo.h */,
-				78B25B5A1C0457AF00A6A92F /* RCTChartDemo.m */,
+				78B25B591C0457AF00A6A92F /* RCTChart.h */,
+				78B25B5A1C0457AF00A6A92F /* RCTChart.m */,
 				784BA1A01C05536E0063ADB7 /* RCTConvert+RadarChartView.h */,
 				784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */,
 			);
@@ -778,6 +778,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = N22PJBS26Y;
 					};
 				};
 			};
@@ -1004,7 +1007,7 @@
 				78B259B31C0446ED00A6A92F /* DemoBaseViewController.m in Sources */,
 				78B25B0F1C044A3500A6A92F /* LineChartDataSet.swift in Sources */,
 				78B25B2D1C044A3500A6A92F /* ChartAxisRendererBase.swift in Sources */,
-				78B25B5B1C0457AF00A6A92F /* RCTChartDemo.m in Sources */,
+				78B25B5B1C0457AF00A6A92F /* RCTChart.m in Sources */,
 				78B25B241C044A3500A6A92F /* BarLineScatterCandleBubbleChartDataProvider.swift in Sources */,
 				78B25B251C044A3500A6A92F /* BubbleChartDataProvider.swift in Sources */,
 				78B25B021C044A3500A6A92F /* BarLineScatterCandleBubbleChartData.swift in Sources */,
@@ -1116,6 +1119,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1126,6 +1131,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PrisonerFitness;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1133,6 +1139,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -1142,6 +1150,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PrisonerFitness;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

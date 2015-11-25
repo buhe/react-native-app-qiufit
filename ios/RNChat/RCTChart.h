@@ -8,13 +8,15 @@
 
 #import "PrisonerFitness-Swift.h"
 
-@interface RCTChartDemo : UIView
+@interface RCTChart : UIView
 {
 @protected
   NSArray *months;
   NSArray *parties;
 }
 @property RadarChartView *chartView;
-@property double webLineWidth;
-@property RadarChartData *data;
+@property (nonatomic) double webLineWidth;
+@property (nonatomic) RadarChartData *data;
+
+- (instancetype)initWithFrame:(CGRect)frame withChart:(RadarChartView*) chart;
 @end
