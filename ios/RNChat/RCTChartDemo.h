@@ -16,4 +16,5 @@
 }
 @property RadarChartView *chartView;
 @property double webLineWidth;
+@property RadarChartData *data;
 @end

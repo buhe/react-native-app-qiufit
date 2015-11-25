@@ -13,6 +13,13 @@ class RNChartView extends React.Component {
 RNChartView.propTypes = {
 
   webLineWidth: React.PropTypes.number,
+  data: React.PropTypes.shape({
+    /**
+     * Coordinates for the center of the map.
+     */
+    x: React.PropTypes.array.isRequired,
+    y: React.PropTypes.array.isRequired
+  }),
 };
 
 var RCTChart = requireNativeComponent('RCTChart', RNChartView);

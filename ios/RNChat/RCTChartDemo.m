@@ -58,13 +58,13 @@
     l.xEntrySpace = 7.0;
     l.yEntrySpace = 5.0;
     
-    [self setData];
+//    [self setData0];
     [self addSubview:_chartView];
   }
   return self;
 }
 
-- (void)setData
+- (void)setData0
 {
   double mult = 150.f;
   int count = 9;
@@ -105,6 +105,10 @@
 -(void) setWebLineWidth:(double) webLineWidth{
   _webLineWidth = webLineWidth;
   _chartView.webLineWidth = webLineWidth;
+}
+
+-(void) setData:(RadarChartData *)data{
+  _chartView.data = data;
 }
 
 

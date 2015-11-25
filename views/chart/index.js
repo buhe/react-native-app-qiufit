@@ -25,7 +25,12 @@ var ChartView = React.createClass({
   render: function () {
     return (
         <View style={styles.listView}>
-          <Chart webLineWidth={2}/>
+          <Chart webLineWidth={2}
+                 data={{
+                      x:['a','b','c','d','e','che'],
+                      y:[3,2,5,1,7,8]
+                      }}
+              />
         </View>
     );
 

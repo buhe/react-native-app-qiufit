@@ -22,6 +22,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */; };
 		78B259AE1C04453200A6A92F /* RadarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B259AC1C04453200A6A92F /* RadarChartViewController.m */; };
 		78B259AF1C04453200A6A92F /* RadarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B259AD1C04453200A6A92F /* RadarChartViewController.xib */; };
 		78B259B31C0446ED00A6A92F /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B259B21C0446ED00A6A92F /* DemoBaseViewController.m */; };
@@ -223,6 +224,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PrisonerFitness/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PrisonerFitness/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		784BA1A01C05536E0063ADB7 /* RCTConvert+RadarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RCTConvert+RadarChartView.h"; path = "RNChat/RCTConvert+RadarChartView.h"; sourceTree = "<group>"; };
+		784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RCTConvert+RadarChartView.m"; path = "RNChat/RCTConvert+RadarChartView.m"; sourceTree = "<group>"; };
 		78B259AB1C04453200A6A92F /* RadarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarChartViewController.h; sourceTree = "<group>"; };
 		78B259AC1C04453200A6A92F /* RadarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarChartViewController.m; sourceTree = "<group>"; };
 		78B259AD1C04453200A6A92F /* RadarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarChartViewController.xib; sourceTree = "<group>"; };
@@ -664,6 +667,8 @@
 				78B25B561C0450F000A6A92F /* RCTChartManager.m */,
 				78B25B591C0457AF00A6A92F /* RCTChartDemo.h */,
 				78B25B5A1C0457AF00A6A92F /* RCTChartDemo.m */,
+				784BA1A01C05536E0063ADB7 /* RCTConvert+RadarChartView.h */,
+				784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */,
 			);
 			name = RNChart;
 			sourceTree = "<group>";
@@ -972,6 +977,7 @@
 				78B25B161C044A3500A6A92F /* ScatterChartData.swift in Sources */,
 				78B25AFF1C044A3500A6A92F /* BarChartData.swift in Sources */,
 				78B25B1A1C044A3500A6A92F /* ChartDefaultXAxisValueFormatter.swift in Sources */,
+				784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */,
 				78B25B3A1C044A3500A6A92F /* LineChartRenderer.swift in Sources */,
 				78B25B321C044A3500A6A92F /* ChartXAxisRendererBarChart.swift in Sources */,
 				78B25AEC1C044A3500A6A92F /* BarChartView.swift in Sources */,
