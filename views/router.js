@@ -12,7 +12,7 @@ let YourRouter = {
       // Return a React component class for the scene. It receives a prop
       // called `navigator` that you can use to push on more routes.
       getSceneClass() {
-        return require('./typelist');
+        return require('./chart');
       },
 
       // When this scene receives focus, you can run some code. We're just

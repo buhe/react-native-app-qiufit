@@ -14,7 +14,6 @@ var {
     } = React;
 import ExNavigator from '@exponent/react-native-navigator';
 var Router = require('./views/router');
-var TypeList = require('./views/typelist');
 
 var renderFunc = function (props) {
   return (

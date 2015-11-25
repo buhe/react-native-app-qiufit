@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 
 #import "RCTRootView.h"
+#import "RadarChartViewController.h"
 
 @implementation AppDelegate
 
@@ -31,7 +32,7 @@
    * on the same Wi-Fi network.
    */
 
-  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.110:8081/index.ios.bundle?platform=ios&dev=true"];
+  jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.23:8081/index.ios.bundle?platform=ios&dev=true"];
 
   /**
    * OPTION 2
@@ -55,6 +56,11 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+//  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//  RadarChartViewController *vc = [[RadarChartViewController alloc] init];
+//  UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+//  _window.rootViewController = nvc;
+//  [_window makeKeyAndVisible];
   return YES;
 }
 
