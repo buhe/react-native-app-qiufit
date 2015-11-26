@@ -17,7 +17,6 @@ var {
     TouchableOpacity,
     ScrollView,
     Image,
-    NavigatorIOS
     } = React;
 
 var ChartView = React.createClass({
