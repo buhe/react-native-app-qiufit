@@ -7,8 +7,7 @@ var { requireNativeComponent } = React;
 class RNChartView extends React.Component {
   render() {
     return <RCTChart
-        webLineWidth={this.props.webLineWidth}
-        data={this.props.data}
+        {...this.props}
         />;
   }
 }

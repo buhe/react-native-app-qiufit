@@ -23,14 +23,14 @@ var ChartView = React.createClass({
 
   render: function () {
     return (
-        <View style={styles.listView}>
-          <Chart webLineWidth={2}
+          <Chart
+              style={styles.listView}
+              webLineWidth={2}
                  data={{
                       x:['a','b','c','d','e','che'],
                       y:[3,2,5,1,7,8]
                       }}
               />
-        </View>
     );
 
   }
@@ -39,7 +39,8 @@ var ChartView = React.createClass({
 
 var styles = StyleSheet.create({
   listView: {
-    flex: 1,
+    height: 200,
+    width:200,
   },
   nav: {
     flex: 1,
