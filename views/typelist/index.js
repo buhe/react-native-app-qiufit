@@ -16,7 +16,7 @@ var {
     TouchableOpacity,
     ScrollView,
     Image,
-    NavigatorIOS
+    PixelRatio
     } = React;
 var Router = require('../router');
 
@@ -114,7 +114,7 @@ var styles = StyleSheet.create({
   },
   nav: {
     flex: 1,
-    height: 64,
+    height: 120/ PixelRatio.get(),
     backgroundColor: 'black'
   },
   container: {
