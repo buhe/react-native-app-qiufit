@@ -4,6 +4,8 @@
 var React = require('react-native');
 var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
+var StepModal = require('./modal');
+var deviceScreen = require('Dimensions').get('window');
 //var _ = require('lodash');
 
 var {
@@ -15,22 +17,23 @@ var {
     Navigator,
     TouchableOpacity,
     ScrollView,
-    Image
+    Image,
+    PixelRatio
     } = React;
 var Modal = require('react-native-fs-modal');
 
 var StepItem = React.createClass({
   pushPaperById(){
-    this.props.showModal();
+    this.props.showModal(this.props.text1, this.props.text2);
   },
   render: function () {
     return (
         <View>
           <TouchableOpacity onPress={this.pushPaperById}>
             <View style={styles.container}>
-              <Text style={styles.content}>{this.props.text1}</Text>
-              <Text style={styles.content}>{this.props.text2}</Text>
-              <Text style={styles.content}>{this.props.text3}</Text>
+              <Text style={styles.itemTitle}>{this.props.text1}</Text>
+              <Text style={styles.itemDesc}>{this.props.text2}</Text>
+              <Text style={styles.itemDesc}>{this.props.text3}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -52,10 +55,13 @@ var StepsView = React.createClass({
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
+      text1: '',
+      text2: '',
     };
   },
-  showModal () {
+  showModal (text1, text2) {
     this.refs.modal.show();
+    this.setState({text1: text1, text2: text2});
   },
 
   hideModal () {
@@ -65,10 +71,7 @@ var StepsView = React.createClass({
     return (
         <View>
           <View style={styles.nav}>
-            <TouchableOpacity onPress={this.pop}>
-              <Text style={{marginLeft:20,marginTop:20}}>关闭</Text>
-            </TouchableOpacity>
-            <Text style={{marginLeft:40}}>俯卧撑系列升级表</Text>
+            <Text style={styles.logoText}>{this.state.stepName}系列升级表</Text>
           </View>
           <ListView
               dataSource={this.state.dataSource.cloneWithRows(this.state.steps)}
@@ -76,31 +79,17 @@ var StepsView = React.createClass({
               style={styles.listView}
               />
           <Modal
-              // Use ref to allow open/close
               ref={'modal'}
-
-              // Duration of animation (defaults 500)
               duration={10}
-
-              // Any tween function (defaults 'easeOutBack')
               tween={'linear'}
-
-              // Pass styles to modal
-              modalStyle={{borderRadius: 0}}
-
-              // Hide/show UIStatusBar (defaults to true)
-              hideStatusBar={true}
+              modalStyle={styles.modalStyle}
               >
             <View>
-              <View style={{padding:30}}>
-                <Text>第一式</Text>
-                <Text>墙壁俯卧撑</Text>
-                <TouchableOpacity
-                    onPress={this.hideModal.bind(this)}
-                    >
-                  <Text>开始</Text>
-                </TouchableOpacity>
-              </View>
+              <StepModal
+                  step={this.state.text1}
+                  name={this.state.text2}
+                  actionClick={this.hideModal.bind(this)}
+                  />
             </View>
           </Modal>
         </View>
@@ -120,9 +109,6 @@ var StepsView = React.createClass({
 });
 
 var styles = StyleSheet.create({
-  title: {
-    fontSize: 20
-  },
   listView: {
     flex: 1,
   },
@@ -132,23 +118,50 @@ var styles = StyleSheet.create({
     //justifyContent: 'center',
     backgroundColor: 'black',
     alignItems: 'center',
-    marginTop: 5,
-    marginBottom: 5,
-    marginLeft: 20,
-    marginRight: 20,
-    padding: 10
+    height: 300 / PixelRatio.get(),
+    marginTop: 20 / PixelRatio.get(),
+    marginBottom: 20 / PixelRatio.get(),
+    marginLeft: 70 / PixelRatio.get(),
+    marginRight: 70 / PixelRatio.get(),
+    paddingTop: 30 / PixelRatio.get(),
+    paddingBottom: 30 / PixelRatio.get(),
+  },
+  itemTitle: {
+    fontSize: 60 / PixelRatio.getFontScale(),
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  itemDesc: {
+    fontSize: 50 / PixelRatio.getFontScale(),
+    color: 'white'
   },
   nav: {
+    alignItems: 'center',
+    padding: 40 / PixelRatio.get(),
     flex: 1,
-    height: 64,
+    height: 180 / PixelRatio.get(),
   },
-  content: {
-    color: 'white'
+  logoText: {
+    fontSize: 80 / PixelRatio.getFontScale(),
+    fontWeight: 'bold',
+    color: '#141414'
   },
   separator: {
     height: 0.5,
     backgroundColor: '#CCCCCC',
+  },
+  modalStyle: {
+    borderRadius: 0,
+    height: 1030 / PixelRatio.get(),
+    width: 930 / PixelRatio.get(),
+    marginTop: 400 / PixelRatio.get(),
   }
 });
 
 module.exports = StepsView;
+
+//<TouchableOpacity onPress={this.pop}>
+//  <Text style={{marginLeft:20,marginTop:20}}>关闭</Text>
+//</TouchableOpacity>
+//<Text style={{marginLeft:40}}>俯卧撑系列升级表</Text>
+//

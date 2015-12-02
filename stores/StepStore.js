@@ -31,9 +31,19 @@ const stepsMap = {
       text1: "第一式 墙壁俯卧撑",
       text2: "逐步做到 2×50 次",
       text3: "然后开始第二式"
+    },
+    {
+      text1: "第一式 墙壁俯卧撑",
+      text2: "逐步做到 2×50 次",
+      text3: "然后开始第二式"
+    },
+    {
+      text1: "第一式 墙壁俯卧撑",
+      text2: "逐步做到 2×50 次",
+      text3: "然后开始第二式"
     }
   ],
-  deep:[
+  deep: [
     {
       text1: "第二式 墙壁俯卧撑",
       text2: "逐步做到 2×50 次",
@@ -185,20 +195,34 @@ const stepsMap = {
   ],
 };
 
+
+const stepsNameMap = {
+  pushUp: '俯卧撑',
+  deep: '深蹲',
+  pullUp: '引体向上',
+  leg: '举腿',
+  bridge: '桥',
+  handstand: '倒立撑',
+};
+
 var StepStore = Reflux.createStore({
   listenables: Actions,
   fetchByType: function (type) {
     this.steps = stepsMap[type];
+    this.stepName = stepsNameMap[type];
     this.trigger(this);
   },
   getInitialState: function () {
     this.steps = this.steps || [];
+    this.stepName = this.stepName || '';
     return {
-      steps: this.steps
+      steps: this.steps,
+      stepName: this.stepName
     };
   },
   reset(){
     this.steps = [];
+    this.stepName = '';
   }
 
 });
