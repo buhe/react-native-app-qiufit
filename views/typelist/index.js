@@ -5,6 +5,7 @@ var React = require('react-native');
 var StepList = require('../steplist');
 //var Reflux = require('reflux');
 //var _ = require('lodash');
+var StepActionCreators = require('../../actions/StepActionCreators');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
 
@@ -24,31 +25,37 @@ var Router = require('../router');
 
 var typeList = [
   {
+    name: 'pushUp',
     type: "俯卧撑",
     icon: IMG_PREFIX + 'a.png',
     process: '2/10'
   },
   {
+    name: 'deep',
     type: "深蹲",
     icon: IMG_PREFIX + 'b.png',
     process: '2/10'
   },
   {
+    name: 'pullUp',
     type: "引体向上",
     icon: IMG_PREFIX + 'c.png',
     process: '0/10'
   },
   {
+    name: 'leg',
     type: "举腿",
     icon: IMG_PREFIX + 'd.png',
     process: '0/10'
   },
   {
+    name: 'bridge',
     type: "桥",
     icon: IMG_PREFIX + 'e.png',
     process: '0/10'
   },
   {
+    name: 'handstand',
     type: "倒立撑",
     icon: IMG_PREFIX + 'f.png',
     process: '0/10'
@@ -58,6 +65,7 @@ var typeList = [
 
 var TypeItem = React.createClass({
   pushPaperById(){
+    StepActionCreators.fetchByType(this.props.name);
     this.props.navigator.push(Router.getStepList());
   },
   render: function () {
@@ -78,7 +86,6 @@ var TypeItem = React.createClass({
 
 var TypesView = React.createClass({
   getInitialState: function () {
-    //ResumesActionCreators.fetchResumes();
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
@@ -105,6 +112,7 @@ var TypesView = React.createClass({
   },
   renderType: function (q) {
     return ( <TypeItem
+            name={q.name}
             type={q.type}
             key={q.type}
             icon={q.icon}

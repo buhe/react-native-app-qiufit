@@ -2,7 +2,8 @@
  * Created by guguyanhua on 10/30/15.
  */
 var React = require('react-native');
-//var Reflux = require('reflux');
+var Reflux = require('reflux');
+var StepStore = require('../../stores/StepStore');
 //var _ = require('lodash');
 
 var {
@@ -18,35 +19,6 @@ var {
     } = React;
 var Modal = require('react-native-fs-modal');
 
-var stepList = [
-  {
-    stepname: "第一式 墙壁俯卧撑",
-    desc: '逐步做到 3*50 次',
-    next: '然后开始做第二式'
-  },
-  {
-    stepname: "第二式 墙壁俯卧撑",
-    desc: '逐步做到 3*50 次',
-    next: '然后开始做第二式'
-  },
-  {
-    stepname: "第三式 墙壁俯卧撑",
-    desc: '逐步做到 3*50 次',
-    next: '然后开始做第二式'
-  },
-  {
-    stepname: "第四式 墙壁俯卧撑",
-    desc: '逐步做到 3*50 次',
-    next: '然后开始做第二式'
-  },
-  {
-    stepname: "第五式 墙壁俯卧撑",
-    desc: '逐步做到 3*50 次',
-    next: '然后开始做第二式'
-  },
-];
-
-
 var StepItem = React.createClass({
   pushPaperById(){
     this.props.showModal();
@@ -56,9 +28,9 @@ var StepItem = React.createClass({
         <View>
           <TouchableOpacity onPress={this.pushPaperById}>
             <View style={styles.container}>
-              <Text style={styles.content}>{this.props.stepname}</Text>
-              <Text style={styles.content}>{this.props.desc}</Text>
-              <Text style={styles.content}>{this.props.next}</Text>
+              <Text style={styles.content}>{this.props.text1}</Text>
+              <Text style={styles.content}>{this.props.text2}</Text>
+              <Text style={styles.content}>{this.props.text3}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -68,6 +40,9 @@ var StepItem = React.createClass({
 });
 
 var StepsView = React.createClass({
+  mixins: [
+    Reflux.connect(StepStore)
+  ],
   pop(){
     this.props.navigator.pop();
   },
@@ -77,7 +52,6 @@ var StepsView = React.createClass({
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
-      stepList: stepList
     };
   },
   showModal () {
@@ -97,7 +71,7 @@ var StepsView = React.createClass({
             <Text style={{marginLeft:40}}>俯卧撑系列升级表</Text>
           </View>
           <ListView
-              dataSource={this.state.dataSource.cloneWithRows(this.state.stepList)}
+              dataSource={this.state.dataSource.cloneWithRows(this.state.steps)}
               renderRow={this.renderType}
               style={styles.listView}
               />
@@ -135,10 +109,9 @@ var StepsView = React.createClass({
   },
   renderType: function (q) {
     return ( <StepItem
-            stepname={q.stepname}
-            stepname={q.stepname}
-            desc={q.desc}
-            next={q.next}
+            text1={q.text1}
+            text2={q.text2}
+            text3={q.text3}
             showModal={this.showModal}
             {...this.props}
             />
