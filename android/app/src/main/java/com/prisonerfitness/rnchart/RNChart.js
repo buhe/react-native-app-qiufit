@@ -15,6 +15,7 @@ class RNChartView extends React.Component {
 RNChartView.propTypes = {
 
   webLineWidth: React.PropTypes.number,
+  drawWeb: React.PropTypes.bool,
   data: React.PropTypes.shape({
     /**
      * Coordinates for the center of the map.

@@ -27,17 +27,21 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
         radarChart.setWebLineWidth(webLineWidth);
         radarChart.invalidate();
     }
+    @ReactProp(name = "drawWeb")
+    public void setDrawFilled(RadarChart radarChart, boolean drawWeb){
+        radarChart.setDrawWeb(drawWeb);
+        radarChart.invalidate();
+    }
 
     @ReactProp(name = "data")
     public void setData(RadarChart radarChart, ReadableMap json) {
-//        RadarDataSet dataSet = new RadarDataSet();
-        System.out.println(json);
 
         ArrayList<Entry> yVals1 = new ArrayList<>();
         ArrayList<String> xVals1 = new ArrayList<>();
 
         ReadableArray x = json.getArray("x");
         ReadableArray y = json.getArray("y");
+        String dataColor = json.getString("dataColor");
 
         // IMPORTANT: In a PieChart, no values (Entry) should have the same
         // xIndex (even if from different DataSets), since no values can be
@@ -49,11 +53,29 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
         for (int i = 0; i < x.size(); i++) {
             xVals1.add(x.getString(i));
         }
+        radarChart.setSkipWebLineCount(x.size() + 1);  //TODO skip all center line
+        radarChart.setWebColor(Color.argb(125, 255, 255, 255));
+        XAxis xAxis = radarChart.getXAxis();
+        //TODO export
+        xAxis.setTextSize(15f);
+        xAxis.setTextColor(Color.WHITE);
+        //export end
+
+//        xAxis.setDrawAxisLine(false);
+//        xAxis.setDrawGridLines(false);
+//        xAxis.setDrawLabels(false);
+//        xAxis.setDrawLimitLinesBehindData(true);
+
 
         RadarDataSet set1 = new RadarDataSet(yVals1, "Set 1");
-        set1.setColor(Color.rgb(192, 255, 140));
-        set1.setDrawFilled(true);
-        set1.setLineWidth(2f);
+//        set1.setDrawValues(false);
+//        set1.setDrawHighlightIndicators(false);
+//        set1.setDrawHorizontalHighlightIndicator(false);
+//        set1.setDrawVerticalHighlightIndicator(false);
+        set1.setColor(Color.parseColor(dataColor));
+
+        //TODO disable draw fill
+        set1.setDrawFilled(false);
 
 
         ArrayList<RadarDataSet> sets = new ArrayList<>();
@@ -94,9 +116,7 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
         yAxis.setStartAtZero(true);
 
         Legend l = mChart.getLegend();
-        l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
-        l.setXEntrySpace(7f);
-        l.setYEntrySpace(5f);
+        l.setEnabled(false);
         return mChart;
     }
 }

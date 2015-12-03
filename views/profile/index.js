@@ -63,10 +63,10 @@ var ProfileView = React.createClass({
           <View style={styles.chartWrapper}>
             <Chart
                 style={styles.chart}
-                webLineWidth={2}
                 data={{
                       x:['俯卧撑','倒立撑','桥','引体向上','深蹲','举腿'],
-                      y:[3,2,5,1,7,8]
+                      y:[3,2,5,1,7,8],
+                      dataColor:'white',
                       }}
                 />
           </View>
