@@ -7,6 +7,23 @@ var {
     Text
     } = React;
 let YourRouter = {
+  getProfile() {
+    return {
+      // Return a React component class for the scene. It receives a prop
+      // called `navigator` that you can use to push on more routes.
+      getSceneClass() {
+        return require('./profile');
+      },
+
+      // When this scene receives focus, you can run some code. We're just
+      // proxying the `didfocus` event that Navigator emits, so refer to
+      // Navigator's source code for the semantics.
+      onDidFocus(event) {
+        console.log('Home Scene received focus.');
+      },
+
+    };
+  },
   getTypeList() {
     return {
       // Return a React component class for the scene. It receives a prop

@@ -6,6 +6,7 @@ var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
 var StepModal = require('./modal');
 var deviceScreen = require('Dimensions').get('window');
+const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 //var _ = require('lodash');
 
 var {
@@ -71,6 +72,9 @@ var StepsView = React.createClass({
     return (
         <View>
           <View style={styles.nav}>
+            <TouchableOpacity onPress={this.pop}>
+              <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+            </TouchableOpacity>
             <Text style={styles.logoText}>{this.state.stepName}系列升级表</Text>
           </View>
           <ListView
@@ -136,13 +140,15 @@ var styles = StyleSheet.create({
     color: 'white'
   },
   nav: {
-    alignItems: 'center',
-    padding: 40 / PixelRatio.get(),
+    //alignItems: 'center',
+    flexDirection: 'row',
+    //paddingTop: 40 / PixelRatio.get(),
     flex: 1,
     height: 180 / PixelRatio.get(),
   },
   logoText: {
     fontSize: 80 / PixelRatio.getFontScale(),
+    marginTop: 40 / PixelRatio.get(),
     fontWeight: 'bold',
     color: '#141414'
   },
@@ -155,6 +161,12 @@ var styles = StyleSheet.create({
     height: 1030 / PixelRatio.get(),
     width: 930 / PixelRatio.get(),
     marginTop: 400 / PixelRatio.get(),
+  },
+  closeImage: {
+    left: 0,
+    top: 0,
+    width: 180 / PixelRatio.get(),
+    height: 180 / PixelRatio.get(),
   }
 });
 

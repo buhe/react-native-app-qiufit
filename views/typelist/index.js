@@ -85,6 +85,9 @@ var TypeItem = React.createClass({
 });
 
 var TypesView = React.createClass({
+  profile(){
+    this.props.navigator.push(Router.getProfile());
+  },
   getInitialState: function () {
     return {
       dataSource: new ListView.DataSource({
@@ -97,6 +100,9 @@ var TypesView = React.createClass({
     return (
         <View>
           <View style={styles.nav}>
+            <TouchableOpacity onPress={this.profile} style={styles.profileWrapper}>
+              <Image source={{uri:IMG_PREFIX + 'navigation_me.png'}} style={styles.profileImage}/>
+            </TouchableOpacity>
             <View style={styles.logo}>
               <Image source={{uri:IMG_PREFIX + 'start_02.png'}} style={styles.icon}/>
             </View>
@@ -131,7 +137,8 @@ var styles = StyleSheet.create({
   nav: {
     flex: 1,
     height: 120 / PixelRatio.get(),
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    flexDirection: 'row'
   },
   container: {
     flex: 1,
@@ -153,7 +160,7 @@ var styles = StyleSheet.create({
   logo: {
     paddingTop: 0 / PixelRatio.get(),
     paddingBottom: 10 / PixelRatio.get(),
-    paddingLeft: 300 / PixelRatio.get(),
+    paddingLeft: 150 / PixelRatio.get(),
     paddingRight: 300 / PixelRatio.get(),
   },
   itemIcon: {
@@ -173,6 +180,15 @@ var styles = StyleSheet.create({
   itemProcessText: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  profileWrapper: {
+    paddingLeft: 50 / PixelRatio.get(),
+  },
+  profileImage: {
+    left: 0,
+    top: 0,
+    width: 100 / PixelRatio.get(),
+    height: 100 / PixelRatio.get(),
   }
 });
 

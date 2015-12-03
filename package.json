@@ -10,6 +10,7 @@
     "react": "^0.14.3",
     "react-native": "^0.13.2",
     "react-native-fs-modal": "^0.1.0",
-    "reflux": "^0.3.0"
+    "reflux": "^0.3.0",
+    "superagent": "^1.4.0"
   }
 }
