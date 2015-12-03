@@ -107,7 +107,22 @@ var ProfileView = React.createClass({
             <Text style={styles.turningAnalyticsText}>训练记录</Text>
             <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
           </View>
-          <CheckIn />
+          <CheckIn
+              months={{
+                    '2015-11': [
+                    '2015-11-1',
+                    '2015-11-2',
+                    '2015-11-3',
+                    '2015-11-9',
+                    ],
+                    '2015-10': [
+                    '2015-10-1',
+                    '2015-10-2',
+                    '2015-10-3',
+                    '2015-10-9',
+                    ],
+                    }}
+              />
         </ScrollView>
     );
 
@@ -127,7 +142,7 @@ class RecordItem extends React.Component {
 }
 
 var styles = StyleSheet.create({
-  contentWrapper:{
+  contentWrapper: {
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#2a2a2a',

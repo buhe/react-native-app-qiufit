@@ -4,7 +4,7 @@
 var React = require('react-native');
 var _ = require('lodash');
 var moment = require('moment');
-
+const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var {
     AppRegistry,
     StyleSheet,
@@ -12,6 +12,8 @@ var {
     View,
     PixelRatio,
     TouchableHighlight,
+    TouchableOpacity,
+    Image
     } = React;
 
 /**
@@ -32,7 +34,7 @@ var {
  */
 
 class MonthHeader extends React.Component {
-  render(){
+  render() {
     return (
         <View style={[styles.row, styles.row_header]}>
           <View style={[styles.flex_1]}>
@@ -63,7 +65,7 @@ class MonthHeader extends React.Component {
 
 var Month = React.createClass({
   render(){
-    var checkIn = this.props.checkIn;
+    var checkIn = this.state.currentMonth;
     var key = _.keys(checkIn)[0];
     var value = checkIn[key];
     var m = moment(key, "YYYY-MM");
@@ -92,13 +94,13 @@ var Month = React.createClass({
           var dayStyle = {};
           var bk = {};
           if (_.includes(value, dateStr)) {
-            bk = {  //TODO 这里要显示下面的白点
-              width: 25,
-              height: 25,
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 12.5,
-            };
+            //bk = {  //TODO 这里要显示下面的白点
+            //  width: 25,
+            //  height: 25,
+            //  alignItems: 'center',
+            //  justifyContent: 'center',
+            //  borderRadius: 12.5,
+            //};
             dayStyle = {
               color: 'white',
               fontWeight: 'bold',
@@ -109,10 +111,8 @@ var Month = React.createClass({
             }
           }
           days.push(
-              <View style={[styles.flex_1,styles.border_1]} underlayColor="#fff">
-                <View style={bk}>
-                  <Text style={dayStyle}>{dayNum}</Text>
-                </View>
+              <View style={[styles.flex_1,styles.border_1]}>
+                <Text style={dayStyle}>{dayNum}</Text>
               </View>
           );
         } else {
@@ -129,64 +129,82 @@ var Month = React.createClass({
       );
     }
 
-    var monthView = null;
+    var textView = null;
     if (value && value.length > 0) {
-      monthView =
-          <View>
-            <View style={styles.month}>
-              <Text style={styles.month_text}>{newDate.getFullYear()}年{newDate.getMonth() + 1}月 ({value.length}次)</Text>
-            </View>
-            <MonthHeader />
-            {rows}
-          </View>
+      textView =
+          <Text style={styles.month_text}>{newDate.getFullYear()}年{newDate.getMonth() + 1}月 ({value.length}次)</Text>
     } else {
-      monthView =
-          <View>
-            <View style={styles.month}>
-              <Text style={styles.month_text}>{newDate.getFullYear()}年{newDate.getMonth() + 1}月</Text>
-            </View>
-            <MonthHeader />
-            {rows}
-          </View>
+      textView = <Text style={styles.month_text}>{newDate.getFullYear()}年{newDate.getMonth() + 1}月</Text>
     }
+    return (
+        <View>
+          <View style={styles.month}>
+            <TouchableOpacity onPress={this.prev}>
+              <Image source={{uri:IMG_PREFIX + 'btn_arrow_left02.png'}} style={styles.buttonIcon}/>
+            </TouchableOpacity>
+            {textView}
+            <TouchableOpacity onPress={this.next}>
+              <Image source={{uri:IMG_PREFIX + 'btn_arrow_right02.png'}} style={styles.buttonIcon}/>
+            </TouchableOpacity>
+          </View>
+          <MonthHeader />
+          {rows}
+        </View>
+    );
 
-    return monthView;
-
+  },
+  prev(){
+    var current = _.keys(this.state.currentMonth)[0];
+    var m = moment(current, "YYYY-MM");
+    m.subtract(1, 'M');
+    var month = m.year() +  '-' + (m.month() + 1);
+    var currentMonth = {};
+    if (this.props.months[month]) {
+      currentMonth[month] = this.props.months[month];
+    } else {
+      currentMonth[month] = [];
+    }
+    this.setState({
+      currentMonth:currentMonth
+    });
+  },
+  next(){
+    var current = _.keys(this.state.currentMonth)[0];
+    var m = moment(current, "YYYY-MM");
+    m.add(1, 'M'); //获取下个月,还要判断是否溢出
+    var month = m.year() +  '-' + (m.month() + 1);
+    var currentMonth = {};
+    if (this.props.months[month]) {
+      currentMonth[month] = this.props.months[month];
+    } else {
+      currentMonth[month] = [];
+    }
+    this.setState({
+      currentMonth:currentMonth
+    });
+  },
+  getInitialState() {
+    var today = null; //今天
+    var month = '2015-11'; //本月
+    var currentMonth = {};
+    if (this.props.months[month]) {
+      currentMonth[month] = this.props.months[month];
+    } else {
+      currentMonth[month] = [];
+    }
+    return {
+      currentMonth:currentMonth
+    }
   }
-});
+})
+;
 
 var CheckIn = React.createClass({
-  getInitialState: function () {
-    return {
-      currentMonth: {
-        '2015-11': [
-          '2015-11-1',
-          '2015-11-2',
-          '2015-11-3',
-          '2015-11-9',
-        ],
-      },
-      month: {
-        '2015-11': [
-          '2015-11-1',
-          '2015-11-2',
-          '2015-11-3',
-          '2015-11-9',
-        ],
-        '2015-10': [
-          '2015-10-1',
-          '2015-10-2',
-          '2015-10-3',
-          '2015-10-9',
-        ],
-      }
-    };
-  },
   render() {
     return (
         <View>
           <Month
-              checkIn={this.state.currentMonth}
+              months={this.props.months}
               {...this.props}
               />
         </View>
@@ -221,8 +239,8 @@ var styles = StyleSheet.create({
     height: 40,
   },
   month: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
     height: 40,
   },
   month_text: {
@@ -236,6 +254,10 @@ var styles = StyleSheet.create({
   },
   headerStyle: {
     color: 'white',
+  },
+  buttonIcon: {
+    width: 32,
+    height: 32,
   }
 });
 
