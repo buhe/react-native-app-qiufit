@@ -7,6 +7,8 @@ var ProfileStore = require('../../stores/ProfileStore');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
+var CheckIn = require('../../components/RNCheckIn');
+var Calendar = require('react-native-calendar');
 //var _ = require('lodash');
 
 var {
@@ -105,6 +107,7 @@ var ProfileView = React.createClass({
             <Text style={styles.turningAnalyticsText}>训练记录</Text>
             <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
           </View>
+          <CheckIn />
         </ScrollView>
     );
 
@@ -161,13 +164,13 @@ var styles = StyleSheet.create({
     marginRight: 20
   },
   main: {
-    backgroundColor: 'black',
+    backgroundColor: '#1d1d1d',
     height: 300,
   },
   nav: {
     flex: 1,
     height: 120 / PixelRatio.get(),
-    backgroundColor: 'black',
+    backgroundColor: '#1d1d1d',
     flexDirection: 'row'
   },
   container: {

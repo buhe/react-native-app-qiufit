@@ -7,9 +7,13 @@
   },
   "dependencies": {
     "@exponent/react-native-navigator": "^0.2.6",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
     "react": "^0.14.3",
     "react-native": "^0.13.2",
+    "react-native-calendar": "^0.6.2",
     "react-native-fs-modal": "^0.1.0",
+    "react-native-view-snapshot": "0.0.1",
     "reflux": "^0.3.0",
     "superagent": "^1.4.0"
   }
