@@ -64,8 +64,8 @@ class MonthHeader extends React.Component {
 var Month = React.createClass({
   render(){
     var checkIn = this.props.checkIn;
-    var key = '2015-10';
-    var value = ['2015-10-1', '2015-10-5', '2015-10-6', '2015-10-9', '2015-10-10'];
+    var key = _.keys(checkIn)[0];
+    var value = checkIn[key];
     var m = moment(key, "YYYY-MM");
     var year = m.year();
     var month = m.month();
@@ -160,24 +160,24 @@ var CheckIn = React.createClass({
     return {
       currentMonth: {
         '2015-11': [
-          '2015-11-01',
-          '2015-11-02',
-          '2015-11-03',
-          '2015-11-09',
+          '2015-11-1',
+          '2015-11-2',
+          '2015-11-3',
+          '2015-11-9',
         ],
       },
       month: {
         '2015-11': [
-          '2015-11-01',
-          '2015-11-02',
-          '2015-11-03',
-          '2015-11-09',
+          '2015-11-1',
+          '2015-11-2',
+          '2015-11-3',
+          '2015-11-9',
         ],
         '2015-10': [
-          '2015-10-01',
-          '2015-10-02',
-          '2015-10-03',
-          '2015-10-09',
+          '2015-10-1',
+          '2015-10-2',
+          '2015-10-3',
+          '2015-10-9',
         ],
       }
     };
