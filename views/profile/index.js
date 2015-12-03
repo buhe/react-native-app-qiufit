@@ -123,6 +123,12 @@ var ProfileView = React.createClass({
                     ],
                     }}
               />
+          <View style={styles.bottomView}>
+            <Image source={{uri:IMG_PREFIX + 'me_logo.png'}} style={styles.bottomIcon}/>
+            <Text style={[styles.content,styles.bottomText]}>囚徒健身 Design By cheng zhen</Text>
+            <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
+            <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
+          </View>
         </ScrollView>
     );
 
@@ -222,6 +228,20 @@ var styles = StyleSheet.create({
     top: 0,
     width: 100 / PixelRatio.get(),
     height: 100 / PixelRatio.get(),
+  },
+  bottomIcon: {
+    width: 200,
+    height: 80,
+  },
+  bottomView: {
+    marginTop: 40,
+    alignItems: 'center',
+  },
+  bottomText: {
+    marginTop: 10
+  },
+  lastText: {
+    marginBottom: 20
   }
 });
 
