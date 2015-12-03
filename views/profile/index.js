@@ -23,7 +23,7 @@ var {
     } = React;
 
 
-var StepsView = React.createClass({
+var ProfileView = React.createClass({
   mixins: [
     Reflux.connect(ProfileStore)
   ],
@@ -193,24 +193,6 @@ var styles = StyleSheet.create({
     paddingLeft: 150 / PixelRatio.get(),
     paddingRight: 150 / PixelRatio.get(),
   },
-  itemIcon: {
-    width: 100 / PixelRatio.get(),
-    height: 100 / PixelRatio.get(),
-  },
-  itemTextWrapper: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  itemText: {
-    paddingLeft: 20 / PixelRatio.get(),
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  itemProcessText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
   backWrapper: {
     paddingLeft: 50 / PixelRatio.get(),
   },
@@ -225,10 +207,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = StepsView;
-
-//<TouchableOpacity onPress={this.pop}>
-//  <Text style={{marginLeft:20,marginTop:20}}>关闭</Text>
-//</TouchableOpacity>
-//<Text style={{marginLeft:40}}>俯卧撑系列升级表</Text>
-//
+module.exports = ProfileView;
