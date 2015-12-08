@@ -53,11 +53,12 @@ var ChartView = React.createClass({
             </View>
             <View style={styles.voiceWrapper}>
               <TouchableOpacity onPress={this.closeVoice}>
-                <Image style={styles.playButton} source={{uri: this.state.voice ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}} />
+                <Image style={styles.playButton}
+                       source={{uri: this.state.voice ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
               </TouchableOpacity>
-              </View>
+            </View>
           </View>
-          ;
+      ;
     }
     return (
         <View>
@@ -68,6 +69,34 @@ var ChartView = React.createClass({
               onTouchPlayer={this.press}
               />
           {controlView}
+          <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
+          <View style={styles.month}>
+            <TouchableOpacity onPress={this.prev}>
+              <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
+            </TouchableOpacity>
+            <Text style={styles.month_text}>初级标准</Text>
+            <TouchableOpacity onPress={this.next}>
+              <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.turningAnalytics}>
+            <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+            <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
+            <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+          </View>
+          <View style={styles.separator}/>
+          <TouchableOpacity
+              //onPress={this.hideModal.bind(this)}
+              onPress={this.props.actionClick}
+              style={{
+                        margin:40,
+                        paddingTop: 20,
+                        paddingLeft:120,
+                        paddingBottom:20,
+                        backgroundColor: 'black',}}
+              >
+            <Text style={styles.actionText}>完成!</Text>
+          </TouchableOpacity>
         </View>
     );
 
@@ -76,10 +105,10 @@ var ChartView = React.createClass({
 
 
 var styles = StyleSheet.create({
-  controlWrapper:{
+  controlWrapper: {
     position: 'absolute',
-    left:0,
-    top:0
+    left: 0,
+    top: 0
   },
   playButton: {
     width: 50,
@@ -123,9 +152,51 @@ var styles = StyleSheet.create({
     padding: 20
   },
   separator: {
-    height: 0.5,
-    backgroundColor: '#CCCCCC',
-  }
+    marginLeft: 10,
+    marginRight: 10,
+    height: 1,
+    backgroundColor: 'black',
+  },
+  title_text: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginLeft: 80,
+  },
+  month: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    height: 40,
+    marginTop: 40
+  },
+  month_text: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  buttonIcon: {
+    width: 32,
+    height: 32,
+  },
+  turningAnalytics: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 120,
+    paddingRight: 120,
+  },
+  x02: {
+    height: 16,
+    width: 16
+  },
+  turningAnalyticsText: {
+    marginLeft: 20,
+    marginRight: 20
+  },
+  actionText: {
+    fontSize: 20,
+    color: 'white'
+  },
 });
 
 module.exports = ChartView;

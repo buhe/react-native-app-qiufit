@@ -245,7 +245,7 @@ var styles = StyleSheet.create({
   },
   month_text: {
     fontSize: 18,
-    fontWeight: '400',
+    fontWeight: 'bold',
     color: 'white'
   },
   border_1: {
