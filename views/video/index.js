@@ -2,11 +2,13 @@
  * Created by guguyanhua on 10/30/15.
  */
 var React = require('react-native');
+
+var CommentStore = require('../../stores/CommentStore');
 var StepList = require('../steplist');
 var Video = require('../../components/RNVideo');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-//var Reflux = require('reflux');
+var Reflux = require('reflux');
 //var _ = require('lodash');
 
 var {
@@ -21,7 +23,27 @@ var {
     Image,
     } = React;
 
-var ChartView = React.createClass({
+class CommentItem extends React.Component {
+  render() {
+    return (
+        <View>
+          <View style={styles.commentTitle}>
+            <Image style={styles.commentAvatar}
+                   source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
+            <Text>{this.props.nickname}</Text>
+            <Text>{this.props.time}</Text>
+          </View>
+          <Text>{this.props.commentContent}</Text>
+          <View style={[styles.separator,{backgroundColor: '#CCCCCC',}]}/>
+        </View>
+    )
+  }
+}
+
+var VideoView = React.createClass({
+  mixins: [
+    Reflux.connect(CommentStore) //预览PaperStore中的问题
+  ],
   getInitialState: function () {
     return {
       showControl: false,
@@ -60,8 +82,25 @@ var ChartView = React.createClass({
           </View>
       ;
     }
+
+    var commentView = <View></View>;
+    if (this.state.comments && this.state.comments.length > 0) {  //有评论
+      var content = [];
+      for (var i in this.state.comments) {
+        var comment = this.state.comments[i];
+        content.push(
+            <CommentItem
+                nickname={comment.nickname}
+                time={comment.time}
+                commentContent={comment.commentContent}
+                />
+        );
+      }
+      commentView = <View>{content}</View>
+    }
+
     return (
-        <View>
+        <ScrollView style={styles.main}>
           <Video
               style={styles.listView}
               url={"http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}
@@ -89,7 +128,10 @@ var ChartView = React.createClass({
               //onPress={this.hideModal.bind(this)}
               onPress={this.props.actionClick}
               style={{
-                        margin:40,
+                        marginTop:40,
+                        marginLeft:40,
+                        marginRight:40,
+                        marginBottom:20,
                         paddingTop: 20,
                         paddingLeft:120,
                         paddingBottom:20,
@@ -97,7 +139,20 @@ var ChartView = React.createClass({
               >
             <Text style={styles.actionText}>完成!</Text>
           </TouchableOpacity>
-        </View>
+          <TouchableOpacity
+              style={{
+                        paddingLeft:120,
+                        paddingBottom:20,
+                        }}
+              >
+            <Text style={styles.turingText}>完10个人完成该训练</Text>
+          </TouchableOpacity>
+          <View style={styles.avatarList}>
+          </View>
+          <View style={[styles.separator,{height: 2,}]}/>
+          <Text>{this.state.comments.length}条评论</Text>
+          {commentView}
+        </ScrollView>
     );
 
   }
@@ -163,6 +218,11 @@ var styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 80,
   },
+  commentTitle: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    height: 40,
+  },
   month: {
     justifyContent: 'space-around',
     flexDirection: 'row',
@@ -197,6 +257,14 @@ var styles = StyleSheet.create({
     fontSize: 20,
     color: 'white'
   },
+  turingText: {},
+  main: {
+    height: 300,
+  },
+  commentAvatar: {
+    height: 32,
+    width: 32
+  }
 });
 
-module.exports = ChartView;
+module.exports = VideoView;
