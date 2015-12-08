@@ -48,7 +48,8 @@ var VideoView = React.createClass({
     return {
       showControl: false,
       paused: false,
-      voice: true
+      voice: true,
+      showSendComment:false
     };
   },
   closeVoice(){
@@ -60,6 +61,11 @@ var VideoView = React.createClass({
     this.setState({
       showControl: !this.state.showControl,
       paused: !this.state.paused
+    });
+  },
+  switchCommentButton(){
+    this.setState({
+      showSendComment: !this.state.showSendComment,
     });
   },
   render: function () {
@@ -100,34 +106,35 @@ var VideoView = React.createClass({
     }
 
     return (
-        <ScrollView style={styles.main}>
-          <Video
-              style={styles.listView}
-              url={"http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}
-              paused={this.state.paused}
-              onTouchPlayer={this.press}
-              />
-          {controlView}
-          <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
-          <View style={styles.month}>
-            <TouchableOpacity onPress={this.prev}>
-              <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
-            </TouchableOpacity>
-            <Text style={styles.month_text}>初级标准</Text>
-            <TouchableOpacity onPress={this.next}>
-              <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.turningAnalytics}>
-            <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
-            <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
-            <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
-          </View>
-          <View style={styles.separator}/>
-          <TouchableOpacity
-              //onPress={this.hideModal.bind(this)}
-              onPress={this.props.actionClick}
-              style={{
+        <View>
+          <ScrollView style={styles.main}>
+            <Video
+                style={styles.listView}
+                url={"http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}
+                paused={this.state.paused}
+                onTouchPlayer={this.press}
+                />
+            {controlView}
+            <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
+            <View style={styles.month}>
+              <TouchableOpacity onPress={this.prev}>
+                <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
+              </TouchableOpacity>
+              <Text style={styles.month_text}>初级标准</Text>
+              <TouchableOpacity onPress={this.next}>
+                <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.turningAnalytics}>
+              <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+              <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
+              <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+            </View>
+            <View style={styles.separator}/>
+            <TouchableOpacity
+                //onPress={this.hideModal.bind(this)}
+                onPress={this.props.actionClick}
+                style={{
                         marginTop:40,
                         marginLeft:40,
                         marginRight:40,
@@ -136,23 +143,35 @@ var VideoView = React.createClass({
                         paddingLeft:120,
                         paddingBottom:20,
                         backgroundColor: 'black',}}
-              >
-            <Text style={styles.actionText}>完成!</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-              style={{
+                >
+              <Text style={styles.actionText}>完成!</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{
                         paddingLeft:120,
                         paddingBottom:20,
                         }}
+                >
+              <Text style={styles.turingText}>完10个人完成该训练</Text>
+            </TouchableOpacity>
+            <View style={styles.avatarList}>
+            </View>
+            <View style={[styles.separator,{height: 2,}]}/>
+            <Text>{this.state.comments.length}条评论</Text>
+            {commentView}
+          </ScrollView>
+          <TouchableOpacity
+              //onPress={this.hideModal.bind(this)}
+              onPress={this.props.actionClick}
+              style={[styles.commentButton,{
+                        paddingTop: 20,
+                        paddingBottom: 20,
+                        paddingLeft:150,
+                        backgroundColor: 'black',}]}
               >
-            <Text style={styles.turingText}>完10个人完成该训练</Text>
+            <Text style={styles.actionText}>写评论</Text>
           </TouchableOpacity>
-          <View style={styles.avatarList}>
-          </View>
-          <View style={[styles.separator,{height: 2,}]}/>
-          <Text>{this.state.comments.length}条评论</Text>
-          {commentView}
-        </ScrollView>
+        </View>
     );
 
   }
@@ -259,11 +278,17 @@ var styles = StyleSheet.create({
   },
   turingText: {},
   main: {
-    height: 300,
+    height: deviceScreen.height,
   },
   commentAvatar: {
     height: 32,
     width: 32
+  },
+  commentButton: {
+    position: 'absolute',
+    left: 0,
+    top: deviceScreen.height - 80,
+    width: deviceScreen.width,
   }
 });
 
