@@ -13,7 +13,12 @@ class RNVideoView extends React.Component {
     if (!this.props.onTouchPlayer) {
       return;
     }
-    this.props.onTouchPlayer(event.nativeEvent.message);
+    if(event.type === 'touch'){
+      this.props.onTouchPlayer(event.nativeEvent.message);
+      return ;
+    }
+
+
   }
 
   render() {

@@ -22,21 +22,52 @@ var {
     } = React;
 
 var ChartView = React.createClass({
+  getInitialState: function () {
+    return {
+      showControl: false,
+      paused: false,
+      voice: true
+    };
+  },
+  closeVoice(){
+    this.setState({
+      voice: !this.state.voice,
+    });
+  },
   press(){
-    console.log('press..');
+    this.setState({
+      showControl: !this.state.showControl,
+      paused: !this.state.paused
+    });
   },
   render: function () {
+    var controlView = <View></View>;
+    if (this.state.showControl) {
+      controlView =
+          <View style={styles.controlWrapper}>
+            <View style={styles.playButtonWrapper}>
+              <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
+            </View>
+            <View style={styles.infoWrapper}>
+              <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+            </View>
+            <View style={styles.voiceWrapper}>
+              <TouchableOpacity onPress={this.closeVoice}>
+                <Image style={styles.playButton} source={{uri: this.state.voice ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}} />
+              </TouchableOpacity>
+              </View>
+          </View>
+          ;
+    }
     return (
         <View>
           <Video
               style={styles.listView}
               url={"http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}
-              //orientation={"EXPAND"}
+              paused={this.state.paused}
               onTouchPlayer={this.press}
               />
-          <View style={styles.playButtonWrapper}>
-            <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
-          </View>
+          {controlView}
         </View>
     );
 
@@ -45,16 +76,35 @@ var ChartView = React.createClass({
 
 
 var styles = StyleSheet.create({
-  playButton:{
-    width: 100,
-    height: 100,
-  },
-  playButtonWrapper:{
+  controlWrapper:{
     position: 'absolute',
-    width: 100,
-    height: 100,
-    left: 20,
+    left:0,
+    top:0
+  },
+  playButton: {
+    width: 50,
+    height: 50,
+  },
+  infoWrapper: {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    left: 270,
     top: 20,
+  },
+  voiceWrapper: {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    left: 200,
+    top: 20,
+  },
+  playButtonWrapper: {
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    left: 150,
+    top: 100,
   },
   listView: {
     width: deviceScreen.width,
