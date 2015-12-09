@@ -10,12 +10,10 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 //var _ = require('lodash');
 
 var {
-    AppRegistry,
     StyleSheet,
     Text,
     View,
     ListView,
-    Navigator,
     TouchableOpacity,
     ScrollView,
     Image,

@@ -9,6 +9,7 @@ var Video = require('../../components/RNVideo');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
+var Router = require('../router');
 //var _ = require('lodash');
 
 var {
@@ -77,7 +78,9 @@ var VideoView = React.createClass({
               <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
             </View>
             <View style={styles.infoWrapper}>
-              <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+              <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTrend())}>
+                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+              </TouchableOpacity>
             </View>
             <View style={styles.voiceWrapper}>
               <TouchableOpacity onPress={this.closeVoice}>

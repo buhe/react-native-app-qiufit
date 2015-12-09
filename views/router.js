@@ -7,6 +7,13 @@ var {
     Text
     } = React;
 let YourRouter = {
+  getTrend(){
+    return {
+      getSceneClass(){
+        return require('./video/trend');
+      }
+    }
+  },
   getVideo() {
     return {
       // Return a React component class for the scene. It receives a prop
