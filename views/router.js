@@ -7,6 +7,13 @@ var {
     Text
     } = React;
 let YourRouter = {
+  getResult(){
+    return {
+      getSceneClass(){
+        return require('./video/result');
+      }
+    }
+  },
   getPost(){
     return {
       getSceneClass(){

@@ -43,7 +43,7 @@ class CommentItem extends React.Component {
 
 var VideoView = React.createClass({
   mixins: [
-    Reflux.connect(CommentStore) //预览PaperStore中的问题
+    Reflux.connect(CommentStore)
   ],
   getInitialState: function () {
     return {
@@ -134,7 +134,7 @@ var VideoView = React.createClass({
             <View style={styles.separator}/>
             <TouchableOpacity
                 //onPress={this.hideModal.bind(this)}
-                onPress={this.props.actionClick}
+                onPress={()=> this.props.navigator.push(Router.getResult())}
                 style={{
                         marginTop:40,
                         marginLeft:40,

@@ -25,7 +25,7 @@ var PrisonerFitness = React.createClass({
   render: function () {
     return (
         <ExNavigator
-            initialRoute={Router.getVideo()}
+            initialRoute={Router.getResult()}
             style={{ flex: 1 }}
             //sceneStyle={{ paddingTop: 64 }}
             //renderNavigationBar={renderFunc}
