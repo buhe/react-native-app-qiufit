@@ -15,7 +15,7 @@ export default class CommonNav extends React.Component {
     return (
         <View style={styles.nav}>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-            <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+            <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
           <Text style={styles.logoText}>{this.props.navText}</Text>
         </View>
@@ -35,9 +35,9 @@ var styles = StyleSheet.create({
     color: 'white'
   },
   closeImage: {
-    left: 0,
-    top: 0,
-    width: 64,
-    height: 64,
+    left: 8,
+    top: 8,
+    width: 32,
+    height: 32,
   }
 });
