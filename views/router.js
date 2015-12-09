@@ -7,6 +7,13 @@ var {
     Text
     } = React;
 let YourRouter = {
+  getPost(){
+    return {
+      getSceneClass(){
+        return require('./video/comment');
+      }
+    }
+  },
   getTrend(){
     return {
       getSceneClass(){

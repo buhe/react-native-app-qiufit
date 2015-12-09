@@ -164,8 +164,7 @@ var VideoView = React.createClass({
             {commentView}
           </ScrollView>
           <TouchableOpacity
-              //onPress={this.hideModal.bind(this)}
-              onPress={this.props.actionClick}
+              onPress={() => this.props.navigator.push(Router.getPost())}
               style={[styles.commentButton,{
                         paddingTop: 20,
                         paddingBottom: 20,

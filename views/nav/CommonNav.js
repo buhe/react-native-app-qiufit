@@ -10,14 +10,25 @@ import React, {
     Image,
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
+var deviceScreen = require('Dimensions').get('window');
 export default class CommonNav extends React.Component {
-  render(){
+
+  render() {
+    var rightButton = null;
+    if (this.props.rightText && this.props.rightAction) {
+      rightButton = (
+          <TouchableOpacity onPress={() => this.props.rightAction()}>
+            <Text style={styles.rightButton}>{this.props.rightText}</Text>
+          </TouchableOpacity>
+      );
+    }
     return (
         <View style={styles.nav}>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
           <Text style={styles.logoText}>{this.props.navText}</Text>
+          {rightButton}
         </View>
     )
   }
@@ -31,6 +42,7 @@ var styles = StyleSheet.create({
   },
   logoText: {
     marginTop: 20,
+    marginLeft:100,
     fontWeight: 'bold',
     color: 'white'
   },
@@ -39,5 +51,11 @@ var styles = StyleSheet.create({
     top: 8,
     width: 32,
     height: 32,
+  },
+  rightButton: {
+    marginTop: 20,
+    marginLeft:120,
+    flex: 1,
+    color: 'white'
   }
 });
