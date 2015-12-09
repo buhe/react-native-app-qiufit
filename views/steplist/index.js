@@ -7,6 +7,7 @@ var StepStore = require('../../stores/StepStore');
 var StepModal = require('./modal');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
+var Router = require('../router');
 //var _ = require('lodash');
 
 var {
@@ -65,6 +66,7 @@ var StepsView = React.createClass({
 
   hideModal () {
     this.refs.modal.close();
+    this.props.navigator.push(Router.getVideo());
   },
   render: function () {
     return (
@@ -113,6 +115,7 @@ var StepsView = React.createClass({
 var styles = StyleSheet.create({
   listView: {
     flex: 1,
+    height:deviceScreen.height - 60,
   },
   container: {
     flex: 1,

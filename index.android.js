@@ -25,7 +25,7 @@ var PrisonerFitness = React.createClass({
   render: function () {
     return (
         <ExNavigator
-            initialRoute={Router.getResult()}
+            initialRoute={Router.getTypeList()}
             style={{ flex: 1 }}
             //sceneStyle={{ paddingTop: 64 }}
             //renderNavigationBar={renderFunc}
