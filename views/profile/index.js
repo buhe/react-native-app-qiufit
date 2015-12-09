@@ -8,8 +8,6 @@ var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
 var CheckIn = require('../../components/RNCheckIn');
-var Calendar = require('react-native-calendar');
-//var _ = require('lodash');
 
 var {
     AppRegistry,
