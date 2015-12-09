@@ -14,7 +14,7 @@ export default class CloseStyleNav extends React.Component {
   render(){
     return (
         <View style={styles.nav}>
-          <TouchableOpacity onPress={this.pop}>
+          <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
           <Text style={styles.logoText}>{this.props.navText}</Text>

@@ -19,6 +19,7 @@ export default class Trend extends React.Component {
     return (
         <Nav
             navText = {'训练动态'}
+            {... this.props}
             />
     );
   }

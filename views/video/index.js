@@ -50,7 +50,7 @@ var VideoView = React.createClass({
       showControl: false,
       paused: false,
       voice: true,
-      showSendComment:false
+      showSendComment: false
     };
   },
   closeVoice(){
@@ -78,9 +78,7 @@ var VideoView = React.createClass({
               <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
             </View>
             <View style={styles.infoWrapper}>
-              <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTrend())}>
-                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
-              </TouchableOpacity>
+              <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
             </View>
             <View style={styles.voiceWrapper}>
               <TouchableOpacity onPress={this.closeVoice}>
@@ -155,7 +153,9 @@ var VideoView = React.createClass({
                         paddingBottom:20,
                         }}
                 >
-              <Text style={styles.turingText}>完10个人完成该训练</Text>
+              <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTrend())}>
+                <Text style={styles.turingText}>完10个人完成该训练</Text>
+              </TouchableOpacity>
             </TouchableOpacity>
             <View style={styles.avatarList}>
             </View>
