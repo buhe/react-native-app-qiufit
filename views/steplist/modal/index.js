@@ -43,17 +43,17 @@ var styles = StyleSheet.create({
     height: 90
   },
   nestedText: {
-    marginLeft: 80,
-    marginTop: 15,
+    marginLeft: 90,
+    marginTop: 20,
     backgroundColor: 'transparent',
     color: 'white',
-    fontSize: 25
+    fontSize: 24
   },
   title: {
     margin: 40,
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#141414'
+    color: '#1d1d1d'
   },
   actionText: {
     fontSize: 20,

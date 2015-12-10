@@ -33,7 +33,7 @@ var StepItem = React.createClass({
             <View style={styles.container}>
               <Text style={styles.itemTitle}>{this.props.text1}</Text>
               <Text style={styles.itemDesc}>{this.props.text2}</Text>
-              <Text style={styles.itemDesc}>{this.props.text3}</Text>
+              <Text style={styles.itemDesc2}>{this.props.text3}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -51,6 +51,7 @@ var StepsView = React.createClass({
   },
   getInitialState: function () {
     //ResumesActionCreators.fetchResumes();
+    require('../../actions/StepActionCreators').fetchByType('pushUp');
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
@@ -115,7 +116,7 @@ var StepsView = React.createClass({
 var styles = StyleSheet.create({
   listView: {
     flex: 1,
-    height:deviceScreen.height - 60,
+    height: deviceScreen.height - 60,
   },
   container: {
     flex: 1,
@@ -123,58 +124,57 @@ var styles = StyleSheet.create({
     //justifyContent: 'center',
     backgroundColor: 'black',
     alignItems: 'center',
-    height: 300 / PixelRatio.get(),
-    marginTop: 20 / PixelRatio.get(),
-    marginBottom: 20 / PixelRatio.get(),
-    marginLeft: 70 / PixelRatio.get(),
-    marginRight: 70 / PixelRatio.get(),
-    paddingTop: 30 / PixelRatio.get(),
-    paddingBottom: 30 / PixelRatio.get(),
+    height: 150,
+    marginTop: 10,
+    marginLeft: 35,
+    marginRight: 35,
+    paddingTop: 15,
+    paddingBottom: 15,
   },
   itemTitle: {
-    fontSize: 60 / PixelRatio.getFontScale(),
+    fontSize: 24,
     fontWeight: 'bold',
     color: 'white'
   },
   itemDesc: {
-    fontSize: 50 / PixelRatio.getFontScale(),
+    marginTop: 20,
+    fontSize: 24,
+    color: 'white'
+  },
+  itemDesc2: {
+    marginTop: 10,
+    fontSize: 24,
     color: 'white'
   },
   nav: {
-    //alignItems: 'center',
     flexDirection: 'row',
-    //paddingTop: 40 / PixelRatio.get(),
     flex: 1,
-    height: 180 / PixelRatio.get(),
+    height: 60,
   },
   logoText: {
-    fontSize: 80 / PixelRatio.getFontScale(),
-    marginTop: 40 / PixelRatio.get(),
+    fontSize: 30,
+    marginTop: 18,
+    marginBottom: 6,
     fontWeight: 'bold',
-    color: '#141414'
+    color: '#1d1d1d'
   },
   separator: {
     height: 0.5,
     backgroundColor: '#CCCCCC',
   },
   modalStyle: {
-    borderRadius: 0,
-    height: 1030 / PixelRatio.get(),
-    width: 930 / PixelRatio.get(),
-    marginTop: 400 / PixelRatio.get(),
+    height: 365,
+    width: 315,
+    marginTop: (deviceScreen.height - 365) / 2,
+    marginLeft: (deviceScreen.width - 315 - 40) / 2,
   },
   closeImage: {
     left: 0,
     top: 0,
-    width: 180 / PixelRatio.get(),
-    height: 180 / PixelRatio.get(),
+    width: 60,
+    height: 60,
   }
 });
 
 module.exports = StepsView;
 
-//<TouchableOpacity onPress={this.pop}>
-//  <Text style={{marginLeft:20,marginTop:20}}>关闭</Text>
-//</TouchableOpacity>
-//<Text style={{marginLeft:40}}>俯卧撑系列升级表</Text>
-//
