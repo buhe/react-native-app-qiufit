@@ -242,6 +242,7 @@ var styles = StyleSheet.create({
     justifyContent: 'space-around',
     flexDirection: 'row',
     height: 40,
+    alignItems: 'center',
   },
   month_text: {
     fontSize: 18,

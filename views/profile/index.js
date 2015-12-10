@@ -146,18 +146,29 @@ class RecordItem extends React.Component {
 }
 
 var styles = StyleSheet.create({
-  contentWrapper: {
+  //Table
+  tableWrapper: {
+    width: deviceScreen.width,
+  },
+  contentWrapper: {//FIXME -- 表格线有问题
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#2a2a2a',
-    padding: 30,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 30,
+    paddingRight: 30,
   },
   content: {
     color: 'white',
+    fontSize: 12,
   },
   recordWrapper: {
     flexDirection: 'row',
+    height: 60,
+    justifyContent: 'space-around',
   },
+  //Chart
   chartWrapper: {
     padding: 20
   },
@@ -165,71 +176,67 @@ var styles = StyleSheet.create({
     height: 300,
     width: 300,
   },
+  //Turning Label
   turningAnalytics: {
     flex: 1,
     flexDirection: 'row',
     paddingTop: 20,
     paddingBottom: 20,
-    paddingLeft: 120,
-    paddingRight: 120,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   x02: {
-    height: 16,
-    width: 16
+    height: 20,
+    width: 20
   },
   turningAnalyticsText: {
     color: 'white',
+    fontSize: 16,
     marginLeft: 20,
     marginRight: 20
   },
   main: {
     backgroundColor: '#1d1d1d',
-    height: 300,
+    height: deviceScreen.height,
   },
+  //Nav bar
   nav: {
     flex: 1,
-    height: 120 / PixelRatio.get(),
-    backgroundColor: '#1d1d1d',
-    flexDirection: 'row'
-  },
-  container: {
-    flex: 1,
+    height: 60,
     flexDirection: 'row',
-    //justifyContent: 'center',
-    alignItems: 'center',
-    padding: 40 / PixelRatio.get(),
-    height: 180 / PixelRatio.get(),
+    width: deviceScreen.width,
+    justifyContent: 'space-between'
   },
   separator: {
     height: 0.5,
     backgroundColor: '#CCCCCC',
   },
   icon: {
-    width: 450 / PixelRatio.get(),
-    height: 100 / PixelRatio.get(),
+    width: 127,
+    height: 27,
 
   },
   logo: {
-    paddingTop: 0 / PixelRatio.get(),
-    paddingBottom: 10 / PixelRatio.get(),
-    paddingLeft: 150 / PixelRatio.get(),
-    paddingRight: 150 / PixelRatio.get(),
+    paddingTop: 15,
+    paddingBottom: 15,
   },
   backWrapper: {
-    paddingLeft: 50 / PixelRatio.get(),
+    paddingTop: 15,
+    paddingLeft: 15,
   },
   shareWrapper: {
-    paddingRight: 50 / PixelRatio.get(),
+    paddingTop: 15,
+    paddingRight: 15,
   },
   profileImage: {
-    left: 0,
-    top: 0,
-    width: 100 / PixelRatio.get(),
-    height: 100 / PixelRatio.get(),
+    width: 27,
+    height: 27,
   },
+  //Bottom area
   bottomIcon: {
-    width: 200,
-    height: 80,
+    width: 175,
+    height: 65,
   },
   bottomView: {
     marginTop: 40,
