@@ -100,7 +100,7 @@ var TypesView = React.createClass({
     return (
         <View>
           <View style={styles.nav}>
-            <TouchableOpacity onPress={this.profile} style={styles.profileWrapper}>
+            <TouchableOpacity onPress={this.profile}>
               <Image source={{uri:IMG_PREFIX + 'navigation_me.png'}} style={styles.profileImage}/>
             </TouchableOpacity>
             <View style={styles.logo}>
@@ -133,11 +133,11 @@ var TypesView = React.createClass({
 var styles = StyleSheet.create({
   listView: {
     flex: 1,
-    height:deviceScreen.height - 60
+    height: deviceScreen.height - 60
   },
   nav: {
     flex: 1,
-    height: 120 / PixelRatio.get(),
+    height: 60,
     backgroundColor: 'black',
     flexDirection: 'row'
   },
@@ -146,27 +146,27 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     //justifyContent: 'center',
     alignItems: 'center',
-    padding: 40 / PixelRatio.get(),
-    height: 180 / PixelRatio.get(),
+    height: 90,
   },
   separator: {
     height: 0.5,
     backgroundColor: '#CCCCCC',
   },
   icon: {
-    width: 450 / PixelRatio.get(),
-    height: 100 / PixelRatio.get(),
+    width: 127,
+    height: 27,
 
   },
   logo: {
-    paddingTop: 0 / PixelRatio.get(),
-    paddingBottom: 10 / PixelRatio.get(),
-    paddingLeft: 150 / PixelRatio.get(),
-    paddingRight: 300 / PixelRatio.get(),
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingLeft: 75,
+    paddingRight: 125,
   },
   itemIcon: {
-    width: 100 / PixelRatio.get(),
-    height: 100 / PixelRatio.get(),
+    width: 50,
+    height: 50,
+    marginLeft: 15,
   },
   itemTextWrapper: {
     flex: 1,
@@ -174,22 +174,22 @@ var styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   itemText: {
-    paddingLeft: 20 / PixelRatio.get(),
-    fontSize: 20,
+    paddingLeft: 10,
+    fontSize: 24,
     fontWeight: 'bold',
+    color: '#1d1d1d'
   },
   itemProcessText: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  profileWrapper: {
-    paddingLeft: 50 / PixelRatio.get(),
+    marginRight: 10,
+    color: '#1d1d1d'
   },
   profileImage: {
-    left: 0,
-    top: 0,
-    width: 100 / PixelRatio.get(),
-    height: 100 / PixelRatio.get(),
+    marginLeft: 15,
+    marginTop: 15,
+    width: 30,
+    height: 30,
   }
 });
 
