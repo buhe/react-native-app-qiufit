@@ -7,6 +7,13 @@ var {
     Text
     } = React;
 let YourRouter = {
+  getWelcome(){
+    return {
+      getSceneClass(){
+        return require('./welcome');
+      }
+    }
+  },
   getResult(){
     return {
       getSceneClass(){
