@@ -23,19 +23,13 @@
                     <rect key="frame" x="198" y="306" width="85" height="55"/>
                     <animations/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="start_01" translatesAutoresizingMaskIntoConstraints="NO" id="1GO-cI-PQu">
-                    <rect key="frame" x="198" y="63" width="85" height="55"/>
-                    <animations/>
-                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nAd-W3-h7V" firstAttribute="centerX" secondItem="GZe-XM-PZl" secondAttribute="centerX" id="1AF-Il-wfr"/>
                 <constraint firstAttribute="bottom" secondItem="nAd-W3-h7V" secondAttribute="bottom" constant="119" id="5TP-JQ-igt"/>
-                <constraint firstItem="1GO-cI-PQu" firstAttribute="leading" secondItem="nAd-W3-h7V" secondAttribute="leading" id="9TH-TH-xaA"/>
                 <constraint firstItem="Z4Y-Yz-osW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GKR-Vk-z6r"/>
-                <constraint firstItem="1GO-cI-PQu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="63" id="IhG-ET-lW3"/>
                 <constraint firstItem="Z4Y-Yz-osW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Le4-z9-SLJ"/>
                 <constraint firstItem="nAd-W3-h7V" firstAttribute="centerX" secondItem="Z4Y-Yz-osW" secondAttribute="centerX" id="Z7V-Ye-Gz4"/>
                 <constraint firstItem="Z4Y-Yz-osW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="bVr-VT-VvK"/>
