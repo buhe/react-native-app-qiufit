@@ -11,6 +11,7 @@ import React, {
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
+var Router = require('../router');
 
 class Welcome extends React.Component {
   wechatLogin() {
@@ -25,7 +26,9 @@ class Welcome extends React.Component {
         }}>
           <View style={styles.topView}>
             <TouchableOpacity><Text style={styles.text}>手机登录</Text></TouchableOpacity>
-            <TouchableOpacity><Text style={styles.text}>随便看看</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTypeList())}>
+              <Text style={styles.text}>随便看看</Text>
+            </TouchableOpacity>
           </View>
           <Image source={{uri:IMG_PREFIX + 'signin_logo.png'}} style={{
             marginLeft: (deviceScreen.width - 150) / 2,
