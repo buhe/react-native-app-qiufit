@@ -14,6 +14,8 @@ var deviceScreen = require('Dimensions').get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
 import CoolDown from '../../cooldown';
+import UserActionCreators from '../../../actions/UserActionCreators';
+import UserStore from '../../../stores/UserStore';
 
 class Login extends React.Component {
   constructor(props) {
@@ -22,7 +24,13 @@ class Login extends React.Component {
   }
 
   next() {
-    //TODO
+    var self = this;
+    UserActionCreators.verifyMobilePhone(this.state.text,
+        function(){
+          self.props.navigator.push(Router.getTypeList());
+        },function(err){
+          console.log(err);
+        })
   }
 
   changeText(text) {
@@ -53,7 +61,7 @@ class Login extends React.Component {
             <CoolDown />
           </View>
           <TouchableHighlight
-              onPress={this.next}
+              onPress={this.next.bind(this)}
               style={{
                         height:60,
                         alignItems:'center',  //水平居中
@@ -64,7 +72,7 @@ class Login extends React.Component {
             <Text style={styles.actionText}>完成</Text>
           </TouchableHighlight>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是 +86 {this.props.phone}</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是 +86 {UserStore.user.get('mobilePhoneNumber')}</Text>
           </View>
         </View>
     );

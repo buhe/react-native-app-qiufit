@@ -24,7 +24,9 @@ class Welcome extends React.Component {
          flex:1
         }}>
           <View style={styles.topView}>
-            <TouchableOpacity><Text style={styles.text}>手机登录</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
+              <Text style={styles.text}>手机登录</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTypeList())}>
               <Text style={styles.text}>随便看看</Text>
             </TouchableOpacity>

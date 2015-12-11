@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@exponent/react-native-navigator": "^0.2.6",
-    "avoscloud-sdk": "^0.6.7",
+    "avoscloud-sdk": ">=1.0.0-rc5",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "react": "^0.14.3",
