@@ -56,6 +56,7 @@ var CoolDown = React.createClass({
     } else {
       this.setState({disabled: true});
       this._cooldown();
+      this.props.onPress();
     }
   },
 

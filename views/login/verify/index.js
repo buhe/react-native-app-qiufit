@@ -22,7 +22,9 @@ class Login extends React.Component {
     super(props)
     this.state = {text: ''}
   }
-
+  sendAgain(){
+    UserActionCreators.requestMobilePhoneVerify(UserStore.user.mobilePhoneNumber);
+  }
   next() {
     var self = this;
     UserActionCreators.verifyMobilePhone(this.state.text,
@@ -58,7 +60,9 @@ class Login extends React.Component {
                 onSubmitEditing={this.next.bind(this)}
                 keyboardType={'numeric'}
                 />
-            <CoolDown />
+            <CoolDown
+                onPress={this.sendAgain.bind(this)}
+                />
           </View>
           <TouchableHighlight
               onPress={this.next.bind(this)}
@@ -72,7 +76,7 @@ class Login extends React.Component {
             <Text style={styles.actionText}>完成</Text>
           </TouchableHighlight>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是 +86 {UserStore.user.get('mobilePhoneNumber')}</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是 +86 {UserStore.user.mobilePhoneNumber}</Text>
           </View>
         </View>
     );

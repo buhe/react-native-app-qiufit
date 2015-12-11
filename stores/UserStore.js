@@ -5,44 +5,96 @@ var AV = require('avoscloud-sdk');
 AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
 AV.Promise.setPromisesAPlusCompliant(true);
 
+var React = require('react-native');
 var Reflux = require('reflux');
 var Actions = require('../actions/UserActionCreators');
+var {
+    AsyncStorage,
+    } = React;
 
-
-function saveUser(user) {
-
-}
 
 var UserStore = Reflux.createStore({
   listenables: Actions,
+  _convertUser(user){
+    var self = this;
+    self.user = {};
+    self.user.username = user.get('username');
+    //self.user.password = user.get('password');
+    self.user.mobilePhoneNumber = user.get('mobilePhoneNumber');
+  },
+  _save(){
+    var self = this;
+    AsyncStorage.setItem('username', self.user.username, function (err, item) {
+      console.log(err + item);
+      AsyncStorage.getItem('username', function (err, item) {
+        console.log(item);
+      });
+    });
+    //AsyncStorage.setItem('password', self.user.password, function (err, item) {
+    //  console.log(err + item);
+    //  AsyncStorage.getItem('password', function (err, item) {
+    //    console.log(item);
+    //  });
+    //});
+    AsyncStorage.setItem('mobilePhoneNumber', self.user.mobilePhoneNumber, function (err, item) {
+      console.log(err + item);
+      AsyncStorage.getItem('mobilePhoneNumber', function (err, item) {
+        console.log(item);
+      });
+    });
+  },
+  _saveVerify(){
+    var self = this;
+    AsyncStorage.setItem('verify', self.user.verify, function (err, item) {
+      console.log(err + item);
+      AsyncStorage.getItem('verify', function (err, item) {
+        console.log(item);
+      });
+    });
+  },
+  async _get(attr){
+    try {
+      var value = await AsyncStorage.getItem(attr);
+      if (value !== null) {
+        this.user[attr] = value;
+        this.trigger(this);
+        return value;
+      } else {
+        console.log('get username null');
+      }
+    } catch (error) {
+      console.log('get username error' + error);
+      return null;
+    }
+  },
   registerUser: function (phone, success, fail) {
     var self = this;
     AV.User.logIn(phone, phone, {
       success: function (user) {
-        if (success) {
-          self.user = user;
-          saveUser(self.user);
-          success();
-        }
+        //self._convertUser(user);
+        //self._save();
+        //if (success) {
+        //  success();
+        //}
         // 成功了，现在可以做其他事情了.
         //发送短信验证
         //!----------------------------
         //DEV 不发送了  prod的时候打开就好了
-        //AV.User.requestMobilePhoneVerify(phone).then(function () {
-        //  console.log('send successful');
-        //  self.user = user;
-        //  saveUser(self.user);
-        //  if(success){
-        //    success();
-        //  }
-        //  //发送成功
-        //}, function (err) {
-        //  console.log(err);
-        //  if(fail){
-        //    fail(err);
-        //  }
-        //  //发送失败
-        //});
+        AV.User.requestMobilePhoneVerify(phone).then(function () {
+          console.log('send successful');
+          self._convertUser(user);
+          self._save();
+          if(success){
+            success();
+          }
+          //发送成功
+        }, function (err) {
+          console.log(err);
+          if(fail){
+            fail(err);
+          }
+          //发送失败
+        });
         //!--------------------------
       },
       error: function (user, error) {
@@ -55,7 +107,8 @@ var UserStore = Reflux.createStore({
           success: function (userServer) {
             // 注册成功，可以使用了.
             self.user = userServer;
-            saveUser(self.user);
+            self._convertUser(self.user);
+            self._save();
             if (success) {
               success();
             }
@@ -71,17 +124,29 @@ var UserStore = Reflux.createStore({
     });
 
   },
-  requestMobilePhoneVerify: function (phone) {
+  requestMobilePhoneVerify: function (phone,success,fail) {
     AV.User.requestMobilePhoneVerify(phone).then(function () {
       console.log('send successful');
+      if(success){
+        success();
+      }
       //发送成功
     }, function (err) {
       console.log(err);
+      if(fail){
+        fail(err);
+      }
       //发送失败
     });
   },
   getInitialState: function () {
-    this.user = this.user || {};
+    if(!this.user){
+      this.user = {};
+      this.user.username = this.user.username || this._get('username').done();
+      //this.user.password = this.user.password || this._get('password').done();
+      this.user.mobilePhoneNumber = this.user.mobilePhoneNumber || this._get('mobilePhoneNumber').done();
+      this.user.verify = this.user.verify || this._get('verify').done();
+    }
     return {
       user: this.user
     };
@@ -90,8 +155,11 @@ var UserStore = Reflux.createStore({
     this.user = {};
   },
   verifyMobilePhone: function (code, success, fail) {
+    var self = this;
     AV.User.verifyMobilePhone(code).then(function () {
       //验证成功
+      self.user.verify = true;
+      self._saveVerify();
       if (success) {
         success();
       }
