@@ -7,7 +7,6 @@ import React, {
     View,
     StyleSheet,
     TouchableOpacity,
-    ScrollView,
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
