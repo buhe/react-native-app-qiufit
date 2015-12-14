@@ -5,6 +5,7 @@
 'use strict';
 var React = require('react-native');
 var Reflux = require('reflux');
+import API from './api'; //init API
 var {
     AppRegistry,
     StyleSheet,
@@ -50,7 +51,7 @@ var PrisonerFitness = React.createClass({
   mixins: [Reflux.connect(UserStore)],
   render: function () {
     var view;
-    if (this.state.user.username && this.state.verify) {
+    if (this.state.user.username && this.state.user.verify === 'TRUE') {
       view = <MainView />;
     } else {
       view = <WelcomeView />;

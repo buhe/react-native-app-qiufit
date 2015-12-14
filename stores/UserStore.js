@@ -2,8 +2,6 @@
  * Created by guguyanhua on 12/10/15.
  */
 var AV = require('avoscloud-sdk');
-AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
-AV.Promise.setPromisesAPlusCompliant(true);
 
 var React = require('react-native');
 var Reflux = require('reflux');
@@ -158,7 +156,7 @@ var UserStore = Reflux.createStore({
     var self = this;
     AV.User.verifyMobilePhone(code).then(function () {
       //验证成功
-      self.user.verify = true;
+      self.user.verify = 'TRUE';  //不能是boolean ,只能是字符串
       self._saveVerify();
       if (success) {
         success();
