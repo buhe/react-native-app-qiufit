@@ -7,13 +7,18 @@ AV.Promise.setPromisesAPlusCompliant(true);
 
 var CheckIn = AV.Object.extend("CheckIn");
 var Profile = AV.Object.extend("Profile");
+import UserStore from '../stores/UserStore';
 
 export default class API {
 
   /**
    * 完成训练
    */
-  finishTurning(user, date, type, step) {
+  finishTurning(date, type, step) {
+    var objectId = UserStore.user.objectId;
+    var user = new AV.User();
+    //user.id = objectId;
+    user.id = '566e652c60b25b0437222a51';
     //1. 记录打卡信息
     var checkIn = new CheckIn();
     checkIn.set('user', user);
@@ -50,7 +55,12 @@ export default class API {
    * 获取打卡信息
    * @param user
    */
-  pullTurningDate(user, success, fail) {
+  pullTurningDate(success, fail) {
+    var objectId = UserStore.user.objectId;
+    var user = new AV.User();
+    //user.id = objectId;
+    user.id = '566e652c60b25b0437222a51';
+
     var query = new AV.Query(CheckIn);
     query.equalTo('user', user);
     query.find({
@@ -88,7 +98,12 @@ export default class API {
    * 获取类型
    * @param user
    */
-  pullTurningStep(user, success, fail) {
+  pullTurningStep(success, fail) {
+    var objectId = UserStore.user.objectId;
+    var user = new AV.User();
+    //user.id = objectId;
+    user.id = '566e652c60b25b0437222a51';
+
     var query = new AV.Query(Profile);
     query.equalTo('user', user);
     query.find({

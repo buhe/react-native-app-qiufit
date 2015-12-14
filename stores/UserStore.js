@@ -17,7 +17,7 @@ var UserStore = Reflux.createStore({
     var self = this;
     self.user = {};
     self.user.username = user.get('username');
-    //self.user.password = user.get('password');
+    self.user.objectId = user.get('objectId');
     self.user.mobilePhoneNumber = user.get('mobilePhoneNumber');
   },
   _save(){
@@ -28,12 +28,12 @@ var UserStore = Reflux.createStore({
         console.log(item);
       });
     });
-    //AsyncStorage.setItem('password', self.user.password, function (err, item) {
-    //  console.log(err + item);
-    //  AsyncStorage.getItem('password', function (err, item) {
-    //    console.log(item);
-    //  });
-    //});
+    AsyncStorage.setItem('objectId', self.user.objectId, function (err, item) {
+      console.log(err + item);
+      AsyncStorage.getItem('objectId', function (err, item) {
+        console.log(item);
+      });
+    });
     AsyncStorage.setItem('mobilePhoneNumber', self.user.mobilePhoneNumber, function (err, item) {
       console.log(err + item);
       AsyncStorage.getItem('mobilePhoneNumber', function (err, item) {
@@ -141,7 +141,7 @@ var UserStore = Reflux.createStore({
     if(!this.user){
       this.user = {};
       this.user.username = this.user.username || this._get('username').done();
-      //this.user.password = this.user.password || this._get('password').done();
+      this.user.objectId = this.user.objectId || this._get('objectId').done();
       this.user.mobilePhoneNumber = this.user.mobilePhoneNumber || this._get('mobilePhoneNumber').done();
       this.user.verify = this.user.verify || this._get('verify').done();
     }
