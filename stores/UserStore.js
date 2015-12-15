@@ -17,7 +17,7 @@ var UserStore = Reflux.createStore({
     var self = this;
     self.user = {};
     self.user.username = user.get('username');
-    self.user.objectId = user.get('objectId');
+    self.user.objectId = user.id;
     self.user.mobilePhoneNumber = user.get('mobilePhoneNumber');
   },
   _save(){
