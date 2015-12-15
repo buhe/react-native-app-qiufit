@@ -10,6 +10,8 @@ var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
+import CommentActionCreators from '../../actions/CommentActionCreators';
+
 //var _ = require('lodash');
 
 var {
@@ -47,8 +49,10 @@ var VideoView = React.createClass({
   ],
   finish(){
     //完成当前的type , step
-    this.props.navigator.push(Router.getResult())
-  },
+    CommentActionCreators.finishTurning('pushUp',1);
+    this.props.navigator.push(Router.getResult());
+  }
+  ,
   getInitialState: function () {
     return {
       showControl: false,
@@ -141,8 +145,7 @@ var VideoView = React.createClass({
             </View>
             <View style={styles.separator}/>
             <TouchableHighlight
-                //onPress={this.hideModal.bind(this)}
-                onPress={this.finish.bind(this)}
+                onPress={this.finish}
                 style={{
                         marginTop:40,
                         marginLeft:40,

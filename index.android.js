@@ -38,7 +38,7 @@ var MainView = React.createClass({
 var WelcomeView = React.createClass({
   render: function () {
     return (<ExNavigator
-        initialRoute={Router.getWelcome()}
+        initialRoute={Router.getVideo()}
         style={{ flex: 1 }}
         //sceneStyle={{ paddingTop: 64 }}
         //renderNavigationBar={renderFunc}

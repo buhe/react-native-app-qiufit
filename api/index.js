@@ -10,22 +10,45 @@ var Profile = AV.Object.extend("Profile");
 import UserStore from '../stores/UserStore';
 import moment from 'moment';
 
-export default class API {
+class API {
 
   /**
    * 完成训练
    */
   finishTurning(type, step) {
-    var objectId = UserStore.user.objectId;
+    //var objectId = UserStore.user.objectId;
+    var objectId = '566e652c60b25b0437222a51';
     var user = new AV.User();
     //user.id = objectId;
     user.id = objectId;
     var date = moment().format('YYYY-MM-DD');
     //1. 记录打卡信息
-    var checkIn = new CheckIn();
-    checkIn.set('user', user);
-    checkIn.set('date', date);
-    checkIn.save();
+    var query1 = new AV.Query(CheckIn);
+    query1.equalTo('user', user);
+    query1.equalTo('date', date);
+    query1.find({
+      success: function (results) {
+        if (results.length > 0) {
+          var checkIn = results[0];
+          checkIn.increment("count"); //完成数量+1
+          checkIn.save();
+        } else {
+          var checkIn = new CheckIn();
+          checkIn.set('user', user);
+          checkIn.set('date', date);
+          checkIn.set('count', 1);
+          checkIn.save();
+        }
+      },
+      error: function (error) {
+        console.log("Error: " + error.code + " " + error.message);
+        var checkIn = new CheckIn();
+        checkIn.set('user', user);
+        checkIn.set('date', date);
+        checkIn.set('count', 1);
+        checkIn.save();
+      }
+    });
     //2. 记录完成了哪个阶段
     var query = new AV.Query(Profile);
     query.equalTo('user', user);
@@ -48,9 +71,14 @@ export default class API {
       },
       error: function (error) {
         console.log("Error: " + error.code + " " + error.message);
+        var profile = new Profile();
+        profile.set('user', user);
+        profile.set('type', type);
+        profile.set('step', step);
+        profile.set('count', 1);
+        profile.save();
       }
     });
-
   }
 
   /**
@@ -134,3 +162,5 @@ export default class API {
 
 
 }
+
+module.exports = new API();
