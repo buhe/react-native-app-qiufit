@@ -8,17 +8,19 @@ AV.Promise.setPromisesAPlusCompliant(true);
 var CheckIn = AV.Object.extend("CheckIn");
 var Profile = AV.Object.extend("Profile");
 import UserStore from '../stores/UserStore';
+import moment from 'moment';
 
 export default class API {
 
   /**
    * 完成训练
    */
-  finishTurning(date, type, step) {
+  finishTurning(type, step) {
     var objectId = UserStore.user.objectId;
     var user = new AV.User();
     //user.id = objectId;
-    user.id = '566e652c60b25b0437222a51';
+    user.id = objectId;
+    var date = moment().format('YYYY-MM-DD');
     //1. 记录打卡信息
     var checkIn = new CheckIn();
     checkIn.set('user', user);
@@ -59,7 +61,7 @@ export default class API {
     var objectId = UserStore.user.objectId;
     var user = new AV.User();
     //user.id = objectId;
-    user.id = '566e652c60b25b0437222a51';
+    user.id = objectId
 
     var query = new AV.Query(CheckIn);
     query.equalTo('user', user);
@@ -102,7 +104,7 @@ export default class API {
     var objectId = UserStore.user.objectId;
     var user = new AV.User();
     //user.id = objectId;
-    user.id = '566e652c60b25b0437222a51';
+    user.id = objectId
 
     var query = new AV.Query(Profile);
     query.equalTo('user', user);

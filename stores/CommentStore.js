@@ -3,12 +3,18 @@
  */
 var Reflux = require('reflux');
 var Actions = require('../actions/CommentActionCreators');
+import API from '../api';
 //var _ = require('lodash');
 
 
 var CommentStore = Reflux.createStore({
   listenables: Actions,
+  finishTurning: function () {
+    //API.finishTurning(this.state.type,this.state.step);
+    API.finishTurning('pushUp',0);
+  },
   fetchComments: function () {
+
   },
   getInitialState: function () {
     this.comments = this.comments || [
@@ -43,8 +49,12 @@ var CommentStore = Reflux.createStore({
         commentContent:'逍遥哥哥加油!'
       },
     ];
+    this.type = this.type || '';
+    this.step = this.step || '';
     return {
-      comments: this.comments
+      comments: this.comments,
+      type: this.type,
+      step: this.step,
     };
   },
   reset(){

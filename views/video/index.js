@@ -5,7 +5,7 @@ var React = require('react-native');
 
 var CommentStore = require('../../stores/CommentStore');
 var StepList = require('../steplist');
-var Video = require('../../components/RNVideo');
+var Video = require('react-native-video');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
@@ -19,7 +19,7 @@ var {
     View,
     ListView,
     Navigator,
-    TouchableOpacity,
+    TouchableHighlight,
     ScrollView,
     Image,
     } = React;
@@ -45,6 +45,10 @@ var VideoView = React.createClass({
   mixins: [
     Reflux.connect(CommentStore)
   ],
+  finish(){
+    //完成当前的type , step
+    this.props.navigator.push(Router.getResult())
+  },
   getInitialState: function () {
     return {
       showControl: false,
@@ -81,10 +85,10 @@ var VideoView = React.createClass({
               <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
             </View>
             <View style={styles.voiceWrapper}>
-              <TouchableOpacity onPress={this.closeVoice}>
+              <TouchableHighlight onPress={this.closeVoice}>
                 <Image style={styles.playButton}
                        source={{uri: this.state.voice ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
-              </TouchableOpacity>
+              </TouchableHighlight>
             </View>
           </View>
       ;
@@ -109,22 +113,26 @@ var VideoView = React.createClass({
     return (
         <View>
           <ScrollView style={styles.main}>
-            <Video
-                style={styles.listView}
-                url={"http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}
-                paused={this.state.paused}
-                onTouchPlayer={this.press}
-                />
+            <TouchableHighlight onPress={this.press}>
+              <Video
+                  source={{uri: "http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}} // Can be a URL or a local file.
+                  rate={1.0}                   // 0 is paused, 1 is normal.
+                  volume={1.0}                 // 0 is muted, 1 is normal.
+                  muted={this.state.voice}                // Mutes the audio entirely.
+                  paused={this.state.paused}               // Pauses playback entirely.
+                  repeat={true}                // Repeat forever.
+                  style={styles.listView}/>
+            </TouchableHighlight>
             {controlView}
             <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
             <View style={styles.month}>
-              <TouchableOpacity onPress={this.prev}>
+              <TouchableHighlight onPress={this.prev}>
                 <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
-              </TouchableOpacity>
+              </TouchableHighlight>
               <Text style={styles.month_text}>初级标准</Text>
-              <TouchableOpacity onPress={this.next}>
+              <TouchableHighlight onPress={this.next}>
                 <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
-              </TouchableOpacity>
+              </TouchableHighlight>
             </View>
             <View style={styles.turningAnalytics}>
               <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
@@ -132,9 +140,9 @@ var VideoView = React.createClass({
               <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
             </View>
             <View style={styles.separator}/>
-            <TouchableOpacity
+            <TouchableHighlight
                 //onPress={this.hideModal.bind(this)}
-                onPress={()=> this.props.navigator.push(Router.getResult())}
+                onPress={this.finish.bind(this)}
                 style={{
                         marginTop:40,
                         marginLeft:40,
@@ -146,24 +154,24 @@ var VideoView = React.createClass({
                         backgroundColor: 'black',}}
                 >
               <Text style={styles.actionText}>完成!</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+            </TouchableHighlight>
+            <TouchableHighlight
                 style={{
                         paddingLeft:120,
                         paddingBottom:20,
                         }}
                 >
-              <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTrend())}>
+              <TouchableHighlight onPress={() => this.props.navigator.push(Router.getTrend())}>
                 <Text style={styles.turingText}>完10个人完成该训练</Text>
-              </TouchableOpacity>
-            </TouchableOpacity>
+              </TouchableHighlight>
+            </TouchableHighlight>
             <View style={styles.avatarList}>
             </View>
             <View style={[styles.separator,{height: 2,}]}/>
             <Text>{this.state.comments.length}条评论</Text>
             {commentView}
           </ScrollView>
-          <TouchableOpacity
+          <TouchableHighlight
               onPress={() => this.props.navigator.push(Router.getPost())}
               style={[styles.commentButton,{
                         paddingTop: 20,
@@ -172,7 +180,7 @@ var VideoView = React.createClass({
                         backgroundColor: 'black',}]}
               >
             <Text style={styles.actionText}>写评论</Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
         </View>
     );
 
@@ -184,11 +192,12 @@ var styles = StyleSheet.create({
   controlWrapper: {
     position: 'absolute',
     left: 0,
-    top: 0
+    top: 0,
   },
   playButton: {
     width: 50,
     height: 50,
+    backgroundColor: 'transparent',
   },
   infoWrapper: {
     position: 'absolute',
@@ -196,6 +205,7 @@ var styles = StyleSheet.create({
     height: 50,
     left: 230,
     top: 10,
+    backgroundColor: 'transparent',
   },
   voiceWrapper: {
     position: 'absolute',
@@ -203,6 +213,7 @@ var styles = StyleSheet.create({
     height: 50,
     left: 300,
     top: 10,
+    backgroundColor: 'transparent',
   },
   playButtonWrapper: {
     position: 'absolute',
@@ -210,6 +221,7 @@ var styles = StyleSheet.create({
     height: 50,
     left: 150,
     top: 100,
+    backgroundColor: 'transparent',
   },
   listView: {
     width: deviceScreen.width,
