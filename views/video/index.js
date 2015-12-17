@@ -52,7 +52,7 @@ var VideoView = React.createClass({
   ],
   finish(){
     //完成当前的type , step
-    CommentActionCreators.finishTurning('pushUp',1);
+    CommentActionCreators.finishTurning('pushUp', 1);
     this.props.navigator.push(Router.getResult());
   }
   ,
@@ -136,21 +136,21 @@ var VideoView = React.createClass({
             </TouchableWithoutFeedback>
             {controlView}
             <View style={{alignItems: 'center',flex:1}}>
-            <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
-            <View style={styles.month}>
-              <TouchableHighlight onPress={this.prev}>
-                <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
-              </TouchableHighlight>
-              <Text style={styles.month_text}>初级标准</Text>
-              <TouchableHighlight onPress={this.next}>
-                <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
-              </TouchableHighlight>
-            </View>
-            <View style={styles.turningAnalytics}>
-              <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
-              <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
-              <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
-            </View>
+              <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
+              <View style={styles.month}>
+                <TouchableHighlight onPress={this.prev}>
+                  <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
+                </TouchableHighlight>
+                <Text style={styles.month_text}>初级标准</Text>
+                <TouchableHighlight onPress={this.next}>
+                  <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
+                </TouchableHighlight>
+              </View>
+              <View style={styles.turningAnalytics}>
+                <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+                <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
+                <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+              </View>
             </View>
             <View style={styles.separator}/>
             <TouchableHighlight
@@ -165,18 +165,10 @@ var VideoView = React.createClass({
                 >
               <Text style={styles.actionText}>完成!</Text>
             </TouchableHighlight>
-            <TouchableHighlight
-                style={{
-                        paddingLeft:120,
-                        paddingBottom:20,
-                        }}
-                >
-              <TouchableHighlight onPress={() => this.props.navigator.push(Router.getTrend())}>
-                <Text style={styles.turingText}>完10个人完成该训练</Text>
-              </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigator.push(Router.getTrend())}
+                                style={[Theme.centerChild,{paddingBottom:20}]}>
+              <Text style={styles.turingText}>10个人完成该训练</Text>
             </TouchableHighlight>
-            <View style={styles.avatarList}>
-            </View>
             <View style={[styles.separator,{height: 2,}]}/>
             <Text>{this.state.comments.length}条评论</Text>
             {commentView}
@@ -234,7 +226,7 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   listView: {
-    flex:1
+    flex: 1
   },
   video: {
     width: deviceScreen.width,
