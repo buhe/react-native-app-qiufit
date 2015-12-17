@@ -175,11 +175,11 @@ var VideoView = React.createClass({
           </ScrollView>
           <TouchableHighlight
               onPress={() => this.props.navigator.push(Router.getPost())}
-              style={[styles.commentButton,{
+              style={[styles.commentButton,Theme.centerChild,{
+                        backgroundColor: 'black',
                         paddingTop: 20,
                         paddingBottom: 20,
-                        paddingLeft:150,
-                        backgroundColor: 'black',}]}
+                        }]}
               >
             <Text style={styles.actionText}>写评论</Text>
           </TouchableHighlight>
