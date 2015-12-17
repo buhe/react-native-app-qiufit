@@ -3,7 +3,7 @@
  */
 var AV = require('avoscloud-sdk');
 AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
-AV.Promise.setPromisesAPlusCompliant(true);
+//AV.Promise.setPromisesAPlusCompliant(true);
 
 var CheckIn = AV.Object.extend("CheckIn");
 var Profile = AV.Object.extend("Profile");
@@ -86,7 +86,9 @@ class API {
    * @param user
    */
   pullTurningDate(success, fail) {
-    var objectId = UserStore.user.objectId;
+    //var objectId = UserStore.user.objectId;
+    var objectId = '566e652c60b25b0437222a51';
+
     var user = new AV.User();
     //user.id = objectId;
     user.id = objectId
@@ -129,7 +131,8 @@ class API {
    * @param user
    */
   pullTurningStep(success, fail) {
-    var objectId = UserStore.user.objectId;
+    //var objectId = UserStore.user.objectId;
+    var objectId = '566e652c60b25b0437222a51';
     var user = new AV.User();
     //user.id = objectId;
     user.id = objectId

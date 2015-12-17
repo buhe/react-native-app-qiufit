@@ -27,10 +27,14 @@ var StepItem = React.createClass({
     this.props.showModal(this.props.text1, this.props.text2);
   },
   render: function () {
+    var myStyles = [styles.container];
+    if (this.props.selected) {
+      myStyles.push(styles.selected);
+    }
     return (
         <View>
           <TouchableOpacity onPress={this.pushPaperById}>
-            <View style={styles.container}>
+            <View style={myStyles}>
               <Text style={styles.itemTitle}>{this.props.text1}</Text>
               <Text style={styles.itemDesc}>{this.props.text2}</Text>
               <Text style={styles.itemDesc2}>{this.props.text3}</Text>
@@ -106,6 +110,7 @@ var StepsView = React.createClass({
             text1={q.text1}
             text2={q.text2}
             text3={q.text3}
+            selected={q.selected}
             showModal={this.showModal}
             {...this.props}
             />
@@ -130,6 +135,9 @@ var styles = StyleSheet.create({
     marginRight: 35,
     paddingTop: 15,
     paddingBottom: 15,
+  },
+  selected: {
+    backgroundColor: 'black'
   },
   itemTitle: {
     fontSize: 24,

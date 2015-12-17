@@ -13,7 +13,7 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
-import CoolDown from '../../cooldown';
+import CoolDown from 'react-native-countdown';
 import UserActionCreators from '../../../actions/UserActionCreators';
 import UserStore from '../../../stores/UserStore';
 
@@ -62,6 +62,7 @@ class Login extends React.Component {
                 />
             <CoolDown
                 onPress={this.sendAgain.bind(this)}
+                text={'再发一次'}
                 />
           </View>
           <TouchableHighlight

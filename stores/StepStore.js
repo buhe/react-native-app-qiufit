@@ -2,6 +2,7 @@
 
 var Reflux = require('reflux');
 var Actions = require('../actions/StepActionCreators');
+import API from '../api';
 const stepsMap = {
   pushUp: [
     {
@@ -207,6 +208,19 @@ const stepsNameMap = {
 
 var StepStore = Reflux.createStore({
   listenables: Actions,
+  syncFromServer: function () {
+    var self = this;
+    API.pullTurningStep(function (data) {
+      var selected = data[self.stepName];
+      for(var i = 0; i < selected.length; i++){
+        var stepIndex = selected[i];
+        self.steps[stepIndex].selected = true;
+      }
+      self.trigger(this);
+    }, function (err) {
+
+    });
+  },
   fetchByType: function (type) {
     this.steps = stepsMap[type];
     this.stepName = stepsNameMap[type];
