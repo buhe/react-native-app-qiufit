@@ -32,14 +32,16 @@ var {
 class CommentItem extends React.Component {
   render() {
     return (
-        <View>
+        <View style={{height:160}}>
           <View style={styles.commentTitle}>
-            <Image style={styles.commentAvatar}
-                   source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
-            <Text>{this.props.nickname}</Text>
-            <Text>{this.props.time}</Text>
+            <View style={{flexDirection:'row',alignItems: 'center'}}>
+              <Image style={styles.commentAvatar}
+                     source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
+              <Text>{this.props.nickname}</Text>
+            </View>
+            <Text style={{marginRight:10}}>{this.props.time}</Text>
           </View>
-          <Text>{this.props.commentContent}</Text>
+          <Text style={{marginLeft:52,marginTop:25,marginBottom:20}}>{this.props.commentContent}</Text>
           <View style={[styles.separator,{backgroundColor: '#CCCCCC',}]}/>
         </View>
     )
@@ -170,7 +172,7 @@ var VideoView = React.createClass({
               <Text style={styles.turingText}>10个人完成该训练</Text>
             </TouchableHighlight>
             <View style={[styles.separator,{height: 2,}]}/>
-            <Text>{this.state.comments.length}条评论</Text>
+            <Text style={{marginLeft:10,marginTop:15}}>{this.state.comments.length}条评论</Text>
             {commentView}
           </ScrollView>
           <TouchableHighlight
@@ -255,9 +257,10 @@ var styles = StyleSheet.create({
     marginTop: 20,
   },
   commentTitle: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    height: 40,
+    marginTop: 30,
+    alignItems: 'center'
   },
   month: {
     justifyContent: 'space-around',
@@ -300,7 +303,9 @@ var styles = StyleSheet.create({
   },
   commentAvatar: {
     height: 32,
-    width: 32
+    width: 32,
+    marginLeft: 10,
+    marginRight: 10,
   },
   commentButton: {
     position: 'absolute',
