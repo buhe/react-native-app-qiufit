@@ -208,23 +208,22 @@ const stepsNameMap = {
 
 var StepStore = Reflux.createStore({
   listenables: Actions,
-  syncFromServer: function () {
+  fetchByType: function (type) {
     var self = this;
+    this.steps = stepsMap[type];
+    this.stepName = stepsNameMap[type];
     API.pullTurningStep(function (data) {
-      var selected = data[self.stepName];
+      var selected = data[type];
       for(var i = 0; i < selected.length; i++){
         var stepIndex = selected[i];
         self.steps[stepIndex].selected = true;
       }
       self.trigger(this);
     }, function (err) {
-
+      console.log(err);
+      this.trigger(this);
     });
-  },
-  fetchByType: function (type) {
-    this.steps = stepsMap[type];
-    this.stepName = stepsNameMap[type];
-    this.trigger(this);
+
   },
   getInitialState: function () {
     this.steps = this.steps || [];

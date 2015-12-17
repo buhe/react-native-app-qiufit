@@ -137,7 +137,7 @@ var styles = StyleSheet.create({
     paddingBottom: 15,
   },
   selected: {
-    backgroundColor: 'black'
+    backgroundColor: 'gray'
   },
   itemTitle: {
     fontSize: 24,
