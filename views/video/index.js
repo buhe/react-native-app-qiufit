@@ -12,6 +12,7 @@ var Reflux = require('reflux');
 var Router = require('../router');
 import CommentActionCreators from '../../actions/CommentActionCreators';
 let videoHeight = deviceScreen.height * 2 / 5;
+import Theme from '../theme';
 
 //var _ = require('lodash');
 
@@ -134,6 +135,7 @@ var VideoView = React.createClass({
                   />
             </TouchableWithoutFeedback>
             {controlView}
+            <View style={{alignItems: 'center',flex:1}}>
             <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
             <View style={styles.month}>
               <TouchableHighlight onPress={this.prev}>
@@ -149,18 +151,17 @@ var VideoView = React.createClass({
               <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
               <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
             </View>
+            </View>
             <View style={styles.separator}/>
             <TouchableHighlight
                 onPress={this.finish}
-                style={{
+                style={[{
                         marginTop:40,
                         marginLeft:40,
                         marginRight:40,
                         marginBottom:20,
-                        paddingTop: 20,
-                        paddingLeft:120,
-                        paddingBottom:20,
-                        backgroundColor: 'black',}}
+                        height:60,
+                        backgroundColor: 'black',},Theme.centerChild]}
                 >
               <Text style={styles.actionText}>完成!</Text>
             </TouchableHighlight>
@@ -247,7 +248,6 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    //justifyContent: 'center',
     alignItems: 'center',
     padding: 20
   },
@@ -261,7 +261,6 @@ var styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginTop: 20,
-    marginLeft: 80,
   },
   commentTitle: {
     justifyContent: 'space-around',
@@ -272,7 +271,8 @@ var styles = StyleSheet.create({
     justifyContent: 'space-around',
     flexDirection: 'row',
     height: 40,
-    marginTop: 40
+    marginTop: 40,
+    alignItems: 'center'
   },
   month_text: {
     fontSize: 18,
