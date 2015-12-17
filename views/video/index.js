@@ -11,6 +11,7 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
 import CommentActionCreators from '../../actions/CommentActionCreators';
+let videoHeight = deviceScreen.height * 2 / 5;
 
 //var _ = require('lodash');
 
@@ -22,6 +23,7 @@ var {
     ListView,
     Navigator,
     TouchableHighlight,
+    TouchableWithoutFeedback,
     ScrollView,
     Image,
     } = React;
@@ -83,16 +85,18 @@ var VideoView = React.createClass({
       controlView =
           <View style={styles.controlWrapper}>
             <View style={styles.playButtonWrapper}>
-              <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
+              <TouchableWithoutFeedback onPress={this.press}>
+                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
+              </TouchableWithoutFeedback>
             </View>
             <View style={styles.infoWrapper}>
               <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
             </View>
             <View style={styles.voiceWrapper}>
-              <TouchableHighlight onPress={this.closeVoice}>
+              <TouchableWithoutFeedback onPress={this.closeVoice}>
                 <Image style={styles.playButton}
                        source={{uri: this.state.voice ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
-              </TouchableHighlight>
+              </TouchableWithoutFeedback>
             </View>
           </View>
       ;
@@ -117,16 +121,18 @@ var VideoView = React.createClass({
     return (
         <View>
           <ScrollView style={styles.main}>
-            <TouchableHighlight onPress={this.press}>
+            <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
               <Video
                   source={{uri: "http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}} // Can be a URL or a local file.
                   rate={1.0}                   // 0 is paused, 1 is normal.
                   volume={1.0}                 // 0 is muted, 1 is normal.
                   muted={this.state.voice}                // Mutes the audio entirely.
                   paused={this.state.paused}               // Pauses playback entirely.
-                  repeat={true}                // Repeat forever.
-                  style={styles.listView}/>
-            </TouchableHighlight>
+                  repeat={true}// Repeat forever.
+                  style={styles.video}
+                  resizeMode="cover"
+                  />
+            </TouchableWithoutFeedback>
             {controlView}
             <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
             <View style={styles.month}>
@@ -206,7 +212,7 @@ var styles = StyleSheet.create({
     position: 'absolute',
     width: 50,
     height: 50,
-    left: 230,
+    left: deviceScreen.width - 140,
     top: 10,
     backgroundColor: 'transparent',
   },
@@ -214,7 +220,7 @@ var styles = StyleSheet.create({
     position: 'absolute',
     width: 50,
     height: 50,
-    left: 300,
+    left: deviceScreen.width - 70,
     top: 10,
     backgroundColor: 'transparent',
   },
@@ -222,13 +228,16 @@ var styles = StyleSheet.create({
     position: 'absolute',
     width: 50,
     height: 50,
-    left: 150,
-    top: 100,
+    left: (deviceScreen.width - 50) / 2,
+    top: (videoHeight - 50) / 2,
     backgroundColor: 'transparent',
   },
   listView: {
+    flex:1
+  },
+  video: {
     width: deviceScreen.width,
-    height: deviceScreen.height * 2 / 5,
+    height: videoHeight,
   },
   nav: {
     flex: 1,
