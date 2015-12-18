@@ -3,7 +3,7 @@
  */
 var Reflux = require('reflux');
 var Actions = require('../actions/CommentActionCreators');
-import API from '../api';
+var API = require('../api');
 //var _ = require('lodash');
 
 
