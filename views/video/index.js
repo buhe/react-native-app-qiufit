@@ -32,16 +32,16 @@ var {
 class CommentItem extends React.Component {
   render() {
     return (
-        <View style={{height:160}}>
+        <View>
           <View style={styles.commentTitle}>
             <View style={{flexDirection:'row',alignItems: 'center'}}>
               <Image style={styles.commentAvatar}
                      source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
-              <Text>{this.props.nickname}</Text>
+              <Text style={{fontWeight:'bold',font:18}}>{this.props.nickname}</Text>
             </View>
-            <Text style={{marginRight:10}}>{this.props.time}</Text>
+            <Text style={{marginRight:10,font:12,color:'gray'}}>{this.props.time}</Text>
           </View>
-          <Text style={{marginLeft:52,marginTop:25,marginBottom:20}}>{this.props.commentContent}</Text>
+          <Text style={{marginLeft:45,marginTop:25,marginBottom:20,font:18}}>{this.props.commentContent}</Text>
           <View style={[styles.separator,{backgroundColor: '#CCCCCC',}]}/>
         </View>
     )
@@ -259,7 +259,7 @@ var styles = StyleSheet.create({
   commentTitle: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginTop: 30,
+    marginTop: 25,
     alignItems: 'center'
   },
   month: {
@@ -302,8 +302,8 @@ var styles = StyleSheet.create({
     height: deviceScreen.height,
   },
   commentAvatar: {
-    height: 32,
-    width: 32,
+    height: 25,
+    width: 25,
     marginLeft: 10,
     marginRight: 10,
   },
