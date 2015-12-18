@@ -78,6 +78,7 @@ var StepsView = React.createClass({
     this.props.navigator.push(Router.getVideo());
   },
   render: function () {
+    var modalText = this.state.text1.split(" ");
     return (
         <View>
           <View style={styles.nav}>
@@ -99,8 +100,8 @@ var StepsView = React.createClass({
               >
             <View>
               <StepModal
-                  step={this.state.text1}
-                  name={this.state.text2}
+                  step={modalText[0]}
+                  name={modalText[1]}
                   actionClick={this.hideModal.bind(this)}
                   />
             </View>

@@ -12,25 +12,24 @@ var {
     PixelRatio
     } = React;
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
+import Button from '../../button';
+import Theme from '../../theme';
 class StepModal extends React.Component {
   render() {
     return (
         <View>
           <View style={{padding:30}}>
-            <Image source={{uri:IMG_PREFIX + 'popover_bg.png'}} style={styles.bg}>
-              <Text style={styles.nestedText}>第一式</Text>
+            <Image source={{uri:IMG_PREFIX + 'popover_bg.png'}} style={[styles.bg,Theme.centerChild]}>
+              <Text style={styles.nestedText}>{this.props.step}</Text>
             </Image>
-            <Text style={styles.title}>墙壁俯卧撑</Text>
-            <TouchableOpacity
-                //onPress={this.hideModal.bind(this)}
-                onPress={this.props.actionClick}
-                style={{paddingTop: 20,
-                        paddingLeft:100,
-                        paddingBottom:20,
-                        backgroundColor: 'black',}}
+            <View style={[Theme.centerChild,{marginTop: 40}]}>
+              <Text style={[styles.title]}>{this.props.name}</Text>
+            </View>
+            <Button
+                press={this.props.actionClick}
+                text={'开始'}
                 >
-              <Text style={styles.actionText}>开始</Text>
-            </TouchableOpacity>
+            </Button>
           </View>
         </View>
     )
@@ -43,14 +42,12 @@ var styles = StyleSheet.create({
     height: 90
   },
   nestedText: {
-    marginLeft: 90,
-    marginTop: 20,
+    top:-10,
     backgroundColor: 'transparent',
     color: 'white',
     fontSize: 24
   },
   title: {
-    margin: 40,
     fontSize: 30,
     fontWeight: 'bold',
     color: '#1d1d1d'
