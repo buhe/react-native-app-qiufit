@@ -14,6 +14,7 @@ import React, {
 import Nav from '../../nav/CloseStyleNav';
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
+import Button from '../../button';
 
 export default class Result extends React.Component {
 
@@ -23,7 +24,24 @@ export default class Result extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
-          <Image source={{uri:IMG_PREFIX + '囚徒健身-切图-20.png'}} style={styles.mainLogo}/>
+          <View style={{alignItems:'center'}}>
+            <Image source={{uri:IMG_PREFIX + '囚徒健身-切图-20.png'}} style={styles.mainLogo}/>
+            <View style={{borderWidth:5,marginTop:20,marginBottom:30,marginLeft:10,marginRight:10}}>
+              <View  style={{flexDirection:'row'}}>
+                <Text style={{fontSize:60}}>新纪录!</Text>
+                <View><Text style={{fontSize:18}}>六月</Text><Text style={{fontSize:30}}>24</Text></View>
+              </View>
+              <Text style={{fontSize:30}}>第一式: 墙壁俯卧撑</Text>
+              <View style={{flexDirection:'row'}}>
+                <View><Text style={{fontSize:16}}>标准</Text><Text style={{fontSize:21}}>初级标准</Text></View>
+                <View><Text style={{fontSize:16}}>动作</Text><Text style={{fontSize:21}}>10 个</Text></View>
+                <View><Text style={{fontSize:16}}>组</Text><Text style={{fontSize:21}}>1 组</Text></View>
+              </View>
+            </View>
+          </View>
+          <Button
+              text={'分享'}
+              />
         </View>
     )
   }
@@ -38,9 +56,7 @@ var styles = StyleSheet.create({
     height: 64,
   },
   mainLogo: {
-    position: 'absolute',
-    left:50,
-    top:40,
+    marginTop: -30,
     width: 240,
     height: 120,
   }

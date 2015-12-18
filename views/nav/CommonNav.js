@@ -11,10 +11,11 @@ import React, {
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
+import Theme from '../theme';
 export default class CommonNav extends React.Component {
 
   render() {
-    var rightButton = null;
+    var rightButton = <View></View>;
     if (this.props.rightText && this.props.rightAction) {
       rightButton = (
           <TouchableOpacity onPress={() => this.props.rightAction()}>
@@ -23,7 +24,7 @@ export default class CommonNav extends React.Component {
       );
     }
     return (
-        <View style={styles.nav}>
+        <View style={[styles.nav]}>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
@@ -38,23 +39,29 @@ var styles = StyleSheet.create({
   nav: {
     flexDirection: 'row',
     height: 60,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   logoText: {
-    marginTop: 20,
-    marginLeft:100,
+    //marginTop: 20,
+    //marginLeft: 100,
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
+    fontSize: 21
   },
   closeImage: {
-    left: 8,
-    top: 8,
+    //position: 'absolute',
+    //left: 8,
+    //top: 8,
+    marginLeft: 8,
     width: 32,
     height: 32,
   },
   rightButton: {
-    marginTop: 20,
-    marginLeft:120,
+    fontSize: 18,
+    marginRight: 8,
+    //left: 120,
     flex: 1,
     color: 'white'
   }

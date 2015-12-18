@@ -34,7 +34,7 @@ class Comment extends React.Component {
               {...this.props}
               />
           <TextInput
-              style={{height: deviceScreen.height - 60}}
+              style={{height: deviceScreen.height - 60,paddingTop:15,paddingLeft:10,paddingRight:10}}
               onChangeText={(text) => this.setState({text})}
               value={this.state.text}
               multiline={true}

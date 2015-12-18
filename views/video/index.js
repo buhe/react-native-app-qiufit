@@ -37,11 +37,11 @@ class CommentItem extends React.Component {
             <View style={{flexDirection:'row',alignItems: 'center'}}>
               <Image style={styles.commentAvatar}
                      source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
-              <Text style={{fontWeight:'bold',font:18}}>{this.props.nickname}</Text>
+              <Text style={{fontWeight:'bold',fontSize:18}}>{this.props.nickname}</Text>
             </View>
-            <Text style={{marginRight:10,font:12,color:'gray'}}>{this.props.time}</Text>
+            <Text style={{marginRight:10,fontSize:12,color:'gray'}}>{this.props.time}</Text>
           </View>
-          <Text style={{marginLeft:45,marginTop:25,marginBottom:20,font:18}}>{this.props.commentContent}</Text>
+          <Text style={{marginLeft:45,marginTop:25,marginBottom:20,fontSize:18}}>{this.props.commentContent}</Text>
           <View style={[styles.separator,{backgroundColor: '#CCCCCC',}]}/>
         </View>
     )
@@ -161,16 +161,18 @@ var VideoView = React.createClass({
                         marginTop:40,
                         marginLeft:40,
                         marginRight:40,
-                        marginBottom:20,
+
                         height:60,
                         backgroundColor: 'black',},Theme.centerChild]}
                 >
               <Text style={styles.actionText}>完成!</Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.props.navigator.push(Router.getTrend())}
-                                style={[Theme.centerChild,{paddingBottom:20}]}>
-              <Text style={styles.turingText}>10个人完成该训练</Text>
-            </TouchableHighlight>
+            <TouchableWithoutFeedback onPress={() => this.props.navigator.push(Router.getTrend())}
+                >
+              <View style={[Theme.centerChild,{paddingBottom:20,paddingTop:20,}]}>
+                <Text style={styles.turingText}>10个人完成该训练</Text>
+              </View>
+            </TouchableWithoutFeedback>
             <View style={[styles.separator,{height: 2,}]}/>
             <Text style={{marginLeft:10,marginTop:15}}>{this.state.comments.length}条评论</Text>
             {commentView}
