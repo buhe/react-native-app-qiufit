@@ -65,7 +65,7 @@ var typeList = [
 
 var TypeItem = React.createClass({
   pushPaperById(){
-    StepActionCreators.fetchByType(this.props.name);
+    StepActionCreators.setTypeName(this.props.name);
     this.props.navigator.push(Router.getStepList());
   },
   render: function () {
@@ -89,6 +89,7 @@ var TypesView = React.createClass({
     this.props.navigator.push(Router.getProfile());
   },
   getInitialState: function () {
+    StepActionCreators.sync();
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,

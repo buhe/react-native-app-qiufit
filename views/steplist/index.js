@@ -56,12 +56,10 @@ var StepsView = React.createClass({
     this.props.navigator.pop();
   },
   componentDidMount(){
-    StepActionCreators.fetchByType('pushUp');
+
   },
   getInitialState: function () {
-    //ResumesActionCreators.fetchResumes();
-    //StepStore.fetchByType('pushUp');
-
+    StepActionCreators.fetchByType();
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
