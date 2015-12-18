@@ -6,7 +6,7 @@
 
 var React = require('react-native');
 var Reflux = require('reflux');
-import API from './api'; //init API
+var API = require('./api');
 var {
     AppRegistry,
     StyleSheet,

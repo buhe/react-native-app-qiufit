@@ -8,6 +8,8 @@ var StepModal = require('./modal');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Router = require('../router');
+var API = require('../../api');
+var StepActionCreators = require('../../actions/StepActionCreators');
 //var _ = require('lodash');
 
 var {
@@ -53,9 +55,13 @@ var StepsView = React.createClass({
   pop(){
     this.props.navigator.pop();
   },
+  componentDidMount(){
+    StepActionCreators.fetchByType('pushUp');
+  },
   getInitialState: function () {
     //ResumesActionCreators.fetchResumes();
-    require('../../actions/StepActionCreators').fetchByType('pushUp');
+    //StepStore.fetchByType('pushUp');
+
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
