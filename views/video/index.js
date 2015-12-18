@@ -3,14 +3,14 @@
  */
 var React = require('react-native');
 
-var CommentStore = require('../../stores/CommentStore');
+var VideoStore = require('../../stores/VideoStore');
 var StepList = require('../steplist');
 var Video = require('react-native-video');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
-import CommentActionCreators from '../../actions/CommentActionCreators';
+import VideoActionCreators from '../../actions/VideoActionCreators';
 let videoHeight = deviceScreen.height * 2 / 5;
 import Theme from '../theme';
 
@@ -50,11 +50,11 @@ class CommentItem extends React.Component {
 
 var VideoView = React.createClass({
   mixins: [
-    Reflux.connect(CommentStore)
+    Reflux.connect(VideoStore)
   ],
   finish(){
     //完成当前的type , step
-    CommentActionCreators.finishTurning('pushUp', 1);
+    VideoActionCreators.finishTurning();
     this.props.navigator.push(Router.getResult());
   }
   ,
@@ -121,20 +121,25 @@ var VideoView = React.createClass({
       commentView = <View>{content}</View>
     }
 
+    var videoView = <View></View>;
+    if(this.state.ref.videoUrl){
+      videoView =    <Video
+          source={{uri: this.state.ref.videoUrl}} // Can be a URL or a local file.
+          rate={1.0}                   // 0 is paused, 1 is normal.
+          volume={1.0}                 // 0 is muted, 1 is normal.
+          muted={this.state.voice}                // Mutes the audio entirely.
+          paused={this.state.paused}               // Pauses playback entirely.
+          repeat={true}// Repeat forever.
+          style={styles.video}
+          resizeMode="cover"
+          />;
+    }
+
     return (
         <View>
           <ScrollView style={styles.main}>
             <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
-              <Video
-                  source={{uri: "http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"}} // Can be a URL or a local file.
-                  rate={1.0}                   // 0 is paused, 1 is normal.
-                  volume={1.0}                 // 0 is muted, 1 is normal.
-                  muted={this.state.voice}                // Mutes the audio entirely.
-                  paused={this.state.paused}               // Pauses playback entirely.
-                  repeat={true}// Repeat forever.
-                  style={styles.video}
-                  resizeMode="cover"
-                  />
+              {videoView}
             </TouchableWithoutFeedback>
             {controlView}
             <View style={{alignItems: 'center',flex:1}}>

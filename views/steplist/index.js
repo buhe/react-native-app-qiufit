@@ -10,6 +10,7 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Router = require('../router');
 var API = require('../../api');
 var StepActionCreators = require('../../actions/StepActionCreators');
+import VideoActionCreators from '../../actions/VideoActionCreators';
 //var _ = require('lodash');
 
 var {
@@ -26,7 +27,7 @@ var Modal = require('react-native-fs-modal');
 
 var StepItem = React.createClass({
   pushPaperById(){
-    this.props.showModal(this.props.text1, this.props.text2);
+    this.props.showModal(this.props.text1, this.props.text2, this.props.stepIndex);
   },
   render: function () {
     var myStyles = [styles.container];
@@ -66,15 +67,22 @@ var StepsView = React.createClass({
       }),
       text1: '',
       text2: '',
+      stepIndex: 0,
     };
   },
-  showModal (text1, text2) {
+  showModal (text1, text2, stepIndex) {
     this.refs.modal.show();
-    this.setState({text1: text1, text2: text2});
+    this.setState({text1: text1, text2: text2, stepIndex: stepIndex});
   },
 
   hideModal () {
     this.refs.modal.close();
+    var ref = this.state.steps[this.state.stepIndex];
+    VideoActionCreators.setRef({
+      type: this.state.typeName,
+      step: this.state.stepIndex,
+      videoUrl: ref.videoUrl,
+    });
     this.props.navigator.push(Router.getVideo());
   },
   render: function () {
@@ -110,12 +118,13 @@ var StepsView = React.createClass({
     );
 
   },
-  renderType: function (q) {
+  renderType: function (q, sectionID, rowID) {
     return ( <StepItem
             text1={q.text1}
             text2={q.text2}
             text3={q.text3}
             selected={q.selected}
+            stepIndex={rowID}
             showModal={this.showModal}
             {...this.props}
             />

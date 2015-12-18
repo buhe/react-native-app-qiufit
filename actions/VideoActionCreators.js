@@ -7,6 +7,7 @@ var CommentActionCreators = Reflux.createActions([
   'reset',//重置store,
   'post',//发帖
   'finishTurning',
+  'setRef',
 ]);
 
 

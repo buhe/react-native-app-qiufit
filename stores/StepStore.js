@@ -8,7 +8,8 @@ const stepsMap = {
     {
       text1: "第一式 墙壁俯卧撑",
       text2: "逐步做到 3×50 次",
-      text3: "然后开始第二式"
+      text3: "然后开始第二式",
+      videoUrl: "http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_10mb.mp4"
     },
     {
       text1: "第二式 上斜俯卧撑",
