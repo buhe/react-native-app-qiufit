@@ -15,6 +15,7 @@ let videoHeight = deviceScreen.height * 2 / 5;
 import Theme from '../theme';
 var VideoModal = require('./modal');
 var Modal = require('react-native-fs-modal');
+import Picker from '../LandscapePicker';
 
 //var _ = require('lodash');
 
@@ -154,15 +155,9 @@ var VideoView = React.createClass({
             {controlView}
             <View style={{alignItems: 'center',flex:1}}>
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
-              <View style={styles.month}>
-                <TouchableHighlight onPress={this.prev}>
-                  <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
-                </TouchableHighlight>
-                <Text style={styles.month_text}>{this.state.subStep}</Text>
-                <TouchableHighlight onPress={this.next}>
-                  <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
-                </TouchableHighlight>
-              </View>
+             <Picker
+                 items={['初级标准','中级标准','高级标准']}
+                 />
               <View style={styles.turningAnalytics}>
                 <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
                 <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
@@ -293,21 +288,6 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 25,
     alignItems: 'center'
-  },
-  month: {
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    height: 40,
-    marginTop: 40,
-    alignItems: 'center'
-  },
-  month_text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  buttonIcon: {
-    width: 32,
-    height: 32,
   },
   turningAnalytics: {
     flex: 1,
