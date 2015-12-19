@@ -21,6 +21,7 @@ class API {
     var user = new AV.User();
     //user.id = objectId;
     user.id = objectId;
+    step = parseInt(step);
     var date = moment().format('YYYY-MM-DD');
     //1. 记录打卡信息
     var query1 = new AV.Query(CheckIn);

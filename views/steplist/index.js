@@ -79,6 +79,7 @@ var StepsView = React.createClass({
     this.refs.modal.close();
     var ref = this.state.steps[this.state.stepIndex];
     VideoActionCreators.setRef({
+      typeText:ref.text1,
       type: this.state.typeName,
       step: this.state.stepIndex,
       videoUrl: ref.videoUrl,

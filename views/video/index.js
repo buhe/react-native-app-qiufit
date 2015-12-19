@@ -13,6 +13,8 @@ var Router = require('../router');
 import VideoActionCreators from '../../actions/VideoActionCreators';
 let videoHeight = deviceScreen.height * 2 / 5;
 import Theme from '../theme';
+var VideoModal = require('./modal');
+var Modal = require('react-native-fs-modal');
 
 //var _ = require('lodash');
 
@@ -53,9 +55,16 @@ var VideoView = React.createClass({
     Reflux.connect(VideoStore)
   ],
   finish(){
+    this.refs.modal.close();
     //完成当前的type , step
     VideoActionCreators.finishTurning();
     this.props.navigator.push(Router.getResult());
+  },
+  closeModal(){
+    this.refs.modal.close();
+  },
+  showModal(){
+    this.refs.modal.show();
   }
   ,
   getInitialState: function () {
@@ -63,7 +72,8 @@ var VideoView = React.createClass({
       showControl: false,
       paused: false,
       muted: false,
-      showSendComment: false
+      showSendComment: false,
+      subStep:'初级标准',
     };
   },
   closeVoice(){
@@ -143,12 +153,12 @@ var VideoView = React.createClass({
             </TouchableWithoutFeedback>
             {controlView}
             <View style={{alignItems: 'center',flex:1}}>
-              <Text style={styles.title_text}>第一式: 墙壁俯卧撑</Text>
+              <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
               <View style={styles.month}>
                 <TouchableHighlight onPress={this.prev}>
                   <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
                 </TouchableHighlight>
-                <Text style={styles.month_text}>初级标准</Text>
+                <Text style={styles.month_text}>{this.state.subStep}</Text>
                 <TouchableHighlight onPress={this.next}>
                   <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
                 </TouchableHighlight>
@@ -161,7 +171,7 @@ var VideoView = React.createClass({
             </View>
             <View style={styles.separator}/>
             <TouchableHighlight
-                onPress={this.finish}
+                onPress={this.showModal}
                 style={[{
                         marginTop:40,
                         marginLeft:40,
@@ -192,6 +202,21 @@ var VideoView = React.createClass({
               >
             <Text style={styles.actionText}>写评论</Text>
           </TouchableHighlight>
+          <Modal
+              ref={'modal'}
+              duration={10}
+              tween={'linear'}
+              modalStyle={styles.modalStyle}
+              >
+            <View>
+              <VideoModal
+                  typeName={this.state.ref.type}
+                  stepName={this.state.ref.typeText}
+                  subStep={this.state.subStep}
+                  actionClick={this.finish}
+                  />
+            </View>
+          </Modal>
         </View>
     );
 
@@ -319,7 +344,13 @@ var styles = StyleSheet.create({
     left: 0,
     top: deviceScreen.height - 80,
     width: deviceScreen.width,
-  }
+  },
+  modalStyle: {
+    height: 365,
+    width: 315,
+    marginTop: (deviceScreen.height - 365) / 2,
+    marginLeft: (deviceScreen.width - 315 - 40) / 2,
+  },
 });
 
 module.exports = VideoView;

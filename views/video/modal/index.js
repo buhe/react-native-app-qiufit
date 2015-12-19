@@ -12,25 +12,25 @@ var {
     PixelRatio
     } = React;
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-class StepModal extends React.Component {
+import Button from '../../button';
+import Theme from '../../theme';
+class VideoModal extends React.Component {
   render() {
     return (
         <View>
           <View style={{padding:30}}>
-            <Image source={{uri:IMG_PREFIX + 'popover_bg.png'}} style={styles.bg}>
-              <Text style={styles.nestedText}>第一式</Text>
-            </Image>
-            <Text style={styles.title}>墙壁俯卧撑</Text>
-            <TouchableOpacity
-                //onPress={this.hideModal.bind(this)}
-                onPress={this.props.actionClick}
-                style={{paddingTop: 20,
-                        paddingLeft:100,
-                        paddingBottom:20,
-                        backgroundColor: 'black',}}
+            <View style={[Theme.centerChild]}>
+              <Image source={{uri:IMG_PREFIX + 'popover_'+this.props.typeName+'.png'}} style={styles.bg} />
+            </View>
+            <View style={[Theme.centerChild,{marginTop: 40}]}>
+              <Text style={styles.nestedText}>{this.props.stepName}</Text>
+              <Text style={[styles.title]}>{this.props.subStep}</Text>
+            </View>
+            <Button
+                press={this.props.actionClick}
+                text={'确定'}
                 >
-              <Text style={styles.actionText}>开始</Text>
-            </TouchableOpacity>
+            </Button>
           </View>
         </View>
     )
@@ -39,26 +39,18 @@ class StepModal extends React.Component {
 
 var styles = StyleSheet.create({
   bg: {
-    width: 255,
+    width: 90,
     height: 90
   },
   nestedText: {
-    marginLeft: 80,
-    marginTop: 15,
-    backgroundColor: 'transparent',
-    color: 'white',
-    fontSize: 25
+    top:-10,
+    fontWeight: 'bold',
+    fontSize: 24
   },
   title: {
-    margin: 40,
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#141414'
-  },
-  actionText: {
-    fontSize: 20,
-    color: 'white'
+    fontSize: 18,
+    color: '#1d1d1d'
   },
 });
 
-module.exports = StepModal;
+module.exports = VideoModal;
