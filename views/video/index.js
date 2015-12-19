@@ -74,7 +74,8 @@ var VideoView = React.createClass({
       paused: false,
       muted: false,
       showSendComment: false,
-      subStep:'初级标准',
+      subStep: '初级标准',
+      subStepIndex: 0,//2 * 50 这种..
     };
   },
   closeVoice(){
@@ -133,8 +134,8 @@ var VideoView = React.createClass({
     }
 
     var videoView = <View></View>;
-    if(this.state.ref.videoUrl){
-      videoView =    <Video
+    if (this.state.ref.videoUrl) {
+      videoView = <Video
           source={{uri: this.state.ref.videoUrl}} // Can be a URL or a local file.
           rate={1.0}                   // 0 is paused, 1 is normal.
           volume={1.0}                 // 0 is muted, 1 is normal.
@@ -155,12 +156,14 @@ var VideoView = React.createClass({
             {controlView}
             <View style={{alignItems: 'center',flex:1}}>
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
-             <Picker
-                 items={['初级标准','中级标准','高级标准']}
-                 />
+              <Picker
+                  items={['初级标准','中级标准','高级标准']}
+                  onChangeItem={(index,text)=>this.setState({subStepIndex:index})}
+                  />
               <View style={styles.turningAnalytics}>
                 <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
-                <Text style={styles.turningAnalyticsText}>1组, 10次</Text>
+                <Text
+                    style={styles.turningAnalyticsText}>{this.state.ref.subStep ? this.state.ref.subStep[this.state.subStepIndex] : ''}</Text>
                 <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
               </View>
             </View>

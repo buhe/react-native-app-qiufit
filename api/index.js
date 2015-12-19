@@ -164,6 +164,10 @@ class API {
     });
   }
 
+  postComment(){
+
+  }
+
 
 }
 

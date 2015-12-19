@@ -10,29 +10,54 @@ const stepsMap = {
       text1: "第一式 墙壁俯卧撑",
       text2: "逐步做到 3×50 次",
       text3: "然后开始第二式",
-      videoUrl: VIDEO_PREFIX+"a01.mp4"
+      videoUrl: VIDEO_PREFIX+"a01.mp4",
+      subStep:[
+        '1组, 10次',
+        '2组, 10次',
+        '3组, 10次',
+      ]
     },
     {
       text1: "第二式 上斜俯卧撑",
       text2: "逐步做到 3×40 次",
       text3: "然后开始第三式",
-      videoUrl: VIDEO_PREFIX+"a02.mp4"
+      videoUrl: VIDEO_PREFIX+"a02.mp4",
+      subStep:[
+        '1组, 10次',
+        '2组, 10次',
+        '3组, 10次',
+      ]
     },
     {
       text1: "第三式 膝盖俯卧撑",
       text2: "逐步做到 3×30 次",
       text3: "然后开始第四式",
-      videoUrl: VIDEO_PREFIX+"a03.mp4"
+      videoUrl: VIDEO_PREFIX+"a03.mp4",
+      subStep:[
+        '1×50',
+        '2×50',
+        '3×50',
+      ]
     }, {
       text1: "第四式 半俯卧撑",
       text2: "逐步做到 2×25 次",
       text3: "然后开始第五式",
-      videoUrl: VIDEO_PREFIX+"a04.mp4"
+      videoUrl: VIDEO_PREFIX+"a04.mp4",
+      subStep:[
+        '1×50',
+        '2×50',
+        '3×50',
+      ]
     }, {
       text1: "第五式 标准俯卧撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第六式",
-      videoUrl: VIDEO_PREFIX+"a05.mp4"
+      videoUrl: VIDEO_PREFIX+"a05.mp4",
+      subStep:[
+        '1×50',
+        '2×50',
+        '3×50',
+      ]
     },
     {
       text1: "第六式 窄距俯卧撑",

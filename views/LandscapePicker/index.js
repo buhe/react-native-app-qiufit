@@ -17,9 +17,9 @@ export default class Picker extends React.Component {
     this.state = {item: props.items ? props.items[0] : '', index: 0}
   }
 
-  _onChange() {
+  _onChange(index,item) {
     if(this.props.onChangeItem){
-      this.props.onChangeItem(this.state.item);
+      this.props.onChangeItem(index,item);
     }
   }
 
@@ -29,7 +29,7 @@ export default class Picker extends React.Component {
     } else {
       var index = this.state.index - 1;
       this.setState({index: index, item: this.props.items[index]});
-      this._onChange();
+      this._onChange(index,this.props.items[index]);
     }
   }
 
@@ -39,7 +39,7 @@ export default class Picker extends React.Component {
     }else{
       var index = this.state.index + 1;
       this.setState({index: index, item: this.props.items[index]});
-      this._onChange();
+      this._onChange(index,this.props.items[index]);
     }
   }
 
