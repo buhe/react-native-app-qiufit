@@ -62,13 +62,13 @@ var VideoView = React.createClass({
     return {
       showControl: false,
       paused: false,
-      voice: true,
+      muted: false,
       showSendComment: false
     };
   },
   closeVoice(){
     this.setState({
-      voice: !this.state.voice,
+      muted: !this.state.muted,
     });
   },
   press(){
@@ -98,7 +98,7 @@ var VideoView = React.createClass({
             <View style={styles.voiceWrapper}>
               <TouchableWithoutFeedback onPress={this.closeVoice}>
                 <Image style={styles.playButton}
-                       source={{uri: this.state.voice ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
+                       source={{uri: this.state.muted ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
               </TouchableWithoutFeedback>
             </View>
           </View>
@@ -127,7 +127,7 @@ var VideoView = React.createClass({
           source={{uri: this.state.ref.videoUrl}} // Can be a URL or a local file.
           rate={1.0}                   // 0 is paused, 1 is normal.
           volume={1.0}                 // 0 is muted, 1 is normal.
-          muted={this.state.voice}                // Mutes the audio entirely.
+          muted={this.state.muted}                // Mutes the audio entirely.
           paused={this.state.paused}               // Pauses playback entirely.
           repeat={true}// Repeat forever.
           style={styles.video}
