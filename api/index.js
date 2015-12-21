@@ -7,6 +7,7 @@ AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
 
 var CheckIn = AV.Object.extend("CheckIn");
 var Profile = AV.Object.extend("Profile");
+var Comment = AV.Object.extend("Comment");
 import UserStore from '../stores/UserStore';
 import moment from 'moment';
 
@@ -92,7 +93,7 @@ class API {
 
     var user = new AV.User();
     //user.id = objectId;
-    user.id = objectId
+    user.id = objectId;
 
     var query = new AV.Query(CheckIn);
     query.equalTo('user', user);
@@ -163,9 +164,54 @@ class API {
       }
     });
   }
+  /**
+   *
+   * @param type 类型
+   * @param step 第几步
+   * @param success
+   * @param fail
+   */
+  postComment(type,step,commentContent,success,fail){
+    //var objectId = UserStore.user.objectId;
+    var objectId = '566e652c60b25b0437222a51';
 
-  postComment(){
+    var user = new AV.User();
+    user.id = objectId;
+    //当前时间
+    var date = Date.now();
+    var comment = new Comment();
+    comment.set('user',user);
+    comment.set('date',date);
+    comment.set('type',type);
+    comment.set('step',step);
+    comment.set('comment',commentContent);
+    comment.save();
+  }
 
+  getComment(type,step,start,size,success,fail){
+
+    var query = new AV.Query(Comment);
+    query.equalTo('type', type);
+    query.equalTo('step', step);
+    query.include("user");
+    query.skip(start ? start : 0);
+    query.limit(size ? size : 10);
+    query.descending("date"); //时间反排序
+    query.find({
+      success: function (results) {
+        //merge
+        if(success){
+          success(results);
+        }
+
+      },
+      error: function (error) {
+        console.log("Error: " + error.code + " " + error.message);
+        if(fail){
+          fail(error);
+        }
+      }
+    });
   }
 
 

@@ -78,6 +78,9 @@ var VideoView = React.createClass({
       subStepIndex: 0,//2 * 50 这种..
     };
   },
+  componentDidMount:function() {
+    VideoActionCreators.pullNextComment();
+  },
   closeVoice(){
     this.setState({
       muted: !this.state.muted,

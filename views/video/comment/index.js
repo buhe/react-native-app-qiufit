@@ -13,10 +13,12 @@ import React, {
 
 import Nav from '../../nav/CommonNav';
 var deviceScreen = require('Dimensions').get('window');
+var VideoAction = require('../../../actions/VideoActionCreators');
 
 class Comment extends React.Component {
   post() {
-
+    VideoAction.post(this.state.text);
+    this.props.navigator.pop();
   }
 
   constructor(props) {
@@ -30,7 +32,7 @@ class Comment extends React.Component {
           <Nav
               navText={'写评论'}
               rightText={'发布'}
-              rightAction={this.post}
+              rightAction={this.post.bind(this)}
               {...this.props}
               />
           <TextInput
