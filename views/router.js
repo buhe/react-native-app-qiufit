@@ -7,6 +7,13 @@ var {
     Text
     } = React;
 let YourRouter = {
+  getInfo(){
+    return {
+      getSceneClass(){
+        return require('./video/info');
+      }
+    }
+  },
   getVerify(){
     return {
       getSceneClass(){

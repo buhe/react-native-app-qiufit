@@ -92,6 +92,9 @@ var VideoView = React.createClass({
       paused: !this.state.paused
     });
   },
+  info(){
+    this.props.navigator.push(Router.getInfo());
+  },
   switchCommentButton(){
     this.setState({
       showSendComment: !this.state.showSendComment,
@@ -108,7 +111,9 @@ var VideoView = React.createClass({
               </TouchableWithoutFeedback>
             </View>
             <View style={styles.infoWrapper}>
-              <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+              <TouchableWithoutFeedback onPress={this.info}>
+                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+              </TouchableWithoutFeedback>
             </View>
             <View style={styles.voiceWrapper}>
               <TouchableWithoutFeedback onPress={this.closeVoice}>

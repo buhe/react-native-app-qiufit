@@ -4,6 +4,7 @@
 import React, {
     StyleSheet,
 } from 'react-native';
+var deviceScreen = require('Dimensions').get('window');
 
 var styles = StyleSheet.create({
   centerChild: {

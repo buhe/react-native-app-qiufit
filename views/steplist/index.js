@@ -84,6 +84,7 @@ var StepsView = React.createClass({
       step: this.state.stepIndex,
       videoUrl: ref.videoUrl,
       subStep: ref.subStep,
+      infoImage:ref.infoImage
     });
     this.props.navigator.push(Router.getVideo());
   },

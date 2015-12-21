@@ -4,6 +4,7 @@ var Reflux = require('reflux');
 var Actions = require('../actions/StepActionCreators');
 var API = require('../api');
 const VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
+const INFO_IMAGE_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
 const stepsMap = {
   pushUp: [
     {
@@ -15,7 +16,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a1.jpg'
     },
     {
       text1: "第二式 上斜俯卧撑",
@@ -26,7 +28,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a2.jpg'
     },
     {
       text1: "第三式 膝盖俯卧撑",
@@ -37,7 +40,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a3.jpg'
     }, {
       text1: "第四式 半俯卧撑",
       text2: "逐步做到 2×25 次",
@@ -47,7 +51,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a4.jpg'
     }, {
       text1: "第五式 标准俯卧撑",
       text2: "逐步做到 2×20 次",
@@ -57,7 +62,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a5.jpg'
     },
     {
       text1: "第六式 窄距俯卧撑",
@@ -68,7 +74,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a6.jpg'
     },
     {
       text1: "第七式 偏重俯卧撑",
@@ -79,7 +86,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a7.jpg'
     },
     {
       text1: "第八式 单臂半俯卧撑",
@@ -90,7 +98,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a8.jpg'
     },
     {
       text1: "第九式 杠杆俯卧撑",
@@ -101,7 +110,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a9.jpg'
     },
     {
       text1: "最终式 单臂俯卧撑",
@@ -111,7 +121,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'a10.jpg'
     }
   ],
   deep: [
@@ -124,7 +135,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b1.jpg'
     },
     {
       text1: "第二式 折刀深蹲",
@@ -135,7 +147,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b2.jpg'
     },
     {
       text1: "第三式 支撑深蹲",
@@ -146,7 +159,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b3.jpg'
     }, {
       text1: "第四式 半深蹲",
       text2: "逐步做到 2×50 次",
@@ -156,7 +170,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b4.jpg'
     }, {
       text1: "第五式 标准深蹲",
       text2: "逐步做到 2×30 次",
@@ -166,7 +181,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b5.jpg'
     },
     {
       text1: "第六式 窄距深蹲",
@@ -177,7 +193,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b6.jpg'
     },
     {
       text1: "第七式 偏重深蹲",
@@ -188,7 +205,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b7.jpg'
     },
     {
       text1: "第八式 单腿半深蹲",
@@ -199,7 +217,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b8.jpg'
     },
     {
       text1: "第九式 单腿辅助深蹲",
@@ -210,7 +229,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b9.jpg'
     },
     {
       text1: "最终式 单腿深蹲",
@@ -220,7 +240,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'b10.jpg'
     }
   ],
   pullUp: [
@@ -233,7 +254,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c1.jpg'
     },
     {
       text1: "第二式 水平引体向上",
@@ -244,7 +266,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c2.jpg'
     },
     {
       text1: "第三式 折刀引体向上",
@@ -255,7 +278,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c3.jpg'
     }, {
       text1: "第四式 半引体向上",
       text2: "逐步做到 2×15 次",
@@ -265,7 +289,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c4.jpg'
     }, {
       text1: "第五式 标准引体向上",
       text2: "逐步做到 2×10 次",
@@ -275,7 +300,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c5.jpg'
     },
     {
       text1: "第六式 窄距引体向上",
@@ -286,7 +312,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c6.jpg'
     },
     {
       text1: "第七式 偏重引体向上",
@@ -297,7 +324,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c7.jpg'
     },
     {
       text1: "第八式 单臂半引体向上",
@@ -308,7 +336,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c8.jpg'
     },
     {
       text1: "第九式 单臂辅助引体向上",
@@ -319,7 +348,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c9.jpg'
     },
     {
       text1: "最终式 单臂引体向上",
@@ -329,7 +359,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'c10.jpg'
     }
   ],
   leg: [
@@ -342,7 +373,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd1.jpg'
     },
     {
       text1: "第二式 平卧抬膝",
@@ -353,7 +385,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd2.jpg'
     },
     {
       text1: "第三式 平卧屈举腿",
@@ -364,7 +397,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd3.jpg'
     }, {
       text1: "第四式 平卧蛙举腿",
       text2: "逐步做到 2×25 次",
@@ -374,7 +408,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd4.jpg'
     }, {
       text1: "第五式 平卧直举腿",
       text2: "逐步做到 2×20 次",
@@ -384,7 +419,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd5.jpg'
     },
     {
       text1: "第六式 悬垂举腿",
@@ -395,7 +431,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd6.jpg'
     },
     {
       text1: "第七式 悬垂屈举腿",
@@ -406,7 +443,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd7.jpg'
     },
     {
       text1: "第八式 悬垂蛙举腿",
@@ -417,7 +455,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd8.jpg'
     },
     {
       text1: "第九式 悬垂半举腿",
@@ -428,7 +467,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd9.jpg'
     },
     {
       text1: "最终式 悬垂直举腿",
@@ -438,7 +478,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'd10.jpg'
     }
   ],
   bridge: [
@@ -451,7 +492,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e1.jpg'
     },
     {
       text1: "第二式 直桥",
@@ -462,7 +504,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e2.jpg'
     },
     {
       text1: "第三式 高低桥",
@@ -473,7 +516,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e3.jpg'
     }, {
       text1: "第四式 顶桥",
       text2: "逐步做到 2×25 次",
@@ -483,7 +527,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e4.jpg'
     }, {
       text1: "第五式 半桥",
       text2: "逐步做到 2×20 次",
@@ -493,7 +538,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e5.jpg'
     },
     {
       text1: "第六式 标准桥",
@@ -504,7 +550,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e6.jpg'
     },
     {
       text1: "第七式 下行桥",
@@ -515,7 +562,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e7.jpg'
     },
     {
       text1: "第八式 上行桥",
@@ -526,7 +574,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e8.jpg'
     },
     {
       text1: "第九式 合桥",
@@ -537,7 +586,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e9.jpg'
     },
     {
       text1: "最终式 铁板桥",
@@ -547,7 +597,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'e10.jpg'
     }
   ],
   handstand: [
@@ -559,7 +610,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f1.jpg'
     },
     {
       text1: "第二式 乌鸦式",
@@ -569,7 +621,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f2.jpg'
     },
     {
       text1: "第三式 靠墙倒立",
@@ -579,7 +632,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f3.jpg'
     }, {
       text1: "第四式 半倒立撑",
       text2: "逐步做到 2×20 次",
@@ -588,7 +642,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f4.jpg'
     }, {
       text1: "第五式 标准倒立撑",
       text2: "逐步做到 2×15 次",
@@ -597,7 +652,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f5.jpg'
     },
     {
       text1: "第六式 窄距倒立撑",
@@ -607,7 +663,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f6.jpg'
     },
     {
       text1: "第七式 偏重倒立撑",
@@ -617,7 +674,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f7.jpg'
     },
     {
       text1: "第八式 单臂半倒立撑",
@@ -627,7 +685,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f8.jpg'
     },
     {
       text1: "第九式 杠杆倒立撑",
@@ -637,7 +696,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f9.jpg'
     },
     {
       text1: "最终式 单臂倒立撑",
@@ -646,7 +706,8 @@ const stepsMap = {
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
-      ]
+      ],
+      infoImage:INFO_IMAGE_PREFIX + 'f10.jpg'
     }
   ],
 };
