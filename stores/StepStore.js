@@ -14,8 +14,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"a01.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 25次',
+        '3组, 50次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a1.jpg'
     },
@@ -26,8 +26,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"a02.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
+        '3组, 40次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a2.jpg'
     },
@@ -38,8 +38,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"a03.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
+        '3组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a3.jpg'
     }, {
@@ -48,9 +48,9 @@ const stepsMap = {
       text3: "然后开始第五式",
       videoUrl: VIDEO_PREFIX+"a04.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 8次',
+        '2组, 12次',
+        '2组, 25次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a4.jpg'
     }, {
@@ -59,9 +59,9 @@ const stepsMap = {
       text3: "然后开始第六式",
       videoUrl: VIDEO_PREFIX+"a05.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a5.jpg'
     },
@@ -71,9 +71,9 @@ const stepsMap = {
       text3: "然后开始第七式",
       videoUrl: VIDEO_PREFIX+"a06.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a6.jpg'
     },
@@ -83,9 +83,9 @@ const stepsMap = {
       text3: "然后开始第八式",
       videoUrl: VIDEO_PREFIX+"a07_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 10次 (每侧)',
+        '3组, 20次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a7.jpg'
     },
@@ -95,9 +95,9 @@ const stepsMap = {
       text3: "然后开始第九式",
       videoUrl: VIDEO_PREFIX+"a08_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 10次 (每侧)',
+        '2组, 20次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a8.jpg'
     },
@@ -107,9 +107,9 @@ const stepsMap = {
       text3: "然后开始第最终式",
       videoUrl: VIDEO_PREFIX+"a09_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 10次 (每侧)',
+        '2组, 20次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a9.jpg'
     },
@@ -118,9 +118,9 @@ const stepsMap = {
       text2: "终极耐力 1×100 次",
       videoUrl: VIDEO_PREFIX+"a10_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 20次 (每侧)',
+        '1组, 100次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'a10.jpg'
     }
@@ -133,8 +133,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"b01.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 25次',
+        '3组, 50次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b1.jpg'
     },
@@ -145,8 +145,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"b02.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
+        '3组, 40次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b2.jpg'
     },
@@ -157,8 +157,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"b03.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
+        '3组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b3.jpg'
     }, {
@@ -167,9 +167,9 @@ const stepsMap = {
       text3: "然后开始第五式",
       videoUrl: VIDEO_PREFIX+"b04.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 8次',
+        '2组, 35次',
+        '2组, 50次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b4.jpg'
     }, {
@@ -178,9 +178,9 @@ const stepsMap = {
       text3: "然后开始第六式",
       videoUrl: VIDEO_PREFIX+"b05.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '3组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b5.jpg'
     },
@@ -190,9 +190,9 @@ const stepsMap = {
       text3: "然后开始第七式",
       videoUrl: VIDEO_PREFIX+"b06.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b6.jpg'
     },
@@ -202,9 +202,9 @@ const stepsMap = {
       text3: "然后开始第八式",
       videoUrl: VIDEO_PREFIX+"b07_empty.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '3组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b7.jpg'
     },
@@ -226,9 +226,9 @@ const stepsMap = {
       text3: "然后开始第最终式",
       videoUrl: VIDEO_PREFIX+"b09_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 10次 (每侧)',
+        '2组, 20次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b9.jpg'
     },
@@ -237,9 +237,9 @@ const stepsMap = {
       text2: "终极耐力 2×50 次",
       videoUrl: VIDEO_PREFIX+"b10_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 10次 (每侧)',
+        '2组, 10次 (每侧)',
+        '2组, 50次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'b10.jpg'
     }
@@ -252,8 +252,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"c01.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
+        '3组, 40次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c1.jpg'
     },
@@ -264,8 +264,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"c02.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
+        '3组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c2.jpg'
     },
@@ -276,8 +276,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"c03.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
+        '3组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c3.jpg'
     }, {
@@ -286,9 +286,9 @@ const stepsMap = {
       text3: "然后开始第五式",
       videoUrl: VIDEO_PREFIX+"c04.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 8次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c4.jpg'
     }, {
@@ -297,9 +297,9 @@ const stepsMap = {
       text3: "然后开始第六式",
       videoUrl: VIDEO_PREFIX+"c05.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
+        '2组, 8次',
         '2组, 10次',
-        '3组, 10次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c5.jpg'
     },
@@ -309,9 +309,9 @@ const stepsMap = {
       text3: "然后开始第七式",
       videoUrl: VIDEO_PREFIX+"c06.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
+        '2组, 8次',
         '2组, 10次',
-        '3组, 10次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c6.jpg'
     },
@@ -321,9 +321,9 @@ const stepsMap = {
       text3: "然后开始第八式",
       videoUrl: VIDEO_PREFIX+"c07_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 7次 (每侧)',
+        '2组, 9次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c7.jpg'
     },
@@ -333,9 +333,9 @@ const stepsMap = {
       text3: "然后开始第九式",
       videoUrl: VIDEO_PREFIX+"c08_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 4次 (每侧)',
+        '1组, 8次 (每侧)',
+        '2组, 8次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c8.jpg'
     },
@@ -345,9 +345,9 @@ const stepsMap = {
       text3: "然后开始第最终式",
       videoUrl: VIDEO_PREFIX+"c09_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 3次 (每侧)',
+        '2组, 5次 (每侧)',
+        '2组, 7次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c9.jpg'
     },
@@ -356,9 +356,9 @@ const stepsMap = {
       text2: "终极耐力 2×7 次",
       videoUrl: VIDEO_PREFIX+"c10_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 1次 (每侧)',
+        '2组, 3次 (每侧)',
+        '2组, 7次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'c10.jpg'
     }
@@ -371,8 +371,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"d01.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 25次',
+        '4组, 40次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd1.jpg'
     },
@@ -383,8 +383,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"d02.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
+        '3组, 35次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd2.jpg'
     },
@@ -395,8 +395,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"d03.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
+        '3组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd3.jpg'
     }, {
@@ -405,9 +405,9 @@ const stepsMap = {
       text3: "然后开始第五式",
       videoUrl: VIDEO_PREFIX+"d04.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 8次',
+        '2组, 15次',
+        '3组, 25次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd4.jpg'
     }, {
@@ -416,9 +416,9 @@ const stepsMap = {
       text3: "然后开始第六式",
       videoUrl: VIDEO_PREFIX+"d05.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd5.jpg'
     },
@@ -428,9 +428,9 @@ const stepsMap = {
       text3: "然后开始第七式",
       videoUrl: VIDEO_PREFIX+"d06.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd6.jpg'
     },
@@ -440,9 +440,9 @@ const stepsMap = {
       text3: "然后开始第八式",
       videoUrl: VIDEO_PREFIX+"d07_empty.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd7.jpg'
     },
@@ -452,9 +452,9 @@ const stepsMap = {
       text3: "然后开始第九式",
       videoUrl: VIDEO_PREFIX+"d08_empty.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd8.jpg'
     },
@@ -464,9 +464,9 @@ const stepsMap = {
       text3: "然后开始第最终式",
       videoUrl: VIDEO_PREFIX+"d09_empty.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd9.jpg'
     },
@@ -475,9 +475,9 @@ const stepsMap = {
       text2: "终极耐力 2×30 次",
       videoUrl: VIDEO_PREFIX+"d10_empty.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'd10.jpg'
     }
@@ -490,8 +490,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"e01.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 25次',
+        '3组, 50次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e1.jpg'
     },
@@ -502,8 +502,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"e02.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
+        '3组, 40次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e2.jpg'
     },
@@ -513,9 +513,9 @@ const stepsMap = {
       text3: "然后开始第四式",
       videoUrl: VIDEO_PREFIX+"e03.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 8次',
+        '2组, 15次',
+        '3组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e3.jpg'
     }, {
@@ -525,8 +525,8 @@ const stepsMap = {
       videoUrl: VIDEO_PREFIX+"e04.mp4",
       subStep:[
         '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
+        '3组, 25次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e4.jpg'
     }, {
@@ -535,9 +535,9 @@ const stepsMap = {
       text3: "然后开始第六式",
       videoUrl: VIDEO_PREFIX+"e05.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 8次',
+        '2组, 15次',
+        '2组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e5.jpg'
     },
@@ -547,9 +547,9 @@ const stepsMap = {
       text3: "然后开始第七式",
       videoUrl: VIDEO_PREFIX+"e06.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 6次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e6.jpg'
     },
@@ -559,9 +559,9 @@ const stepsMap = {
       text3: "然后开始第八式",
       videoUrl: VIDEO_PREFIX+"e07_empty.mp4",
       subStep:[
-        '1组, 10次',
+        '1组, 3次',
+        '2组, 6次',
         '2组, 10次',
-        '3组, 10次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e7.jpg'
     },
@@ -571,9 +571,9 @@ const stepsMap = {
       text3: "然后开始第九式",
       videoUrl: VIDEO_PREFIX+"e08_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 2次',
+        '2组, 4次',
+        '2组, 8次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e8.jpg'
     },
@@ -583,9 +583,9 @@ const stepsMap = {
       text3: "然后开始第最终式",
       videoUrl: VIDEO_PREFIX+"e09_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 1次',
+        '2组, 3次',
+        '2组, 6次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e9.jpg'
     },
@@ -594,9 +594,9 @@ const stepsMap = {
       text2: "终极耐力 2×30 次",
       videoUrl: VIDEO_PREFIX+"e10_empty.mp4",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 1次',
+        '2组, 3次',
+        '2组, 30次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'e10.jpg'
     }
@@ -618,9 +618,9 @@ const stepsMap = {
       text2: "逐步做到 1分钟",
       text3: "然后开始第三式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '30秒',
+        '30秒',
+        '1分钟',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f2.jpg'
     },
@@ -629,9 +629,9 @@ const stepsMap = {
       text2: "逐步做到 2分钟",
       text3: "然后开始第四式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '10秒',
+        '1分钟',
+        '2分钟',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f3.jpg'
     }, {
@@ -639,9 +639,9 @@ const stepsMap = {
       text2: "逐步做到 2×20 次",
       text3: "然后开始第五式",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 20次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f4.jpg'
     }, {
@@ -649,9 +649,9 @@ const stepsMap = {
       text2: "逐步做到 2×15 次",
       text3: "然后开始第六式",
       subStep:[
-        '1组, 10次',
+        '1组, 5次',
         '2组, 10次',
-        '3组, 10次',
+        '2组, 15次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f5.jpg'
     },
@@ -660,9 +660,9 @@ const stepsMap = {
       text2: "逐步做到 2×12 次",
       text3: "然后开始第七式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次',
+        '2组, 9次',
+        '2组, 12次',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f6.jpg'
     },
@@ -671,9 +671,9 @@ const stepsMap = {
       text2: "逐步做到 2×10 次",
       text3: "然后开始第八式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 5次 (每侧)',
+        '2组, 8次 (每侧)',
+        '2组, 10次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f7.jpg'
     },
@@ -682,9 +682,9 @@ const stepsMap = {
       text2: "逐步做到 2×8 次",
       text3: "然后开始第九式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 4次 (每侧)',
+        '2组, 6次 (每侧)',
+        '2组, 8次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f8.jpg'
     },
@@ -693,9 +693,9 @@ const stepsMap = {
       text2: "逐步做到 2×6 次",
       text3: "然后开始第最终式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 3次 (每侧)',
+        '2组, 4次 (每侧)',
+        '2组, 6次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f9.jpg'
     },
@@ -703,9 +703,9 @@ const stepsMap = {
       text1: "最终式 单臂倒立撑",
       text2: "终极耐力 2×5 次",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '1组, 1次 (每侧)',
+        '2组, 2次 (每侧)',
+        '2组, 5次 (每侧)',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f10.jpg'
     }
