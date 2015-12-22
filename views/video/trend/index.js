@@ -14,7 +14,7 @@ import React, {
 } from 'react-native';
 import Nav from "../../nav/CommonNav";
 import Reflux from 'reflux';
-import TrendStore from '../../../stores/TrendStore';
+import VideoStore from '../../../stores/VideoStore';
 import Separator from '../../../components/Separator'
 var deviceScreen = require('Dimensions').get('window');
 
@@ -24,7 +24,7 @@ class TrendItem extends React.Component {
         <View style={styles.container}>
           <View>
             <Text>{this.props.nickname}</Text>
-            <Text>{this.props.time}</Text>
+            <Text>{this.props.date}</Text>
           </View>
           <Separator />
         </View>
@@ -34,7 +34,7 @@ class TrendItem extends React.Component {
 
 var Trend = React.createClass( {
   mixins: [
-    Reflux.connect(TrendStore)
+    Reflux.connect(VideoStore)
   ],
   getInitialState() {
     return {
@@ -61,7 +61,7 @@ var Trend = React.createClass( {
   renderTrend: function (q) {
     return ( <TrendItem
             nickname={q.nickname}
-            time={q.time}
+            date={q.date}
             {...this.props}
             />
     );

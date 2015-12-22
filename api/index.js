@@ -164,6 +164,7 @@ class API {
       }
     });
   }
+
   /**
    *
    * @param type 类型
@@ -171,7 +172,7 @@ class API {
    * @param success
    * @param fail
    */
-  postComment(type,step,commentContent,success,fail){
+  postComment(type, step, commentContent, success, fail) {
     //var objectId = UserStore.user.objectId;
     var objectId = '566e652c60b25b0437222a51';
 
@@ -180,15 +181,15 @@ class API {
     //当前时间
     var date = Date.now();
     var comment = new Comment();
-    comment.set('user',user);
-    comment.set('date',date);
-    comment.set('type',type);
-    comment.set('step',step);
-    comment.set('comment',commentContent);
+    comment.set('user', user);
+    comment.set('date', date);
+    comment.set('type', type);
+    comment.set('step', step);
+    comment.set('comment', commentContent);
     comment.save();
   }
 
-  getComment(type,step,start,size,success,fail){
+  getComment(type, step, start, size, success, fail) {
 
     var query = new AV.Query(Comment);
     query.equalTo('type', type);
@@ -200,20 +201,74 @@ class API {
     query.find({
       success: function (results) {
         //merge
-        if(success){
+        if (success) {
           success(results);
         }
 
       },
       error: function (error) {
         console.log("Error: " + error.code + " " + error.message);
-        if(fail){
+        if (fail) {
           fail(error);
         }
       }
     });
   }
 
+  getTrend(type, step, start, size, success, fail) {
+
+    var query = new AV.Query(Profile);
+    query.equalTo('type', type);
+    query.equalTo('step', step);
+    query.include("user");
+    query.skip(start ? start : 0);
+    query.limit(size ? size : 10);
+    query.descending("date"); //时间反排序
+    query.find({
+      success: function (results) {
+        var trends = [];
+        for (var i = 0; i < results.length; i++) {
+          var data = results[i];
+          var nickname = data.get('user').get('username');
+          var date = data.get('date');
+          trends.push({
+            nickname: nickname,
+            date: moment(date).format('YYYY-MM-DD')
+          });
+        }
+        //merge
+        if (success) {
+          success(trends);
+        }
+      },
+      error: function (error) {
+        console.log("Error: " + error.code + " " + error.message);
+        if (fail) {
+          fail(error);
+        }
+      }
+    });
+  }
+
+  getTrendCount(type, step, success, fail) {
+
+    var query = new AV.Query(Profile);
+    query.equalTo('type', type);
+    query.equalTo('step', step);
+    query.count({
+      success: function (count) {
+        if (success) {
+          success(count);
+        }
+      },
+      error: function (error) {
+        console.log("Error: " + error.code + " " + error.message);
+        if (fail) {
+          fail(error);
+        }
+      }
+    });
+  }
 
 }
 

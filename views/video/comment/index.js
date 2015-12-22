@@ -18,6 +18,7 @@ var VideoAction = require('../../../actions/VideoActionCreators');
 class Comment extends React.Component {
   post() {
     VideoAction.post(this.state.text);
+    VideoAction.refreshComments();
     this.props.navigator.pop();
   }
 

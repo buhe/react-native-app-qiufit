@@ -10,33 +10,59 @@ import moment from 'moment';
 
 var CommentStore = Reflux.createStore({
   listenables: Actions,
-  //FIXME 分页没做
-  pullNextComment:function(){
-    API.getComment(this.ref.type, this.ref.step,0,20,function(results){
+  refreshComments:function(){
+    API.getComment(this.ref.type, this.ref.step, 0, 20, function (results) {
+      this.comments = [];
       for (var i = 0; i < results.length; i++) {
         var data = results[i];
         var user = data.get('user');
         var date = data.get('date');
         var comment = data.get('comment');
         this.comments.push({
-          nickname:user.get('username'),
-          time:moment(date).format('YYYY-MM-DD'),
-          commentContent:comment
+          nickname: user.get('username'),
+          time: moment(date).format('YYYY-MM-DD'),
+          commentContent: comment
         });
       }
       this.trigger(this);
-    }.bind(this),function(error){
+    }.bind(this), function (error) {
 
     })
   },
-  post: function(comment){
-    API.postComment(this.ref.type, this.ref.step,comment);
+  //FIXME 分页没做
+  pullNextComment: function () {
+    API.getComment(this.ref.type, this.ref.step, 0, 20, function (results) {
+      for (var i = 0; i < results.length; i++) {
+        var data = results[i];
+        var user = data.get('user');
+        var date = data.get('date');
+        var comment = data.get('comment');
+        this.comments.push({
+          nickname: user.get('username'),
+          time: moment(date).format('YYYY-MM-DD'),
+          commentContent: comment
+        });
+      }
+      this.trigger(this);
+    }.bind(this), function (error) {
+
+    })
+  },
+  post: function (comment) {
+    API.postComment(this.ref.type, this.ref.step, comment);
   },
   finishTurning: function () {
     API.finishTurning(this.ref.type, this.ref.step);
   },
-  fetchComments: function () {
-
+  getTrendCount: function () {
+    API.getTrendCount(this.ref.type, this.ref.step,function(count){
+      this.trendCount = count;
+    }.bind(this),function(error){})
+  },
+  pullNextTrends: function () {
+    API.getTrend(this.ref.type, this.ref.step, 0, 20,function(trends){
+      this.trends = trends;
+    }.bind(this),function(error){})
   },
   setRef: function (ref) {
     this.ref = ref;
@@ -44,14 +70,14 @@ var CommentStore = Reflux.createStore({
   },
   getInitialState: function () {
     this.comments = this.comments || [];
-    //this.type = this.type || '';
-    //this.step = this.step || '';
     this.ref = this.ref || {};
+    this.trendCount = this.trendCount || 0;
+    this.trends = this.trends || [];
     return {
       comments: this.comments,
-      //type: this.type,
-      //step: this.step,
       ref: this.ref,
+      trendCount: this.trendCount,
+      trends: this.trends,
     };
   },
   reset(){

@@ -81,7 +81,7 @@ var StepsView = React.createClass({
     VideoActionCreators.setRef({
       typeText:ref.text1,
       type: this.state.typeName,
-      step: this.state.stepIndex,
+      step: parseInt(this.state.stepIndex),
       videoUrl: ref.videoUrl,
       subStep: ref.subStep,
       infoImage:ref.infoImage

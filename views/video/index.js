@@ -79,7 +79,12 @@ var VideoView = React.createClass({
     };
   },
   componentDidMount:function() {
+    //加载评论
     VideoActionCreators.pullNextComment();
+    //加载动态数量
+    VideoActionCreators.getTrendCount();
+    //加载动态列表
+    VideoActionCreators.pullNextTrends();
   },
   closeVoice(){
     this.setState({
@@ -191,7 +196,7 @@ var VideoView = React.createClass({
             <TouchableWithoutFeedback onPress={() => this.props.navigator.push(Router.getTrend())}
                 >
               <View style={[Theme.centerChild,{paddingBottom:20,paddingTop:20,}]}>
-                <Text style={styles.turingText}>10个人完成该训练</Text>
+                <Text style={styles.turingText}>{this.state.trendCount}个人完成该训练</Text>
               </View>
             </TouchableWithoutFeedback>
             <View style={[styles.separator,{height: 2,}]}/>
