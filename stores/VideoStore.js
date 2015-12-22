@@ -57,11 +57,13 @@ var CommentStore = Reflux.createStore({
   getTrendCount: function () {
     API.getTrendCount(this.ref.type, this.ref.step,function(count){
       this.trendCount = count;
+      this.trigger(this);
     }.bind(this),function(error){})
   },
   pullNextTrends: function () {
     API.getTrend(this.ref.type, this.ref.step, 0, 20,function(trends){
       this.trends = trends;
+      this.trigger(this);
     }.bind(this),function(error){})
   },
   setRef: function (ref) {
