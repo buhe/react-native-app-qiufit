@@ -80,7 +80,7 @@ var VideoView = React.createClass({
   },
   componentWillMount: function () {
     //加载评论
-    VideoActionCreators.pullNextComment();
+    VideoActionCreators.refreshComments();
     //加载动态数量
     VideoActionCreators.getTrendCount();
     //加载动态列表
