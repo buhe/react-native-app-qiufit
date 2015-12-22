@@ -78,7 +78,7 @@ var VideoView = React.createClass({
       subStepIndex: 0,//2 * 50 这种..
     };
   },
-  componentDidMount:function() {
+  componentWillMount:function() {
     //加载评论
     VideoActionCreators.pullNextComment();
     //加载动态数量

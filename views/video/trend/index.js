@@ -12,6 +12,7 @@ import React, {
     ScrollView,
     ListView,
 } from 'react-native';
+const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Nav from "../../nav/CommonNav";
 import Reflux from 'reflux';
 import VideoStore from '../../../stores/VideoStore';
@@ -19,12 +20,16 @@ import Separator from '../../../components/Separator'
 var deviceScreen = require('Dimensions').get('window');
 
 class TrendItem extends React.Component {
-  render(){
+  render() {
     return (
-        <View style={styles.container}>
-          <View>
-            <Text>{this.props.nickname}</Text>
-            <Text>{this.props.date}</Text>
+        <View>
+          <View style={styles.container}>
+            <View style={{flexDirection:'row', alignItems: 'center'}}>
+              <Image style={styles.commentAvatar}
+                     source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
+              <Text>{this.props.nickname}</Text>
+            </View>
+            <Text style={{marginRight:10,fontSize:12,color:'gray'}}>{this.props.date}</Text>
           </View>
           <Separator />
         </View>
@@ -32,7 +37,7 @@ class TrendItem extends React.Component {
   }
 }
 
-var Trend = React.createClass( {
+var Trend = React.createClass({
   mixins: [
     Reflux.connect(VideoStore)
   ],
@@ -47,7 +52,7 @@ var Trend = React.createClass( {
     return (
         <View>
           <Nav
-              navText = {'训练动态'}
+              navText={'训练动态'}
               {... this.props}
               />
           <ListView
@@ -62,6 +67,7 @@ var Trend = React.createClass( {
     return ( <TrendItem
             nickname={q.nickname}
             date={q.date}
+            avatarUrl={q.avatarUrl}
             {...this.props}
             />
     );
@@ -72,13 +78,20 @@ var Trend = React.createClass( {
 var styles = StyleSheet.create({
   listView: {
     flex: 1,
-    height:deviceScreen.height - 60
+    height: deviceScreen.height - 60
   },
   container: {
-    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     height: 60,
-    paddingTop: 15,
-    paddingBottom: 15,
+    width: deviceScreen.width,
+  },
+  commentAvatar: {
+    height: 25,
+    width: 25,
+    marginLeft: 10,
+    marginRight: 10,
   },
 });
 
