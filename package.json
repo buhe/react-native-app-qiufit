@@ -16,7 +16,7 @@
     "react-native-fs-modal": "^0.1.0",
     "react-native-video": "git://github.com/brentvatne/react-native-video.git#f4c3e1",
     "react-native-view-snapshot": "0.0.1",
-    "react-native-wechat": "^1.2.0",
+    "react-native-wechat-ios": "^0.1.6",
     "reflux": "^0.3.0",
     "superagent": "^1.4.0"
   }

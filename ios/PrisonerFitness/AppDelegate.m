@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 #import "RCTRootView.h"
-#import "RadarChartViewController.h"
+#import "RCTWeChat.h"
 
 @implementation AppDelegate
 
@@ -56,12 +56,18 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-//  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//  RadarChartViewController *vc = [[RadarChartViewController alloc] init];
-//  UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-//  _window.rootViewController = nvc;
-//  [_window makeKeyAndVisible];
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+  return [[RCTWeChat shareInstance] handleOpenURL: url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  
+  return [[RCTWeChat shareInstance] handleOpenURL: url];
+  
 }
 
 @end

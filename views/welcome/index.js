@@ -7,14 +7,33 @@ import React, {
     View,
     StyleSheet,
     TouchableOpacity,
+    AlertIOS,
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
 var Router = require('../router');
+import {NativeAppEventEmitter} from 'react-native';
+import WeChat from 'react-native-wechat-ios';
+
+NativeAppEventEmitter.addListener(
+    'didRecvAuthResponse',
+    (response) => AlertIOS.alert(JSON.stringify(response))
+);
 
 class Welcome extends React.Component {
-  wechatLogin() {
 
+  componentWillMount(){
+    WeChat.registerApp('wxb401408ecbea2897', (res) => {
+      AlertIOS.alert(JSON.stringify(res)); // true or false
+    });
+  }
+
+  wechatLogin() {
+    let scope = 'snsapi_userinfo';
+    let state = 'wechat_sdk_test';
+    WeChat.sendAuthReq(scope, state, (res) => {
+      AlertIOS.alert(JSON.stringify(res)); // true or false
+    });
   }
 
   render() {
