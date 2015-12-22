@@ -78,7 +78,7 @@ var VideoView = React.createClass({
       subStepIndex: 0,//2 * 50 这种..
     };
   },
-  componentWillMount:function() {
+  componentWillMount: function () {
     //加载评论
     VideoActionCreators.pullNextComment();
     //加载动态数量
@@ -167,6 +167,9 @@ var VideoView = React.createClass({
               {videoView}
             </TouchableWithoutFeedback>
             {controlView}
+            <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
+              <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+            </TouchableWithoutFeedback>
             <View style={{alignItems: 'center',flex:1}}>
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
               <Picker
@@ -346,6 +349,14 @@ var styles = StyleSheet.create({
     width: 315,
     marginTop: (deviceScreen.height - 365) / 2,
     marginLeft: (deviceScreen.width - 315 - 40) / 2,
+  },
+  closeImage: {
+    position: 'absolute', //有的就可以,有的就显示不出来
+    left: 0,
+    top: 0,
+    width: 64,
+    height: 64,
+    backgroundColor: 'transparent',
   },
 });
 
