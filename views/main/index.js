@@ -62,7 +62,7 @@ var PrisonerFitness = React.createClass({
   mixins: [Reflux.connect(UserStore)],
   render: function () {
     var view;
-    if (this.state.user.username && this.state.verify === 'TRUE') {
+    if (this.state.user.username && this.state.verify && this.state.verify.verify === 'TRUE') {
       view = <MainView />;
     } else {
       view = <WelcomeView />;

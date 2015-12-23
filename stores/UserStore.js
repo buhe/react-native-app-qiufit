@@ -22,7 +22,6 @@ var UserStore = Reflux.createStore({
         UserLocalStorage.save(localUser);
         this.user = localUser;
         global.userId = this.user.id;
-        AlertIOS.alert(userId);
         if(localUser.type === 'wechat'){
           this.verify = 'TRUE';
         }
@@ -39,6 +38,7 @@ var UserStore = Reflux.createStore({
       this.user = {};
       UserLocalStorage.get(function (user) {
         this.user = user;
+        global.userId = this.user.id;
         this.trigger(this);
       }.bind(this));
 

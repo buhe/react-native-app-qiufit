@@ -165,7 +165,7 @@ class API {
   postComment(type, step, commentContent, success, fail) {
     var user = new AV.User();
     user.id = userId;
-    
+
     //当前时间
     var date = Date.now();
     var comment = new Comment();
