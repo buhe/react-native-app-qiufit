@@ -11,13 +11,18 @@ var Comment = AV.Object.extend("Comment");
 import UserStore from '../stores/UserStore';
 import moment from 'moment';
 
+var React = require('react-native');
+var {
+    AlertIOS,
+    } = React;
+
 class API {
 
   /**
    * 完成训练
    */
   finishTurning(type, step) {
-    if(userId === 'unset'){
+    if (userId === 'unset') {
       return;
     }
     var user = new AV.User();
@@ -88,7 +93,7 @@ class API {
    * @param user
    */
   pullTurningDate(success, fail) {
-    if(userId === 'unset'){
+    if (userId === 'unset') {
       success({});
     }
     var user = new AV.User();
@@ -132,7 +137,7 @@ class API {
    * @param user
    */
   pullTurningStep(success, fail) {
-    if(userId === 'unset'){
+    if (userId === 'unset') {
       success({});
     }
     var user = new AV.User();
@@ -172,7 +177,7 @@ class API {
    * @param fail
    */
   postComment(type, step, commentContent, success, fail) {
-    if(userId === 'unset'){
+    if (userId === 'unset') {
       success({});
     }
     var user = new AV.User();
@@ -270,73 +275,28 @@ class API {
     });
   }
 
-  registerUser(user,success,fail){
-    if(user.type === 'wechat'){
-      this.registerWeChatUser(user,success,fail);
-    }else if(user.type = 'mob'){
-      this.registerMobUser(user,success,fail);
-    }else{
+  registerUser(user, success, fail) {
+    if (user.type === 'wechat') {
+      this.registerWeChatUser(user, success, fail);
+    } else if (user.type = 'mob') {
+      this.registerMobUser(user, success, fail);
+    } else {
 
     }
   }
 
-  //注册Mob用户
-  registerMobUser(mobUser, success, fail) {
-    var username = mobUser.username;
-    var password = mobUser.username;
-    var phone = mobUser.phone;
-    AV.User.logIn(username, password, {
-      success: function (userServer) {
-        AV.User.requestMobilePhoneVerify(phone).then(function () {
-          console.log('send successful');
-          if (success) {
-            success(userServer);
-          }
-          //发送成功
-        }, function (err) {
-          console.log(err);
-          if (fail) {
-            fail(err);
-          }
-          //发送失败
-        });
-        //!--------------------------
-      },
-      error: function (user, error) {
-        var user = new AV.User();
-        user.set("username", phone);
-        user.set("password", phone);
-        user.setMobilePhoneNumber(phone);
-
-        user.signUp(null, {
-          success: function (userServer) {
-
-            AV.User.requestMobilePhoneVerify(phone).then(function () {
-              console.log('send successful');
-              userServer.set('type','mob');
-              userServer.save();
-              if (success) {
-                success(userServer);
-              }
-              //发送成功
-            }, function (err) {
-              console.log(err);
-              if (fail) {
-                fail(err);
-              }
-              //发送失败
-            });
-          },
-          error: function (user, err) {
-            if (fail) {
-              fail(err);
-            }
-          }
-        });
-
-      }
-    });
-  }
+  ////注册Mob用户
+  //registerMobUser(mobUser, success, fail) {
+  //  var username = mobUser.username;
+  //  var password = mobUser.username;
+  //  var phone = mobUser.phone;
+  //  AV.Cloud.requestSmsCode(phone).then(function () {
+  //    //发送成功
+  //  }, function (err) {
+  //    //发送失败
+  //  });
+  //
+  //}
 
   /**
    * 其实区别就是不发短信
@@ -360,11 +320,11 @@ class API {
         user.signUp(null, {
           success: function (userServer) {
             // 注册成功，可以使用了.
-            userServer.set('gender',wechatUser.gender);
-            userServer.set('avatarUrl',wechatUser.avatarUrl);
-            userServer.set('accessToken',wechatUser.accessToken);
-            userServer.set('openId',wechatUser.openId);
-            userServer.set('type','wechat');
+            userServer.set('gender', wechatUser.gender);
+            userServer.set('avatarUrl', wechatUser.avatarUrl);
+            userServer.set('accessToken', wechatUser.accessToken);
+            userServer.set('openId', wechatUser.openId);
+            userServer.set('type', 'wechat');
             userServer.save();
             if (success) {
               success(userServer);
@@ -381,37 +341,20 @@ class API {
     });
   }
 
-  requestMobilePhoneVerify(phone, success, fail) {
-    AV.User.requestMobilePhoneVerify(phone).then(function () {
-      console.log('send successful');
-      if (success) {
-        success();
-      }
-      //发送成功
-    }, function (err) {
-      console.log(err);
-      if (fail) {
-        fail(err);
-      }
-      //发送失败
-    });
-  }
 
-  verifyMobilePhone(code, success, fail) {
-    var self = this;
-    AV.User.verifyMobilePhone(code).then(function () {
-      //验证成功
-      self.user.verify = 'TRUE';  //不能是boolean ,只能是字符串
-      self._saveVerify();
-      if (success) {
-        success();
-      }
-    }, function (err) {
-      //验证失败
-      if (fail) {
-        fail(err);
-      }
-    });
+
+  registerMobUser(user, success, fail) {
+    var currentUser = new AV.User();
+    currentUser.signUpOrlogInWithMobilePhone({
+          mobilePhoneNumber: user.phone,
+          smsCode: user.code,
+          username: user.username,
+          type: 'mob'
+        },
+        {
+          success: success,
+          error: fail
+        });
   }
 
 }

@@ -22,9 +22,9 @@ var UserStore = Reflux.createStore({
         UserLocalStorage.save(localUser);
         this.user = localUser;
         global.userId = this.user.id;
-        if(localUser.type === 'wechat'){
+        //if(localUser.type === 'wechat'){
           this.verify = 'TRUE';
-        }
+        //}
         this.trigger(this);
         if(success){
           success();
@@ -49,28 +49,25 @@ var UserStore = Reflux.createStore({
         this.trigger(this);
       }.bind(this));
     }
+    this.phone = '';
     return {
       user: this.user,
       verify : this.verify,
+      phone:this.phone,
     };
   },
   reset(){
     this.user = {};
   },
-  verifyMobilePhone: function (code, success, fail) {
-    API.verifyMobilePhone(code, function(){
-      //验证成功
-      UserLocalStorage.setVerify(true);
+  requestSmsCode: function (phone, success, fail) {
+    this.phone = phone;
+    this.trigger(this);
+    AV.Cloud.requestSmsCode(phone).then(function () {
+      //发送成功
       if(success){
         success();
       }
-    }, function(){
-      //验证失败
-      UserLocalStorage.setVerify(false);
-      if(fail){
-        fail();
-      }
-    });
+    }.bind(this), fail);
   }
 
 });

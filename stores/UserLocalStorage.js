@@ -31,12 +31,12 @@ class UserLocalStorage {
    * @param user
    */
   save(user) {
-    if (user.type === 'wechat') {
+    //if (user.type === 'wechat') {
       //不需要验证码
       this.setVerify(true);
-    } else if (user.type === 'mob') {
-
-    }
+    //} else if (user.type === 'mob') {
+    //
+    //}
     storage.save({
       key: 'user',
       rawData: user,

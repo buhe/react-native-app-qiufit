@@ -9,35 +9,45 @@ import React, {
     TextInput,
     TouchableHighlight,
 } from 'react-native';
+var Reflux = require('reflux');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
 import CoolDown from 'react-native-countdown';
-import UserActionCreators from '../../../actions/UserActionCreators';
-import UserStore from '../../../stores/UserStore';
+var  UserActionCreators  = require('../../../actions/UserActionCreators');
+var UserStore = require('../../../stores/UserStore');
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {text: ''}
-  }
+var Login = React.createClass({
+
+  mixins: [Reflux.connect(UserStore)],
+
+  getInitialState(){
+    return {
+      text: ''
+    }
+  },
+
   sendAgain(){
-    UserActionCreators.requestMobilePhoneVerify(UserStore.user.phone);
-  }
+    UserActionCreators.requestSmsCode(this.state.phone);
+  },
   next() {
-    var self = this;
-    UserActionCreators.verifyMobilePhone(this.state.text,
-        function(){
-          self.props.navigator.push(Router.getTypeList());
-        },function(err){
+    var mobUser = {
+      code: this.state.text,
+      phone: this.state.phone,
+      username: this.state.phone,
+      type: 'mob'
+    };
+    UserActionCreators.registerUser(mobUser,
+        function () {
+          this.props.navigator.push(Router.getTypeList());
+        }.bind(this), function (err) {
           console.log(err);
         })
-  }
-
+  },
   changeText(text) {
     this.setState({text: text});
-  }
+  },
 
   render() {
     return (
@@ -77,12 +87,13 @@ class Login extends React.Component {
             <Text style={styles.actionText}>完成</Text>
           </TouchableHighlight>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是 +86 {UserStore.user.mobilePhoneNumber}</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是
+              +86 {this.state.phone}</Text>
           </View>
         </View>
     );
   }
-}
+});
 
 var styles = StyleSheet.create({
   textLabel: {

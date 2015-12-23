@@ -13,8 +13,8 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
 var Router = require('../router');
 import Nav from '../nav/CommonNav';
-import UserActionCreators from '../../actions/UserActionCreators';
-import UserStore from '../../stores/UserStore';
+var UserActionCreators = require('../../actions/UserActionCreators');
+var UserStore = require('../../stores/UserStore');
 
 class Login extends React.Component {
   constructor(props) {
@@ -23,18 +23,12 @@ class Login extends React.Component {
   }
 
   next() {
-    var self = this;
-    var mobUser = {
-      username: this.state.text,
-      phone: this.state.text,
-      type: 'mob'
-    };
-    UserActionCreators.registerUser(mobUser,
-        function () {
-          self.props.navigator.push(Router.getVerify());
-        }, function (err) {
-          console.log(err);
-        })
+    UserActionCreators.requestSmsCode(this.state.text, function () {
+      //发送成功
+    }.bind(this), function (err) {
+      //发送失败
+    });
+    this.props.navigator.push(Router.getVerify());
   }
 
   changeText(text) {
