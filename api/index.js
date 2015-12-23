@@ -17,11 +17,8 @@ class API {
    * 完成训练
    */
   finishTurning(type, step) {
-    //var objectId = UserStore.user.objectId;
-    var objectId = '566e652c60b25b0437222a51';
     var user = new AV.User();
-    //user.id = objectId;
-    user.id = objectId;
+    user.id = userId;
     step = parseInt(step);
     var date = moment().format('YYYY-MM-DD');
     //1. 记录打卡信息
@@ -88,12 +85,8 @@ class API {
    * @param user
    */
   pullTurningDate(success, fail) {
-    //var objectId = UserStore.user.objectId;
-    var objectId = '566e652c60b25b0437222a51';
-
     var user = new AV.User();
-    //user.id = objectId;
-    user.id = objectId;
+    user.id = userId;
 
     var query = new AV.Query(CheckIn);
     query.equalTo('user', user);
@@ -133,11 +126,8 @@ class API {
    * @param user
    */
   pullTurningStep(success, fail) {
-    //var objectId = UserStore.user.objectId;
-    var objectId = '566e652c60b25b0437222a51';
     var user = new AV.User();
-    //user.id = objectId;
-    user.id = objectId
+    user.id = userId;
 
     var query = new AV.Query(Profile);
     query.equalTo('user', user);
@@ -173,11 +163,9 @@ class API {
    * @param fail
    */
   postComment(type, step, commentContent, success, fail) {
-    //var objectId = UserStore.user.objectId;
-    var objectId = '566e652c60b25b0437222a51';
-
     var user = new AV.User();
-    user.id = objectId;
+    user.id = userId;
+    
     //当前时间
     var date = Date.now();
     var comment = new Comment();
@@ -266,6 +254,150 @@ class API {
         if (fail) {
           fail(error);
         }
+      }
+    });
+  }
+
+  registerUser(user,success,fail){
+    if(user.type === 'wechat'){
+      this.registerWeChatUser(user,success,fail);
+    }else if(user.type = 'mob'){
+      this.registerMobUser(user,success,fail);
+    }else{
+
+    }
+  }
+
+  //注册Mob用户
+  registerMobUser(mobUser, success, fail) {
+    var username = mobUser.username;
+    var password = mobUser.username;
+    var phone = mobUser.phone;
+    AV.User.logIn(username, password, {
+      success: function (userServer) {
+        AV.User.requestMobilePhoneVerify(phone).then(function () {
+          console.log('send successful');
+          if (success) {
+            success(userServer);
+          }
+          //发送成功
+        }, function (err) {
+          console.log(err);
+          if (fail) {
+            fail(err);
+          }
+          //发送失败
+        });
+        //!--------------------------
+      },
+      error: function (user, error) {
+        var user = new AV.User();
+        user.set("username", phone);
+        user.set("password", phone);
+        user.setMobilePhoneNumber(phone);
+
+        user.signUp(null, {
+          success: function (userServer) {
+
+            AV.User.requestMobilePhoneVerify(phone).then(function () {
+              console.log('send successful');
+              userServer.set('type','mob');
+              userServer.save();
+              if (success) {
+                success(userServer);
+              }
+              //发送成功
+            }, function (err) {
+              console.log(err);
+              if (fail) {
+                fail(err);
+              }
+              //发送失败
+            });
+          },
+          error: function (user, err) {
+            if (fail) {
+              fail(err);
+            }
+          }
+        });
+
+      }
+    });
+  }
+
+  /**
+   * 其实区别就是不发短信
+   * @param wechatUser
+   * @param success
+   * @param fail
+   */
+  registerWeChatUser(wechatUser, success, fail) {
+    AV.User.logIn(wechatUser.username, wechatUser.username, {
+      success: function (user) {
+        if (success) {
+          success(user);
+        }
+      },
+      error: function (user, error) {
+        var user = new AV.User();
+        user.set("username", wechatUser.username);
+        user.set("password", wechatUser.username);
+        //user.setMobilePhoneNumber(phone);
+
+        user.signUp(null, {
+          success: function (userServer) {
+            // 注册成功，可以使用了.
+            userServer.set('gender',wechatUser.gender);
+            userServer.set('avatarUrl',wechatUser.avatarUrl);
+            userServer.set('accessToken',wechatUser.accessToken);
+            userServer.set('openId',wechatUser.openId);
+            userServer.set('type','wechat');
+            userServer.save();
+            if (success) {
+              success(userServer);
+            }
+          },
+          error: function (user, err) {
+            if (fail) {
+              fail(err);
+            }
+          }
+        });
+
+      }
+    });
+  }
+
+  requestMobilePhoneVerify(phone, success, fail) {
+    AV.User.requestMobilePhoneVerify(phone).then(function () {
+      console.log('send successful');
+      if (success) {
+        success();
+      }
+      //发送成功
+    }, function (err) {
+      console.log(err);
+      if (fail) {
+        fail(err);
+      }
+      //发送失败
+    });
+  }
+
+  verifyMobilePhone(code, success, fail) {
+    var self = this;
+    AV.User.verifyMobilePhone(code).then(function () {
+      //验证成功
+      self.user.verify = 'TRUE';  //不能是boolean ,只能是字符串
+      self._saveVerify();
+      if (success) {
+        success();
+      }
+    }, function (err) {
+      //验证失败
+      if (fail) {
+        fail(err);
       }
     });
   }

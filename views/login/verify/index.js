@@ -23,7 +23,7 @@ class Login extends React.Component {
     this.state = {text: ''}
   }
   sendAgain(){
-    UserActionCreators.requestMobilePhoneVerify(UserStore.user.mobilePhoneNumber);
+    UserActionCreators.requestMobilePhoneVerify(UserStore.user.phone);
   }
   next() {
     var self = this;

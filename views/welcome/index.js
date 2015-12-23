@@ -14,17 +14,37 @@ var deviceScreen = require('Dimensions').get('window');
 var Router = require('../router');
 import {NativeAppEventEmitter} from 'react-native';
 import WeChat from 'react-native-wechat-ios';
+var SDK = require('../../wechat/SDK');
+import UserActionCreators from '../../actions/UserActionCreators';
+import UserStore from '../../stores/UserStore';
 
 NativeAppEventEmitter.addListener(
     'didRecvAuthResponse',
-    (response) => AlertIOS.alert(JSON.stringify(response))
+    function(res){
+      AlertIOS.alert(res.code);
+      SDK.getAccessToken(res.code,function(tokenRes){
+        //AlertIOS.alert(JSON.stringify(tokenRes));
+        SDK.getUserInfo(tokenRes.openid,tokenRes.access_token,function(userInfo){
+          //AlertIOS.alert(JSON.stringify(userInfo));
+          var user = {
+            username:userInfo.nickname,
+            openId:userInfo.openid,
+            gender:userInfo.sex === 1 ? 'male' : 'female',
+            avatarUrl:userInfo.headimgurl,
+            accessToken:tokenRes.access_token,
+            type:'wechat'
+          };
+          UserActionCreators.registerUser(user);
+        }.bind(this),function(){})
+      }.bind(this),function(){});
+    }
 );
 
 class Welcome extends React.Component {
 
   componentWillMount(){
     WeChat.registerApp('wxb401408ecbea2897', (res) => {
-      AlertIOS.alert(JSON.stringify(res)); // true or false
+      //AlertIOS.alert(JSON.stringify(res)); // true or false
     });
   }
 
@@ -32,7 +52,9 @@ class Welcome extends React.Component {
     let scope = 'snsapi_userinfo';
     let state = 'wechat_sdk_test';
     WeChat.sendAuthReq(scope, state, (res) => {
-      AlertIOS.alert(JSON.stringify(res)); // true or false
+      //AlertIOS.alert(JSON.stringify(res)); // true or false
+      //AlertIOS.alert(res.code);
+
     });
   }
 

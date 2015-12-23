@@ -24,10 +24,15 @@ class Login extends React.Component {
 
   next() {
     var self = this;
-    UserActionCreators.registerUser(this.state.text,
-        function(){
+    var mobUser = {
+      username: this.state.text,
+      phone: this.state.text,
+      type: 'mob'
+    };
+    UserActionCreators.registerUser(mobUser,
+        function () {
           self.props.navigator.push(Router.getVerify());
-        },function(err){
+        }, function (err) {
           console.log(err);
         })
   }
