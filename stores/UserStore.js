@@ -34,6 +34,7 @@ var UserStore = Reflux.createStore({
   },
 
   getInitialState: function () {
+    global.userId = 'unset';
     if (!this.user) {
       this.user = {};
       UserLocalStorage.get(function (user) {

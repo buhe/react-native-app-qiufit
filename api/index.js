@@ -17,6 +17,9 @@ class API {
    * 完成训练
    */
   finishTurning(type, step) {
+    if(userId === 'unset'){
+      return;
+    }
     var user = new AV.User();
     user.id = userId;
     step = parseInt(step);
@@ -85,6 +88,9 @@ class API {
    * @param user
    */
   pullTurningDate(success, fail) {
+    if(userId === 'unset'){
+      success({});
+    }
     var user = new AV.User();
     user.id = userId;
 
@@ -126,6 +132,9 @@ class API {
    * @param user
    */
   pullTurningStep(success, fail) {
+    if(userId === 'unset'){
+      success({});
+    }
     var user = new AV.User();
     user.id = userId;
 
@@ -163,6 +172,9 @@ class API {
    * @param fail
    */
   postComment(type, step, commentContent, success, fail) {
+    if(userId === 'unset'){
+      success({});
+    }
     var user = new AV.User();
     user.id = userId;
 
