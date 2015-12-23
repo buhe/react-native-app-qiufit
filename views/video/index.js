@@ -140,6 +140,7 @@ var VideoView = React.createClass({
                 nickname={comment.nickname}
                 time={comment.time}
                 commentContent={comment.commentContent}
+                avatarUrl={comment.avatarUrl}
                 />
         );
       }
@@ -337,6 +338,8 @@ var styles = StyleSheet.create({
     width: 25,
     marginLeft: 10,
     marginRight: 10,
+    borderRadius: 13,
+    borderWidth: 0,
   },
   commentButton: {
     position: 'absolute',

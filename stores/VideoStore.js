@@ -10,7 +10,7 @@ import moment from 'moment';
 
 var CommentStore = Reflux.createStore({
   listenables: Actions,
-  refreshComments:function(){
+  refreshComments: function () {
     API.getComment(this.ref.type, this.ref.step, 0, 20, function (results) {
       this.comments = [];
       for (var i = 0; i < results.length; i++) {
@@ -20,6 +20,7 @@ var CommentStore = Reflux.createStore({
         var comment = data.get('comment');
         this.comments.push({
           nickname: user.get('username'),
+          avatarUrl: user.get('avatarUrl'),
           time: moment(date).format('YYYY-MM-DD'),
           commentContent: comment
         });
@@ -55,16 +56,18 @@ var CommentStore = Reflux.createStore({
     API.finishTurning(this.ref.type, this.ref.step);
   },
   getTrendCount: function () {
-    API.getTrendCount(this.ref.type, this.ref.step,function(count){
+    API.getTrendCount(this.ref.type, this.ref.step, function (count) {
       this.trendCount = count;
       this.trigger(this);
-    }.bind(this),function(error){})
+    }.bind(this), function (error) {
+    })
   },
   pullNextTrends: function () {
-    API.getTrend(this.ref.type, this.ref.step, 0, 20,function(trends){
+    API.getTrend(this.ref.type, this.ref.step, 0, 20, function (trends) {
       this.trends = trends;
       this.trigger(this);
-    }.bind(this),function(error){})
+    }.bind(this), function (error) {
+    })
   },
   setRef: function (ref) {
     this.ref = ref;
