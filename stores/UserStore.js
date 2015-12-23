@@ -22,9 +22,6 @@ var UserStore = Reflux.createStore({
         UserLocalStorage.save(localUser);
         this.user = localUser;
         global.userId = this.user.id;
-        //if(localUser.type === 'wechat'){
-          this.verify = 'TRUE';
-        //}
         this.trigger(this);
         if(success){
           success();
@@ -42,17 +39,10 @@ var UserStore = Reflux.createStore({
         global.userId = this.user.id;
         this.trigger(this);
       }.bind(this));
-
-      this.verify = 'FALSE';
-      UserLocalStorage.isVerify(function (verify) {
-        this.verify = verify;
-        this.trigger(this);
-      }.bind(this));
     }
     this.phone = '';
     return {
       user: this.user,
-      verify : this.verify,
       phone:this.phone,
     };
   },

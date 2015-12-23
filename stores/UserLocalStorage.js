@@ -31,31 +31,9 @@ class UserLocalStorage {
    * @param user
    */
   save(user) {
-    //if (user.type === 'wechat') {
-      //不需要验证码
-      this.setVerify(true);
-    //} else if (user.type === 'mob') {
-    //
-    //}
     storage.save({
       key: 'user',
       rawData: user,
-      expires: null,
-    });
-  }
-
-  isVerify(cb) {
-    storage.load({
-      key: 'verify',
-    }).then(cb);
-  }
-
-  setVerify(verify) {
-    storage.save({
-      key: 'verify',
-      rawData: {
-        verify: verify ? 'TRUE' : 'FALSE'
-      },
       expires: null,
     });
   }
@@ -66,59 +44,5 @@ class UserLocalStorage {
     }).then(cb);
   }
 }
-
-
-//_convertUser(user){
-//  var self = this;
-//  self.user = {};
-//  self.user.username = user.get('username');
-//  self.user.objectId = user.id;
-//  self.user.mobilePhoneNumber = user.get('mobilePhoneNumber');
-//},
-//_save(){
-//  var self = this;
-//  AsyncStorage.setItem('username', self.user.username, function (err, item) {
-//    console.log(err + item);
-//    AsyncStorage.getItem('username', function (err, item) {
-//      console.log(item);
-//    });
-//  });
-//  AsyncStorage.setItem('objectId', self.user.objectId, function (err, item) {
-//    console.log(err + item);
-//    AsyncStorage.getItem('objectId', function (err, item) {
-//      console.log(item);
-//    });
-//  });
-//  AsyncStorage.setItem('mobilePhoneNumber', self.user.mobilePhoneNumber, function (err, item) {
-//    console.log(err + item);
-//    AsyncStorage.getItem('mobilePhoneNumber', function (err, item) {
-//      console.log(item);
-//    });
-//  });
-//},
-//_saveVerify(){
-//  var self = this;
-//  AsyncStorage.setItem('verify', self.user.verify, function (err, item) {
-//    console.log(err + item);
-//    AsyncStorage.getItem('verify', function (err, item) {
-//      console.log(item);
-//    });
-//  });
-//},
-//async _get(attr){
-//  try {
-//    var value = await AsyncStorage.getItem(attr);
-//    if (value !== null) {
-//      this.user[attr] = value;
-//      this.trigger(this);
-//      return value;
-//    } else {
-//      console.log('get username null');
-//    }
-//  } catch (error) {
-//    console.log('get username error' + error);
-//    return null;
-//  }
-//},
 
 export default new UserLocalStorage();
