@@ -12,6 +12,7 @@
     "moment": "^2.10.6",
     "react": "^0.14.3",
     "react-native": "^0.13.2",
+    "react-native-code-push": "^1.5.2-beta",
     "react-native-countdown": "0.0.3",
     "react-native-fs-modal": "^0.1.0",
     "react-native-storage": "0.0.9",

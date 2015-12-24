@@ -15,13 +15,15 @@ var Router = require('../router');
 var WeChat = require('../../wechat');
 
 
-class Welcome extends React.Component {
+var Welcome = React.createClass({
+
+  mixins: [require('../../mixins/backandroid')()],
 
   componentWillMount(){
     WeChat.registerApp('wxb401408ecbea2897', (res) => {
       //AlertIOS.alert(JSON.stringify(res)); // true or false
     });
-  }
+  },
 
   wechatLogin() {
     let scope = 'snsapi_userinfo';
@@ -31,7 +33,7 @@ class Welcome extends React.Component {
       //AlertIOS.alert(res.code);
 
     });
-  }
+  },
 
   render() {
     return (
@@ -70,7 +72,7 @@ class Welcome extends React.Component {
         </View>
     );
   }
-}
+});
 
 var styles = StyleSheet.create({
   topView: {

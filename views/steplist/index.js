@@ -51,7 +51,8 @@ var StepItem = React.createClass({
 
 var StepsView = React.createClass({
   mixins: [
-    Reflux.connect(StepStore)
+    Reflux.connect(StepStore),
+    require('../../mixins/backandroid')()
   ],
   pop(){
     this.props.navigator.pop();
