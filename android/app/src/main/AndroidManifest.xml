@@ -17,18 +17,25 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait"
             />
     </application>
 
