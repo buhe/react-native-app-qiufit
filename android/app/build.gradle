@@ -28,4 +28,5 @@ dependencies {
     compile 'com.facebook.react:react-native:0.13.+'
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
     compile project(':RCTVideo')
+    compile project(':reactwechat')
 }
