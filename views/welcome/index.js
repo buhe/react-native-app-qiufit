@@ -12,33 +12,8 @@ import React, {
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
 var Router = require('../router');
-import {NativeAppEventEmitter} from 'react-native';
-import WeChat from 'react-native-wechat-ios';
-var SDK = require('../../wechat/SDK');
-import UserActionCreators from '../../actions/UserActionCreators';
-import UserStore from '../../stores/UserStore';
+var WeChat = require('../../wechat');
 
-NativeAppEventEmitter.addListener(
-    'didRecvAuthResponse',
-    function(res){
-      AlertIOS.alert(res.code);
-      SDK.getAccessToken(res.code,function(tokenRes){
-        //AlertIOS.alert(JSON.stringify(tokenRes));
-        SDK.getUserInfo(tokenRes.openid,tokenRes.access_token,function(userInfo){
-          //AlertIOS.alert(JSON.stringify(userInfo));
-          var user = {
-            username:userInfo.nickname,
-            openId:userInfo.openid,
-            gender:userInfo.sex === 1 ? 'male' : 'female',
-            avatarUrl:userInfo.headimgurl,
-            accessToken:tokenRes.access_token,
-            type:'wechat'
-          };
-          UserActionCreators.registerUser(user);
-        }.bind(this),function(){})
-      }.bind(this),function(){});
-    }
-);
 
 class Welcome extends React.Component {
 
