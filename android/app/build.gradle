@@ -29,4 +29,5 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
     compile project(':RCTVideo')
     compile project(':reactwechat')
+    compile project(':react-native-fs')
 }

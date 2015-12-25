@@ -12,7 +12,8 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.heng.wechat.WeChatPackage;
 import com.prisonerfitness.rnchart.RNChartPackage;
-import com.prisonerfitness.rnvideo.RNVideoPackage;
+import com.prisonerfitness.snapshot.RNSnapshotPackage;
+import com.rnfs.RNFSPackage;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -32,6 +33,8 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .addPackage(new RNChartPackage())
                 .addPackage(new ReactVideoPackage())
                 .addPackage(new WeChatPackage())
+                .addPackage(new RNSnapshotPackage(this))
+                .addPackage(new RNFSPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
