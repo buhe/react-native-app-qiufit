@@ -15,12 +15,34 @@ import Nav from '../../nav/CloseStyleNav';
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
+var ViewSnapshotter = require('react-native-view-snapshot');
+var RNFS = require("react-native-fs");
+var WeChat = require('../../../wechat');
 
 export default class Result extends React.Component {
 
+  share(){
+    var imagePath = RNFS.CachesDirectoryPath+"/share.png";
+    var ref = React.findNodeHandle(this.refs.shareView);
+    ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
+      if (successfulWrite) {
+        WeChat.shareImage({
+          path: imagePath,
+          tagName: '囚徒健身',
+          title: '囚徒健身',
+          desc: '囚徒健身',
+          thumbPath: imagePath,
+          scene: 1
+        });
+      } else {
+        console.log(error)
+      }
+    });
+  }
+
   render() {
     return (
-        <View>
+        <View ref='shareView'>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
@@ -41,6 +63,7 @@ export default class Result extends React.Component {
           </View>
           <Button
               text={'分享'}
+              press={this.share.bind(this)}
               />
         </View>
     )

@@ -21,6 +21,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		7802D7DD1C2BFB0D00247616 /* ViewSnapshotter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802D7DC1C2BFB0D00247616 /* ViewSnapshotter.m */; };
+		7802D7F21C2C011200247616 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7802D7F11C2C00E000247616 /* libRNFS.a */; };
 		7825FCBB1C1FE09300219A32 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FCB81C1FB04C00219A32 /* libRCTVideo.a */; };
 		7825FDAF1C293E0900219A32 /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDAD1C293E0000219A32 /* libRCTWeChat.a */; };
 		7825FDB11C293E1600219A32 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB01C293E1600219A32 /* libz.tbd */; };
@@ -195,6 +197,13 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		7802D7F01C2C00E000247616 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7802D7EC1C2C00E000247616 /* RNFS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
+			remoteInfo = RNFS;
+		};
 		7825FCB71C1FB04C00219A32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7825FCAB1C1FB04C00219A32 /* RCTVideo.xcodeproj */;
@@ -260,6 +269,9 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PrisonerFitness/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		42FAA14C189B485CB92F1836 /* Example.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = "../node_modules/react-native-wechat-ios/Example/ios/Example.xcodeproj"; sourceTree = "<group>"; };
+		7802D7DB1C2BFB0D00247616 /* ViewSnapshotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewSnapshotter.h; path = "../node_modules/react-native-view-snapshot/ViewSnapshotter.h"; sourceTree = "<group>"; };
+		7802D7DC1C2BFB0D00247616 /* ViewSnapshotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewSnapshotter.m; path = "../node_modules/react-native-view-snapshot/ViewSnapshotter.m"; sourceTree = "<group>"; };
+		7802D7EC1C2C00E000247616 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		7825FCAB1C1FB04C00219A32 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		7825FD9E1C293E0000219A32 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWeChat.xcodeproj; path = "../node_modules/react-native-wechat-ios/RCTWeChat/RCTWeChat.xcodeproj"; sourceTree = "<group>"; };
 		7825FDB01C293E1600219A32 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -389,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7802D7F21C2C011200247616 /* libRNFS.a in Frameworks */,
 				7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */,
 				7825FDB71C293E3A00219A32 /* CoreTelephony.framework in Frameworks */,
 				7825FDB51C293E3000219A32 /* libsqlite3.0.tbd in Frameworks */,
@@ -512,6 +525,14 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7802D7ED1C2C00E000247616 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7802D7F11C2C00E000247616 /* libRNFS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -761,6 +782,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7802D7EC1C2C00E000247616 /* RNFS.xcodeproj */,
+				7802D7DB1C2BFB0D00247616 /* ViewSnapshotter.h */,
+				7802D7DC1C2BFB0D00247616 /* ViewSnapshotter.m */,
 				7825FDB81C293E4300219A32 /* SystemConfiguration.framework */,
 				7825FDB61C293E3A00219A32 /* CoreTelephony.framework */,
 				7825FDB41C293E3000219A32 /* libsqlite3.0.tbd */,
@@ -930,6 +954,10 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
+				{
+					ProductGroup = 7802D7ED1C2C00E000247616 /* Products */;
+					ProjectRef = 7802D7EC1C2C00E000247616 /* RNFS.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -994,6 +1022,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7802D7F11C2C00E000247616 /* libRNFS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFS.a;
+			remoteRef = 7802D7F01C2C00E000247616 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7825FCB81C1FB04C00219A32 /* libRCTVideo.a */ = {
@@ -1120,6 +1155,7 @@
 				78B25B361C044A3500A6A92F /* ChartYAxisRendererHorizontalBarChart.swift in Sources */,
 				78B25B281C044A3500A6A92F /* LineChartDataProvider.swift in Sources */,
 				78B25B011C044A3500A6A92F /* BarChartDataSet.swift in Sources */,
+				7802D7DD1C2BFB0D00247616 /* ViewSnapshotter.m in Sources */,
 				78B25AF61C044A3500A6A92F /* RadarChartView.swift in Sources */,
 				78B25B291C044A3500A6A92F /* ScatterChartDataProvider.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,

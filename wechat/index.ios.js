@@ -38,4 +38,9 @@ export default {
   sendAuthReq(scope, state, callback) {
     WeChat.sendAuthReq(scope, state, callback);
   }
+
+  ,
+  shareImage(options, callback){
+    WeChat.sendImage(options, callback);
+  }
 }
