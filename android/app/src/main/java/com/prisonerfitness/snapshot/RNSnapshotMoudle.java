@@ -47,11 +47,11 @@ public class RNSnapshotMoudle extends ReactContextBaseJavaModule {
             tempView.setDrawingCacheEnabled(true);
 
             Bitmap bitmap = tempView.getDrawingCache();
-            tempView.setDrawingCacheEnabled(false);
+
             //获得除掉 StatusBar 的 Bitmap
             bitmap = Bitmap.createBitmap(bitmap, 0, statusBarHeight, bitmap.getWidth(),
                     bitmap.getHeight() - statusBarHeight, null, true);
-
+            tempView.setDrawingCacheEnabled(false);
             File f = new File(path);
             if (f.exists()) {
                 f.delete();
@@ -61,9 +61,9 @@ public class RNSnapshotMoudle extends ReactContextBaseJavaModule {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
             out.flush();
             out.close();
-            callback.invoke(true);
+            callback.invoke(null,true);
         } catch (Exception e) {
-            callback.invoke(false);
+            callback.invoke("",false);
         }
     }
 }

@@ -15,14 +15,14 @@ import Nav from '../../nav/CloseStyleNav';
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
-var ViewSnapshotter = require('react-native-view-snapshot');
+var ViewSnapshotter = require('../../../snapshot');
 var RNFS = require("react-native-fs");
 var WeChat = require('../../../wechat');
 
 export default class Result extends React.Component {
 
   share(){
-    var imagePath = RNFS.CachesDirectoryPath+"/share.png";
+    var imagePath ="/sdcard/share.png";
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
       if (successfulWrite) {
