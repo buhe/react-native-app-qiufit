@@ -16,6 +16,7 @@ import Theme from '../theme';
 var VideoModal = require('./modal');
 var Modal = require('react-native-fs-modal');
 import Picker from '../LandscapePicker';
+var ShareAction = require('../../actions/ShareResultActionCreators');
 
 //var _ = require('lodash');
 
@@ -58,6 +59,7 @@ var VideoView = React.createClass({
   finish(){
     this.refs.modal.close();
     //完成当前的type , step
+    ShareAction.setShareResult(this.state.ref.typeText, this.state.subStep, this.state.ref.subStep[this.state.subStepIndex]);
     VideoActionCreators.finishTurning();
     this.props.navigator.push(Router.getResult());
   },
@@ -175,7 +177,7 @@ var VideoView = React.createClass({
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
               <Picker
                   items={['初级标准','中级标准','高级标准']}
-                  onChangeItem={(index,text)=>this.setState({subStepIndex:index})}
+                  onChangeItem={(index,text)=>this.setState({subStepIndex:index,subStep:text})}
                   />
               <View style={styles.turningAnalytics}>
                 <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>

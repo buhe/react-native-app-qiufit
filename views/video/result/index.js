@@ -10,19 +10,23 @@ import React, {
     ScrollView,
     Image,
 } from 'react-native';
+var Reflux = require('reflux');
+var ShareResultStore = require('../../../stores/ShareResultStore');
 
 import Nav from '../../nav/CloseStyleNav';
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
 var ViewSnapshotter = require('../../../snapshot');
-var RNFS = require("react-native-fs");
 var WeChat = require('../../../wechat');
+var osUtils = require('../../../utils');
 
-export default class Result extends React.Component {
-
-  share(){
-    var imagePath ="/sdcard/share.png";
+var Result = React.createClass({
+  mixins: [
+    Reflux.connect(ShareResultStore)
+  ],
+  share() {
+    var imagePath = osUtils.getCacheDir() + "/share.png";
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
       if (successfulWrite) {
@@ -38,26 +42,26 @@ export default class Result extends React.Component {
         console.log(error)
       }
     });
-  }
+  },
 
   render() {
     return (
-        <View ref='shareView'>
+        <View>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
-          <View style={{alignItems:'center'}}>
+          <View style={{alignItems:'center'}} ref='shareView'>
             <Image source={{uri:IMG_PREFIX + '囚徒健身-切图-20.png'}} style={styles.mainLogo}/>
             <View style={{borderWidth:5,marginTop:20,marginBottom:30,marginLeft:10,marginRight:10}}>
-              <View  style={{flexDirection:'row'}}>
+              <View style={{flexDirection:'row'}}>
                 <Text style={{fontSize:60}}>新纪录!</Text>
                 <View><Text style={{fontSize:18}}>六月</Text><Text style={{fontSize:30}}>24</Text></View>
               </View>
-              <Text style={{fontSize:30}}>第一式: 墙壁俯卧撑</Text>
+              <Text style={{fontSize:30}}>{this.state.stepName}</Text>
               <View style={{flexDirection:'row'}}>
-                <View><Text style={{fontSize:16}}>标准</Text><Text style={{fontSize:21}}>初级标准</Text></View>
-                <View><Text style={{fontSize:16}}>动作</Text><Text style={{fontSize:21}}>10 个</Text></View>
-                <View><Text style={{fontSize:16}}>组</Text><Text style={{fontSize:21}}>1 组</Text></View>
+                <View><Text style={{fontSize:16}}>标准</Text><Text style={{fontSize:21}}>{this.state.subStepName}</Text></View>
+                <View><Text style={{fontSize:16}}>动作</Text><Text style={{fontSize:21}}>{this.state.actionCount}</Text></View>
+                <View><Text style={{fontSize:16}}>组</Text><Text style={{fontSize:21}}>{this.state.groupCount}</Text></View>
               </View>
             </View>
           </View>
@@ -68,7 +72,7 @@ export default class Result extends React.Component {
         </View>
     )
   }
-}
+});
 
 var styles = StyleSheet.create({
   closeImage: {
@@ -79,8 +83,10 @@ var styles = StyleSheet.create({
     height: 64,
   },
   mainLogo: {
-    marginTop: -30,
+    marginTop: 20,
     width: 240,
     height: 120,
   }
 });
+
+module.exports = Result;
