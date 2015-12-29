@@ -26,10 +26,10 @@ var CommentStore = Reflux.createStore({
   },
 
   getInitialState: function () {
-    this.stepName = this.stepName || '';
-    this.subStepName = this.subStepName || '';
-    this.groupCount = this.groupCount || '';
-    this.actionCount = this.actionCount || '';
+    this.stepName = this.stepName || '第四式 半俯卧撑';
+    this.subStepName = this.subStepName || '初级标准';
+    this.groupCount = this.groupCount || '1组';
+    this.actionCount = this.actionCount || '5次';
     return {
       stepName: this.stepName,
       subStepName: this.subStepName,

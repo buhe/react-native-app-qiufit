@@ -20,6 +20,8 @@ import Button from '../../button';
 var ViewSnapshotter = require('../../../snapshot');
 var WeChat = require('../../../wechat');
 var osUtils = require('../../../utils');
+import moment from 'moment';
+import moment_cn from 'moment/locale/zh-cn';
 
 var Result = React.createClass({
   mixins: [
@@ -45,6 +47,10 @@ var Result = React.createClass({
   },
 
   render() {
+    moment.locale('zh-cn');
+    var m = moment();
+    var month = moment.months(m.month());
+    var day = m.day();
     return (
         <View>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
@@ -55,7 +61,7 @@ var Result = React.createClass({
             <View style={{borderWidth:5,marginTop:20,marginBottom:30,marginLeft:10,marginRight:10}}>
               <View style={{flexDirection:'row'}}>
                 <Text style={{fontSize:60}}>新纪录!</Text>
-                <View><Text style={{fontSize:18}}>六月</Text><Text style={{fontSize:30}}>24</Text></View>
+                <View><Text style={{fontSize:18}}>{month}</Text><Text style={{fontSize:30}}>{day}</Text></View>
               </View>
               <Text style={{fontSize:30}}>{this.state.stepName}</Text>
               <View style={{flexDirection:'row'}}>
