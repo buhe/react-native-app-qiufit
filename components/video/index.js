@@ -13,12 +13,15 @@ var {
     TouchableWithoutFeedback,
     ScrollView,
     Image,
+    AsyncStorage,
     } = React;
 var Router = require('../../views/router');
 var RNVideo = require('react-native-video');
 var deviceScreen = require('Dimensions').get('window');
 let videoHeight = deviceScreen.width / 1.73;
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
+var RNFS = require('react-native-fs');
+var osUtils = require('../../utils');
 
 var Video = React.createClass({
   getInitialState: function () {
@@ -26,6 +29,7 @@ var Video = React.createClass({
       showControl: false,
       paused: false,
       muted: false,
+      localUrl: '',
     };
   },
   closeVoice(){
@@ -41,6 +45,27 @@ var Video = React.createClass({
   },
   info(){
     this.props.navigator.push(Router.getInfo());
+  },
+
+  componentWillMount(){
+    var self = this;
+    var paths = self.props.url.split('/');
+    var fileName = paths[paths.length - 1];
+    AsyncStorage.getItem(this.props.url,function(err,localUrl){
+      if (localUrl) {
+        self.setState({localUrl: localUrl});
+      } else {
+        var localVideoUrl = osUtils.getCacheDir() +"/" +fileName;
+        RNFS.downloadFile(self.props.url, localVideoUrl, function () {
+
+        }, function (process) {
+          if (process.bytesWritten === process.contentLength) {
+            self.setState({localUrl: localVideoUrl});
+            AsyncStorage.setItem(self.props.url,localVideoUrl);
+          }
+        });
+      }
+    });
   },
 
   render: function () {
@@ -68,11 +93,19 @@ var Video = React.createClass({
       ;
     }
 
-    return (
+    var videoView =
         <View>
+          <Image
+              source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
+              style={styles.video}
+              />
+        </View>;
+    //storage
+    if (this.state.localUrl) {
+      videoView = (
           <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
             <RNVideo
-                source={{uri: this.props.url}} // Can be a URL or a local file.
+                source={{uri: this.state.localUrl}} // Can be a URL or a local file.
                 rate={1.0}                   // 0 is paused, 1 is normal.
                 volume={1.0}                 // 0 is muted, 1 is normal.
                 muted={this.state.muted}                // Mutes the audio entirely.
@@ -82,6 +115,12 @@ var Video = React.createClass({
                 resizeMode="cover"
                 />
           </TouchableWithoutFeedback>
+      );
+    }
+
+    return (
+        <View>
+          {videoView}
           {controlView}
         </View>
     )
