@@ -11,7 +11,7 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
 import VideoActionCreators from '../../actions/VideoActionCreators';
-let videoHeight = deviceScreen.height * 2 / 5;
+let videoHeight = deviceScreen.width / 1.73;
 import Theme from '../theme';
 var VideoModal = require('./modal');
 var Modal = require('react-native-fs-modal');
