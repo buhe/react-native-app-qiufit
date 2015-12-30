@@ -224,6 +224,7 @@ var VideoView = React.createClass({
               duration={10}
               tween={'linear'}
               modalStyle={styles.modalStyle}
+              hideStatusBar={false}
               >
             <View>
               <VideoModal
