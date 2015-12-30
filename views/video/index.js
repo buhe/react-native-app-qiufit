@@ -119,12 +119,12 @@ var VideoView = React.createClass({
             </View>
             <View style={styles.infoWrapper}>
               <TouchableWithoutFeedback onPress={this.info}>
-                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+                <Image style={styles.infoButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
               </TouchableWithoutFeedback>
             </View>
             <View style={styles.voiceWrapper}>
               <TouchableWithoutFeedback onPress={this.closeVoice}>
-                <Image style={styles.playButton}
+                <Image style={styles.voiceButton}
                        source={{uri: this.state.muted ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
               </TouchableWithoutFeedback>
             </View>
@@ -165,14 +165,14 @@ var VideoView = React.createClass({
 
     return (
         <View>
+          <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
+            {videoView}
+          </TouchableWithoutFeedback>
+          {controlView}
+          <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
+            <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+          </TouchableWithoutFeedback>
           <ScrollView style={styles.main}>
-            <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
-              {videoView}
-            </TouchableWithoutFeedback>
-            {controlView}
-            <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
-              <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
-            </TouchableWithoutFeedback>
             <View style={{alignItems: 'center',flex:1}}>
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
               <Picker
@@ -252,18 +252,28 @@ var styles = StyleSheet.create({
     height: 50,
     backgroundColor: 'transparent',
   },
+  infoButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'transparent',
+  },
+  voiceButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'transparent',
+  },
   infoWrapper: {
     position: 'absolute',
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     left: deviceScreen.width - 140,
     top: 10,
     backgroundColor: 'transparent',
   },
   voiceWrapper: {
     position: 'absolute',
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     left: deviceScreen.width - 70,
     top: 10,
     backgroundColor: 'transparent',
