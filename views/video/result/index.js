@@ -58,16 +58,26 @@ var Result = React.createClass({
           </TouchableOpacity>
           <View style={{alignItems:'center'}} ref='shareView'>
             <Image source={{uri:IMG_PREFIX + '囚徒健身-切图-20.png'}} style={styles.mainLogo}/>
-            <View style={{borderWidth:5,marginTop:20,marginBottom:30,marginLeft:10,marginRight:10}}>
-              <View style={{flexDirection:'row'}}>
-                <Text style={{fontSize:60}}>新纪录!</Text>
-                <View><Text style={{fontSize:18}}>{month}</Text><Text style={{fontSize:30}}>{day}</Text></View>
+            <View style={{borderWidth:5,marginTop:30,marginBottom:20}}>
+              <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>新纪录!</Text>
+                <View
+                    style={{backgroundColor:'black',alignItems:'center',justifyContent:'center',width:60,height:60,marginLeft:10}}>
+                  <Text style={{fontSize:16,color:'white',fontWeight:'bold'}}>{month}</Text>
+                  <Text style={{fontSize:28,color:'white',fontWeight:'bold'}}>{day}</Text>
+                </View>
               </View>
-              <Text style={{fontSize:30}}>{this.state.stepName}</Text>
+              <View
+                  style={{backgroundColor:'black',margin:0,paddingTop:10,paddingBottom:10,width:270,alignItems:'center'}}>
+                <Text style={{fontSize:30,color:'white',fontWeight:'bold'}}>{this.state.stepName}</Text>
+              </View>
               <View style={{flexDirection:'row'}}>
-                <View><Text style={{fontSize:16}}>标准</Text><Text style={{fontSize:21}}>{this.state.subStepName}</Text></View>
-                <View><Text style={{fontSize:16}}>动作</Text><Text style={{fontSize:21}}>{this.state.actionCount}</Text></View>
-                <View><Text style={{fontSize:16}}>组</Text><Text style={{fontSize:21}}>{this.state.groupCount}</Text></View>
+                <View style={styles.column}><Text style={styles.row}>标准</Text><Text
+                    style={styles.cell}>{this.state.subStepName}</Text></View>
+                <View style={styles.column}><Text style={styles.row}>动作</Text><Text
+                    style={styles.cell}>{this.state.actionCount}</Text></View>
+                <View style={styles.column}><Text style={styles.row}>组</Text><Text
+                    style={styles.cell}>{this.state.groupCount}</Text></View>
               </View>
             </View>
           </View>
@@ -90,8 +100,20 @@ var styles = StyleSheet.create({
   },
   mainLogo: {
     marginTop: 20,
-    width: 240,
-    height: 120,
+    width: 275,
+    height: 150,
+  },
+  column: {
+    width: 90, alignItems: 'center', justifyContent: 'center', padding: 2
+  },
+  row: {
+    fontSize: 16,
+    margin: 10,
+    color:'#1d1d1d'
+  },
+  cell: {
+    fontSize:21,
+    color:'#1d1d1d'
   }
 });
 

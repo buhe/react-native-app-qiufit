@@ -41,7 +41,7 @@ global.storage = storage;
 var MainView = React.createClass({
   render: function () {
     return (<ExNavigator
-        initialRoute={Router.getResult()}
+        initialRoute={Router.getTypeList()}
         style={{ flex: 1 }}
         showNavigationBar={false}
         />);
