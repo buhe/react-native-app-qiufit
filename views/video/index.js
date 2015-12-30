@@ -108,17 +108,12 @@ var VideoView = React.createClass({
       }
       commentView = <View>{content}</View>
     }
-
-    var videoView = <View></View>;
-    if (this.state.ref.videoUrl) {
-      videoView = <Video
-          url={this.state.ref.videoUrl}
-          { ... this.props}
-          />
-    }
     return (
         <View>
-          {videoView}
+          <Video
+              url={this.state.ref.videoUrl}
+              { ... this.props}
+              />
           <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableWithoutFeedback>

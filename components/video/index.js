@@ -49,6 +49,9 @@ var Video = React.createClass({
 
   componentWillMount(){
     var self = this;
+    if(!self.props.url){
+      return;
+    }
     var paths = self.props.url.split('/');
     var fileName = paths[paths.length - 1];
     AsyncStorage.getItem(this.props.url,function(err,localUrl){

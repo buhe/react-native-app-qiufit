@@ -607,9 +607,9 @@ const stepsMap = {
       text2: "逐步做到 2分钟",
       text3: "然后开始第二式",
       subStep:[
-        '1组, 10次',
-        '2组, 10次',
-        '3组, 10次',
+        '30秒',
+        '1分钟',
+        '2分钟',
       ],
       infoImage:INFO_IMAGE_PREFIX + 'f1.jpg'
     },
@@ -618,7 +618,7 @@ const stepsMap = {
       text2: "逐步做到 1分钟",
       text3: "然后开始第三式",
       subStep:[
-        '30秒',
+        '10秒',
         '30秒',
         '1分钟',
       ],
