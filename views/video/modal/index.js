@@ -22,7 +22,7 @@ class VideoModal extends React.Component {
             <View style={[Theme.centerChild]}>
               <Image source={{uri:IMG_PREFIX + 'popover_'+this.props.typeName+'.png'}} style={styles.bg} />
             </View>
-            <View style={[Theme.centerChild,{marginTop: 40}]}>
+            <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
               <Text style={styles.nestedText}>{this.props.stepName}</Text>
               <Text style={[styles.title]}>{this.props.subStep}</Text>
             </View>

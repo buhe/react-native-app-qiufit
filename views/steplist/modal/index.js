@@ -22,7 +22,7 @@ class StepModal extends React.Component {
             <Image source={{uri:IMG_PREFIX + 'popover_bg.png'}} style={[styles.bg,Theme.centerChild]}>
               <Text style={styles.nestedText}>{this.props.step}</Text>
             </Image>
-            <View style={[Theme.centerChild,{marginTop: 40}]}>
+            <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
               <Text style={[styles.title]}>{this.props.name}</Text>
             </View>
             <Button
