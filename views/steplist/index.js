@@ -110,6 +110,7 @@ var StepsView = React.createClass({
               tween={'linear'}
               modalStyle={styles.modalStyle}
               hideStatusBar={false}
+              closeOnTouch={true}
               >
             <View>
               <StepModal
