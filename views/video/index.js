@@ -5,13 +5,13 @@ var React = require('react-native');
 
 var VideoStore = require('../../stores/VideoStore');
 var StepList = require('../steplist');
-var Video = require('react-native-video');
+var Video = require('../../components/video');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
 import VideoActionCreators from '../../actions/VideoActionCreators';
-let videoHeight = deviceScreen.width / 1.73;
+
 import Theme from '../theme';
 var VideoModal = require('./modal');
 var Modal = require('react-native-fs-modal');
@@ -72,9 +72,6 @@ var VideoView = React.createClass({
   ,
   getInitialState: function () {
     return {
-      showControl: false,
-      paused: false,
-      muted: false,
       showSendComment: false,
       subStep: '初级标准',
       subStepIndex: 0,//2 * 50 这种..
@@ -88,49 +85,12 @@ var VideoView = React.createClass({
     //加载动态列表
     VideoActionCreators.pullNextTrends();
   },
-  closeVoice(){
-    this.setState({
-      muted: !this.state.muted,
-    });
-  },
-  press(){
-    this.setState({
-      showControl: !this.state.showControl,
-      paused: !this.state.paused
-    });
-  },
-  info(){
-    this.props.navigator.push(Router.getInfo());
-  },
   switchCommentButton(){
     this.setState({
       showSendComment: !this.state.showSendComment,
     });
   },
   render: function () {
-    var controlView = <View></View>;
-    if (this.state.showControl) {
-      controlView =
-          <View style={styles.controlWrapper}>
-            <View style={styles.playButtonWrapper}>
-              <TouchableWithoutFeedback onPress={this.press}>
-                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
-              </TouchableWithoutFeedback>
-            </View>
-            <View style={styles.infoWrapper}>
-              <TouchableWithoutFeedback onPress={this.info}>
-                <Image style={styles.infoButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
-              </TouchableWithoutFeedback>
-            </View>
-            <View style={styles.voiceWrapper}>
-              <TouchableWithoutFeedback onPress={this.closeVoice}>
-                <Image style={styles.voiceButton}
-                       source={{uri: this.state.muted ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
-              </TouchableWithoutFeedback>
-            </View>
-          </View>
-      ;
-    }
 
     var commentView = <View></View>;
     if (this.state.comments && this.state.comments.length > 0) {  //有评论
@@ -152,23 +112,13 @@ var VideoView = React.createClass({
     var videoView = <View></View>;
     if (this.state.ref.videoUrl) {
       videoView = <Video
-          source={{uri: this.state.ref.videoUrl}} // Can be a URL or a local file.
-          rate={1.0}                   // 0 is paused, 1 is normal.
-          volume={1.0}                 // 0 is muted, 1 is normal.
-          muted={this.state.muted}                // Mutes the audio entirely.
-          paused={this.state.paused}               // Pauses playback entirely.
-          repeat={true}// Repeat forever.
-          style={styles.video}
-          resizeMode="cover"
-          />;
+          url={this.state.ref.videoUrl}
+          { ... this.props}
+          />
     }
-
     return (
         <View>
-          <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
-            {videoView}
-          </TouchableWithoutFeedback>
-          {controlView}
+          {videoView}
           <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableWithoutFeedback>
@@ -244,56 +194,8 @@ var VideoView = React.createClass({
 
 
 var styles = StyleSheet.create({
-  controlWrapper: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
-  playButton: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'transparent',
-  },
-  infoButton: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'transparent',
-  },
-  voiceButton: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'transparent',
-  },
-  infoWrapper: {
-    position: 'absolute',
-    width: 40,
-    height: 40,
-    left: deviceScreen.width - 140,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
-  voiceWrapper: {
-    position: 'absolute',
-    width: 40,
-    height: 40,
-    left: deviceScreen.width - 70,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
-  playButtonWrapper: {
-    position: 'absolute',
-    width: 50,
-    height: 50,
-    left: (deviceScreen.width - 50) / 2,
-    top: (videoHeight - 50) / 2,
-    backgroundColor: 'transparent',
-  },
   listView: {
     flex: 1
-  },
-  video: {
-    width: deviceScreen.width,
-    height: videoHeight,
   },
   nav: {
     flex: 1,
