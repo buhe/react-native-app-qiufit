@@ -86,7 +86,10 @@ var CommentStore = Reflux.createStore({
     };
   },
   reset(){
-
+    this.comments = [];
+    this.ref = {};
+    this.trendCount = 0;
+    this.trends = [];
   }
 
 });

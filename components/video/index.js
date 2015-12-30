@@ -108,7 +108,7 @@ var Video = React.createClass({
       videoView = (
           <TouchableWithoutFeedback onPress={this.press} style={styles.listView}>
             <RNVideo
-                source={{uri: this.state.localUrl}} // Can be a URL or a local file.
+                source={{uri: this.state.localUrl,isNetwork:false}} // Can be a URL or a local file.
                 rate={1.0}                   // 0 is paused, 1 is normal.
                 volume={1.0}                 // 0 is muted, 1 is normal.
                 muted={this.state.muted}                // Mutes the audio entirely.
