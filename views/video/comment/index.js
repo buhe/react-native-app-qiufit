@@ -37,13 +37,14 @@ class Comment extends React.Component {
               {...this.props}
               />
           <TextInput
-              style={{height: deviceScreen.height - 60,paddingTop:15,paddingLeft:10,paddingRight:10}}
+              style={{height: deviceScreen.height - 60,paddingTop:15,paddingLeft:10,paddingRight:10,fontSize:18}}
               onChangeText={(text) => this.setState({text})}
               value={this.state.text}
               multiline={true}
-              placeholder={'说人话'}
+              placeholder={'不友善的言论会被删除，深度讨论会被优先展示。'}
               numberOfLines={100}
               textAlignVertical={'top'}
+              placeholderTextColor={'#cccccc'}
               />
         </View>
     );
