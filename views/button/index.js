@@ -17,12 +17,8 @@ export default class Button extends React.Component {
         <TouchableHighlight
             onPress={this.props.press}
             style={[{
-                        marginTop:0,
-                        marginLeft:40,
-                        marginRight:40,
-
                         height:60,
-                        backgroundColor: 'black',},Theme.centerChild]}
+                        backgroundColor: 'black',},Theme.centerChild,this.props.style]}
             >
           <Text style={{
           fontSize: 20,

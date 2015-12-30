@@ -20,13 +20,17 @@ class VideoModal extends React.Component {
         <View>
           <View style={{padding:30}}>
             <View style={[Theme.centerChild]}>
-              <Image source={{uri:IMG_PREFIX + 'popover_'+this.props.typeName+'.png'}} style={styles.bg} />
+              <Image source={{uri:IMG_PREFIX + 'popover_'+this.props.typeName+'.png'}} style={styles.bg}/>
             </View>
             <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
               <Text style={styles.nestedText}>{this.props.stepName}</Text>
               <Text style={[styles.title]}>{this.props.subStep}</Text>
             </View>
             <Button
+                style={{
+                   marginLeft:20,
+                   marginRight:20
+                      }}
                 press={this.props.actionClick}
                 text={'确定'}
                 >
@@ -43,7 +47,7 @@ var styles = StyleSheet.create({
     height: 90
   },
   nestedText: {
-    top:-10,
+    top: -10,
     fontWeight: 'bold',
     fontSize: 24
   },

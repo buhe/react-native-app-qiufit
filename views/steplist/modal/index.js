@@ -26,6 +26,10 @@ class StepModal extends React.Component {
               <Text style={[styles.title]}>{this.props.name}</Text>
             </View>
             <Button
+                style={{
+                     marginLeft:20,
+                     marginRight:20
+                  }}
                 press={this.props.actionClick}
                 text={'开始'}
                 >

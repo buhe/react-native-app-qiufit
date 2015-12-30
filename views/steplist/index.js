@@ -191,9 +191,9 @@ var styles = StyleSheet.create({
     backgroundColor: '#CCCCCC',
   },
   modalStyle: {
-    height: 365,
+    height: 330,
     width: 315,
-    marginTop: (deviceScreen.height - 365) / 2,
+    marginTop: (deviceScreen.height - 330) / 2,
     marginLeft: (deviceScreen.width - 315 - 40) / 2,
   },
   closeImage: {

@@ -82,6 +82,10 @@ var Result = React.createClass({
             </View>
           </View>
           <Button
+              style={{
+               marginLeft:40,
+               marginRight:40
+              }}
               text={'分享'}
               press={this.share.bind(this)}
               />
