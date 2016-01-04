@@ -92,7 +92,7 @@ var VideoView = React.createClass({
   },
   render: function () {
     var videoView = <View></View>;
-    if (this.state.ref.videoUrl) {
+    if (typeof this.state.ref.videoUrl !== 'undefined') {
       videoView = <Video
           url={this.state.ref.videoUrl}
           { ... this.props}

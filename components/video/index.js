@@ -32,7 +32,7 @@ var Video = React.createClass({
       paused: false,
       muted: false,
       localUrl: '',
-      progress:0.0,
+      progress: 0.0,
     };
   },
   closeVoice(){
@@ -52,28 +52,28 @@ var Video = React.createClass({
 
   componentWillMount(){
     var self = this;
-    if(!self.props.url){
+    if (!self.props.url) {
       return;
     }
     var paths = self.props.url.split('/');
     var fileName = paths[paths.length - 1];
-    AsyncStorage.getItem(this.props.url,function(err,localUrl){
+    AsyncStorage.getItem(this.props.url, function (err, localUrl) {
       if (localUrl) {
         self.setState({localUrl: localUrl});
       } else {
-        var localVideoUrl = osUtils.getCacheDir() +"/" +fileName;
+        var localVideoUrl = osUtils.getCacheDir() + "/" + fileName;
         RNFS.downloadFile(self.props.url, localVideoUrl, function () {
 
         }, function (process) {
           var progress = process.bytesWritten / process.contentLength;
-          if(progress > 0.1){
-            if(progress - self.state.progress > 0.1){
+          if (progress > 0.1) {
+            if (progress - self.state.progress > 0.1) {
               self.setState({progress: progress});
             }
           }
           if (process.bytesWritten === process.contentLength) {
             self.setState({localUrl: localVideoUrl});
-            AsyncStorage.setItem(self.props.url,localVideoUrl);
+            AsyncStorage.setItem(self.props.url, localVideoUrl);
           }
         });
       }
@@ -111,18 +111,18 @@ var Video = React.createClass({
               source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
               style={[styles.video,Theme.centerChild]}
               >
-              <View style={Theme.centerChild}>
-                <Image
-                    source={{uri:IMG_PREFIX + 'video_loading.png'}}
-                    style={{width: 120,height: 40,}}
-                    />
-                <ProgressBar
-                    //fillStyle={}
-                    backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
-                    style={{marginTop: 10, width: 120}}
-                    progress={this.state.progress}
-                    />
-              </View>
+            <View style={Theme.centerChild}>
+              <Image
+                  source={{uri:IMG_PREFIX + 'video_loading.png'}}
+                  style={{width: 120,height: 40,}}
+                  />
+              <ProgressBar
+                  //fillStyle={}
+                  backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
+                  style={{marginTop: 10, width: 120}}
+                  progress={this.state.progress}
+                  />
+            </View>
 
 
           </Image>
@@ -143,8 +143,19 @@ var Video = React.createClass({
                 />
           </TouchableWithoutFeedback>
       );
-    }else if(!this.props.url){ //没有视频播放链接
-
+    } else if (!this.props.url) { //没有视频播放链接
+      videoView =
+          <View>
+            <Image
+                source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
+                style={[styles.video,Theme.centerChild]}
+                >
+                <Image
+                    source={{uri:IMG_PREFIX + 'video_alarm.png'}}
+                    style={{width: 180,height: 40,backgroundColor:'transparent'}}
+                    />
+            </Image>
+          </View>;
     }
 
     return (

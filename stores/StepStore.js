@@ -611,6 +611,7 @@ const stepsMap = {
         '1分钟',
         '2分钟',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f1.jpg'
     },
     {
