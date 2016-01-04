@@ -634,6 +634,7 @@ const stepsMap = {
         '1分钟',
         '2分钟',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f3.jpg'
     }, {
       text1: "第四式 半倒立撑",
@@ -644,6 +645,7 @@ const stepsMap = {
         '2组, 10次',
         '2组, 20次',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f4.jpg'
     }, {
       text1: "第五式 标准倒立撑",
@@ -654,6 +656,7 @@ const stepsMap = {
         '2组, 10次',
         '2组, 15次',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f5.jpg'
     },
     {
@@ -665,6 +668,7 @@ const stepsMap = {
         '2组, 9次',
         '2组, 12次',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f6.jpg'
     },
     {
@@ -676,6 +680,7 @@ const stepsMap = {
         '2组, 8次 (每侧)',
         '2组, 10次 (每侧)',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f7.jpg'
     },
     {
@@ -687,6 +692,7 @@ const stepsMap = {
         '2组, 6次 (每侧)',
         '2组, 8次 (每侧)',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f8.jpg'
     },
     {
@@ -698,6 +704,7 @@ const stepsMap = {
         '2组, 4次 (每侧)',
         '2组, 6次 (每侧)',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f9.jpg'
     },
     {
@@ -708,6 +715,7 @@ const stepsMap = {
         '2组, 2次 (每侧)',
         '2组, 5次 (每侧)',
       ],
+      videoUrl: "",
       infoImage:INFO_IMAGE_PREFIX + 'f10.jpg'
     }
   ],
