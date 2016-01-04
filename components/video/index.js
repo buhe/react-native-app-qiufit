@@ -23,6 +23,7 @@ const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var RNFS = require('react-native-fs');
 var osUtils = require('../../utils');
 var ProgressBar = require('react-native-progress-bar');
+var Theme = require('../../views/theme');
 
 var Video = React.createClass({
   getInitialState: function () {
@@ -108,14 +109,22 @@ var Video = React.createClass({
         <View>
           <Image
               source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
-              style={styles.video}
+              style={[styles.video,Theme.centerChild]}
               >
-            <ProgressBar
-                //fillStyle={}
-                backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
-                style={{marginTop: 10, width: 300}}
-                progress={this.state.progress}
-                />
+              <View style={Theme.centerChild}>
+                <Image
+                    source={{uri:IMG_PREFIX + 'video_loading.png'}}
+                    style={{width: 120,height: 40,}}
+                    />
+                <ProgressBar
+                    //fillStyle={}
+                    backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
+                    style={{marginTop: 10, width: 120}}
+                    progress={this.state.progress}
+                    />
+              </View>
+
+
           </Image>
         </View>;
     //storage
