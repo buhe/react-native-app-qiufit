@@ -91,7 +91,13 @@ var VideoView = React.createClass({
     });
   },
   render: function () {
-
+    var videoView = <View></View>;
+    if (this.state.ref.videoUrl) {
+      videoView = <Video
+          url={this.state.ref.videoUrl}
+          { ... this.props}
+          />
+    }
     var commentView = <View></View>;
     if (this.state.comments && this.state.comments.length > 0) {  //有评论
       var content = [];
@@ -110,10 +116,7 @@ var VideoView = React.createClass({
     }
     return (
         <View>
-          <Video
-              url={this.state.ref.videoUrl}
-              { ... this.props}
-              />
+          {videoView}
           <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableWithoutFeedback>

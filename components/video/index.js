@@ -119,6 +119,8 @@ var Video = React.createClass({
                 />
           </TouchableWithoutFeedback>
       );
+    }else if(!this.props.url){ //没有视频播放链接
+
     }
 
     return (

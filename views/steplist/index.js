@@ -4,6 +4,7 @@
 var React = require('react-native');
 var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
+var VideoStore = require('../../stores/VideoStore');
 var StepModal = require('./modal');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
@@ -79,7 +80,7 @@ var StepsView = React.createClass({
   hideModal () {
     this.refs.modal.close();
     var ref = this.state.steps[this.state.stepIndex];
-    VideoActionCreators.reset();
+    VideoStore.reset();
     VideoActionCreators.setRef({
       typeText:ref.text1,
       type: this.state.typeName,
