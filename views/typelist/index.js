@@ -3,11 +3,12 @@
  */
 var React = require('react-native');
 var StepList = require('../steplist');
-//var Reflux = require('reflux');
+var Reflux = require('reflux');
 //var _ = require('lodash');
 var StepActionCreators = require('../../actions/StepActionCreators');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
+var StepStore = require('../../stores/StepStore');
 
 var {
     AppRegistry,
@@ -64,18 +65,26 @@ var typeList = [
 
 
 var TypeItem = React.createClass({
+  mixins:[
+    Reflux.connect(StepStore)
+  ],
   pushPaperById(){
     StepActionCreators.setTypeName(this.props.name);
     this.props.navigator.push(Router.getStepList());
   },
   render: function () {
+    var steps = this.state.data[this.props.name];
+    var process = 0;
+    if(steps){
+      process = steps.length;
+    }
     return (
         <TouchableOpacity onPress={this.pushPaperById}>
           <View style={styles.container}>
             <Image source={{uri:this.props.icon}} style={styles.itemIcon}/>
             <View style={styles.itemTextWrapper}>
               <Text style={styles.itemText}>{this.props.type}</Text>
-              <Text style={styles.itemProcessText}>{this.props.process}</Text>
+              <Text style={styles.itemProcessText}>{process}/10</Text>
             </View>
           </View>
           <View style={styles.separator}/>

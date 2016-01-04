@@ -111,10 +111,9 @@ var Video = React.createClass({
               source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
               style={[styles.video,Theme.centerChild]}
               >
-            <View style={Theme.centerChild}>
               <Image
                   source={{uri:IMG_PREFIX + 'video_loading.png'}}
-                  style={{width: 120,height: 40,}}
+                  style={{width: 120,height: 40,backgroundColor:'transparent'}}
                   />
               <ProgressBar
                   //fillStyle={}
@@ -122,8 +121,6 @@ var Video = React.createClass({
                   style={{marginTop: 10, width: 120}}
                   progress={this.state.progress}
                   />
-            </View>
-
 
           </Image>
         </View>;

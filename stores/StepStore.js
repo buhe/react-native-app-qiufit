@@ -736,6 +736,7 @@ var StepStore = Reflux.createStore({
   sync: function () {
     API.pullTurningStep(function (data) {
       this.data = data;
+      this.trigger(this);
     }.bind(this), function (err) {
       console.log(err);
     }.bind(this));
