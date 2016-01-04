@@ -22,6 +22,7 @@ let videoHeight = deviceScreen.width / 1.73;
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var RNFS = require('react-native-fs');
 var osUtils = require('../../utils');
+var ProgressBar = require('react-native-progress-bar');
 
 var Video = React.createClass({
   getInitialState: function () {
@@ -30,6 +31,7 @@ var Video = React.createClass({
       paused: false,
       muted: false,
       localUrl: '',
+      progress:0.0,
     };
   },
   closeVoice(){
@@ -62,6 +64,12 @@ var Video = React.createClass({
         RNFS.downloadFile(self.props.url, localVideoUrl, function () {
 
         }, function (process) {
+          var progress = process.bytesWritten / process.contentLength;
+          if(progress > 0.1){
+            if(progress - self.state.progress > 0.1){
+              self.setState({progress: progress});
+            }
+          }
           if (process.bytesWritten === process.contentLength) {
             self.setState({localUrl: localVideoUrl});
             AsyncStorage.setItem(self.props.url,localVideoUrl);
@@ -101,7 +109,14 @@ var Video = React.createClass({
           <Image
               source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
               style={styles.video}
-              />
+              >
+            <ProgressBar
+                //fillStyle={}
+                backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
+                style={{marginTop: 10, width: 300}}
+                progress={this.state.progress}
+                />
+          </Image>
         </View>;
     //storage
     if (this.state.localUrl) {
