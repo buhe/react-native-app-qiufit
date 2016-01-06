@@ -53,28 +53,14 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
         for (int i = 0; i < x.size(); i++) {
             xVals1.add(x.getString(i));
         }
-        radarChart.setSkipWebLineCount(x.size() + 1);  //TODO skip all center line
-        radarChart.setWebColor(Color.argb(125, 255, 255, 255));
         XAxis xAxis = radarChart.getXAxis();
-        //TODO export
-        xAxis.setTextSize(15f);
+        xAxis.setTextSize(12f);
         xAxis.setTextColor(Color.WHITE);
-        //export end
-
-//        xAxis.setDrawAxisLine(false);
-//        xAxis.setDrawGridLines(false);
-//        xAxis.setDrawLabels(false);
-//        xAxis.setDrawLimitLinesBehindData(true);
-
 
         RadarDataSet set1 = new RadarDataSet(yVals1, "Set 1");
-//        set1.setDrawValues(false);
-//        set1.setDrawHighlightIndicators(false);
-//        set1.setDrawHorizontalHighlightIndicator(false);
-//        set1.setDrawVerticalHighlightIndicator(false);
         set1.setColor(Color.parseColor(dataColor));
 
-        //TODO disable draw fill
+        //disable draw fill
         set1.setDrawFilled(false);
 
 
@@ -82,12 +68,9 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
         sets.add(set1);
 
         RadarData data = new RadarData(xVals1, sets);
-        data.setValueTextSize(8f);
         data.setDrawValues(false);
 
         radarChart.setData(data);
-//        radarChart.setBackgroundColor(Color.RED);
-
         radarChart.invalidate();
     }
 
@@ -103,17 +86,16 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
 
         mChart.setDescription("");
 
-        mChart.setWebLineWidth(1.5f);
-        mChart.setWebLineWidthInner(0.75f);
+        mChart.setWebLineWidth(1f);
+        mChart.setWebLineWidthInner(0f);
         mChart.setWebAlpha(100);
 
-        XAxis xAxis = mChart.getXAxis();
-        xAxis.setTextSize(9f);
-
         YAxis yAxis = mChart.getYAxis();
-        yAxis.setLabelCount(5, false);
-        yAxis.setTextSize(9f);
+        yAxis.setLabelCount(11, true);
+        yAxis.setAxisMaxValue(10);
+        yAxis.setAxisMinValue(0);
         yAxis.setStartAtZero(true);
+        yAxis.setDrawLabels(false);
 
         Legend l = mChart.getLegend();
         l.setEnabled(false);

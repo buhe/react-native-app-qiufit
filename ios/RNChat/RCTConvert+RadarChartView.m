@@ -21,9 +21,10 @@
   }
   
   RadarChartDataSet *set2 = [[RadarChartDataSet alloc] initWithYVals:yVals2 label:@"Y"];
-  [set2 setColor:ChartColorTemplates.vordiplom[4]];
-  set2.drawFilledEnabled = YES;
-  set2.lineWidth = 2.0;
+  [set2 setColor:[UIColor whiteColor]];
+  set2.drawFilledEnabled = NO;
+  set2.lineWidth = 1.0;
+  
   
   RadarChartData *data = [[RadarChartData alloc] initWithXVals:json[@"x"] dataSets:@[set2]];
   [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:8.f]];
