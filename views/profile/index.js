@@ -10,6 +10,9 @@ var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
 var CheckIn = require('../../components/RNCheckIn');
+var ViewSnapshotter = require('../../snapshot');
+var WeChat = require('../../wechat');
+var osUtils = require('../../utils');
 import _ from 'lodash';
 
 var {
@@ -41,7 +44,22 @@ var ProfileView = React.createClass({
     this.props.navigator.pop();
   },
   share(){
-    //TODO
+    var imagePath = osUtils.getCacheDir() + "/share.png";
+    var ref = React.findNodeHandle(this.refs.shareView);
+    ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
+      if (successfulWrite) {
+        WeChat.shareImage({
+          path: imagePath,
+          tagName: '囚徒健身',
+          title: '囚徒健身',
+          desc: '囚徒健身',
+          thumbPath: imagePath,
+          scene: 1
+        });
+      } else {
+        console.log(error)
+      }
+    });
   },
   componentWillMount(){
     var tableData = [];
@@ -100,7 +118,7 @@ var ProfileView = React.createClass({
               <Image source={{uri:IMG_PREFIX + 'navifation_share.png'}} style={styles.profileImage}/>
             </TouchableOpacity>
           </View>
-          <ScrollView style={styles.main}>
+          <ScrollView style={styles.main}  ref='shareView'>
             <View style={styles.turningAnalytics}>
               <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
               <Text style={styles.turningAnalyticsText}>训练分析</Text>
