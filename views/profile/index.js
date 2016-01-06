@@ -13,6 +13,7 @@ var CheckIn = require('../../components/RNCheckIn');
 var ViewSnapshotter = require('../../snapshot');
 var WeChat = require('../../wechat');
 var osUtils = require('../../utils');
+var Theme = require('../theme');
 import _ from 'lodash';
 
 var {
@@ -118,7 +119,7 @@ var ProfileView = React.createClass({
               <Image source={{uri:IMG_PREFIX + 'navifation_share.png'}} style={styles.profileImage}/>
             </TouchableOpacity>
           </View>
-          <ScrollView style={styles.main}  ref='shareView'>
+          <ScrollView style={styles.main} ref='shareView'>
             <View style={styles.turningAnalytics}>
               <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
               <Text style={styles.turningAnalyticsText}>训练分析</Text>
@@ -158,9 +159,9 @@ class RecordItem extends React.Component {
   render() {
     return (
         <View style={styles.recordWrapper}>
-          <View style={styles.contentWrapper}><Text style={styles.content}>{this.props.type}</Text></View>
-          <View style={styles.contentWrapper}><Text style={styles.content}>{this.props.desc}</Text></View>
-          <View style={styles.contentWrapper}><Text style={styles.content}>{this.props.step}</Text></View>
+          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text style={styles.content}>{this.props.type}</Text></View>
+          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.5}]}><Text style={styles.content}>{this.props.desc}</Text></View>
+          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text style={styles.content}>{this.props.step}</Text></View>
         </View>
     )
   }
@@ -175,10 +176,7 @@ var styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#2a2a2a',
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 30,
-    paddingRight: 30,
+    height: 55,
   },
   content: {
     color: 'white',
@@ -186,7 +184,7 @@ var styles = StyleSheet.create({
   },
   recordWrapper: {
     flexDirection: 'row',
-    height: 60,
+    height: 55,
     justifyContent: 'space-around',
   },
   //Chart
