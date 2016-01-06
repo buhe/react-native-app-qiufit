@@ -91,11 +91,8 @@ var Month = React.createClass({
             if (dayNum > 0 && j < counts + week) {
               //如果当前日期小于今天，则变灰
               var dateStr = '';
-              if(month < 10){ //写的不好 FIXME
-                dateStr = year + '-0' + (month + 1) + '-0' + dayNum;
-              }else{
-                dateStr = year + '-' + (month + 1) + '-' + dayNum;
-              }
+              //写的不好 FIXME
+              dateStr = year + ((month < 10 ) ? '-0' : '-') + (month + 1) + ((dayNum < 10 ) ? '-0' : '-') + dayNum;
 
               var dayStyle = {};
               var bk = {};
