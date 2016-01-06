@@ -160,7 +160,7 @@ var Month = React.createClass({
         var current = _.keys(this.state.currentMonth)[0];
         var m = moment(current, "YYYY-MM");
         m.subtract(1, 'M');
-        var month = m.year() + '-' + (m.month() + 1);
+        var month = m.format('YYYY-MM');
         var currentMonthValue = {};
         if (this.props.months[month]) {
           currentMonthValue[month] = this.props.months[month];
@@ -175,7 +175,7 @@ var Month = React.createClass({
         var current = _.keys(this.state.currentMonth)[0];
         var m = moment(current, "YYYY-MM");
         m.add(1, 'M'); //获取下个月,还要判断是否溢出
-        var month = m.year() + '-' + (m.month() + 1);
+        var month = m.format('YYYY-MM');
         var currentMonthValue = {};
         if (this.props.months[month]) {
           currentMonthValue[month] = this.props.months[month];

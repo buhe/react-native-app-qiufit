@@ -57,7 +57,7 @@ var ProfileView = React.createClass({
         tableData.push({
           type: key,
           step: step.get('step'),
-          level: step.get('level') ? step.get('level') :'初级标准',
+          level: step.get('level') ? step.get('level') : '初级标准',
         });
       } else {
         y.push(1);
@@ -88,7 +88,7 @@ var ProfileView = React.createClass({
           />;
     });
     return (
-        <ScrollView style={styles.main}>
+        <View style={{backgroundColor: '#1d1d1d'}}>
           <View style={styles.nav}>
             <TouchableOpacity onPress={this.pop} style={styles.backWrapper}>
               <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.profileImage}/>
@@ -100,35 +100,37 @@ var ProfileView = React.createClass({
               <Image source={{uri:IMG_PREFIX + 'navifation_share.png'}} style={styles.profileImage}/>
             </TouchableOpacity>
           </View>
-          <View style={styles.turningAnalytics}>
-            <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
-            <Text style={styles.turningAnalyticsText}>训练分析</Text>
-            <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
-          </View>
-          <View style={styles.chartWrapper}>
-            <Chart
-                style={styles.chart}
-                data={this.state.chartData}
+          <ScrollView style={styles.main}>
+            <View style={styles.turningAnalytics}>
+              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+              <Text style={styles.turningAnalyticsText}>训练分析</Text>
+              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+            </View>
+            <View style={styles.chartWrapper}>
+              <Chart
+                  style={styles.chart}
+                  data={this.state.chartData}
+                  />
+            </View>
+            <View style={styles.tableWrapper}>
+              {tableView}
+            </View>
+            <View style={styles.turningAnalytics}>
+              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+              <Text style={styles.turningAnalyticsText}>训练记录</Text>
+              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+            </View>
+            <CheckIn
+                months={this.state.checkIn ? this.state.checkIn : {}}
                 />
-          </View>
-          <View style={styles.tableWrapper}>
-            {tableView}
-          </View>
-          <View style={styles.turningAnalytics}>
-            <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
-            <Text style={styles.turningAnalyticsText}>训练记录</Text>
-            <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
-          </View>
-          <CheckIn
-              months={this.state.checkIn ? this.state.checkIn : {}}
-              />
-          <View style={styles.bottomView}>
-            <Image source={{uri:IMG_PREFIX + 'me_logo.png'}} style={styles.bottomIcon}/>
-            <Text style={[styles.content,styles.bottomText]}>囚徒健身 Design By cheng zhen</Text>
-            <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
-            <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
-          </View>
-        </ScrollView>
+            <View style={styles.bottomView}>
+              <Image source={{uri:IMG_PREFIX + 'me_logo.png'}} style={styles.bottomIcon}/>
+              <Text style={[styles.content,styles.bottomText]}>囚徒健身 Design By cheng zhen</Text>
+              <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
+              <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
+            </View>
+          </ScrollView>
+        </View>
     );
 
   }
@@ -198,12 +200,10 @@ var styles = StyleSheet.create({
     marginRight: 20
   },
   main: {
-    backgroundColor: '#1d1d1d',
-    height: deviceScreen.height,
+    height: deviceScreen.height - 60,
   },
   //Nav bar
   nav: {
-    flex: 1,
     height: 60,
     flexDirection: 'row',
     width: deviceScreen.width,
