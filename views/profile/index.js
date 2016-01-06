@@ -3,11 +3,12 @@
  */
 var React = require('react-native');
 var Reflux = require('reflux');
-var ProfileStore = require('../../stores/ProfileStore');
+var StepStore = require('../../stores/StepStore');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
 var CheckIn = require('../../components/RNCheckIn');
+import _ from 'lodash';
 
 var {
     AppRegistry,
@@ -25,21 +26,40 @@ var {
 
 var ProfileView = React.createClass({
   mixins: [
-    Reflux.connect(ProfileStore)
+    Reflux.connect(StepStore)
   ],
-  //getInitialState: function () {
-  //  //ResumesActionCreators.fetchResumes();
-  //  return {
-  //
-  //  };
-  //},
+  getInitialState: function () {
+    return {
+      chartData : {}
+    }
+  },
   pop(){
     this.props.navigator.pop();
   },
   share(){
     //TODO
   },
+  componentWillMount(){
+    let x =_.values(StepStore.stepNameMap);
+    var y = [];
+    for(var key in StepStore.stepNameMap){
+      var steps = this.state.data[key];
+      var process = 0;
+      if(steps){
+        process = steps.length;
+      }
+      y.push(process);
+    }
+    this.setState({
+      chartData:{
+        x:x,
+        y:y,
+        dataColor:'white',
+      }
+    });
+  },
   render: function () {
+
     return (
         <ScrollView style={styles.main}>
           <View style={styles.nav}>
@@ -61,11 +81,7 @@ var ProfileView = React.createClass({
           <View style={styles.chartWrapper}>
             <Chart
                 style={styles.chart}
-                data={{
-                      x:['俯卧撑','倒立撑','桥','引体向上','深蹲','举腿'],
-                      y:[3,2,5,1,7,8],
-                      dataColor:'white',
-                      }}
+                data={this.state.chartData}
                 />
           </View>
           <View style={styles.tableWrapper}>

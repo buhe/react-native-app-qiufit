@@ -776,5 +776,5 @@ var StepStore = Reflux.createStore({
   }
 
 });
-
+StepStore.stepNameMap = stepsNameMap;
 module.exports = StepStore;
