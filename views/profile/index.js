@@ -29,6 +29,22 @@ var {
     PixelRatio
     } = React;
 
+function getMaxLevel(levels) {
+  if (levels) {
+    if (_.includes(levels, '高级标准')) {
+      return '高级标准';
+    } else if (_.includes(levels, '中级标准')) {
+      return '中级标准';
+    } else if (_.includes(levels, '初级标准')) {
+      return '初级标准';
+    } else {
+      return '初级标准';
+    }
+  } else {
+    return '初级标准';
+  }
+}
+
 
 var ProfileView = React.createClass({
   mixins: [
@@ -76,7 +92,7 @@ var ProfileView = React.createClass({
         tableData.push({
           type: key,
           step: step.get('step'),
-          level: step.get('level') ? step.get('level') : '初级标准',
+          level: getMaxLevel(step.get('levels')),
         });
       } else {
         y.push(1);
@@ -159,9 +175,12 @@ class RecordItem extends React.Component {
   render() {
     return (
         <View style={styles.recordWrapper}>
-          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text style={styles.content}>{this.props.type}</Text></View>
-          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.5}]}><Text style={styles.content}>{this.props.desc}</Text></View>
-          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text style={styles.content}>{this.props.step}</Text></View>
+          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text
+              style={styles.content}>{this.props.type}</Text></View>
+          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.5}]}><Text
+              style={styles.content}>{this.props.desc}</Text></View>
+          <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text
+              style={styles.content}>{this.props.step}</Text></View>
         </View>
     )
   }

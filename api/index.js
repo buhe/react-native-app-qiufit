@@ -61,11 +61,12 @@ class API {
     query.equalTo('user', user);
     query.equalTo('type', type);
     query.equalTo('step', step);
-    query.equalTo('level', level);
+    //query.equalTo('level', level);
     query.find({
       success: function (results) {
         if (results.length > 0) {
           var profile = results[0];
+          profile.addUnique('levels', level);
           profile.increment("count"); //完成数量+1
           profile.save();
         } else {
@@ -73,7 +74,7 @@ class API {
           profile.set('user', user);
           profile.set('type', type);
           profile.set('step', step);
-          profile.set('level', level);
+          profile.addUnique('levels', level);
           profile.set('count', 1);
           profile.save();
         }
@@ -84,7 +85,7 @@ class API {
         profile.set('user', user);
         profile.set('type', type);
         profile.set('step', step);
-        profile.set('level', level);
+        profile.addUnique('levels', level);
         profile.set('count', 1);
         profile.save();
       }
