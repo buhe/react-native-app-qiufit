@@ -747,7 +747,7 @@ var StepStore = Reflux.createStore({
     var selected = this.data[this.typeName];
     if(selected){
       for (var i = 0; i < selected.length; i++) {
-        var stepIndex = selected[i];
+        var stepIndex = selected[i].get('step');
         this.steps[stepIndex].selected = true;
       }
     }
@@ -777,4 +777,5 @@ var StepStore = Reflux.createStore({
 
 });
 StepStore.stepNameMap = stepsNameMap;
+StepStore.stepsMap = stepsMap;
 module.exports = StepStore;

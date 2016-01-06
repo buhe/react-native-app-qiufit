@@ -60,7 +60,7 @@ var VideoView = React.createClass({
     this.refs.modal.close();
     //完成当前的type , step
     ShareAction.setShareResult(this.state.ref.typeText, this.state.subStep, this.state.ref.subStep[this.state.subStepIndex]);
-    VideoActionCreators.finishTurning();
+    VideoActionCreators.finishTurning(this.state.subStep);
     this.props.navigator.push(Router.getResult());
   },
   closeModal(){

@@ -30,7 +30,8 @@ var ProfileView = React.createClass({
   ],
   getInitialState: function () {
     return {
-      chartData : {}
+      chartData: {},
+      tableData: []
     }
   },
   pop(){
@@ -40,26 +41,49 @@ var ProfileView = React.createClass({
     //TODO
   },
   componentWillMount(){
-    let x =_.values(StepStore.stepNameMap);
+    var tableData = [];
+    let x = _.values(StepStore.stepNameMap);
     var y = [];
-    for(var key in StepStore.stepNameMap){
+    for (var key in StepStore.stepNameMap) {
       var steps = this.state.data[key];
-      var process = 0;
-      if(steps){
-        process = steps.length;
+      if (steps) {
+        var step = _.max(steps, function (step) {
+          return step.get('step');
+        });
+        y.push(step.get('step') + 1);//索引从0开始,故+1
+        tableData.push({
+          type: key,
+          step: step.get('step'),
+          level: step.get('level') ? step.get('level') :'初级标准',
+        });
+      } else {
+        y.push(1);
+        tableData.push({
+          type: key,
+          step: 0,
+          level: '初级标准',
+        });
       }
-      y.push(process);
+
     }
     this.setState({
-      chartData:{
-        x:x,
-        y:y,
-        dataColor:'white',
-      }
+      chartData: {
+        x: x,
+        y: y,
+        dataColor: 'white',
+      },
+      tableData: tableData,
     });
   },
   render: function () {
 
+    var tableView = this.state.tableData.map(function (row) {
+      return <RecordItem
+          type={StepStore.stepNameMap[row.type]}
+          desc={StepStore.stepsMap[row.type][row.step].text1}
+          step={row.level}
+          />;
+    });
     return (
         <ScrollView style={styles.main}>
           <View style={styles.nav}>
@@ -85,36 +109,7 @@ var ProfileView = React.createClass({
                 />
           </View>
           <View style={styles.tableWrapper}>
-            <RecordItem
-                type='俯卧撑'
-                desc='第五式 标准俯卧撑'
-                step='中级'
-                />
-            <RecordItem
-                type='俯卧撑'
-                desc='第五式 标准俯卧撑'
-                step='中级'
-                />
-            <RecordItem
-                type='俯卧撑'
-                desc='第五式 标准俯卧撑'
-                step='中级'
-                />
-            <RecordItem
-                type='俯卧撑'
-                desc='第五式 标准俯卧撑'
-                step='中级'
-                />
-            <RecordItem
-                type='俯卧撑'
-                desc='第五式 标准俯卧撑'
-                step='中级'
-                />
-            <RecordItem
-                type='俯卧撑'
-                desc='第五式 标准俯卧撑'
-                step='中级'
-                />
+            {tableView}
           </View>
           <View style={styles.turningAnalytics}>
             <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>

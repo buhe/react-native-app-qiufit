@@ -52,8 +52,8 @@ var CommentStore = Reflux.createStore({
   post: function (comment) {
     API.postComment(this.ref.type, this.ref.step, comment);
   },
-  finishTurning: function () {
-    API.finishTurning(this.ref.type, this.ref.step);
+  finishTurning: function (level) {
+    API.finishTurning(this.ref.type, this.ref.step,level);
   },
   getTrendCount: function () {
     API.getTrendCount(this.ref.type, this.ref.step, function (count) {

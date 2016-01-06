@@ -21,7 +21,7 @@ class API {
   /**
    * 完成训练
    */
-  finishTurning(type, step) {
+  finishTurning(type, step,level) {
     if (userId === 'unset') {
       return;
     }
@@ -61,6 +61,7 @@ class API {
     query.equalTo('user', user);
     query.equalTo('type', type);
     query.equalTo('step', step);
+    query.equalTo('level',level);
     query.find({
       success: function (results) {
         if (results.length > 0) {
@@ -72,6 +73,7 @@ class API {
           profile.set('user', user);
           profile.set('type', type);
           profile.set('step', step);
+          profile.set('level', level);
           profile.set('count', 1);
           profile.save();
         }
@@ -82,6 +84,7 @@ class API {
         profile.set('user', user);
         profile.set('type', type);
         profile.set('step', step);
+        profile.set('level', level);
         profile.set('count', 1);
         profile.save();
       }
@@ -153,10 +156,10 @@ class API {
           var type = data.get('type');
           var step = data.get('step');
           if (result[type]) {
-            result[type].push(step);
+            result[type].push(data);
           } else {
             result[type] = [];
-            result[type].push(step);
+            result[type].push(data);
           }
         }
         //merge
