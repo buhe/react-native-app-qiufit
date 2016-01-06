@@ -4,6 +4,8 @@
 var React = require('react-native');
 var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
+var ProfileActionCreators = require('../../actions/ProfileActionCreators');
+var ProfileStore = require('../../stores/ProfileStore');
 var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
@@ -26,7 +28,8 @@ var {
 
 var ProfileView = React.createClass({
   mixins: [
-    Reflux.connect(StepStore)
+    Reflux.connect(StepStore),
+    Reflux.connect(ProfileStore)
   ],
   getInitialState: function () {
     return {
@@ -117,20 +120,7 @@ var ProfileView = React.createClass({
             <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
           </View>
           <CheckIn
-              months={{
-                    '2015-11': [
-                    '2015-11-1',
-                    '2015-11-2',
-                    '2015-11-3',
-                    '2015-11-9',
-                    ],
-                    '2015-10': [
-                    '2015-10-1',
-                    '2015-10-2',
-                    '2015-10-3',
-                    '2015-10-9',
-                    ],
-                    }}
+              months={this.state.checkIn ? this.state.checkIn : {}}
               />
           <View style={styles.bottomView}>
             <Image source={{uri:IMG_PREFIX + 'me_logo.png'}} style={styles.bottomIcon}/>

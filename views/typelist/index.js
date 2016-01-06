@@ -4,11 +4,13 @@
 var React = require('react-native');
 var StepList = require('../steplist');
 var Reflux = require('reflux');
-//var _ = require('lodash');
+var ProfileActionCreators = require('../../actions/ProfileActionCreators');
 var StepActionCreators = require('../../actions/StepActionCreators');
+var ProfileStore = require('../../stores/ProfileStore');
+var StepStore = require('../../stores/StepStore');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = require('Dimensions').get('window');
-var StepStore = require('../../stores/StepStore');
+
 
 var {
     AppRegistry,
@@ -97,8 +99,11 @@ var TypesView = React.createClass({
   profile(){
     this.props.navigator.push(Router.getProfile());
   },
-  getInitialState: function () {
+  componentDidMount(){
+    ProfileActionCreators.pullTurningDate();
     StepActionCreators.sync();
+  },
+  getInitialState: function () {
     return {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,

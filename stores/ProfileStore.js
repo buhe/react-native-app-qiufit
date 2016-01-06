@@ -2,22 +2,26 @@
  * Created by guguyanhua on 12/2/15.
  */
 var Reflux = require('reflux');
-var Actions = require('../actions/TypeActionCreators');
+var Actions = require('../actions/ProfileActionCreators');
+var API = require('../api');
 //var _ = require('lodash');
 
 
 var ExamStore = Reflux.createStore({
   listenables: Actions,
-  fetchAll: function () {
+  pullTurningDate: function () {
+    API.pullTurningDate(function(data){
+      this.checkIn = data;
+      this.trigger(this);
+    }.bind(this),function(err){}.bind(this));
   },
   getInitialState: function () {
-    this.exam = this.exam || {};
+    this.checkIn = this.checkIn || {};
     return {
-      exam: this.exam
+      checkIn: this.checkIn
     };
   },
   reset(){
-    this.exam = {};
   }
 
 });

@@ -21,7 +21,7 @@ class API {
   /**
    * 完成训练
    */
-  finishTurning(type, step,level) {
+  finishTurning(type, step, level) {
     if (userId === 'unset') {
       return;
     }
@@ -61,7 +61,7 @@ class API {
     query.equalTo('user', user);
     query.equalTo('type', type);
     query.equalTo('step', step);
-    query.equalTo('level',level);
+    query.equalTo('level', level);
     query.find({
       success: function (results) {
         if (results.length > 0) {
@@ -97,7 +97,7 @@ class API {
    */
   pullTurningDate(success, fail) {
     if (userId === 'unset') {
-      success({});
+      fail({msg: 'user not login'});
     }
     var user = new AV.User();
     user.id = userId;
@@ -113,7 +113,7 @@ class API {
           var key = 'unknow';
           try {
             var keys = date.split('-');
-            key = keys[0] + keys[1];
+            key = keys[0] + '-' + keys[1];
           } catch (e) {
           }
           if (result[key]) {
@@ -141,7 +141,7 @@ class API {
    */
   pullTurningStep(success, fail) {
     if (userId === 'unset') {
-      success({});
+      fail({msg: 'user not login'});
     }
     var user = new AV.User();
     user.id = userId;
@@ -343,7 +343,6 @@ class API {
       }
     });
   }
-
 
 
   registerMobUser(user, success, fail) {
