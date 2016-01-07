@@ -33,6 +33,7 @@ var {
     ScrollView,
     Image,
     Animated,
+    InteractionManager
     } = React;
 
 class CommentItem extends React.Component {
@@ -83,12 +84,14 @@ var VideoView = React.createClass({
     };
   },
   componentWillMount: function () {
-    //加载评论
-    VideoActionCreators.refreshComments();
-    //加载动态数量
-    VideoActionCreators.getTrendCount();
-    //加载动态列表
-    VideoActionCreators.pullNextTrends();
+    InteractionManager.runAfterInteractions(() => {
+      //加载评论
+      VideoActionCreators.refreshComments();
+      //加载动态数量
+      VideoActionCreators.getTrendCount();
+      //加载动态列表
+      VideoActionCreators.pullNextTrends();
+    });
   },
   showCommentButton(){
     Animated.timing(          // Uses easing functions
