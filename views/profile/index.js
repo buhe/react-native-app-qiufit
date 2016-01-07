@@ -15,6 +15,8 @@ var WeChat = require('../../wechat');
 var osUtils = require('../../utils');
 var Theme = require('../theme');
 import _ from 'lodash';
+import Button from '../button';
+import Promation from '../../promation';
 
 var {
     AppRegistry,
@@ -168,6 +170,18 @@ var ProfileView = React.createClass({
               <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
               <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
             </View>
+            <Button
+                text={'健身房健身, 立即下载健身范!'}
+                style={{
+                     marginLeft:20,
+                     marginRight:20,
+                     marginBottom:20,
+                     marginTop:20,
+                  }}
+                press={()=>{
+                  Promation.openMarket('com.bodyfun.mobile');
+                }}
+                />
           </ScrollView>
         </View>
     );
