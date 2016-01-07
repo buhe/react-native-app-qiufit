@@ -16,11 +16,12 @@ import Nav from '../nav/CommonNav';
 var UserActionCreators = require('../../actions/UserActionCreators');
 var UserStore = require('../../stores/UserStore');
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {text: ''}
-  }
+var Login = React.createClass({
+  mixins: [require('../../mixins/backandroid')()],
+
+  getInitialState: function () {
+    return {text: ''}
+  },
 
   next() {
     UserActionCreators.requestSmsCode(this.state.text, function () {
@@ -29,11 +30,11 @@ class Login extends React.Component {
       //发送失败
     });
     this.props.navigator.push(Router.getVerify());
-  }
+  },
 
   changeText(text) {
     this.setState({text: text});
-  }
+  },
 
   render() {
     return (
@@ -73,7 +74,7 @@ class Login extends React.Component {
         </View>
     );
   }
-}
+});
 
 var styles = StyleSheet.create({
   textLabel: {

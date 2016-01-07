@@ -96,6 +96,7 @@ var TypeItem = React.createClass({
 });
 
 var TypesView = React.createClass({
+  mixins: [require('../../mixins/backandroid')()],
   profile(){
     this.props.navigator.push(Router.getProfile());
   },

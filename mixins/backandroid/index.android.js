@@ -11,7 +11,11 @@ module.exports = function(backFunction){
       if(backFunction){
         backFunction();
       }else{
-        this.props.navigator.pop();
+        try{
+          this.props.navigator.pop();
+        }catch(e){
+          //ToastAndroid.show(e.message, ToastAndroid.LONG);
+        }
       }
       return true;
     },

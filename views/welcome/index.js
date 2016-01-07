@@ -17,8 +17,6 @@ var WeChat = require('../../wechat');
 
 var Welcome = React.createClass({
 
-  mixins: [require('../../mixins/backandroid')()],
-
   componentWillMount(){
     WeChat.registerApp('wxb401408ecbea2897', (res) => {
       //AlertIOS.alert(JSON.stringify(res)); // true or false
