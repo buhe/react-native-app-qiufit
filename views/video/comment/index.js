@@ -11,7 +11,7 @@ import React, {
     ScrollView,
 } from 'react-native';
 
-import Nav from '../../nav/CommonNav';
+import Nav from '../../nav/CommonNavRightButton';
 var deviceScreen = require('Dimensions').get('window');
 var VideoAction = require('../../../actions/VideoActionCreators');
 

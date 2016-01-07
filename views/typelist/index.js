@@ -154,7 +154,9 @@ var styles = StyleSheet.create({
     flex: 1,
     height: 60,
     backgroundColor: 'black',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   container: {
     flex: 1,
@@ -173,10 +175,7 @@ var styles = StyleSheet.create({
 
   },
   logo: {
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 75,
-    paddingRight: 125,
+    marginRight: (deviceScreen.width - 127 ) / 2,
   },
   itemIcon: {
     width: 50,
@@ -202,7 +201,6 @@ var styles = StyleSheet.create({
   },
   profileImage: {
     marginLeft: 15,
-    marginTop: 15,
     width: 30,
     height: 30,
   }

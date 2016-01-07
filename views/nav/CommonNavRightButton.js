@@ -15,17 +15,16 @@ import Theme from '../theme';
 export default class CommonNav extends React.Component {
 
   render() {
+
     return (
         <View style={[styles.nav]}>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.closeImage}/>
           </TouchableOpacity>
-          <Text style={{
-                    marginRight: (deviceScreen.width - 21 * this.props.navText.length ) / 2,
-                    fontWeight: 'bold',
-                    color: 'white',
-                    fontSize: 21
-                  }}>{this.props.navText}</Text>
+          <Text style={styles.logoText}>{this.props.navText}</Text>
+          <TouchableOpacity onPress={() => this.props.rightAction()}>
+            <Text style={styles.rightButton}>{this.props.rightText}</Text>
+          </TouchableOpacity>
         </View>
     )
   }
@@ -38,6 +37,13 @@ var styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  logoText: {
+    //marginTop: 20,
+    //marginLeft: 100,
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 21
   },
   closeImage: {
     //position: 'absolute',
