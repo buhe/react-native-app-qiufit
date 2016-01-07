@@ -11,11 +11,13 @@
 
 #import "RCTRootView.h"
 #import "RCTWeChat.h"
+#import "MobClick.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [MobClick startWithAppkey:@"568e1985e0f55a1b84001d7b" reportPolicy:BATCH channelId:nil];
   NSURL *jsCodeLocation;
 
   /**

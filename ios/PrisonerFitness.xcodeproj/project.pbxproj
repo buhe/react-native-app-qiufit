@@ -30,6 +30,7 @@
 		7825FDB51C293E3000219A32 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB41C293E3000219A32 /* libsqlite3.0.tbd */; };
 		7825FDB71C293E3A00219A32 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB61C293E3A00219A32 /* CoreTelephony.framework */; };
 		7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB81C293E4300219A32 /* SystemConfiguration.framework */; };
+		7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */; };
 		784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */; };
 		78B259AE1C04453200A6A92F /* RadarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B259AC1C04453200A6A92F /* RadarChartViewController.m */; };
 		78B259AF1C04453200A6A92F /* RadarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B259AD1C04453200A6A92F /* RadarChartViewController.xib */; };
@@ -279,6 +280,9 @@
 		7825FDB41C293E3000219A32 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7825FDB61C293E3A00219A32 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7825FDB81C293E4300219A32 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		7846B7F51C3E523D0077B3DC /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		7846B7F61C3E523D0077B3DC /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		784BA1A01C05536E0063ADB7 /* RCTConvert+RadarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RCTConvert+RadarChartView.h"; path = "RNChat/RCTConvert+RadarChartView.h"; sourceTree = "<group>"; };
 		784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RCTConvert+RadarChartView.m"; path = "RNChat/RCTConvert+RadarChartView.m"; sourceTree = "<group>"; };
 		78B259AB1C04453200A6A92F /* RadarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarChartViewController.h; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				F59D1C3F19D643B5AE8059E5 /* libRCTActionSheet.a in Frameworks */,
+				7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +787,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */,
+				7846B7F51C3E523D0077B3DC /* MobClick.h */,
+				7846B7F61C3E523D0077B3DC /* MobClickSocialAnalytics.h */,
 				7802D7EC1C2C00E000247616 /* RNFS.xcodeproj */,
 				7802D7DB1C2BFB0D00247616 /* ViewSnapshotter.h */,
 				7802D7DC1C2BFB0D00247616 /* ViewSnapshotter.m */,
@@ -1295,6 +1303,10 @@
 				);
 				INFOPLIST_FILE = PrisonerFitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.prisonerfitness;
 				PRODUCT_NAME = PrisonerFitness;
@@ -1318,6 +1330,10 @@
 				);
 				INFOPLIST_FILE = PrisonerFitness/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.prisonerfitness;
 				PRODUCT_NAME = PrisonerFitness;
