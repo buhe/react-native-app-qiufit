@@ -135,7 +135,9 @@ var ProfileView = React.createClass({
               <Image source={{uri:IMG_PREFIX + 'navifation_share.png'}} style={styles.profileImage}/>
             </TouchableOpacity>
           </View>
-          <ScrollView style={styles.main} ref='shareView'>
+          <ScrollView style={styles.main} ref='shareView'
+                      contentContainerStyle={{alignItems:'center'}}
+              >
             <View style={styles.turningAnalytics}>
               <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
               <Text style={styles.turningAnalyticsText}>训练分析</Text>
@@ -155,9 +157,11 @@ var ProfileView = React.createClass({
               <Text style={styles.turningAnalyticsText}>训练记录</Text>
               <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
             </View>
-            <CheckIn
-                months={this.state.checkIn ? this.state.checkIn : {}}
-                />
+            <View style={{width:deviceScreen.width}}>
+              <CheckIn
+                  months={this.state.checkIn ? this.state.checkIn : {}}
+                  />
+            </View>
             <View style={styles.bottomView}>
               <Image source={{uri:IMG_PREFIX + 'me_logo.png'}} style={styles.bottomIcon}/>
               <Text style={[styles.content,styles.bottomText]}>囚徒健身 Design By cheng zhen</Text>
