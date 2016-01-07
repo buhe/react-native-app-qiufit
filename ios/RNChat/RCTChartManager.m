@@ -28,7 +28,7 @@ RCT_CUSTOM_VIEW_PROPERTY(data, RadarChartData, RCTChart)
   chartView.webLineWidth = .75;
   chartView.innerWebLineWidth = 0.375;
   chartView.webAlpha = 1.0;
-  
+  chartView.userInteractionEnabled = NO;
 //  BalloonMarker *marker = [[BalloonMarker alloc] initWithColor:[UIColor colorWithWhite:180/255. alpha:1.0] font:[UIFont systemFontOfSize:12.0] insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)];
 //  marker.minimumSize = CGSizeMake(80.f, 40.f);
 //  chartView.marker = marker;

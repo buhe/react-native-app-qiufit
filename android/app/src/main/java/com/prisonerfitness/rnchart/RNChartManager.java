@@ -83,7 +83,7 @@ public class RNChartManager extends SimpleViewManager<RadarChart> {
     @Override
     protected RadarChart createViewInstance(ThemedReactContext reactContext) {
         RadarChart mChart = new RadarChart(reactContext);
-
+        mChart.setTouchEnabled(false);
         mChart.setDescription("");
 
         mChart.setWebLineWidth(1f);
