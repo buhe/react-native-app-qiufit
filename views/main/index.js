@@ -19,6 +19,7 @@ var Router = require('../router');
 import UserStore from '../../stores/UserStore';
 
 import Storage from 'react-native-storage';
+import osUtils from '../../utils';
 
 var storage = new Storage({
   //最大容量，默认值1000条数据循环存储

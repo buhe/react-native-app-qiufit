@@ -14,6 +14,7 @@ import com.heng.wechat.WeChatPackage;
 import com.prisonerfitness.rnchart.RNChartPackage;
 import com.prisonerfitness.snapshot.RNSnapshotPackage;
 import com.rnfs.RNFSPackage;
+import com.umeng.analytics.MobclickAgent;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -70,6 +71,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     @Override
     protected void onPause() {
         super.onPause();
+        MobclickAgent.onPause(this);
 
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onPause();
@@ -79,6 +81,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     @Override
     protected void onResume() {
         super.onResume();
+        MobclickAgent.onResume(this);
 
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onResume(this);
