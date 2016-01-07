@@ -17,6 +17,7 @@ var VideoModal = require('./modal');
 var Modal = require('react-native-fs-modal');
 import Picker from '../LandscapePicker';
 var ShareAction = require('../../actions/ShareResultActionCreators');
+var osUtils = require('../../utils');
 
 //var _ = require('lodash');
 
@@ -31,6 +32,7 @@ var {
     TouchableWithoutFeedback,
     ScrollView,
     Image,
+    Animated,
     } = React;
 
 class CommentItem extends React.Component {
@@ -51,6 +53,8 @@ class CommentItem extends React.Component {
     )
   }
 }
+
+var offsetY = 0;
 
 var VideoView = React.createClass({
   mixins: [
@@ -75,6 +79,7 @@ var VideoView = React.createClass({
       showSendComment: false,
       subStep: '初级标准',
       subStepIndex: 0,//2 * 50 这种..
+      commentButtonTop: new Animated.Value(deviceScreen.height),
     };
   },
   componentWillMount: function () {
@@ -85,10 +90,32 @@ var VideoView = React.createClass({
     //加载动态列表
     VideoActionCreators.pullNextTrends();
   },
+  showCommentButton(){
+    Animated.timing(          // Uses easing functions
+        this.state.commentButtonTop,    // The value to drive
+        {toValue: deviceScreen.height - 60 - osUtils.getStatusHeight(),duration:100}
+    ).start();
+  },
+  hideCommentButton(){
+    Animated.timing(          // Uses easing functions
+        this.state.commentButtonTop,    // The value to drive
+        {toValue: deviceScreen.height,duration:100}           // Configuration
+    ).start();
+  },
   switchCommentButton(){
     this.setState({
       showSendComment: !this.state.showSendComment,
     });
+  },
+  _onScroll(event){
+    var y = event.nativeEvent.contentOffset.y;
+    if(y < offsetY){
+      this.showCommentButton();
+      offsetY = y;
+    }else{
+      this.hideCommentButton();
+      offsetY = y;
+    }
   },
   render: function () {
     var videoView = <View></View>;
@@ -120,7 +147,10 @@ var VideoView = React.createClass({
           <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
             <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
           </TouchableWithoutFeedback>
-          <ScrollView style={styles.main}>
+          <ScrollView style={styles.main}
+                      onScroll={this._onScroll}
+                      scrollEventThrottle={10}
+              >
             <View style={{alignItems: 'center',flex:1}}>
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
               <Picker
@@ -157,16 +187,24 @@ var VideoView = React.createClass({
             <Text style={{marginLeft:10,marginTop:15}}>{this.state.comments.length}条评论</Text>
             {commentView}
           </ScrollView>
-          <TouchableHighlight
-              onPress={() => this.props.navigator.push(Router.getPost())}
-              style={[styles.commentButton,Theme.centerChild,{
-                        backgroundColor: 'black',
-                        paddingTop: 20,
-                        paddingBottom: 20,
-                        }]}
+          <Animated.View
+              style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: this.state.commentButtonTop,
+              }}
               >
-            <Text style={styles.actionText}>写评论</Text>
-          </TouchableHighlight>
+            <TouchableHighlight
+                onPress={() => this.props.navigator.push(Router.getPost())}
+                style={[Theme.centerChild,{
+                        backgroundColor: 'black',
+                        width: deviceScreen.width,
+                        height: 60
+                        }]}
+                >
+              <Text style={styles.actionText}>写评论</Text>
+            </TouchableHighlight>
+          </Animated.View>
           <Modal
               ref={'modal'}
               duration={10}
@@ -254,12 +292,6 @@ var styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 13,
     borderWidth: 0,
-  },
-  commentButton: {
-    position: 'absolute',
-    left: 0,
-    top: deviceScreen.height - 80,
-    width: deviceScreen.width,
   },
   modalStyle: {
     height: 365,

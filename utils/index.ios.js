@@ -6,4 +6,8 @@ export default {
   getCacheDir(){
     return RNFS.CachesDirectoryPath;
   }
+  ,
+  getStatusHeight(){
+    return 0;
+  }
 }

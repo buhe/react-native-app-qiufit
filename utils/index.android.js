@@ -3,6 +3,10 @@
  */
 export default {
   getCacheDir(){
-    return '/sdcard';
+    return '/sdcard/.prisonerfitness';
+  }
+  ,
+  getStatusHeight(){
+   return 20;
   }
 }
