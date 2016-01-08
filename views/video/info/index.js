@@ -27,7 +27,7 @@ var Info = React.createClass({
               navText={this.state.ref.typeText}
               {...this.props}
               />
-          <Image source={{uri:this.state.ref.infoImage}}
+          <Image source={this.state.ref.infoImage}
                  style={{
                     width:deviceScreen.width -20,
                     height:deviceScreen.height - 100,
