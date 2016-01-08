@@ -4,7 +4,6 @@
 var React = require('react-native');
 var _ = require('lodash');
 var moment = require('moment');
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var {
     AppRegistry,
     StyleSheet,
@@ -143,11 +142,11 @@ var Month = React.createClass({
             <View>
               <View style={styles.month}>
                 <TouchableOpacity onPress={this.prev}>
-                  <Image source={{uri:IMG_PREFIX + 'btn_arrow_left02.png'}} style={styles.buttonIcon}/>
+                  <Image source={require('../../images/btn_arrow_left02.png')} style={styles.buttonIcon}/>
                 </TouchableOpacity>
                 {textView}
                 <TouchableOpacity onPress={this.next}>
-                  <Image source={{uri:IMG_PREFIX + 'btn_arrow_right02.png'}} style={styles.buttonIcon}/>
+                  <Image source={require('../../images/btn_arrow_right02.png')} style={styles.buttonIcon}/>
                 </TouchableOpacity>
               </View>
               <MonthHeader />

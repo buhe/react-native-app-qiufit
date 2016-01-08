@@ -19,7 +19,6 @@ var Router = require('../../views/router');
 var RNVideo = require('react-native-video');
 var deviceScreen = require('Dimensions').get('window');
 let videoHeight = deviceScreen.width / 1.73;
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var RNFS = require('react-native-fs');
 var osUtils = require('../../utils');
 var ProgressBar = require('react-native-progress-bar');
@@ -87,18 +86,18 @@ var Video = React.createClass({
           <View style={styles.controlWrapper}>
             <View style={styles.playButtonWrapper}>
               <TouchableWithoutFeedback onPress={this.press}>
-                <Image style={styles.playButton} source={{uri:IMG_PREFIX + 'video_btn_play.png'}}/>
+                <Image style={styles.playButton} source={require('../../images/video_btn_play.png')}/>
               </TouchableWithoutFeedback>
             </View>
             <View style={styles.infoWrapper}>
               <TouchableWithoutFeedback onPress={this.info}>
-                <Image style={styles.infoButton} source={{uri:IMG_PREFIX + 'video_info.png'}}/>
+                <Image style={styles.infoButton} source={require('../../images/video_info.png')}/>
               </TouchableWithoutFeedback>
             </View>
             <View style={styles.voiceWrapper}>
               <TouchableWithoutFeedback onPress={this.closeVoice}>
                 <Image style={styles.voiceButton}
-                       source={{uri: this.state.muted ? IMG_PREFIX + 'video_sound_open.png' : IMG_PREFIX + 'video_sound_close.png'}}/>
+                       source={this.state.muted ? require('../../images/video_sound_open.png') : require('../../images/video_sound_close.png')}/>
               </TouchableWithoutFeedback>
             </View>
           </View>
@@ -108,11 +107,11 @@ var Video = React.createClass({
     var videoView =
         <View>
           <Image
-              source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
+              source={require('../../images/video_bg_default.jpg')}
               style={[styles.video,Theme.centerChild]}
               >
               <Image
-                  source={{uri:IMG_PREFIX + 'video_loading.png'}}
+                  source={require('../../images/video_loading.png')}
                   style={{width: 120,height: 40,backgroundColor:'transparent'}}
                   />
               <ProgressBar
@@ -144,11 +143,11 @@ var Video = React.createClass({
       videoView =
           <View>
             <Image
-                source={{uri:IMG_PREFIX + 'video_bg_default.jpg'}}
+                source={require('../../images/video_bg_default.jpg')}
                 style={[styles.video,Theme.centerChild]}
                 >
                 <Image
-                    source={{uri:IMG_PREFIX + 'video_alarm.png'}}
+                    source={require('../../images/video_alarm.png')}
                     style={{width: 180,height: 40,backgroundColor:'transparent'}}
                     />
             </Image>
