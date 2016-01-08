@@ -3,6 +3,7 @@
  */
 var React = require('react-native');
 var { requireNativeComponent } = React;
+var View = require('View');
 
 class RNChartView extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class RNChartView extends React.Component {
 }
 
 RNChartView.propTypes = {
-
+  ...View.propTypes,
   webLineWidth: React.PropTypes.number,
   drawWeb: React.PropTypes.bool,
   data: React.PropTypes.shape({
@@ -22,21 +23,7 @@ RNChartView.propTypes = {
      */
     x: React.PropTypes.array.isRequired,
     y: React.PropTypes.array.isRequired
-  }),
-  accessibilityComponentType: React.PropTypes.string,
-  accessibilityLabel: React.PropTypes.string,
-  accessibilityLiveRegion: React.PropTypes.string,
-  backgroundColor: React.PropTypes.Color,
-  decomposedMatrix:  React.PropTypes.map,
-  importantForAccessibility: React.PropTypes.string,
-  opacity: React.PropTypes.number,
-  renderToHardwareTextureAndroid: React.PropTypes.boolean,
-  rotation: React.PropTypes.number,
-  scaleX: React.PropTypes.number,
-  scaleY: React.PropTypes.number,
-  testID: React.PropTypes.string,
-  translateX: React.PropTypes.number,
-  translateY: React.PropTypes.number,
+  })
 };
 
 var RCTChart = requireNativeComponent('RCTChart', RNChartView);
