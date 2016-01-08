@@ -12,7 +12,6 @@ var {
     StyleSheet,
     Text,
     View,
-    Navigator,
     } = React;
 import ExNavigator from '@exponent/react-native-navigator';
 var Router = require('../router');

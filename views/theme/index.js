@@ -3,8 +3,9 @@
  */
 import React, {
     StyleSheet,
+    Dimensions
 } from 'react-native';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 
 var styles = StyleSheet.create({
   centerChild: {

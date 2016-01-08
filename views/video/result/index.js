@@ -9,12 +9,13 @@ import React, {
     TouchableOpacity,
     ScrollView,
     Image,
+    Dimensions,
 } from 'react-native';
 var Reflux = require('reflux');
 var ShareResultStore = require('../../../stores/ShareResultStore');
 
 import Nav from '../../nav/CloseStyleNav';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
 var ViewSnapshotter = require('../../../snapshot');

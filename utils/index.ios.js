@@ -2,12 +2,14 @@
  * Created by guguyanhua on 12/29/15.
  */
 var RNFS = require("react-native-fs");
-export default {
-  getCacheDir(){
+class OS {
+  getCacheDir() {
     return RNFS.CachesDirectoryPath;
   }
-  ,
-  getStatusHeight(){
+
+  getStatusHeight() {
     return 0;
   }
 }
+
+module.exports = new OS();

@@ -7,11 +7,12 @@ import React, {
     View,
     StyleSheet,
     TextInput,
+    Dimensions,
     TouchableHighlight,
 } from 'react-native';
 var Reflux = require('reflux');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
 import CoolDown from 'react-native-countdown';
@@ -131,4 +132,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default Login;
+module.exports = Login;

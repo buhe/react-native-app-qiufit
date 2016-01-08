@@ -6,7 +6,7 @@ var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
 var VideoStore = require('../../stores/VideoStore');
 var StepModal = require('./modal');
-var deviceScreen = require('Dimensions').get('window');
+
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Router = require('../router');
 var API = require('../../api');
@@ -22,9 +22,11 @@ var {
     TouchableOpacity,
     ScrollView,
     Image,
-    PixelRatio
+    PixelRatio,
+    Dimensions
     } = React;
 var Modal = require('react-native-fs-modal');
+var deviceScreen = Dimensions.get('window');
 
 var StepItem = React.createClass({
   pushPaperById(){

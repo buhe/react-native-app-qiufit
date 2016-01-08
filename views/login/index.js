@@ -8,9 +8,10 @@ import React, {
     StyleSheet,
     TextInput,
     TouchableOpacity,
+    Dimensions,
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 var Router = require('../router');
 import Nav from '../nav/CommonNav';
 var UserActionCreators = require('../../actions/UserActionCreators');
@@ -112,4 +113,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default Login;
+module.exports = Login;

@@ -9,10 +9,11 @@ import React, {
     StyleSheet,
     TouchableOpacity,
     ScrollView,
+    Dimensions
 } from 'react-native';
 
 import Nav from '../../nav/CommonNavRightButton';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 var VideoAction = require('../../../actions/VideoActionCreators');
 
 class Comment extends React.Component {

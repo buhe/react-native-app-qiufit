@@ -34,7 +34,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.facebook.react:react-native:0.13.+'
+    compile "com.facebook.react:react-native:0.17.+"
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
     compile project(':RCTVideo')
     compile project(':reactwechat')

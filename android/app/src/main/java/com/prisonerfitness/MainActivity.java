@@ -84,7 +84,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         MobclickAgent.onResume(this);
 
         if (mReactInstanceManager != null) {
-            mReactInstanceManager.onResume(this);
+            mReactInstanceManager.onResume(this,this);
         }
     }
 }

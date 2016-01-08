@@ -6,7 +6,6 @@ var React = require('react-native');
 var VideoStore = require('../../stores/VideoStore');
 var StepList = require('../steplist');
 var Video = require('../../components/video');
-var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
@@ -27,14 +26,15 @@ var {
     Text,
     View,
     ListView,
-    Navigator,
     TouchableHighlight,
     TouchableWithoutFeedback,
     ScrollView,
     Image,
     Animated,
-    InteractionManager
+    InteractionManager,
+    Dimensions
     } = React;
+var deviceScreen = Dimensions.get('window');
 
 class CommentItem extends React.Component {
   render() {

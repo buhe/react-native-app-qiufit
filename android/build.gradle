@@ -24,7 +24,7 @@ subprojects {
     configurations.all {
         // 有版本冲突的时候强制使用指定的版本，对于相关依赖也同样有效
         resolutionStrategy.force(
-                'com.facebook.react:react-native:0.13.+'
+                "com.facebook.react:react-native:0.17.+"
         )
     }
 }

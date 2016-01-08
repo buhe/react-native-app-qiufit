@@ -6,7 +6,6 @@ var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
 var ProfileActionCreators = require('../../actions/ProfileActionCreators');
 var ProfileStore = require('../../stores/ProfileStore');
-var deviceScreen = require('Dimensions').get('window');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
 var CheckIn = require('../../components/RNCheckIn');
@@ -24,13 +23,13 @@ var {
     Text,
     View,
     ListView,
-    Navigator,
     TouchableOpacity,
     ScrollView,
     Image,
-    PixelRatio
+    PixelRatio,
+    Dimensions
     } = React;
-
+var deviceScreen = Dimensions.get('window');
 function getMaxLevel(levels) {
   if (levels) {
     if (_.includes(levels, '高级标准')) {

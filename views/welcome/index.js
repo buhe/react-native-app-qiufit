@@ -8,11 +8,12 @@ import React, {
     StyleSheet,
     TouchableOpacity,
     AlertIOS,
+    Dimensions
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 var Router = require('../router');
-var WeChat = require('../../wechat');
+var WeChat = require('../../wechat').default;
 
 
 var Welcome = React.createClass({
@@ -91,4 +92,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default Welcome;
+module.exports = Welcome;

@@ -3,12 +3,14 @@
  */
 import RNFS from 'react-native-fs';
 RNFS.mkdir('/sdcard/prisonerfitness');
-export default {
-  getCacheDir(){
+class OS {
+  getCacheDir() {
     return '/sdcard/prisonerfitness';
   }
-  ,
-  getStatusHeight(){
-   return 20;
+
+  getStatusHeight() {
+    return 20;
   }
 }
+
+module.exports = new OS();

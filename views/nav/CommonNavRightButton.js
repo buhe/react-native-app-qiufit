@@ -8,9 +8,10 @@ import React, {
     TouchableOpacity,
     ScrollView,
     Image,
+    Dimensions
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 import Theme from '../theme';
 export default class CommonNav extends React.Component {
 

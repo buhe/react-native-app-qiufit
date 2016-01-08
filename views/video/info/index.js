@@ -9,8 +9,9 @@ import React, {
     StyleSheet,
     TouchableOpacity,
     ScrollView,
+    Dimensions
 } from 'react-native';
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 var VideoStore = require('../../../stores/VideoStore');
 import Nav from '../../nav/CommonNav';
 var Reflux = require('reflux');
@@ -38,4 +39,4 @@ var Info = React.createClass({
 
 });
 
-export default Info;
+module.exports = Info;

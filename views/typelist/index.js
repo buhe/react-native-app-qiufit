@@ -9,7 +9,6 @@ var StepActionCreators = require('../../actions/StepActionCreators');
 var ProfileStore = require('../../stores/ProfileStore');
 var StepStore = require('../../stores/StepStore');
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
-var deviceScreen = require('Dimensions').get('window');
 
 
 var {
@@ -18,13 +17,14 @@ var {
     Text,
     View,
     ListView,
-    Navigator,
     TouchableOpacity,
     ScrollView,
     Image,
-    PixelRatio
+    PixelRatio,
+    Dimensions
     } = React;
 var Router = require('../router');
+var deviceScreen = Dimensions.get('window');
 
 var typeList = [
   {

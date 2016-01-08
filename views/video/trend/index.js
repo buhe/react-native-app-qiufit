@@ -11,13 +11,14 @@ import React, {
     TouchableOpacity,
     ScrollView,
     ListView,
+    Dimensions,
 } from 'react-native';
 const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Nav from "../../nav/CommonNav";
 import Reflux from 'reflux';
 import VideoStore from '../../../stores/VideoStore';
 import Separator from '../../../components/Separator'
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 
 class TrendItem extends React.Component {
   render() {

@@ -13,7 +13,6 @@ var {
     Text,
     View,
     ListView,
-    Navigator,
     TouchableOpacity,
     ScrollView,
     Image,
