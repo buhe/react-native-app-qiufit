@@ -4,7 +4,10 @@
  */
 var WeChat = require('react-native-wechat-android');
 
-import {DeviceEventEmitter} from 'react-native';
+var React = require('react-native');
+var {
+    DeviceEventEmitter
+    } = React;
 var SDK = require('./SDK');
 import UserActionCreators from '../actions/UserActionCreators';
 import UserStore from '../stores/UserStore';

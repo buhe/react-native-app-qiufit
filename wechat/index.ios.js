@@ -3,7 +3,10 @@
  * 桥接iOS API
  */
 import WeChat from 'react-native-wechat-ios';
-import {NativeAppEventEmitter} from 'react-native';
+var React = require('react-native');
+var {
+    NativeAppEventEmitter
+    } = React;
 var SDK = require('./SDK');
 import UserActionCreators from '../actions/UserActionCreators';
 import UserStore from '../stores/UserStore';

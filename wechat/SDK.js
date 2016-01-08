@@ -52,4 +52,4 @@ class WeChat {
   }
 }
 
-export default new WeChat();
+module.exports = new WeChat();

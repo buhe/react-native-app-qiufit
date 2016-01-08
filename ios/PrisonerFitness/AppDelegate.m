@@ -10,11 +10,15 @@
 #import "AppDelegate.h"
 
 #import "RCTRootView.h"
+#import "RCTWeChat.h"
+#import "MobClick.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [MobClick startWithAppkey:@"568e1985e0f55a1b84001d7b" reportPolicy:BATCH channelId:nil];
+
   NSURL *jsCodeLocation;
 
   /**
@@ -54,5 +58,17 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+  return [[RCTWeChat shareInstance] handleOpenURL: url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  
+  return [[RCTWeChat shareInstance] handleOpenURL: url];
+  
+}
+
 
 @end
