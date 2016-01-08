@@ -10,7 +10,6 @@ import React, {
     Image,
     Dimensions
 } from 'react-native';
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = Dimensions.get('window');
 import Theme from '../theme';
 export default class CommonNav extends React.Component {
@@ -20,7 +19,7 @@ export default class CommonNav extends React.Component {
     return (
         <View style={[styles.nav]}>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-            <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.closeImage}/>
+            <Image source={require('../../images/navigation_back.png')} style={styles.closeImage}/>
           </TouchableOpacity>
           <Text style={styles.logoText}>{this.props.navText}</Text>
           <TouchableOpacity onPress={() => this.props.rightAction()}>

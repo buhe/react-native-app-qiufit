@@ -11,16 +11,30 @@ var {
     Image,
     PixelRatio
     } = React;
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
 import Theme from '../../theme';
 class VideoModal extends React.Component {
+
   render() {
+    var icon;
+    if(this.props.name === 'pushUp'){
+      icon = <Image source={require('../../../images/popover_a.png')} style={styles.bg}/>
+    }else if(this.props.name === 'deep'){
+      icon = <Image source={require('../../../images/popover_b.png')} style={styles.bg}/>
+    }else if(this.props.name === 'pullUp'){
+      icon = <Image source={require('../../../images/popover_c.png')} style={styles.bg}/>
+    }else if(this.props.name === 'leg'){
+      icon = <Image source={require('../../../images/popover_d.png')} style={styles.bg}/>
+    }else if(this.props.name === 'bridge'){
+      icon = <Image source={require('../../../images/popover_e.png')} style={styles.bg}/>
+    }else if(this.props.name === 'handstand'){
+      icon = <Image source={require('../../../images/popover_f.png')} style={styles.bg}/>
+    }
     return (
         <View>
           <View style={{padding:30}}>
             <View style={[Theme.centerChild]}>
-              <Image source={{uri:IMG_PREFIX + 'popover_'+this.props.typeName+'.png'}} style={styles.bg}/>
+              {icon}
             </View>
             <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
               <Text style={styles.nestedText}>{this.props.stepName}</Text>

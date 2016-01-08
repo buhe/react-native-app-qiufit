@@ -16,7 +16,6 @@ var ShareResultStore = require('../../../stores/ShareResultStore');
 
 import Nav from '../../nav/CloseStyleNav';
 var deviceScreen = Dimensions.get('window');
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
 var ViewSnapshotter = require('../../../snapshot');
 var WeChat = require('../../../wechat');
@@ -55,10 +54,10 @@ var Result = React.createClass({
     return (
         <View>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-            <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+            <Image source={require('../../../images/btn_close.png')} style={styles.closeImage}/>
           </TouchableOpacity>
           <View style={{alignItems:'center'}} ref='shareView'>
-            <Image source={{uri:IMG_PREFIX + '囚徒健身-切图-20.png'}} style={styles.mainLogo}/>
+            <Image source={require('../../../images/囚徒健身-切图-20.png')} style={styles.mainLogo}/>
             <View style={{borderWidth:5,marginTop:30,marginBottom:20}}>
               <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                 <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>新纪录!</Text>

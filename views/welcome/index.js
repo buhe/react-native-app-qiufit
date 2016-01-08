@@ -10,7 +10,6 @@ import React, {
     AlertIOS,
     Dimensions
 } from 'react-native';
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = Dimensions.get('window');
 var Router = require('../router');
 var WeChat = require('../../wechat').default;
@@ -48,7 +47,7 @@ var Welcome = React.createClass({
               <Text style={styles.text}>随便看看</Text>
             </TouchableOpacity>
           </View>
-          <Image source={{uri:IMG_PREFIX + 'signin_logo.png'}} style={{
+          <Image source={require('../../images/signin_logo.png')} style={{
             marginLeft: (deviceScreen.width - 150) / 2,
             height:150,
             width:150,

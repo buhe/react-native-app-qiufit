@@ -6,7 +6,6 @@ var React = require('react-native');
 var VideoStore = require('../../stores/VideoStore');
 var StepList = require('../steplist');
 var Video = require('../../components/video');
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Reflux = require('reflux');
 var Router = require('../router');
 import VideoActionCreators from '../../actions/VideoActionCreators';
@@ -38,12 +37,18 @@ var deviceScreen = Dimensions.get('window');
 
 class CommentItem extends React.Component {
   render() {
+    var avatarIcon;
+    if(this.props.avatarUrl){
+      avatarIcon = <Image style={styles.commentAvatar}
+             source={{uri: this.props.avatarUrl}}/>
+    }else{
+      avatarIcon = <Image style={styles.commentAvatar} source={require('../../images/default_head.png')}/>
+    }
     return (
         <View>
           <View style={styles.commentTitle}>
             <View style={{flexDirection:'row',alignItems: 'center'}}>
-              <Image style={styles.commentAvatar}
-                     source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
+              {avatarIcon}
               <Text style={{fontWeight:'bold',fontSize:18}}>{this.props.nickname}</Text>
             </View>
             <Text style={{marginRight:10,fontSize:12,color:'gray'}}>{this.props.time}</Text>
@@ -148,7 +153,7 @@ var VideoView = React.createClass({
         <View>
           {videoView}
           <TouchableWithoutFeedback onPress={() => this.props.navigator.pop()}>
-            <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+            <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
           </TouchableWithoutFeedback>
           <ScrollView style={styles.main}
                       onScroll={this._onScroll}
@@ -161,10 +166,10 @@ var VideoView = React.createClass({
                   onChangeItem={(index,text)=>this.setState({subStepIndex:index,subStep:text})}
                   />
               <View style={styles.turningAnalytics}>
-                <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+                <Image source={require('../../images/ico_x01.png')} style={styles.x02}/>
                 <Text
                     style={styles.turningAnalyticsText}>{this.state.ref.subStep ? this.state.ref.subStep[this.state.subStepIndex] : ''}</Text>
-                <Image source={{uri:IMG_PREFIX + 'ico_x01.png'}} style={styles.x02}/>
+                <Image source={require('../../images/ico_x01.png')} style={styles.x02}/>
               </View>
             </View>
             <View style={styles.separator}/>

@@ -11,13 +11,12 @@ var {
     Image,
     PixelRatio
     } = React;
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 class StepModal extends React.Component {
   render() {
     return (
         <View>
           <View style={{padding:30}}>
-            <Image source={{uri:IMG_PREFIX + 'popover_bg.png'}} style={styles.bg}>
+            <Image source={require('../../images/popover_bg.png')} style={styles.bg}>
               <Text style={styles.nestedText}>第一式</Text>
             </Image>
             <Text style={styles.title}>墙壁俯卧撑</Text>

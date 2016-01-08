@@ -11,7 +11,6 @@ import React, {
     TouchableHighlight,
 } from 'react-native';
 var Reflux = require('reflux');
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var deviceScreen = Dimensions.get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
@@ -61,7 +60,7 @@ var Login = React.createClass({
             <Text style={{color: '#8e8e8e',fontSize:16}}>请稍后，你将会受到一条验证码短信</Text>
           </View>
           <View style={styles.textInputWrapper}>
-            <Image source={{uri:IMG_PREFIX + 'signin_phone.png'}}
+            <Image source={require('../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}

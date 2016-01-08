@@ -9,7 +9,6 @@ import React, {
     TouchableWithoutFeedback,
     ScrollView,
 } from 'react-native';
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 
 export default class Picker extends React.Component {
   constructor(props) {
@@ -47,11 +46,11 @@ export default class Picker extends React.Component {
     return (
         <View style={styles.month}>
           <TouchableWithoutFeedback onPress={this.prev.bind(this)}>
-            <Image source={{uri:IMG_PREFIX + 'btn_arrow_left01.png'}} style={styles.buttonIcon}/>
+            <Image source={require('../../images/btn_arrow_left01.png')} style={styles.buttonIcon}/>
           </TouchableWithoutFeedback>
           <Text style={styles.month_text}>{this.state.item}</Text>
           <TouchableWithoutFeedback onPress={this.next.bind(this)}>
-            <Image source={{uri:IMG_PREFIX + 'btn_arrow_right01.png'}} style={styles.buttonIcon}/>
+            <Image source={require('../../images/btn_arrow_right01.png')} style={styles.buttonIcon}/>
           </TouchableWithoutFeedback>
         </View>
     );

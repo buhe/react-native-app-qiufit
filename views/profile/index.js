@@ -6,7 +6,6 @@ var Reflux = require('reflux');
 var StepStore = require('../../stores/StepStore');
 var ProfileActionCreators = require('../../actions/ProfileActionCreators');
 var ProfileStore = require('../../stores/ProfileStore');
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Chart = require('../../components/RNChart');
 var CheckIn = require('../../components/RNCheckIn');
 var ViewSnapshotter = require('../../snapshot');
@@ -127,22 +126,22 @@ var ProfileView = React.createClass({
         <View style={{backgroundColor: '#1d1d1d'}}>
           <View style={styles.nav}>
             <TouchableOpacity onPress={this.pop} style={styles.backWrapper}>
-              <Image source={{uri:IMG_PREFIX + 'navigation_back.png'}} style={styles.profileImage}/>
+              <Image source={require('../../images/navigation_back.png')} style={styles.profileImage}/>
             </TouchableOpacity>
             <View style={styles.logo}>
-              <Image source={{uri:IMG_PREFIX + 'start_02.png'}} style={styles.icon}/>
+              <Image source={require('../../images/start_02.png')} style={styles.icon}/>
             </View>
             <TouchableOpacity onPress={this.share} style={styles.shareWrapper}>
-              <Image source={{uri:IMG_PREFIX + 'navifation_share.png'}} style={styles.profileImage}/>
+              <Image source={require('../../images/navifation_share.png')} style={styles.profileImage}/>
             </TouchableOpacity>
           </View>
           <ScrollView style={styles.main} ref='shareView'
                       contentContainerStyle={{alignItems:'center'}}
               >
             <View style={styles.turningAnalytics}>
-              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+              <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
               <Text style={styles.turningAnalyticsText}>训练分析</Text>
-              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+              <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
             </View>
             <View style={styles.chartWrapper}>
               <Chart
@@ -154,9 +153,9 @@ var ProfileView = React.createClass({
               {tableView}
             </View>
             <View style={styles.turningAnalytics}>
-              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+              <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
               <Text style={styles.turningAnalyticsText}>训练记录</Text>
-              <Image source={{uri:IMG_PREFIX + 'ico_x02.png'}} style={styles.x02}/>
+              <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
             </View>
             <View style={{width:deviceScreen.width}}>
               <CheckIn
@@ -164,7 +163,7 @@ var ProfileView = React.createClass({
                   />
             </View>
             <View style={styles.bottomView}>
-              <Image source={{uri:IMG_PREFIX + 'me_logo.png'}} style={styles.bottomIcon}/>
+              <Image source={require('../../images/me_logo.png')} style={styles.bottomIcon}/>
               <Text style={[styles.content,styles.bottomText]}>囚徒健身 Design By cheng zhen</Text>
               <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
               <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>

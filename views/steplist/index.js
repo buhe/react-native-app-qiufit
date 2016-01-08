@@ -7,7 +7,6 @@ var StepStore = require('../../stores/StepStore');
 var VideoStore = require('../../stores/VideoStore');
 var StepModal = require('./modal');
 
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 var Router = require('../router');
 var API = require('../../api');
 var StepActionCreators = require('../../actions/StepActionCreators');
@@ -98,7 +97,7 @@ var StepsView = React.createClass({
         <View>
           <View style={styles.nav}>
             <TouchableOpacity onPress={this.pop}>
-              <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+              <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
             </TouchableOpacity>
             <Text style={styles.logoText}>{this.state.stepName}系列升级表</Text>
           </View>

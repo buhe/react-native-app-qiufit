@@ -8,7 +8,6 @@ var ProfileActionCreators = require('../../actions/ProfileActionCreators');
 var StepActionCreators = require('../../actions/StepActionCreators');
 var ProfileStore = require('../../stores/ProfileStore');
 var StepStore = require('../../stores/StepStore');
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 
 
 var {
@@ -30,37 +29,37 @@ var typeList = [
   {
     name: 'pushUp',
     type: "俯卧撑",
-    icon: IMG_PREFIX + 'a.png',
+    icon: '../../images/a.png',
     process: '2/10'
   },
   {
     name: 'deep',
     type: "深蹲",
-    icon: IMG_PREFIX + 'b.png',
+    icon: '../../images/b.png',
     process: '2/10'
   },
   {
     name: 'pullUp',
     type: "引体向上",
-    icon: IMG_PREFIX + 'c.png',
+    icon: '../../images/c.png',
     process: '0/10'
   },
   {
     name: 'leg',
     type: "举腿",
-    icon: IMG_PREFIX + 'd.png',
+    icon: '../../images/d.png',
     process: '0/10'
   },
   {
     name: 'bridge',
     type: "桥",
-    icon: IMG_PREFIX + 'e.png',
+    icon: '../../images/e.png',
     process: '0/10'
   },
   {
     name: 'handstand',
     type: "倒立撑",
-    icon: IMG_PREFIX + 'f.png',
+    icon: '../../images/f.png',
     process: '0/10'
   },
 ];
@@ -80,10 +79,24 @@ var TypeItem = React.createClass({
     if(steps){
       process = steps.length;
     }
+    var icon;
+    if(this.props.name === 'pushUp'){
+      icon = <Image source={require('../../images/a.png')} style={styles.itemIcon}/>
+    }else if(this.props.name === 'deep'){
+      icon = <Image source={require('../../images/b.png')} style={styles.itemIcon}/>
+    }else if(this.props.name === 'pullUp'){
+      icon = <Image source={require('../../images/c.png')} style={styles.itemIcon}/>
+    }else if(this.props.name === 'leg'){
+      icon = <Image source={require('../../images/d.png')} style={styles.itemIcon}/>
+    }else if(this.props.name === 'bridge'){
+      icon = <Image source={require('../../images/e.png')} style={styles.itemIcon}/>
+    }else if(this.props.name === 'handstand'){
+      icon = <Image source={require('../../images/f.png')} style={styles.itemIcon}/>
+    }
     return (
         <TouchableOpacity onPress={this.pushPaperById}>
           <View style={styles.container}>
-            <Image source={{uri:this.props.icon}} style={styles.itemIcon}/>
+            {icon}
             <View style={styles.itemTextWrapper}>
               <Text style={styles.itemText}>{this.props.type}</Text>
               <Text style={styles.itemProcessText}>{process}/10</Text>
@@ -117,10 +130,10 @@ var TypesView = React.createClass({
         <View>
           <View style={styles.nav}>
             <TouchableOpacity onPress={this.profile}>
-              <Image source={{uri:IMG_PREFIX + 'navigation_me.png'}} style={styles.profileImage}/>
+              <Image source={require('../../images/navigation_me.png')} style={styles.profileImage}/>
             </TouchableOpacity>
             <View style={styles.logo}>
-              <Image source={{uri:IMG_PREFIX + 'start_02.png'}} style={styles.icon}/>
+              <Image source={require('../../images/start_02.png')} style={styles.icon}/>
             </View>
           </View>
           <ListView

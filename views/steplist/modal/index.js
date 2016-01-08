@@ -11,7 +11,6 @@ var {
     Image,
     PixelRatio
     } = React;
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Button from '../../button';
 import Theme from '../../theme';
 class StepModal extends React.Component {
@@ -19,7 +18,7 @@ class StepModal extends React.Component {
     return (
         <View>
           <View style={{padding:30}}>
-            <Image source={{uri:IMG_PREFIX + 'popover_bg.png'}} style={[styles.bg,Theme.centerChild]}>
+            <Image source={require('../../../images/popover_bg.png')} style={[styles.bg,Theme.centerChild]}>
               <Text style={styles.nestedText}>{this.props.step}</Text>
             </Image>
             <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>

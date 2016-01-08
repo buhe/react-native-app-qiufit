@@ -13,7 +13,6 @@ import React, {
     ListView,
     Dimensions,
 } from 'react-native';
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 import Nav from "../../nav/CommonNav";
 import Reflux from 'reflux';
 import VideoStore from '../../../stores/VideoStore';
@@ -22,12 +21,18 @@ var deviceScreen = Dimensions.get('window');
 
 class TrendItem extends React.Component {
   render() {
+    var avatarIcon;
+    if(this.props.avatarUrl){
+      avatarIcon = <Image style={styles.commentAvatar}
+                          source={{uri: this.props.avatarUrl}}/>
+    }else{
+      avatarIcon = <Image style={styles.commentAvatar} source={require('../../../images/default_head.png')}/>
+    }
     return (
         <View>
           <View style={styles.container}>
             <View style={{flexDirection:'row', alignItems: 'center'}}>
-              <Image style={styles.commentAvatar}
-                     source={{uri: this.props.avatarUrl ? this.props.avatarUrl : IMG_PREFIX + 'default_head.png'}}/>
+              {avatarIcon}
               <Text>{this.props.nickname}</Text>
             </View>
             <Text style={{marginRight:10,fontSize:12,color:'gray'}}>{this.props.date}</Text>

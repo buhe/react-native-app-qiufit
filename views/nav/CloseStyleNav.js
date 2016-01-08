@@ -9,13 +9,12 @@ import React, {
     ScrollView,
     Image,
 } from 'react-native';
-const IMG_PREFIX = 'http://7xotx8.com2.z0.glb.qiniucdn.com/';
 export default class CloseStyleNav extends React.Component {
   render(){
     return (
         <View style={styles.nav}>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-            <Image source={{uri:IMG_PREFIX + 'btn_close.png'}} style={styles.closeImage}/>
+            <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
           </TouchableOpacity>
           <Text style={styles.logoText}>{this.props.navText}</Text>
         </View>
