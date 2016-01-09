@@ -57,7 +57,7 @@ var Result = React.createClass({
             <Image source={require('../../../images/btn_close.png')} style={styles.closeImage}/>
           </TouchableOpacity>
           <View style={{alignItems:'center'}} ref='shareView'>
-            <Image source={require('../../../images/囚徒健身-切图-20.png')} style={styles.mainLogo}/>
+            <Image source={require('../../../images/result.png')} style={styles.mainLogo}/>
             <View style={{borderWidth:5,marginTop:30,marginBottom:20}}>
               <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                 <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>新纪录!</Text>

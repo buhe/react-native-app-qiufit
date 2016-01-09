@@ -7,6 +7,10 @@ class OS {
     return RNFS.CachesDirectoryPath;
   }
 
+  getDocmentDir() {
+    return RNFS.DocumentDirectoryPath;
+  }
+
   getStatusHeight() {
     return 0;
   }

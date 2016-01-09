@@ -11,118 +11,118 @@ const stepsMap = {
       text1: "第一式 墙壁俯卧撑",
       text2: "逐步做到 3×50 次",
       text3: "然后开始第二式",
-      videoUrl: VIDEO_PREFIX+"a01.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a01.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 25次',
         '3组, 50次',
       ],
-      infoImage:require('../images/a1.jpg')
+      infoImage: require('../images/a1.jpg')
     },
     {
       text1: "第二式 上斜俯卧撑",
       text2: "逐步做到 3×40 次",
       text3: "然后开始第三式",
-      videoUrl: VIDEO_PREFIX+"a02.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a02.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 20次',
         '3组, 40次',
       ],
-      infoImage:require('../images/a2.jpg')
+      infoImage: require('../images/a2.jpg')
     },
     {
       text1: "第三式 膝盖俯卧撑",
       text2: "逐步做到 3×30 次",
       text3: "然后开始第四式",
-      videoUrl: VIDEO_PREFIX+"a03.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a03.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 15次',
         '3组, 30次',
       ],
-      infoImage:require('../images/a3.jpg')
+      infoImage: require('../images/a3.jpg')
     }, {
       text1: "第四式 半俯卧撑",
       text2: "逐步做到 2×25 次",
       text3: "然后开始第五式",
-      videoUrl: VIDEO_PREFIX+"a04.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a04.mp4",
+      subStep: [
         '1组, 8次',
         '2组, 12次',
         '2组, 25次',
       ],
-      infoImage:require('../images/a4.jpg')
+      infoImage: require('../images/a4.jpg')
     }, {
       text1: "第五式 标准俯卧撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第六式",
-      videoUrl: VIDEO_PREFIX+"a05.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a05.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 20次',
       ],
-      infoImage:require('../images/a5.jpg')
+      infoImage: require('../images/a5.jpg')
     },
     {
       text1: "第六式 窄距俯卧撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第七式",
-      videoUrl: VIDEO_PREFIX+"a06.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a06.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 20次',
       ],
-      infoImage:require('../images/a6.jpg')
+      infoImage: require('../images/a6.jpg')
     },
     {
       text1: "第七式 偏重俯卧撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第八式",
-      videoUrl: VIDEO_PREFIX+"a07_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a07_empty.mp4",
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 10次 (每侧)',
         '3组, 20次 (每侧)',
       ],
-      infoImage:require('../images/a7.jpg')
+      infoImage: require('../images/a7.jpg')
     },
     {
       text1: "第八式 单臂半俯卧撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第九式",
-      videoUrl: VIDEO_PREFIX+"a08_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a08_empty.mp4",
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 10次 (每侧)',
         '2组, 20次 (每侧)',
       ],
-      infoImage:require('../images/a8.jpg')
+      infoImage: require('../images/a8.jpg')
     },
     {
       text1: "第九式 杠杆俯卧撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第最终式",
-      videoUrl: VIDEO_PREFIX+"a09_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a09_empty.mp4",
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 10次 (每侧)',
         '2组, 20次 (每侧)',
       ],
-      infoImage:require('../images/a9.jpg')
+      infoImage: require('../images/a9.jpg')
     },
     {
       text1: "最终式 单臂俯卧撑",
       text2: "终极耐力 1×100 次",
-      videoUrl: VIDEO_PREFIX+"a10_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "a10_empty.mp4",
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 20次 (每侧)',
         '1组, 100次 (每侧)',
       ],
-      infoImage:require('../images/a10.jpg')
+      infoImage: require('../images/a10.jpg')
     }
   ],
   deep: [
@@ -130,118 +130,118 @@ const stepsMap = {
       text1: "第一式 肩倒立深蹲",
       text2: "逐步做到 3×50 次",
       text3: "然后开始第二式",
-      videoUrl: VIDEO_PREFIX+"b01.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b01.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 25次',
         '3组, 50次',
       ],
-      infoImage:require('../images/b1.jpg')
+      infoImage: require('../images/b1.jpg')
     },
     {
       text1: "第二式 折刀深蹲",
       text2: "逐步做到 3×40 次",
       text3: "然后开始第三式",
-      videoUrl: VIDEO_PREFIX+"b02.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b02.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 20次',
         '3组, 40次',
       ],
-      infoImage:require('../images/b2.jpg')
+      infoImage: require('../images/b2.jpg')
     },
     {
       text1: "第三式 支撑深蹲",
       text2: "逐步做到 3×30 次",
       text3: "然后开始第四式",
-      videoUrl: VIDEO_PREFIX+"b03.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b03.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 15次',
         '3组, 30次',
       ],
-      infoImage:require('../images/b3.jpg')
+      infoImage: require('../images/b3.jpg')
     }, {
       text1: "第四式 半深蹲",
       text2: "逐步做到 2×50 次",
       text3: "然后开始第五式",
-      videoUrl: VIDEO_PREFIX+"b04.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b04.mp4",
+      subStep: [
         '1组, 8次',
         '2组, 35次',
         '2组, 50次',
       ],
-      infoImage:require('../images/b4.jpg')
+      infoImage: require('../images/b4.jpg')
     }, {
       text1: "第五式 标准深蹲",
       text2: "逐步做到 2×30 次",
       text3: "然后开始第六式",
-      videoUrl: VIDEO_PREFIX+"b05.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b05.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '3组, 30次',
       ],
-      infoImage:require('../images/b5.jpg')
+      infoImage: require('../images/b5.jpg')
     },
     {
       text1: "第六式 窄距深蹲",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第七式",
-      videoUrl: VIDEO_PREFIX+"b06.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b06.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 20次',
       ],
-      infoImage:require('../images/b6.jpg')
+      infoImage: require('../images/b6.jpg')
     },
     {
       text1: "第七式 偏重深蹲",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第八式",
-      videoUrl: VIDEO_PREFIX+"b07_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b07_empty.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '3组, 20次',
       ],
-      infoImage:require('../images/b7.jpg')
+      infoImage: require('../images/b7.jpg')
     },
     {
       text1: "第八式 单腿半深蹲",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第九式",
-      videoUrl: VIDEO_PREFIX+"b08_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b08_empty.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 10次',
         '3组, 10次',
       ],
-      infoImage:require('../images/b8.jpg')
+      infoImage: require('../images/b8.jpg')
     },
     {
       text1: "第九式 单腿辅助深蹲",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第最终式",
-      videoUrl: VIDEO_PREFIX+"b09_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b09_empty.mp4",
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 10次 (每侧)',
         '2组, 20次 (每侧)',
       ],
-      infoImage:require('../images/b9.jpg')
+      infoImage: require('../images/b9.jpg')
     },
     {
       text1: "最终式 单腿深蹲",
       text2: "终极耐力 2×50 次",
-      videoUrl: VIDEO_PREFIX+"b10_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "b10_empty.mp4",
+      subStep: [
         '1组, 10次 (每侧)',
         '2组, 10次 (每侧)',
         '2组, 50次 (每侧)',
       ],
-      infoImage:require('../images/b10.jpg')
+      infoImage: require('../images/b10.jpg')
     }
   ],
   pullUp: [
@@ -249,118 +249,118 @@ const stepsMap = {
       text1: "第一式 垂直引体",
       text2: "逐步做到 3×40 次",
       text3: "然后开始第二式",
-      videoUrl: VIDEO_PREFIX+"c01.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c01.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 20次',
         '3组, 40次',
       ],
-      infoImage:require('../images/c1.jpg')
+      infoImage: require('../images/c1.jpg')
     },
     {
       text1: "第二式 水平引体向上",
       text2: "逐步做到 3×30 次",
       text3: "然后开始第三式",
-      videoUrl: VIDEO_PREFIX+"c02.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c02.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 20次',
         '3组, 30次',
       ],
-      infoImage:require('../images/c2.jpg')
+      infoImage: require('../images/c2.jpg')
     },
     {
       text1: "第三式 折刀引体向上",
       text2: "逐步做到 3×20 次",
       text3: "然后开始第四式",
-      videoUrl: VIDEO_PREFIX+"c03.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c03.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 15次',
         '3组, 20次',
       ],
-      infoImage:require('../images/c3.jpg')
+      infoImage: require('../images/c3.jpg')
     }, {
       text1: "第四式 半引体向上",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第五式",
-      videoUrl: VIDEO_PREFIX+"c04.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c04.mp4",
+      subStep: [
         '1组, 8次',
         '2组, 10次',
         '2组, 15次',
       ],
-      infoImage:require('../images/c4.jpg')
+      infoImage: require('../images/c4.jpg')
     }, {
       text1: "第五式 标准引体向上",
       text2: "逐步做到 2×10 次",
       text3: "然后开始第六式",
-      videoUrl: VIDEO_PREFIX+"c05.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c05.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 8次',
         '2组, 10次',
       ],
-      infoImage:require('../images/c5.jpg')
+      infoImage: require('../images/c5.jpg')
     },
     {
       text1: "第六式 窄距引体向上",
       text2: "逐步做到 2×10 次",
       text3: "然后开始第七式",
-      videoUrl: VIDEO_PREFIX+"c06.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c06.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 8次',
         '2组, 10次',
       ],
-      infoImage:require('../images/c6.jpg')
+      infoImage: require('../images/c6.jpg')
     },
     {
       text1: "第七式 偏重引体向上",
       text2: "逐步做到 2×9 次",
       text3: "然后开始第八式",
-      videoUrl: VIDEO_PREFIX+"c07_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c07_empty.mp4",
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 7次 (每侧)',
         '2组, 9次 (每侧)',
       ],
-      infoImage:require('../images/c7.jpg')
+      infoImage: require('../images/c7.jpg')
     },
     {
       text1: "第八式 单臂半引体向上",
       text2: "逐步做到 2×8 次",
       text3: "然后开始第九式",
-      videoUrl: VIDEO_PREFIX+"c08_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c08_empty.mp4",
+      subStep: [
         '1组, 4次 (每侧)',
         '1组, 8次 (每侧)',
         '2组, 8次 (每侧)',
       ],
-      infoImage:require('../images/c8.jpg')
+      infoImage: require('../images/c8.jpg')
     },
     {
       text1: "第九式 单臂辅助引体向上",
       text2: "逐步做到 2×7 次",
       text3: "然后开始第最终式",
-      videoUrl: VIDEO_PREFIX+"c09_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c09_empty.mp4",
+      subStep: [
         '1组, 3次 (每侧)',
         '2组, 5次 (每侧)',
         '2组, 7次 (每侧)',
       ],
-      infoImage:require('../images/c9.jpg')
+      infoImage: require('../images/c9.jpg')
     },
     {
       text1: "最终式 单臂引体向上",
       text2: "终极耐力 2×7 次",
-      videoUrl: VIDEO_PREFIX+"c10_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "c10_empty.mp4",
+      subStep: [
         '1组, 1次 (每侧)',
         '2组, 3次 (每侧)',
         '2组, 7次 (每侧)',
       ],
-      infoImage:require('../images/c10.jpg')
+      infoImage: require('../images/c10.jpg')
     }
   ],
   leg: [
@@ -368,118 +368,118 @@ const stepsMap = {
       text1: "第一式 坐姿屈膝",
       text2: "逐步做到 3×40 次",
       text3: "然后开始第二式",
-      videoUrl: VIDEO_PREFIX+"d01.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d01.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 25次',
         '4组, 40次',
       ],
-      infoImage:require('../images/d1.jpg')
+      infoImage: require('../images/d1.jpg')
     },
     {
       text1: "第二式 平卧抬膝",
       text2: "逐步做到 3×35 次",
       text3: "然后开始第三式",
-      videoUrl: VIDEO_PREFIX+"d02.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d02.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 20次',
         '3组, 35次',
       ],
-      infoImage:require('../images/d2.jpg')
+      infoImage: require('../images/d2.jpg')
     },
     {
       text1: "第三式 平卧屈举腿",
       text2: "逐步做到 3×30 次",
       text3: "然后开始第四式",
-      videoUrl: VIDEO_PREFIX+"d03.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d03.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 15次',
         '3组, 30次',
       ],
-      infoImage:require('../images/d3.jpg')
+      infoImage: require('../images/d3.jpg')
     }, {
       text1: "第四式 平卧蛙举腿",
       text2: "逐步做到 2×25 次",
       text3: "然后开始第五式",
-      videoUrl: VIDEO_PREFIX+"d04.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d04.mp4",
+      subStep: [
         '1组, 8次',
         '2组, 15次',
         '3组, 25次',
       ],
-      infoImage:require('../images/d4.jpg')
+      infoImage: require('../images/d4.jpg')
     }, {
       text1: "第五式 平卧直举腿",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第六式",
-      videoUrl: VIDEO_PREFIX+"d05.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d05.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 20次',
       ],
-      infoImage:require('../images/d5.jpg')
+      infoImage: require('../images/d5.jpg')
     },
     {
       text1: "第六式 悬垂举腿",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第七式",
-      videoUrl: VIDEO_PREFIX+"d06.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d06.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 15次',
       ],
-      infoImage:require('../images/d6.jpg')
+      infoImage: require('../images/d6.jpg')
     },
     {
       text1: "第七式 悬垂屈举腿",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第八式",
-      videoUrl: VIDEO_PREFIX+"d07_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d07_empty.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 15次',
       ],
-      infoImage:require('../images/d7.jpg')
+      infoImage: require('../images/d7.jpg')
     },
     {
       text1: "第八式 悬垂蛙举腿",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第九式",
-      videoUrl: VIDEO_PREFIX+"d08_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d08_empty.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 15次',
       ],
-      infoImage:require('../images/d8.jpg')
+      infoImage: require('../images/d8.jpg')
     },
     {
       text1: "第九式 悬垂半举腿",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第最终式",
-      videoUrl: VIDEO_PREFIX+"d09_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d09_empty.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 15次',
       ],
-      infoImage:require('../images/d9.jpg')
+      infoImage: require('../images/d9.jpg')
     },
     {
       text1: "最终式 悬垂直举腿",
       text2: "终极耐力 2×30 次",
-      videoUrl: VIDEO_PREFIX+"d10_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "d10_empty.mp4",
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 30次',
       ],
-      infoImage:require('../images/d10.jpg')
+      infoImage: require('../images/d10.jpg')
     }
   ],
   bridge: [
@@ -487,118 +487,118 @@ const stepsMap = {
       text1: "第一式 短桥",
       text2: "逐步做到 3×50 次",
       text3: "然后开始第二式",
-      videoUrl: VIDEO_PREFIX+"e01.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e01.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 25次',
         '3组, 50次',
       ],
-      infoImage:require('../images/e1.jpg')
+      infoImage: require('../images/e1.jpg')
     },
     {
       text1: "第二式 直桥",
       text2: "逐步做到 3×40 次",
       text3: "然后开始第三式",
-      videoUrl: VIDEO_PREFIX+"e02.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e02.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 20次',
         '3组, 40次',
       ],
-      infoImage:require('../images/e2.jpg')
+      infoImage: require('../images/e2.jpg')
     },
     {
       text1: "第三式 高低桥",
       text2: "逐步做到 3×30 次",
       text3: "然后开始第四式",
-      videoUrl: VIDEO_PREFIX+"e03.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e03.mp4",
+      subStep: [
         '1组, 8次',
         '2组, 15次',
         '3组, 30次',
       ],
-      infoImage:require('../images/e3.jpg')
+      infoImage: require('../images/e3.jpg')
     }, {
       text1: "第四式 顶桥",
       text2: "逐步做到 2×25 次",
       text3: "然后开始第五式",
-      videoUrl: VIDEO_PREFIX+"e04.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e04.mp4",
+      subStep: [
         '1组, 10次',
         '2组, 15次',
         '3组, 25次',
       ],
-      infoImage:require('../images/e4.jpg')
+      infoImage: require('../images/e4.jpg')
     }, {
       text1: "第五式 半桥",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第六式",
-      videoUrl: VIDEO_PREFIX+"e05.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e05.mp4",
+      subStep: [
         '1组, 8次',
         '2组, 15次',
         '2组, 20次',
       ],
-      infoImage:require('../images/e5.jpg')
+      infoImage: require('../images/e5.jpg')
     },
     {
       text1: "第六式 标准桥",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第七式",
-      videoUrl: VIDEO_PREFIX+"e06.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e06.mp4",
+      subStep: [
         '1组, 6次',
         '2组, 10次',
         '2组, 15次',
       ],
-      infoImage:require('../images/e6.jpg')
+      infoImage: require('../images/e6.jpg')
     },
     {
       text1: "第七式 下行桥",
       text2: "逐步做到 2×10 次",
       text3: "然后开始第八式",
-      videoUrl: VIDEO_PREFIX+"e07_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e07_empty.mp4",
+      subStep: [
         '1组, 3次',
         '2组, 6次',
         '2组, 10次',
       ],
-      infoImage:require('../images/e7.jpg')
+      infoImage: require('../images/e7.jpg')
     },
     {
       text1: "第八式 上行桥",
       text2: "逐步做到 2×8 次",
       text3: "然后开始第九式",
-      videoUrl: VIDEO_PREFIX+"e08_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e08_empty.mp4",
+      subStep: [
         '1组, 2次',
         '2组, 4次',
         '2组, 8次',
       ],
-      infoImage:require('../images/e8.jpg')
+      infoImage: require('../images/e8.jpg')
     },
     {
       text1: "第九式 合桥",
       text2: "逐步做到 2×6 次",
       text3: "然后开始第最终式",
-      videoUrl: VIDEO_PREFIX+"e09_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e09_empty.mp4",
+      subStep: [
         '1组, 1次',
         '2组, 3次',
         '2组, 6次',
       ],
-      infoImage:require('../images/e9.jpg')
+      infoImage: require('../images/e9.jpg')
     },
     {
       text1: "最终式 铁板桥",
       text2: "终极耐力 2×30 次",
-      videoUrl: VIDEO_PREFIX+"e10_empty.mp4",
-      subStep:[
+      videoUrl: VIDEO_PREFIX + "e10_empty.mp4",
+      subStep: [
         '1组, 1次',
         '2组, 3次',
         '2组, 30次',
       ],
-      infoImage:require('../images/e10.jpg')
+      infoImage: require('../images/e10.jpg')
     }
   ],
   handstand: [
@@ -606,117 +606,117 @@ const stepsMap = {
       text1: "第一式 靠墙顶立",
       text2: "逐步做到 2分钟",
       text3: "然后开始第二式",
-      subStep:[
+      subStep: [
         '30秒',
         '1分钟',
         '2分钟',
       ],
       videoUrl: "",
-      infoImage:require('../images/f1.jpg')
+      infoImage: require('../images/f1.jpg')
     },
     {
       text1: "第二式 乌鸦式",
       text2: "逐步做到 1分钟",
       text3: "然后开始第三式",
-      subStep:[
+      subStep: [
         '10秒',
         '30秒',
         '1分钟',
       ],
-      infoImage:require('../images/f2.jpg')
+      infoImage: require('../images/f2.jpg')
     },
     {
       text1: "第三式 靠墙倒立",
       text2: "逐步做到 2分钟",
       text3: "然后开始第四式",
-      subStep:[
+      subStep: [
         '10秒',
         '1分钟',
         '2分钟',
       ],
       videoUrl: "",
-      infoImage:require('../images/f3.jpg')
+      infoImage: require('../images/f3.jpg')
     }, {
       text1: "第四式 半倒立撑",
       text2: "逐步做到 2×20 次",
       text3: "然后开始第五式",
-      subStep:[
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 20次',
       ],
       videoUrl: "",
-      infoImage:require('../images/f4.jpg')
+      infoImage: require('../images/f4.jpg')
     }, {
       text1: "第五式 标准倒立撑",
       text2: "逐步做到 2×15 次",
       text3: "然后开始第六式",
-      subStep:[
+      subStep: [
         '1组, 5次',
         '2组, 10次',
         '2组, 15次',
       ],
       videoUrl: "",
-      infoImage:require('../images/f5.jpg')
+      infoImage: require('../images/f5.jpg')
     },
     {
       text1: "第六式 窄距倒立撑",
       text2: "逐步做到 2×12 次",
       text3: "然后开始第七式",
-      subStep:[
+      subStep: [
         '1组, 5次',
         '2组, 9次',
         '2组, 12次',
       ],
       videoUrl: "",
-      infoImage:require('../images/f6.jpg')
+      infoImage: require('../images/f6.jpg')
     },
     {
       text1: "第七式 偏重倒立撑",
       text2: "逐步做到 2×10 次",
       text3: "然后开始第八式",
-      subStep:[
+      subStep: [
         '1组, 5次 (每侧)',
         '2组, 8次 (每侧)',
         '2组, 10次 (每侧)',
       ],
       videoUrl: "",
-      infoImage:require('../images/f7.jpg')
+      infoImage: require('../images/f7.jpg')
     },
     {
       text1: "第八式 单臂半倒立撑",
       text2: "逐步做到 2×8 次",
       text3: "然后开始第九式",
-      subStep:[
+      subStep: [
         '1组, 4次 (每侧)',
         '2组, 6次 (每侧)',
         '2组, 8次 (每侧)',
       ],
       videoUrl: "",
-      infoImage:require('../images/f8.jpg')
+      infoImage: require('../images/f8.jpg')
     },
     {
       text1: "第九式 杠杆倒立撑",
       text2: "逐步做到 2×6 次",
       text3: "然后开始第最终式",
-      subStep:[
+      subStep: [
         '1组, 3次 (每侧)',
         '2组, 4次 (每侧)',
         '2组, 6次 (每侧)',
       ],
       videoUrl: "",
-      infoImage:require('../images/f9.jpg')
+      infoImage: require('../images/f9.jpg')
     },
     {
       text1: "最终式 单臂倒立撑",
       text2: "终极耐力 2×5 次",
-      subStep:[
+      subStep: [
         '1组, 1次 (每侧)',
         '2组, 2次 (每侧)',
         '2组, 5次 (每侧)',
       ],
       videoUrl: "",
-      infoImage:require('../images/f10.jpg')
+      infoImage: require('../images/f10.jpg')
     }
   ],
 };
@@ -744,16 +744,19 @@ var StepStore = Reflux.createStore({
   fetchByType: function () {
     this.steps = stepsMap[this.typeName];
     this.stepName = stepsNameMap[this.typeName];
-    var selected = this.data[this.typeName];
-    if(selected){
-      for (var i = 0; i < selected.length; i++) {
-        var stepIndex = selected[i].get('step');
-        this.steps[stepIndex].selected = true;
+    if (this.data) {
+      var selected = this.data[this.typeName];
+      if (selected) {
+        for (var i = 0; i < selected.length; i++) {
+          var stepIndex = selected[i].get('step');
+          this.steps[stepIndex].selected = true;
+        }
       }
     }
+
     this.trigger(this);
   },
-  setTypeName:function(typeName){
+  setTypeName: function (typeName) {
     this.typeName = typeName;
   },
   getInitialState: function () {
@@ -772,7 +775,7 @@ var StepStore = Reflux.createStore({
     this.steps = [];
     this.stepName = '';
     this.data = {},
-    this.typeName = '';
+        this.typeName = '';
   }
 
 });

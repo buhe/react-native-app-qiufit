@@ -60,7 +60,7 @@ var Video = React.createClass({
       if (localUrl) {
         self.setState({localUrl: localUrl});
       } else {
-        var localVideoUrl = osUtils.getCacheDir() + "/" + fileName;
+        var localVideoUrl = osUtils.getDocmentDir() + "/" + fileName;
         RNFS.downloadFile(self.props.url, localVideoUrl, function () {
 
         }, function (process) {

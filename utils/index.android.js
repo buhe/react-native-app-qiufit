@@ -8,6 +8,10 @@ class OS {
     return '/sdcard/prisonerfitness';
   }
 
+  getDocmentDir() {
+    return '/sdcard/prisonerfitness';
+  }
+
   getStatusHeight() {
     return 20;
   }
