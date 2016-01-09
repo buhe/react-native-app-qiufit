@@ -10,8 +10,11 @@ var {
     } = React;
 
 export default {
-  openMarket(packageId){
+  openMarket(){
     //这个版本好像没有,需要升级
     IntentAndroid.openURL('market://details?id=com.bodyfun.mobile');
-  }
+  },
+  review(){
+    IntentAndroid.openURL('market://details?id=com.prisonerfitness');
+  },
 }
