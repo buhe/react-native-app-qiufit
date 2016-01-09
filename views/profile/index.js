@@ -26,7 +26,8 @@ var {
     ScrollView,
     Image,
     PixelRatio,
-    Dimensions
+    Dimensions,
+    Alert
     } = React;
 var deviceScreen = Dimensions.get('window');
 function getMaxLevel(levels) {
@@ -180,6 +181,20 @@ var ProfileView = React.createClass({
                   Promation.openMarket();
                 }}
                 />
+            <TouchableOpacity
+                onPress={() => Alert.alert(
+            '陛下用了这么久, 感觉如何? ',
+            null,
+            [
+              {text: '深得朕心', onPress: () => Promation.review()},
+              {text: '不得朕心'},
+              {text: '朕在看看'},
+            ]
+          )}>
+              <View style={{width:100,height:100}}>
+                <Text>评价</Text>
+              </View>
+            </TouchableOpacity>
           </ScrollView>
         </View>
     );
