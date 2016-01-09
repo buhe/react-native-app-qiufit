@@ -168,12 +168,12 @@ var styles = StyleSheet.create({
   },
   itemDesc: {
     marginTop: 20,
-    fontSize: 24,
+    fontSize: 20,
     color: 'white'
   },
   itemDesc2: {
     marginTop: 10,
-    fontSize: 24,
+    fontSize: 20,
     color: 'white'
   },
   nav: {
