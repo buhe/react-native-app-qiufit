@@ -6,12 +6,12 @@ var React = require('react-native');
 
 
 var {
-    IntentAndroid
+    LinkingIOS
     } = React;
 
 export default {
   openMarket(packageId){
     //这个版本好像没有,需要升级
-    //IntentAndroid.openURL('market://search?q=pname:'+packageId);
+    LinkingIOS.openURL('https://itunes.apple.com/cn/app/jian-shen-fan/id1031156637?l=en&mt=8')
   }
 }
