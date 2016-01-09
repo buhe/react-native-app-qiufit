@@ -12,6 +12,6 @@ var {
 export default {
   openMarket(packageId){
     //这个版本好像没有,需要升级
-    IntentAndroid.openURL('market://search?q=pname:'+packageId);
+    IntentAndroid.openURL('market://details?id=com.bodyfun.mobile');
   }
 }

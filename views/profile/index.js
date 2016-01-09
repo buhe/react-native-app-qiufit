@@ -177,7 +177,7 @@ var ProfileView = React.createClass({
                      marginTop:20,
                   }}
                 press={()=>{
-                  Promation.openMarket('com.bodyfun.mobile');
+                  Promation.openMarket();
                 }}
                 />
           </ScrollView>
