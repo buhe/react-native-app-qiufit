@@ -17,17 +17,17 @@ class VideoModal extends React.Component {
 
   render() {
     var icon;
-    if(this.props.name === 'pushUp'){
+    if(this.props.typeName === 'pushUp'){
       icon = <Image source={require('../../../images/popover_a.png')} style={styles.bg}/>
-    }else if(this.props.name === 'deep'){
+    }else if(this.props.typeName === 'deep'){
       icon = <Image source={require('../../../images/popover_b.png')} style={styles.bg}/>
-    }else if(this.props.name === 'pullUp'){
+    }else if(this.props.typeName === 'pullUp'){
       icon = <Image source={require('../../../images/popover_c.png')} style={styles.bg}/>
-    }else if(this.props.name === 'leg'){
+    }else if(this.props.typeName === 'leg'){
       icon = <Image source={require('../../../images/popover_d.png')} style={styles.bg}/>
-    }else if(this.props.name === 'bridge'){
+    }else if(this.props.typeName === 'bridge'){
       icon = <Image source={require('../../../images/popover_e.png')} style={styles.bg}/>
-    }else if(this.props.name === 'handstand'){
+    }else if(this.props.typeName === 'handstand'){
       icon = <Image source={require('../../../images/popover_f.png')} style={styles.bg}/>
     }
     return (
