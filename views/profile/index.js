@@ -169,31 +169,8 @@ var ProfileView = React.createClass({
               <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
               <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
             </View>
-            <Button
-                text={'健身房健身, 立即下载健身范!'}
-                style={{
-                     marginLeft:20,
-                     marginRight:20,
-                     marginBottom:20,
-                     marginTop:20,
-                  }}
-                press={()=>{
-                  Promation.openMarket();
-                }}
-                />
-            <TouchableOpacity
-                onPress={() => Alert.alert(
-            '陛下用了这么久, 感觉如何? ',
-            null,
-            [
-              {text: '深得朕心', onPress: () => Promation.review()},
-              {text: '不得朕心'},
-              {text: '朕在看看'},
-            ]
-          )}>
-              <View style={{width:100,height:100}}>
-                <Text>评价</Text>
-              </View>
+            <TouchableOpacity onPress={()=> Promation.openMarket()} style={{marginBottom:50}}>
+              <Image source={require('../../images/spread.png')}/>
             </TouchableOpacity>
           </ScrollView>
         </View>
@@ -201,6 +178,21 @@ var ProfileView = React.createClass({
 
   }
 });
+
+//<TouchableOpacity
+//    onPress={() => Alert.alert(
+//            '陛下用了这么久, 感觉如何? ',
+//            null,
+//            [
+//              {text: '深得朕心', onPress: () => Promation.review()},
+//              {text: '不得朕心'},
+//              {text: '朕在看看'},
+//            ]
+//          )}>
+//  <View style={{width:100,height:100}}>
+//    <Text>评价</Text>
+//  </View>
+//</TouchableOpacity>
 
 class RecordItem extends React.Component {
   render() {
