@@ -136,8 +136,8 @@ var TypesView = React.createClass({
             <View style={styles.logo}>
               <Image source={require('../../images/start_02.png')} style={styles.icon}/>
             </View>
-            <TouchableOpacity onPress={this.profile}>
-              <Text style={{color:'white',fontSize: 18,marginRight: 8,}} onPress={()=> Promation.review()}>好评</Text>
+            <TouchableOpacity onPress={()=> Promation.review()}>
+              <Image source={require('../../images/navigation_like.png')}  style={styles.likeImage}/>
             </TouchableOpacity>
           </View>
           <ListView
@@ -219,6 +219,11 @@ var styles = StyleSheet.create({
   },
   profileImage: {
     marginLeft: 15,
+    width: 30,
+    height: 30,
+  },
+  likeImage: {
+    marginRight: 15,
     width: 30,
     height: 30,
   }
