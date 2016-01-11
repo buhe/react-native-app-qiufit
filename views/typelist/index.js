@@ -8,6 +8,7 @@ var ProfileActionCreators = require('../../actions/ProfileActionCreators');
 var StepActionCreators = require('../../actions/StepActionCreators');
 var ProfileStore = require('../../stores/ProfileStore');
 var StepStore = require('../../stores/StepStore');
+import Promation from '../../promation';
 
 
 var {
@@ -66,7 +67,7 @@ var typeList = [
 
 
 var TypeItem = React.createClass({
-  mixins:[
+  mixins: [
     Reflux.connect(StepStore)
   ],
   pushPaperById(){
@@ -76,21 +77,21 @@ var TypeItem = React.createClass({
   render: function () {
     var steps = this.state.data[this.props.name];
     var process = 0;
-    if(steps){
+    if (steps) {
       process = steps.length;
     }
     var icon;
-    if(this.props.name === 'pushUp'){
+    if (this.props.name === 'pushUp') {
       icon = <Image source={require('../../images/a.png')} style={styles.itemIcon}/>
-    }else if(this.props.name === 'deep'){
+    } else if (this.props.name === 'deep') {
       icon = <Image source={require('../../images/b.png')} style={styles.itemIcon}/>
-    }else if(this.props.name === 'pullUp'){
+    } else if (this.props.name === 'pullUp') {
       icon = <Image source={require('../../images/c.png')} style={styles.itemIcon}/>
-    }else if(this.props.name === 'leg'){
+    } else if (this.props.name === 'leg') {
       icon = <Image source={require('../../images/d.png')} style={styles.itemIcon}/>
-    }else if(this.props.name === 'bridge'){
+    } else if (this.props.name === 'bridge') {
       icon = <Image source={require('../../images/e.png')} style={styles.itemIcon}/>
-    }else if(this.props.name === 'handstand'){
+    } else if (this.props.name === 'handstand') {
       icon = <Image source={require('../../images/f.png')} style={styles.itemIcon}/>
     }
     return (
@@ -135,6 +136,9 @@ var TypesView = React.createClass({
             <View style={styles.logo}>
               <Image source={require('../../images/start_02.png')} style={styles.icon}/>
             </View>
+            <TouchableOpacity onPress={this.profile}>
+              <Text style={{color:'white',fontSize: 18,marginRight: 8,}} onPress={()=> Promation.review()}>好评</Text>
+            </TouchableOpacity>
           </View>
           <ListView
               dataSource={this.state.dataSource.cloneWithRows(this.state.typeList)}
@@ -189,7 +193,7 @@ var styles = StyleSheet.create({
 
   },
   logo: {
-    marginRight: (deviceScreen.width - 127 ) / 2,
+    //marginRight: (deviceScreen.width - 127 ) / 2,
   },
   itemIcon: {
     width: 50,
