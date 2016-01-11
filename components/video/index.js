@@ -14,6 +14,7 @@ var {
     ScrollView,
     Image,
     AsyncStorage,
+    Alert
     } = React;
 var Router = require('../../views/router');
 var RNVideo = require('react-native-video');
@@ -62,7 +63,7 @@ var Video = React.createClass({
       } else {
         var localVideoUrl = osUtils.getDocmentDir() + "/" + fileName;
         RNFS.downloadFile(self.props.url, localVideoUrl, function () {
-
+          //begin
         }, function (process) {
           var progress = process.bytesWritten / process.contentLength;
           if (progress > 0.1) {
@@ -70,10 +71,12 @@ var Video = React.createClass({
               self.setState({progress: progress});
             }
           }
-          if (process.bytesWritten === process.contentLength) {
-            self.setState({localUrl: localVideoUrl});
-            AsyncStorage.setItem(self.props.url, localVideoUrl);
-          }
+
+        }).then(function(){
+          self.setState({localUrl: localVideoUrl,progress: 1});
+          AsyncStorage.setItem(self.props.url, localVideoUrl);
+        }).catch(function(err){
+          //下载出问题了?
         });
       }
     });
