@@ -13,12 +13,13 @@ import React, {
 var deviceScreen = Dimensions.get('window');
 var Router = require('../router');
 var WeChat = require('../../wechat').default;
+var SDK = require('../../wechat/SDK');
 
 
 var Welcome = React.createClass({
 
   componentWillMount(){
-    WeChat.registerApp('wxb401408ecbea2897', (res) => {
+    WeChat.registerApp(SDK.APPID, (res) => {
       //AlertIOS.alert(JSON.stringify(res)); // true or false
     });
   },

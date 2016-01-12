@@ -6,8 +6,8 @@ import React, {
 } from 'react-native';
 import request from 'superagent';
 var prefix = require('superagent-prefix')('https://api.weixin.qq.com/sns');
-const ID = 'wxb401408ecbea2897';
-const SECRET = 'f1b0fa1255dcbec48cd24d82edcd8ae7';
+const ID = 'wx78abe553b44618ff';
+const SECRET = '6a7e35146bd280b5952740ec9933814d';
 class WeChat {
   getAccessToken(code, success, fail) {
     request
@@ -51,5 +51,8 @@ class WeChat {
         });
   }
 }
+var wechat = new WeChat();
+wechat.APPID = ID;
+wechat.SECRET = SECRET;
 
-module.exports = new WeChat();
+module.exports = wechat;

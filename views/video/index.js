@@ -203,7 +203,7 @@ var VideoView = React.createClass({
               }}
               >
             <TouchableHighlight
-                onPress={() => this.props.navigator.push(Router.getPost())}
+                onPress={() => userId === 'unset' ? this.props.navigator.push(Router.getWelcome()) : this.props.navigator.push(Router.getPost())}
                 style={[Theme.centerChild,{
                         backgroundColor: 'black',
                         width: deviceScreen.width,
