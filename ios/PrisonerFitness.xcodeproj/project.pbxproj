@@ -32,9 +32,6 @@
 		7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB81C293E4300219A32 /* SystemConfiguration.framework */; };
 		7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */; };
 		784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */; };
-		78B259AE1C04453200A6A92F /* RadarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B259AC1C04453200A6A92F /* RadarChartViewController.m */; };
-		78B259AF1C04453200A6A92F /* RadarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B259AD1C04453200A6A92F /* RadarChartViewController.xib */; };
-		78B259B31C0446ED00A6A92F /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B259B21C0446ED00A6A92F /* DemoBaseViewController.m */; };
 		78B25AEA1C044A3500A6A92F /* ChartAnimationEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A401C044A3500A6A92F /* ChartAnimationEasing.swift */; };
 		78B25AEB1C044A3500A6A92F /* ChartAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A411C044A3500A6A92F /* ChartAnimator.swift */; };
 		78B25AEC1C044A3500A6A92F /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A431C044A3500A6A92F /* BarChartView.swift */; };
@@ -127,7 +124,6 @@
 		78B25B431C044A3500A6A92F /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25AA21C044A3500A6A92F /* ChartUtils.swift */; };
 		78B25B441C044A3500A6A92F /* ChartViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25AA31C044A3500A6A92F /* ChartViewPortHandler.swift */; };
 		78B25B451C044A3500A6A92F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B25AA61C044A3500A6A92F /* Info.plist */; };
-		78B25B531C044BAA00A6A92F /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B521C044BAA00A6A92F /* BalloonMarker.swift */; };
 		78B25B571C0450F000A6A92F /* RCTChartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B561C0450F000A6A92F /* RCTChartManager.m */; };
 		78B25B5B1C0457AF00A6A92F /* RCTChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B5A1C0457AF00A6A92F /* RCTChart.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -285,11 +281,6 @@
 		7846B7F61C3E523D0077B3DC /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		784BA1A01C05536E0063ADB7 /* RCTConvert+RadarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RCTConvert+RadarChartView.h"; path = "RNChat/RCTConvert+RadarChartView.h"; sourceTree = "<group>"; };
 		784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RCTConvert+RadarChartView.m"; path = "RNChat/RCTConvert+RadarChartView.m"; sourceTree = "<group>"; };
-		78B259AB1C04453200A6A92F /* RadarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarChartViewController.h; sourceTree = "<group>"; };
-		78B259AC1C04453200A6A92F /* RadarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarChartViewController.m; sourceTree = "<group>"; };
-		78B259AD1C04453200A6A92F /* RadarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarChartViewController.xib; sourceTree = "<group>"; };
-		78B259B11C0446ED00A6A92F /* DemoBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
-		78B259B21C0446ED00A6A92F /* DemoBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
 		78B25A401C044A3500A6A92F /* ChartAnimationEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartAnimationEasing.swift; sourceTree = "<group>"; };
 		78B25A411C044A3500A6A92F /* ChartAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartAnimator.swift; sourceTree = "<group>"; };
 		78B25A431C044A3500A6A92F /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
@@ -383,7 +374,6 @@
 		78B25AA31C044A3500A6A92F /* ChartViewPortHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewPortHandler.swift; sourceTree = "<group>"; };
 		78B25AA51C044A3500A6A92F /* Charts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Charts.h; sourceTree = "<group>"; };
 		78B25AA61C044A3500A6A92F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78B25B521C044BAA00A6A92F /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		78B25B551C0450F000A6A92F /* RCTChartManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTChartManager.h; path = RNChat/RCTChartManager.h; sourceTree = "<group>"; };
 		78B25B561C0450F000A6A92F /* RCTChartManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTChartManager.m; path = RNChat/RCTChartManager.m; sourceTree = "<group>"; };
 		78B25B591C0457AF00A6A92F /* RCTChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTChart.h; path = RNChat/RCTChart.h; sourceTree = "<group>"; };
@@ -509,12 +499,6 @@
 			children = (
 				78B25B581C04512500A6A92F /* RNChart */,
 				78B259D41C044A3500A6A92F /* Charts */,
-				78B25B521C044BAA00A6A92F /* BalloonMarker.swift */,
-				78B259B11C0446ED00A6A92F /* DemoBaseViewController.h */,
-				78B259B21C0446ED00A6A92F /* DemoBaseViewController.m */,
-				78B259AB1C04453200A6A92F /* RadarChartViewController.h */,
-				78B259AC1C04453200A6A92F /* RadarChartViewController.m */,
-				78B259AD1C04453200A6A92F /* RadarChartViewController.xib */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1096,7 +1080,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78B259AF1C04453200A6A92F /* RadarChartViewController.xib in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				78B25B451C044A3500A6A92F /* Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -1145,7 +1128,6 @@
 				78B25B031C044A3500A6A92F /* BarLineScatterCandleBubbleChartDataSet.swift in Sources */,
 				78B25B371C044A3500A6A92F /* ChartYAxisRendererRadarChart.swift in Sources */,
 				78B25B111C044A3500A6A92F /* LineScatterCandleChartDataSet.swift in Sources */,
-				78B259AE1C04453200A6A92F /* RadarChartViewController.m in Sources */,
 				78B25B441C044A3500A6A92F /* ChartViewPortHandler.swift in Sources */,
 				78B25B201C044A3500A6A92F /* ChartRange.swift in Sources */,
 				78B25B041C044A3500A6A92F /* BubbleChartData.swift in Sources */,
@@ -1186,7 +1168,6 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				78B25AF41C044A3500A6A92F /* PieChartView.swift in Sources */,
 				78B25AF31C044A3500A6A92F /* LineChartView.swift in Sources */,
-				78B259B31C0446ED00A6A92F /* DemoBaseViewController.m in Sources */,
 				78B25B0F1C044A3500A6A92F /* LineChartDataSet.swift in Sources */,
 				78B25B2D1C044A3500A6A92F /* ChartAxisRendererBase.swift in Sources */,
 				78B25B5B1C0457AF00A6A92F /* RCTChart.m in Sources */,
@@ -1224,7 +1205,6 @@
 				78B25B311C044A3500A6A92F /* ChartXAxisRenderer.swift in Sources */,
 				78B25AFC1C044A3500A6A92F /* ChartMarker.swift in Sources */,
 				78B25B3F1C044A3500A6A92F /* ChartColorTemplates.swift in Sources */,
-				78B25B531C044BAA00A6A92F /* BalloonMarker.swift in Sources */,
 				78B25AF01C044A3500A6A92F /* ChartViewBase.swift in Sources */,
 				78B25B0A1C044A3500A6A92F /* ChartData.swift in Sources */,
 				78B25B571C0450F000A6A92F /* RCTChartManager.m in Sources */,
