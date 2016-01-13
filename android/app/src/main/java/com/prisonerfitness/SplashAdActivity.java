@@ -35,8 +35,8 @@ public class SplashAdActivity extends Activity {
     RTSplashAd rtSplashAd;
     //	 缓存开屏广告:true   实时开屏广告:false
 //	Cache splash ad:true   Real-time splash ad:false
-    String PUBLISHER_ID = "56OJyM1ouMGoaSnvCK";
-    String SplashPPID = "16TLwebvAchksY6iOGe3xcik";
+    String PUBLISHER_ID = "56OJ2WC4uNwbV6jLyE";
+    String SplashPPID = "16TLPDLlApS8ANUUJx5W9iQi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
