@@ -16,8 +16,7 @@ export default {
   }
   ,
   review(){
-    //FIXME 这里换成我们自己的就好了
-    LinkingIOS.openURL('itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1031156637')
+    LinkingIOS.openURL('itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1074599488')
 
   }
 }
