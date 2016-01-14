@@ -18,7 +18,7 @@ import Nav from '../../nav/CloseStyleNav';
 var deviceScreen = Dimensions.get('window');
 import Button from '../../button';
 var ViewSnapshotter = require('../../../snapshot');
-var WeChat = require('../../../wechat');
+var WeChat = require('../../../wechat').default;
 var osUtils = require('../../../utils');
 import moment from 'moment';
 import moment_cn from 'moment/locale/zh-cn';
@@ -28,6 +28,9 @@ var Result = React.createClass({
     Reflux.connect(ShareResultStore)
   ],
   share() {
+    if (userId === 'unset') {
+      return;
+    }
     var imagePath = osUtils.getCacheDir() + "/share.png";
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {

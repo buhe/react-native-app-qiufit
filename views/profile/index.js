@@ -62,6 +62,9 @@ var ProfileView = React.createClass({
     this.props.navigator.pop();
   },
   share(){
+    if (userId === 'unset') {
+      return;
+    }
     var imagePath = osUtils.getCacheDir() + "/share.png";
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {

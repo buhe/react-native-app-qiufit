@@ -6,7 +6,8 @@ var WeChat = require('react-native-wechat-android');
 
 var React = require('react-native');
 var {
-    DeviceEventEmitter
+    DeviceEventEmitter,
+    ToastAndroid
     } = React;
 var SDK = require('./SDK');
 import UserActionCreators from '../actions/UserActionCreators';
