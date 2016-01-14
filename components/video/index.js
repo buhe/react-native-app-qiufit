@@ -14,11 +14,12 @@ var {
     ScrollView,
     Image,
     AsyncStorage,
-    Alert
+    Alert,
+    Dimensions
     } = React;
 var Router = require('../../views/router');
 var RNVideo = require('react-native-video');
-var deviceScreen = require('Dimensions').get('window');
+var deviceScreen = Dimensions.get('window');
 let videoHeight = deviceScreen.width / 1.73;
 var RNFS = require('react-native-fs');
 var osUtils = require('../../utils');
@@ -100,7 +101,7 @@ var Video = React.createClass({
             <View style={styles.voiceWrapper}>
               <TouchableWithoutFeedback onPress={this.closeVoice}>
                 <Image style={styles.voiceButton}
-                       source={this.state.muted ? require('../../images/video_sound_open.png') : require('../../images/video_sound_close.png')}/>
+                       source={this.state.muted ? require('../../images/video_sound_close.png') : require('../../images/video_sound_open.png')}/>
               </TouchableWithoutFeedback>
             </View>
           </View>

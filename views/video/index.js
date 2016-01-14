@@ -17,6 +17,7 @@ import Picker from '../LandscapePicker';
 var ShareAction = require('../../actions/ShareResultActionCreators');
 var osUtils = require('../../utils');
 
+
 //var _ = require('lodash');
 
 var {
@@ -34,6 +35,7 @@ var {
     Dimensions
     } = React;
 var deviceScreen = Dimensions.get('window');
+let videoHeight = deviceScreen.width / 1.73;
 
 class CommentItem extends React.Component {
   render() {
@@ -85,7 +87,7 @@ var VideoView = React.createClass({
       showSendComment: false,
       subStep: '初级标准',
       subStepIndex: 0,//2 * 50 这种..
-      commentButtonTop: new Animated.Value(deviceScreen.height),
+      commentButtonTop: new Animated.Value(deviceScreen.height - 60 - osUtils.getStatusHeight()),  //默认出现
     };
   },
   componentWillMount: function () {
@@ -291,7 +293,7 @@ var styles = StyleSheet.create({
   },
   turingText: {},
   main: {
-    height: deviceScreen.height,
+    height: deviceScreen.height - videoHeight ,
   },
   commentAvatar: {
     height: 25,

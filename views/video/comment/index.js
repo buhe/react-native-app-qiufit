@@ -52,5 +52,4 @@ class Comment extends React.Component {
   }
 
 }
-
-export default Comment;
+module.exports = Comment;
