@@ -9,7 +9,7 @@ var ProfileStore = require('../../stores/ProfileStore');
 var Chart = require('../../components/RNChart');
 var CheckIn = require('../../components/RNCheckIn');
 var ViewSnapshotter = require('../../snapshot');
-var WeChat = require('../../wechat');
+var WeChat = require('../../wechat').default;
 var osUtils = require('../../utils');
 var Theme = require('../theme');
 import _ from 'lodash';
