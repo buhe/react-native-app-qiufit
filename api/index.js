@@ -232,14 +232,14 @@ class API {
     query.include("user");
     query.skip(start ? start : 0);
     query.limit(size ? size : 10);
-    query.descending("date"); //时间反排序
+    query.descending("updatedAt"); //时间反排序
     query.find({
       success: function (results) {
         var trends = [];
         for (var i = 0; i < results.length; i++) {
           var data = results[i];
           var nickname = data.get('user').get('username');
-          var date = data.get('date');
+          var date = data.updatedAt;
           trends.push({
             nickname: nickname,
             date: moment(date).format('YYYY-MM-DD')
