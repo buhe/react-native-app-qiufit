@@ -12,6 +12,10 @@ const SECRET = '6a7e35146bd280b5952740ec9933814d';
 //dev
 //const ID = 'wxb401408ecbea2897';
 //const SECRET = 'f1b0fa1255dcbec48cd24d82edcd8ae7';
+
+//ijiami prod
+//const ID = 'wx0e10e0fb79ec9083';
+//const SECRET = 'ecb1c512963f786beab1db47c32ec6f1';
 class WeChat {
   getAccessToken(code, success, fail) {
     request
