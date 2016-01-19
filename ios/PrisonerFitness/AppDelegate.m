@@ -12,12 +12,15 @@
 #import "RCTRootView.h"
 #import "RCTWeChat.h"
 #import "MobClick.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [MobClick startWithAppkey:@"568e1985e0f55a1b84001d7b" reportPolicy:BATCH channelId:nil];
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                           didFinishLaunchingWithOptions:launchOptions];
 
   NSURL *jsCodeLocation;
 
@@ -67,8 +70,20 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   
-  return [[RCTWeChat shareInstance] handleOpenURL: url];
+if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
+      return [[RCTWeChat shareInstance] handleOpenURL: url];
+  }else{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+  }
   
+  
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
 }
 
 

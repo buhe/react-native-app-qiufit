@@ -60,6 +60,27 @@ var Video = React.createClass({
     var fileName = paths[paths.length - 1];
     AsyncStorage.getItem(this.props.url, function (err, localUrl) {
       if (localUrl) {
+        if(RNFS.stat(localUrl),function(stat){
+              if(!stat.isFile()){
+                //被清除了,重新下载
+                RNFS.downloadFile(self.props.url, localUrl, function () {
+                  //begin
+                }, function (process) {
+                  var progress = process.bytesWritten / process.contentLength;
+                  if (progress > 0.1) {
+                    if (progress - self.state.progress > 0.1) {
+                      self.setState({progress: progress});
+                    }
+                  }
+
+                }).then(function(){
+                  self.setState({localUrl: localUrl,progress: 1});
+                  AsyncStorage.setItem(self.props.url, localUrl);
+                }).catch(function(err){
+                  //下载出问题了?
+                });
+              }
+            });
         self.setState({localUrl: localUrl});
       } else {
         var localVideoUrl = osUtils.getDocmentDir() + "/" + fileName;

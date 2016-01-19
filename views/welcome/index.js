@@ -17,6 +17,9 @@ var SDK = require('../../wechat/SDK');
 import I18nView from '../I18nView';
 var I18n = require('react-native-i18n');
 
+var FBLogin = require('react-native-facebook-login');
+var FBLoginManager = require('NativeModules').FBLoginManager;
+
 var Welcome = React.createClass({
 
   componentWillMount(){
@@ -37,10 +40,59 @@ var Welcome = React.createClass({
 
   render() {
     var leftButton = <View></View>;
+    var loginButton;
     if(I18nView.isZh()){
       leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
                     <Text style={styles.text}>手机登录</Text>
                   </TouchableOpacity>;
+      loginButton = <TouchableOpacity
+                      //onPress={this.hideModal.bind(this)}
+                      onPress={this.wechatLogin}
+                      style={{
+                                    height:70,
+                                    alignItems:'center',  //水平居中
+                                    justifyContent:'center', //垂直居中
+                                    backgroundColor: 'black',
+                                    marginRight:15,
+                                    marginLeft:15,
+                                    marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
+                                    }}
+                      >
+                    <Text style={styles.actionText}>微信登录</Text>
+                  </TouchableOpacity>
+    }else{
+      loginButton = <FBLogin style={{ marginBottom: 10, }}
+                             permissions={["email","user_friends"]}
+                             onLogin={function(data){
+            console.log("Logged in!");
+            console.log(data);
+            //_this.setState({ user : data.credentials });
+          }}
+                             onLogout={function(){
+            console.log("Logged out.");
+            //_this.setState({ user : null });
+          }}
+                             onLoginFound={function(data){
+            console.log("Existing login found.");
+            console.log(data);
+            //_this.setState({ user : data.credentials });
+          }}
+                             onLoginNotFound={function(){
+            console.log("No user logged in.");
+            //_this.setState({ user : null });
+          }}
+                             onError={function(data){
+            console.log("ERROR");
+            console.log(data);
+          }}
+                             onCancel={function(){
+            console.log("User cancelled.");
+          }}
+                             onPermissionsMissing={function(data){
+            console.log("Check permissions!");
+            console.log(data);
+          }}
+          />
     }
     return (
         <View style={{
@@ -58,21 +110,7 @@ var Welcome = React.createClass({
             height:150,
             width:150,
           }}/>
-          <TouchableOpacity
-              //onPress={this.hideModal.bind(this)}
-              onPress={this.wechatLogin}
-              style={{
-                        height:70,
-                        alignItems:'center',  //水平居中
-                        justifyContent:'center', //垂直居中
-                        backgroundColor: 'black',
-                        marginRight:15,
-                        marginLeft:15,
-                        marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
-                        }}
-              >
-            <Text style={styles.actionText}>微信登录</Text>
-          </TouchableOpacity>
+          {loginButton}
         </View>
     );
   }

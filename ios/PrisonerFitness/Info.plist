@@ -30,6 +30,12 @@
 				<string>wx78abe553b44618ff</string>
 			</array>
 		</dict>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb119799841732371</string>
+      </array>
+    </dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>3</string>
@@ -56,5 +62,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+  <key>FacebookAppID</key>
+  <string>119799841732371</string>
+  <key>FacebookDisplayName</key>
+  <string>ConvictConditioning</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
 </dict>
 </plist>
