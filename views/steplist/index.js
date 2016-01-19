@@ -11,6 +11,7 @@ var Router = require('../router');
 var API = require('../../api');
 var StepActionCreators = require('../../actions/StepActionCreators');
 import VideoActionCreators from '../../actions/VideoActionCreators';
+import I18nView from '../I18nView';
 //var _ = require('lodash');
 
 var {
@@ -82,12 +83,12 @@ var StepsView = React.createClass({
     var ref = this.state.steps[this.state.stepIndex];
     VideoStore.reset();
     VideoActionCreators.setRef({
-      typeText:ref.text1,
+      typeText: ref.text1,
       type: this.state.typeName,
       step: parseInt(this.state.stepIndex),
       videoUrl: ref.videoUrl,
       subStep: ref.subStep,
-      infoImage:ref.infoImage
+      infoImage: ref.infoImage
     });
     this.props.navigator.push(Router.getVideo());
   },
@@ -99,7 +100,12 @@ var StepsView = React.createClass({
             <TouchableOpacity onPress={this.pop}>
               <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
             </TouchableOpacity>
-            <Text style={styles.logoText}>{this.state.stepName}系列升级表</Text>
+            <Text style={{
+                          fontSize: 30,
+                          marginRight: (deviceScreen.width - 30 * this.state.stepName.length * I18nView.getI18nFontRadio() ) / 2,
+                          fontWeight: 'bold',
+                          color: '#1d1d1d'
+                        }}>{this.state.stepName}</Text>
           </View>
           <ListView
               dataSource={this.state.dataSource.cloneWithRows(this.state.steps)}
@@ -180,13 +186,8 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     height: 60,
-  },
-  logoText: {
-    fontSize: 30,
-    marginTop: 18,
-    marginBottom: 6,
-    fontWeight: 'bold',
-    color: '#1d1d1d'
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   separator: {
     height: 0.5,

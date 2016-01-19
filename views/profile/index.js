@@ -15,6 +15,7 @@ var Theme = require('../theme');
 import _ from 'lodash';
 import Button from '../button';
 import Promation from '../../promation';
+var I18n = require('react-native-i18n');
 
 var {
     AppRegistry,
@@ -32,17 +33,17 @@ var {
 var deviceScreen = Dimensions.get('window');
 function getMaxLevel(levels) {
   if (levels) {
-    if (_.includes(levels, '高级标准')) {
-      return '高级标准';
-    } else if (_.includes(levels, '中级标准')) {
-      return '中级标准';
-    } else if (_.includes(levels, '初级标准')) {
-      return '初级标准';
+    if (_.includes(levels, I18n.t('advanced'))) {
+      return I18n.t('advanced');
+    } else if (_.includes(levels, I18n.t('intermediate'))) {
+      return I18n.t('intermediate');
+    } else if (_.includes(levels, I18n.t('primary'))) {
+      return I18n.t('primary');
     } else {
-      return '初级标准';
+      return I18n.t('primary');
     }
   } else {
-    return '初级标准';
+    return I18n.t('primary');
   }
 }
 
@@ -71,9 +72,9 @@ var ProfileView = React.createClass({
       if (successfulWrite) {
         WeChat.shareImage({
           path: imagePath,
-          tagName: '囚徒健身',
-          title: '囚徒健身',
-          desc: '囚徒健身',
+          tagName: I18n.t('ccpro'),
+          title: I18n.t('ccpro'),
+          desc: I18n.t('ccpro'),
           thumbPath: imagePath,
           scene: 1
         });
@@ -103,7 +104,7 @@ var ProfileView = React.createClass({
         tableData.push({
           type: key,
           step: 0,
-          level: '初级标准',
+          level: I18n.t('primary'),
         });
       }
 
@@ -144,7 +145,7 @@ var ProfileView = React.createClass({
               >
             <View style={styles.turningAnalytics}>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
-              <Text style={styles.turningAnalyticsText}>训练分析</Text>
+              <Text style={styles.turningAnalyticsText}>{I18n.t('analytics')}</Text>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
             </View>
             <View style={styles.chartWrapper}>
@@ -158,7 +159,7 @@ var ProfileView = React.createClass({
             </View>
             <View style={styles.turningAnalytics}>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
-              <Text style={styles.turningAnalyticsText}>训练记录</Text>
+              <Text style={styles.turningAnalyticsText}>{I18n.t('record')}</Text>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
             </View>
             <View style={{width:deviceScreen.width}}>
@@ -168,8 +169,8 @@ var ProfileView = React.createClass({
             </View>
             <View style={styles.bottomView}>
               <Image source={require('../../images/me_logo.png')} style={styles.bottomIcon}/>
-              <Text style={[styles.content,styles.bottomText]}>囚徒健身 Design By cheng zhen</Text>
-              <Text style={[styles.content,styles.bottomText]}>囚徒健身 Code With ♥ By bu he</Text>
+              <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Design By cheng zhen</Text>
+              <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Code With ♥ By bu he</Text>
               <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
             </View>
             <TouchableOpacity onPress={()=> Promation.openMarket()} style={{marginBottom:50}}>

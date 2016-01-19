@@ -16,7 +16,7 @@ var Modal = require('react-native-fs-modal');
 import Picker from '../LandscapePicker';
 var ShareAction = require('../../actions/ShareResultActionCreators');
 var osUtils = require('../../utils');
-
+var I18n = require('react-native-i18n');
 
 //var _ = require('lodash');
 
@@ -85,7 +85,7 @@ var VideoView = React.createClass({
   getInitialState: function () {
     return {
       showSendComment: false,
-      subStep: '初级标准',
+      subStep: I18n.t('primary'),
       subStepIndex: 0,//2 * 50 这种..
       commentButtonTop: new Animated.Value(deviceScreen.height - 60 - osUtils.getStatusHeight()),  //默认出现
     };
@@ -164,7 +164,7 @@ var VideoView = React.createClass({
             <View style={{alignItems: 'center',flex:1}}>
               <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
               <Picker
-                  items={['初级标准','中级标准','高级标准']}
+                  items={[I18n.t('primary'),I18n.t('intermediate'),I18n.t('advanced')]}
                   onChangeItem={(index,text)=>this.setState({subStepIndex:index,subStep:text})}
                   />
               <View style={styles.turningAnalytics}>
@@ -185,16 +185,16 @@ var VideoView = React.createClass({
                         height:60,
                         backgroundColor: 'black',},Theme.centerChild]}
                 >
-              <Text style={styles.actionText}>完成!</Text>
+              <Text style={styles.actionText}>{I18n.t('complete')}</Text>
             </TouchableHighlight>
             <TouchableWithoutFeedback onPress={() => this.props.navigator.push(Router.getTrend())}
                 >
               <View style={[Theme.centerChild,{paddingBottom:20,paddingTop:20,}]}>
-                <Text style={styles.turingText}>{this.state.trendCount}个人完成该训练</Text>
+                <Text style={styles.turingText}>{this.state.trendCount + I18n.t('finish_turning')}</Text>
               </View>
             </TouchableWithoutFeedback>
             <View style={[styles.separator,{height: 2,}]}/>
-            <Text style={{marginLeft:10,marginTop:15}}>{this.state.comments.length}条评论</Text>
+            <Text style={{marginLeft:10,marginTop:15}}>{this.state.comments.length + I18n.t('comments')}</Text>
             {commentView}
           </ScrollView>
           <Animated.View
@@ -212,7 +212,7 @@ var VideoView = React.createClass({
                         height: 60
                         }]}
                 >
-              <Text style={styles.actionText}>写评论</Text>
+              <Text style={styles.actionText}>{I18n.t('comment')}</Text>
             </TouchableHighlight>
           </Animated.View>
           <Modal

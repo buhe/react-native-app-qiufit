@@ -5,6 +5,7 @@ var Actions = require('../actions/StepActionCreators');
 var API = require('../api');
 const VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
 const INFO_IMAGE_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
+var I18n = require('react-native-i18n');
 const stepsMap = {
   pushUp: [
     {
@@ -723,12 +724,12 @@ const stepsMap = {
 
 
 const stepsNameMap = {
-  pushUp: '俯卧撑',
-  deep: '深蹲',
-  pullUp: '引体向上',
-  leg: '举腿',
-  bridge: '桥',
-  handstand: '倒立撑',
+  pushUp: I18n.t('pushUp'),
+  deep: I18n.t('deep'),
+  pullUp: I18n.t('pullUp'),
+  leg: I18n.t('leg'),
+  bridge: I18n.t('bridge'),
+  handstand: I18n.t('handstand'),
 };
 
 var StepStore = Reflux.createStore({

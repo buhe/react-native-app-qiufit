@@ -14,7 +14,8 @@ var deviceScreen = Dimensions.get('window');
 var Router = require('../router');
 var WeChat = require('../../wechat').default;
 var SDK = require('../../wechat/SDK');
-
+import I18nView from '../I18nView';
+var I18n = require('react-native-i18n');
 
 var Welcome = React.createClass({
 
@@ -35,17 +36,21 @@ var Welcome = React.createClass({
   },
 
   render() {
+    var leftButton = <View></View>;
+    if(I18nView.isZh()){
+      leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
+                    <Text style={styles.text}>手机登录</Text>
+                  </TouchableOpacity>;
+    }
     return (
         <View style={{
         justifyContent: 'space-between',   //三个组件分散开
          flex:1
         }}>
           <View style={styles.topView}>
-            <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
-              <Text style={styles.text}>手机登录</Text>
-            </TouchableOpacity>
+            {leftButton}
             <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTypeList())}>
-              <Text style={styles.text}>随便看看</Text>
+              <Text style={styles.text}>{I18n.t('skip')}</Text>
             </TouchableOpacity>
           </View>
           <Image source={require('../../images/signin_logo.png')} style={{

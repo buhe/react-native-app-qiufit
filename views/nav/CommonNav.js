@@ -12,6 +12,7 @@ import React, {
 } from 'react-native';
 var deviceScreen = Dimensions.get('window');
 import Theme from '../theme';
+import I18nView from '../I18nView';
 export default class CommonNav extends React.Component {
 
   render() {
@@ -21,7 +22,7 @@ export default class CommonNav extends React.Component {
             <Image source={require('../../images/navigation_back.png')} style={styles.closeImage}/>
           </TouchableOpacity>
           <Text style={{
-                    marginRight: (deviceScreen.width - 21 * this.props.navText.length ) / 2,
+                    marginRight: (deviceScreen.width - 21 * this.props.navText.length  * I18nView.getI18nFontRadio() ) / 2,
                     fontWeight: 'bold',
                     color: 'white',
                     fontSize: 21
