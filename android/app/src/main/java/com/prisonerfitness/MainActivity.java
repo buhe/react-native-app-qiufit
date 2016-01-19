@@ -11,6 +11,7 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.heng.wechat.WeChatPackage;
+import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.prisonerfitness.rnchart.RNChartPackage;
 import com.prisonerfitness.snapshot.RNSnapshotPackage;
 import com.rnfs.RNFSPackage;
@@ -36,6 +37,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .addPackage(new WeChatPackage())
                 .addPackage(new RNSnapshotPackage(this))
                 .addPackage(new RNFSPackage())
+                .addPackage(new ReactNativeI18n())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();

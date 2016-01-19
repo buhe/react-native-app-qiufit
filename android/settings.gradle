@@ -1,7 +1,9 @@
 rootProject.name = 'PrisonerFitness'
 
-include ':reactwechat',':RCTVideo', ':app'
+include ':reactwechat', ':RCTVideo', ':app'
 project(':RCTVideo').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android')
 project(':reactwechat').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-wechat-android')
 include ':react-native-fs'
 project(':react-native-fs').projectDir = new File(settingsDir, '../node_modules/react-native-fs/android')
+include ':react-native-i18n'
+project(':react-native-i18n').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-i18n/android')

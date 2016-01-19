@@ -40,4 +40,5 @@ dependencies {
     compile project(':reactwechat')
     compile project(':react-native-fs')
     compile 'com.umeng.analytics:analytics:latest.integration'
+    compile project(':react-native-i18n')
 }
