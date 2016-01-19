@@ -14,7 +14,7 @@ var {
     TouchableOpacity,
     Image
     } = React;
-
+var I18n = require('react-native-i18n');
 /**
  *
  * 传入的数据结构 checkIn
@@ -37,25 +37,25 @@ class MonthHeader extends React.Component {
     return (
         <View style={[styles.row, styles.row_header]}>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>一</Text>
+            <Text style={styles.headerStyle}>{I18n.t('mon')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>二</Text>
+            <Text style={styles.headerStyle}>{I18n.t('tue')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>三</Text>
+            <Text style={styles.headerStyle}>{I18n.t('wed')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>四</Text>
+            <Text style={styles.headerStyle}>{I18n.t('thu')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>五</Text>
+            <Text style={styles.headerStyle}>{I18n.t('fri')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={[styles.headerStyle]}>六</Text>
+            <Text style={[styles.headerStyle]}>{I18n.t('sat')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={[styles.headerStyle]}>日</Text>
+            <Text style={[styles.headerStyle]}>{I18n.t('sun')}</Text>
           </View>
         </View>
     );
@@ -134,9 +134,10 @@ var Month = React.createClass({
         var textView = null;
         if (value && value.length > 0) {
           textView =
-              <Text style={styles.month_text}>{newDate.getFullYear()}年{newDate.getMonth() + 1}月 ({value.length}次)</Text>
+              <Text
+                  style={styles.month_text}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }({value.length}次)</Text>
         } else {
-          textView = <Text style={styles.month_text}>{newDate.getFullYear()}年{newDate.getMonth() + 1}月</Text>
+          textView = <Text style={styles.month_text}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
         }
         return (
             <View>

@@ -55,7 +55,17 @@ I18n.translations = {
     'group': 'Groups',
     'share': 'Share',
     'port': 'Post',
-    'ban_msg': 'Unfriendly comments will be deleted , it shows the depth of discussion will be given priority .'
+    'ban_msg': 'Unfriendly comments will be deleted , it shows the depth of discussion will be given priority .',
+    'mon': 'Mon',
+    'tue': 'Tue',
+    'wed': 'Wed',
+    'thu': 'Thu',
+    'fri': 'Fri',
+    'sat': 'Sat',
+    'sun': 'Sun',
+    'year': ' . ',
+    'month': ''
+
   },
   'zh': {
     login: '登录',
@@ -88,7 +98,16 @@ I18n.translations = {
     'group': '组',
     'share': '分享',
     'port': '发布',
-    'ban_msg': '不友善的言论会被删除，深度讨论会被优先展示。'
+    'ban_msg': '不友善的言论会被删除，深度讨论会被优先展示。',
+    'mon': '一',
+    'tue': '二',
+    'wed': '三',
+    'thu': '四',
+    'fri': '五',
+    'sat': '六',
+    'sun': '日',
+    'year': '年',
+    'month': '月'
   },
   'zh-TW': {
     login: '登錄',
@@ -121,7 +140,16 @@ I18n.translations = {
     'group': '組',
     'share': '分享',
     'port': '发布',
-    'ban_msg': '不友善的言論會被刪除，深度討論會被優先展示。'
+    'ban_msg': '不友善的言論會被刪除，深度討論會被優先展示。',
+    'mon': '一',
+    'tue': '二',
+    'wed': '三',
+    'thu': '四',
+    'fri': '五',
+    'sat': '六',
+    'sun': '日',
+    'year': '年',
+    'month': '月'
   }
 }
 
