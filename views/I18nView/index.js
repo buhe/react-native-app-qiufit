@@ -9,10 +9,12 @@ class I18nView {
   //是不是大陆市场
   isZh(){
     return I18n.locale === 'zh-cn';
+    //return false;
   }
   //所有非大陆市场
   notZh(){
     return I18n.locale !== 'zh-cn';
+    //return true;
   }
 
   getI18nFontRadio() {

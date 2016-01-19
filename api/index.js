@@ -2,7 +2,14 @@
  * Created by guguyanhua on 12/11/15.
  */
 var AV = require('avoscloud-sdk');
-AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
+var I18NView = require('../views/I18nView');
+if(I18NView.isZh()){
+  AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
+  AV.useAVCloudCN()
+}else{
+  AV.useAVCloudUS();
+  AV.initialize('ymB5jEJLcv7oo047JwsUumnD-MdYXbMMI', 'lepqnf11A4x68vxOMNPD2fmI');
+}
 //AV.Promise.setPromisesAPlusCompliant(true);
 
 var CheckIn = AV.Object.extend("CheckIn");
