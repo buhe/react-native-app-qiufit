@@ -50,7 +50,7 @@ var Login = React.createClass({
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
-                placeholder={'手机号'}
+                placeholder={I18n.t('phone_number')}
                 underlineColorAndroid={'transparent'}
                 onChangeText={this.changeText.bind(this)}
                 onSubmitEditing={this.next.bind(this)}
@@ -66,11 +66,11 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>下一步</Text>
+            <Text style={styles.actionText}>{I18n.t('next')}</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>点击下一步按钮，即表示你同意</Text>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>《囚徒健身软件许可及服务协议》</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('accept')}</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('license')}</Text>
           </View>
         </View>
     );

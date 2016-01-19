@@ -27,6 +27,10 @@ I18n.translations = {
   'en': {
     login: 'Login',
     'please_input_phone_number':'Please input phone number',
+    'phone_number':'Phone Number',
+    'next':'Next',
+    'accept':'Accept after click next button',
+    'license':'《Qiu Fitness License》',
     'pushUp':'Push Up',
     'deep':'Deep',
     'pullUp':'Pull Up',
@@ -37,6 +41,10 @@ I18n.translations = {
   'zh': {
     login: '登录',
     'please_input_phone_number':'请输入手机号码',
+    'phone_number':'手机号',
+    'next':'下一步',
+    'accept':'点击下一步按钮，即表示你同意',
+    'license':'《囚徒健身软件许可及服务协议》',
     'pushUp':'俯卧撑',
     'deep':'深蹲',
     'pullUp':'引体向上',
@@ -47,6 +55,10 @@ I18n.translations = {
   'zh-TW': {
     login: '登錄',
     'please_input_phone_number':'請輸入手機號碼',
+    'phone_number':'手機號',
+    'next':'下一步',
+    'accept':'點擊下一步按鈕，即表示你同意',
+    'license':'《囚徒健身軟件許可及服務協議》',
     'pushUp':'俯臥撐',
     'deep':'深蹲',
     'pullUp':'引體向上',
