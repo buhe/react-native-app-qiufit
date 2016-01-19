@@ -13,6 +13,7 @@ var {
     } = React;
 import Button from '../../button';
 import Theme from '../../theme';
+var I18n = require('react-native-i18n');
 class StepModal extends React.Component {
   render() {
     return (
@@ -30,7 +31,7 @@ class StepModal extends React.Component {
                      marginRight:20
                   }}
                 press={this.props.actionClick}
-                text={'开始'}
+                text={I18n.t('start')}
                 >
             </Button>
           </View>

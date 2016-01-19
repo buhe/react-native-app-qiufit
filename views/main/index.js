@@ -64,7 +64,8 @@ I18n.translations = {
     'sat': 'Sat',
     'sun': 'Sun',
     'year': ' . ',
-    'month': ''
+    'month': '',
+    'start':'Start!'
 
   },
   'zh': {
@@ -107,7 +108,8 @@ I18n.translations = {
     'sat': '六',
     'sun': '日',
     'year': '年',
-    'month': '月'
+    'month': '月',
+    'start':'开始！'
   },
   'zh-TW': {
     login: '登錄',
@@ -149,7 +151,8 @@ I18n.translations = {
     'sat': '六',
     'sun': '日',
     'year': '年',
-    'month': '月'
+    'month': '月',
+    'start':'開始！'
   }
 }
 
