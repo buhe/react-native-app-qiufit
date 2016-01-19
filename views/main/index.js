@@ -43,11 +43,19 @@ I18n.translations = {
     'ccpro': 'Convict Conditioning Pro',
     'analytics': 'Analytics',
     'record': 'Record',
-    'finish_turning':' peoples has completed',
-    'comments':'comments',
-    'comment':'comment',
-    'complete':'Completed!',
-    'skip':'Skip'
+    'finish_turning': ' peoples has completed',
+    'comments': 'comments',
+    'comment': 'comment',
+    'complete': 'Completed!',
+    'skip': 'Skip',
+    'training': 'Training trends',
+    'new_record': 'Record!',
+    'level': 'Level',
+    'action': 'Action',
+    'group': 'Groups',
+    'share': 'Share',
+    'port': 'Post',
+    'ban_msg': 'Unfriendly comments will be deleted , it shows the depth of discussion will be given priority .'
   },
   'zh': {
     login: '登录',
@@ -68,12 +76,19 @@ I18n.translations = {
     'ccpro': '专业囚徒健身',
     'analytics': '训练分析',
     'record': '训练记录',
-    'finish_turning':'个人完成该训练',
-    'comments':' 条评论',
-    'comment':'写评论',
-    'complete':'完成!',
-    'skip':'随便看看'
-
+    'finish_turning': '个人完成该训练',
+    'comments': ' 条评论',
+    'comment': '写评论',
+    'complete': '完成!',
+    'skip': '随便看看',
+    'training': '训练动态',
+    'new_record': '新纪录!',
+    'level': '标准',
+    'action': '动作',
+    'group': '组',
+    'share': '分享',
+    'port': '发布',
+    'ban_msg': '不友善的言论会被删除，深度讨论会被优先展示。'
   },
   'zh-TW': {
     login: '登錄',
@@ -94,11 +109,19 @@ I18n.translations = {
     'ccpro': '專業囚徒健身',
     'analytics': '訓練分析',
     'record': '訓練記錄',
-    'finish_turning':'個人完成該訓練',
-    'comments':' 條評論',
-    'comment':'寫評論',
-    'complete':'完成!',
-    'skip':'隨便看看'
+    'finish_turning': '個人完成該訓練',
+    'comments': ' 條評論',
+    'comment': '寫評論',
+    'complete': '完成!',
+    'skip': '隨便看看',
+    'training': '訓練動態',
+    'new_record': '新動作!',
+    'level': '標準',
+    'action': '動作',
+    'group': '組',
+    'share': '分享',
+    'port': '发布',
+    'ban_msg': '不友善的言論會被刪除，深度討論會被優先展示。'
   }
 }
 

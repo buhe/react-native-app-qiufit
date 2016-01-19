@@ -18,6 +18,7 @@ import Reflux from 'reflux';
 import VideoStore from '../../../stores/VideoStore';
 import Separator from '../../../components/Separator'
 var deviceScreen = Dimensions.get('window');
+var I18n = require('react-native-i18n');
 
 class TrendItem extends React.Component {
   render() {
@@ -58,7 +59,7 @@ var Trend = React.createClass({
     return (
         <View>
           <Nav
-              navText={'训练动态'}
+              navText={I18n.t('training')}
               {... this.props}
               />
           <ListView

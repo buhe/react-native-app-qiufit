@@ -22,6 +22,8 @@ var WeChat = require('../../../wechat').default;
 var osUtils = require('../../../utils');
 import moment from 'moment';
 import moment_cn from 'moment/locale/zh-cn';
+import moment_en from 'moment/locale/en-au';
+var I18n = require('react-native-i18n');
 
 var Result = React.createClass({
   mixins: [
@@ -37,9 +39,9 @@ var Result = React.createClass({
       if (successfulWrite) {
         WeChat.shareImage({
           path: imagePath,
-          tagName: '囚徒健身',
-          title: '囚徒健身',
-          desc: '囚徒健身',
+          tagName: I18n.t('ccpro'),
+          title: I18n.t('ccpro'),
+          desc: I18n.t('ccpro'),
           thumbPath: imagePath,
           scene: 1
         });
@@ -50,7 +52,7 @@ var Result = React.createClass({
   },
 
   render() {
-    moment.locale('zh-cn');
+    moment.locale(I18n.locale);
     var m = moment();
     var month = moment.months(m.month());
     var day = m.day();
@@ -63,7 +65,7 @@ var Result = React.createClass({
             <Image source={require('../../../images/result.png')} style={styles.mainLogo}/>
             <View style={{borderWidth:5,marginTop:30,marginBottom:20}}>
               <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>新纪录!</Text>
+                <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>{I18n.t('new_record')}</Text>
                 <View
                     style={{backgroundColor:'black',alignItems:'center',justifyContent:'center',width:60,height:60,marginLeft:10}}>
                   <Text style={{fontSize:16,color:'white',fontWeight:'bold'}}>{month}</Text>
@@ -75,11 +77,11 @@ var Result = React.createClass({
                 <Text style={{fontSize:30,color:'white',fontWeight:'bold'}}>{this.state.stepName}</Text>
               </View>
               <View style={{flexDirection:'row'}}>
-                <View style={styles.column}><Text style={styles.row}>标准</Text><Text
+                <View style={styles.column}><Text style={styles.row}>{I18n.t('level')}</Text><Text
                     style={styles.cell}>{this.state.subStepName}</Text></View>
-                <View style={styles.column}><Text style={styles.row}>动作</Text><Text
+                <View style={styles.column}><Text style={styles.row}>{I18n.t('action')}</Text><Text
                     style={styles.cell}>{this.state.actionCount}</Text></View>
-                <View style={styles.column}><Text style={styles.row}>组</Text><Text
+                <View style={styles.column}><Text style={styles.row}>{I18n.t('group')}</Text><Text
                     style={styles.cell}>{this.state.groupCount}</Text></View>
               </View>
             </View>
@@ -89,7 +91,7 @@ var Result = React.createClass({
                marginLeft:40,
                marginRight:40
               }}
-              text={'分享'}
+              text={I18n.t('share')}
               press={this.share.bind(this)}
               />
         </View>

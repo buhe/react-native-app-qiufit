@@ -15,6 +15,7 @@ import React, {
 import Nav from '../../nav/CommonNavRightButton';
 var deviceScreen = Dimensions.get('window');
 var VideoAction = require('../../../actions/VideoActionCreators');
+var I18n = require('react-native-i18n');
 
 class Comment extends React.Component {
   post() {
@@ -32,8 +33,8 @@ class Comment extends React.Component {
     return (
         <View>
           <Nav
-              navText={'写评论'}
-              rightText={'发布'}
+              navText={I18n.t('comment')}
+              rightText={I18n.t('post')}
               rightAction={this.post.bind(this)}
               {...this.props}
               />
@@ -42,7 +43,7 @@ class Comment extends React.Component {
               onChangeText={(text) => this.setState({text})}
               value={this.state.text}
               multiline={true}
-              placeholder={'不友善的言论会被删除，深度讨论会被优先展示。'}
+              placeholder={I18n.t('ban_msg')}
               numberOfLines={100}
               textAlignVertical={'top'}
               placeholderTextColor={'#cccccc'}

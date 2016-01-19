@@ -13,6 +13,7 @@ var {
     } = React;
 import Button from '../../button';
 import Theme from '../../theme';
+var I18n = require('react-native-i18n');
 class VideoModal extends React.Component {
 
   render() {
@@ -46,7 +47,7 @@ class VideoModal extends React.Component {
                    marginRight:20
                       }}
                 press={this.props.actionClick}
-                text={'确定'}
+                text={I18n.t('complete')}
                 >
             </Button>
           </View>
