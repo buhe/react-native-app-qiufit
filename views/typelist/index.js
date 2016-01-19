@@ -25,41 +25,41 @@ var {
     } = React;
 var Router = require('../router');
 var deviceScreen = Dimensions.get('window');
-
+var I18n = require('react-native-i18n');
 var typeList = [
   {
     name: 'pushUp',
-    type: "俯卧撑",
+    type: I18n.t('pushUp'),
     icon: '../../images/a.png',
     process: '2/10'
   },
   {
     name: 'deep',
-    type: "深蹲",
+    type: I18n.t('deep'),
     icon: '../../images/b.png',
     process: '2/10'
   },
   {
     name: 'pullUp',
-    type: "引体向上",
+    type: I18n.t('pullUp'),
     icon: '../../images/c.png',
     process: '0/10'
   },
   {
     name: 'leg',
-    type: "举腿",
+    type: I18n.t('leg'),
     icon: '../../images/d.png',
     process: '0/10'
   },
   {
     name: 'bridge',
-    type: "桥",
+    type: I18n.t('bridge'),
     icon: '../../images/e.png',
     process: '0/10'
   },
   {
     name: 'handstand',
-    type: "倒立撑",
+    type: I18n.t('handstand'),
     icon: '../../images/f.png',
     process: '0/10'
   },

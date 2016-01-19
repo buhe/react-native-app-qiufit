@@ -29,7 +29,6 @@
 		7825FDB51C293E3000219A32 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB41C293E3000219A32 /* libsqlite3.0.tbd */; };
 		7825FDB71C293E3A00219A32 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB61C293E3A00219A32 /* CoreTelephony.framework */; };
 		7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB81C293E4300219A32 /* SystemConfiguration.framework */; };
-		782D52B81C4796600034A0F8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 782D52B71C4796600034A0F8 /* main.jsbundle */; };
 		7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */; };
 		784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */; };
 		78B25AEA1C044A3500A6A92F /* ChartAnimationEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A401C044A3500A6A92F /* ChartAnimationEasing.swift */; };
@@ -126,6 +125,7 @@
 		78B25B451C044A3500A6A92F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B25AA61C044A3500A6A92F /* Info.plist */; };
 		78B25B571C0450F000A6A92F /* RCTChartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B561C0450F000A6A92F /* RCTChartManager.m */; };
 		78B25B5B1C0457AF00A6A92F /* RCTChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B25B5A1C0457AF00A6A92F /* RCTChart.m */; };
+		78F928571C4BD7560071E098 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F928541C4BD7260071E098 /* libRNI18n.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		F59D1C3F19D643B5AE8059E5 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9340F2577264343AED694A3 /* libRCTActionSheet.a */; };
 /* End PBXBuildFile section */
@@ -235,6 +235,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
+		};
+		78F928531C4BD7260071E098 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDD7BF781B2D5125006FDA75;
+			remoteInfo = RNI18n;
+		};
+		78F928551C4BD7260071E098 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDD7BF831B2D5126006FDA75;
+			remoteInfo = RNI18nTests;
 		};
 		832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -378,6 +392,7 @@
 		78B25B591C0457AF00A6A92F /* RCTChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTChart.h; path = RNChat/RCTChart.h; sourceTree = "<group>"; };
 		78B25B5A1C0457AF00A6A92F /* RCTChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTChart.m; path = RNChat/RCTChart.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E9340F2577264343AED694A3 /* libRCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTActionSheet.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -394,6 +409,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F928571C4BD7560071E098 /* libRNI18n.a in Frameworks */,
 				7802D7F21C2C011200247616 /* libRNFS.a in Frameworks */,
 				7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */,
 				7825FDB71C293E3A00219A32 /* CoreTelephony.framework in Frameworks */,
@@ -765,9 +781,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		78F9284F1C4BD7260071E098 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78F928541C4BD7260071E098 /* libRNI18n.a */,
+				78F928561C4BD7260071E098 /* RNI18nTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */,
 				7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */,
 				7846B7F51C3E523D0077B3DC /* MobClick.h */,
 				7846B7F61C3E523D0077B3DC /* MobClickSocialAnalytics.h */,
@@ -952,6 +978,10 @@
 					ProductGroup = 7802D7ED1C2C00E000247616 /* Products */;
 					ProjectRef = 7802D7EC1C2C00E000247616 /* RNFS.xcodeproj */;
 				},
+				{
+					ProductGroup = 78F9284F1C4BD7260071E098 /* Products */;
+					ProjectRef = 78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1060,6 +1090,20 @@
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		78F928541C4BD7260071E098 /* libRNI18n.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNI18n.a;
+			remoteRef = 78F928531C4BD7260071E098 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F928561C4BD7260071E098 /* RNI18nTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNI18nTests.xctest;
+			remoteRef = 78F928551C4BD7260071E098 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		832341B51AAA6A8300B99B32 /* libRCTText.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1084,7 +1128,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				78B25B451C044A3500A6A92F /* Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				782D52B81C4796600034A0F8 /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ var Router = require('../router');
 import Nav from '../nav/CommonNav';
 var UserActionCreators = require('../../actions/UserActionCreators');
 var UserStore = require('../../stores/UserStore');
+var I18n = require('react-native-i18n');
 
 var Login = React.createClass({
   mixins: [require('../../mixins/backandroid')()],
@@ -40,10 +41,10 @@ var Login = React.createClass({
     return (
         <View>
           <Nav
-              navText='登录'
+              navText={I18n.t('login')}
               {... this.props}
               />
-          <View style={styles.textLabel}><Text style={{color: '#8e8e8e',fontSize:16}}>请输入手机号</Text></View>
+          <View style={styles.textLabel}><Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_phone_number')}</Text></View>
           <View style={styles.textInputWrapper}>
             <Image source={require('../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>

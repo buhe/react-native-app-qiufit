@@ -19,6 +19,42 @@ import UserStore from '../../stores/UserStore';
 
 import Storage from 'react-native-storage';
 import osUtils from '../../utils';
+var I18n = require('react-native-i18n');
+
+I18n.fallbacks = true;
+
+I18n.translations = {
+  'en': {
+    login: 'Login',
+    'please_input_phone_number':'Please input phone number',
+    'pushUp':'Push Up',
+    'deep':'Deep',
+    'pullUp':'Pull Up',
+    'leg':'Leg',
+    'bridge':'Bridge',
+    'handstand':'Handstand'
+  },
+  'zh': {
+    login: '登录',
+    'please_input_phone_number':'请输入手机号码',
+    'pushUp':'俯卧撑',
+    'deep':'深蹲',
+    'pullUp':'引体向上',
+    'leg':'举腿',
+    'bridge':'桥',
+    'handstand':'倒立撑'
+  },
+  'zh-TW': {
+    login: '登錄',
+    'please_input_phone_number':'請輸入手機號碼',
+    'pushUp':'俯臥撐',
+    'deep':'深蹲',
+    'pullUp':'引體向上',
+    'leg':'舉腿',
+    'bridge':'橋',
+    'handstand':'倒立撐'
+  }
+}
 
 var storage = new Storage({
   //最大容量，默认值1000条数据循环存储
