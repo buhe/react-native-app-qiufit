@@ -111,7 +111,7 @@ I18n.translations = {
     'month': '月',
     'start':'开始！'
   },
-  'zh-TW': {
+  'zh-Hant-CN': {
     login: '登錄',
     'please_input_phone_number': '請輸入手機號碼',
     'phone_number': '手機號',
