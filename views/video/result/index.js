@@ -24,6 +24,7 @@ import moment from 'moment';
 import moment_cn from 'moment/locale/zh-cn';
 import moment_en from 'moment/locale/en-au';
 var I18n = require('react-native-i18n');
+var I18nView = require('../../I18nView');
 
 var Result = React.createClass({
   mixins: [
@@ -52,9 +53,13 @@ var Result = React.createClass({
   },
 
   render() {
-    moment.locale(I18n.locale);
+    if(I18nView.isZh()){
+      moment.locale('zh-cn');
+    }else{
+      moment.locale('en-au');
+    }
     var m = moment();
-    var month = moment.months(m.month());
+    var month = moment.monthsShort(m.month());
     var day = m.day();
     return (
         <View>
