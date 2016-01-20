@@ -16,9 +16,9 @@ var WeChat = require('../../wechat').default;
 var SDK = require('../../wechat/SDK');
 import I18nView from '../I18nView';
 var I18n = require('react-native-i18n');
-
-var FBLogin = require('react-native-facebook-login');
-var FBLoginManager = require('NativeModules').FBLoginManager;
+var FB = require('../../fb');
+import UserActionCreators from '../../actions/UserActionCreators';
+import UserStore from '../../stores/UserStore';
 
 var Welcome = React.createClass({
 
@@ -36,6 +36,20 @@ var Welcome = React.createClass({
       //AlertIOS.alert(res.code);
 
     });
+  },
+
+  fbLogin(){
+    FB.sendAuthReq(function(profile){
+      var user = {
+        username: profile.name,
+        gender: profile.gender,
+        //avatarUrl: profile.headimgurl,
+        openId: profile.id,
+        accessToken: profile.token,
+        type: 'fb'
+      };
+      UserActionCreators.registerUser(user);
+    })
   },
 
   render() {
@@ -61,38 +75,21 @@ var Welcome = React.createClass({
                     <Text style={styles.actionText}>微信登录</Text>
                   </TouchableOpacity>
     }else{
-      loginButton = <FBLogin style={{ marginBottom: 10, }}
-                             permissions={["email","user_friends"]}
-                             onLogin={function(data){
-            console.log("Logged in!");
-            console.log(data);
-            //_this.setState({ user : data.credentials });
-          }}
-                             onLogout={function(){
-            console.log("Logged out.");
-            //_this.setState({ user : null });
-          }}
-                             onLoginFound={function(data){
-            console.log("Existing login found.");
-            console.log(data);
-            //_this.setState({ user : data.credentials });
-          }}
-                             onLoginNotFound={function(){
-            console.log("No user logged in.");
-            //_this.setState({ user : null });
-          }}
-                             onError={function(data){
-            console.log("ERROR");
-            console.log(data);
-          }}
-                             onCancel={function(){
-            console.log("User cancelled.");
-          }}
-                             onPermissionsMissing={function(data){
-            console.log("Check permissions!");
-            console.log(data);
-          }}
-          />
+      loginButton = <TouchableOpacity
+          //onPress={this.hideModal.bind(this)}
+          onPress={this.fbLogin}
+          style={{
+                                    height:70,
+                                    alignItems:'center',  //水平居中
+                                    justifyContent:'center', //垂直居中
+                                    backgroundColor: 'black',
+                                    marginRight:15,
+                                    marginLeft:15,
+                                    marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
+                                    }}
+          >
+        <Text style={styles.actionText}>Log in with Facebook</Text>
+      </TouchableOpacity>
     }
     return (
         <View style={{

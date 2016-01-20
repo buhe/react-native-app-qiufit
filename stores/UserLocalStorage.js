@@ -20,6 +20,14 @@ class UserLocalStorage {
       user.phone = serverUser.get('mobilePhoneNumber');
       user.username = serverUser.get('username');
       user.type = 'mob';
+    }else if(serverUser.get('type') === 'fb') {
+      user.id = serverUser.id;
+      user.username = serverUser.get('username');
+      user.gender = serverUser.get('gender');
+      //user.avatarUrl = serverUser.get('avatarUrl');
+      user.accessToken = serverUser.get('accessToken');
+      user.openId = serverUser.get('openId');
+      user.type = 'fb';
     }
     return user;
 

@@ -3,10 +3,10 @@
  */
 var AV = require('avoscloud-sdk');
 var I18NView = require('../views/I18nView');
-if(I18NView.isZh()){
+if (I18NView.isZh()) {
   AV.initialize('OQYNgj8ffRah8qaSqaQjSgil-gzGzoHsz', 'CH8e9IdQw3FjIqJ14p2kJee2');
   AV.useAVCloudCN()
-}else{
+} else {
   AV.useAVCloudUS();
   AV.initialize('ymB5jEJLcv7oo047JwsUumnD-MdYXbMMI', 'lepqnf11A4x68vxOMNPD2fmI');
 }
@@ -289,8 +289,10 @@ class API {
   registerUser(user, success, fail) {
     if (user.type === 'wechat') {
       this.registerWeChatUser(user, success, fail);
-    } else if (user.type = 'mob') {
+    } else if (user.type === 'mob') {
       this.registerMobUser(user, success, fail);
+    } else if (user.type === 'fb') {
+      this.registerFBUser(user, success, fail);
     } else {
 
     }
@@ -336,6 +338,43 @@ class API {
             userServer.set('accessToken', wechatUser.accessToken);
             userServer.set('openId', wechatUser.openId);
             userServer.set('type', 'wechat');
+            userServer.save();
+            if (success) {
+              success(userServer);
+            }
+          },
+          error: function (user, err) {
+            if (fail) {
+              fail(err);
+            }
+          }
+        });
+
+      }
+    });
+  }
+
+  registerFBUser(wechatUser, success, fail) {
+    AV.User.logIn(wechatUser.username, wechatUser.username, {
+      success: function (user) {
+        if (success) {
+          success(user);
+        }
+      },
+      error: function (user, error) {
+        var user = new AV.User();
+        user.set("username", wechatUser.username);
+        user.set("password", wechatUser.username);
+        //user.setMobilePhoneNumber(phone);
+
+        user.signUp(null, {
+          success: function (userServer) {
+            // 注册成功，可以使用了.
+            userServer.set('gender', wechatUser.gender);
+            //userServer.set('avatarUrl', wechatUser.avatarUrl); //FIXME 没有头像
+            userServer.set('accessToken', wechatUser.accessToken);
+            userServer.set('openId', wechatUser.openId);
+            userServer.set('type', 'fb');
             userServer.save();
             if (success) {
               success(userServer);
