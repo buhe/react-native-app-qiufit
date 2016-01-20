@@ -1,10 +1,12 @@
 package com.prisonerfitness;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
 import com.brentvatne.react.ReactVideoPackage;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.LifecycleState;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
@@ -12,6 +14,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.heng.wechat.WeChatPackage;
 import com.i18n.reactnativei18n.ReactNativeI18n;
+import com.magus.fblogin.FacebookLoginPackage;
 import com.prisonerfitness.rnchart.RNChartPackage;
 import com.prisonerfitness.snapshot.RNSnapshotPackage;
 import com.rnfs.RNFSPackage;
@@ -77,7 +80,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     protected void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
-
+        AppEventsLogger.deactivateApp(this);
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onPause();
         }
@@ -87,7 +90,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     protected void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);
-
+        AppEventsLogger.activateApp(this);
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onResume(this,this);
         }
