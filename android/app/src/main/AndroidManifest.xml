@@ -61,6 +61,10 @@
             android:value="@string/fb_app_id"/>
         <meta-data android:value="568e157de0f55a20fc000cce" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
+
+        <provider android:authorities="com.facebook.app.FacebookContentProvider119799841732371"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>
