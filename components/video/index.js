@@ -60,6 +60,27 @@ var Video = React.createClass({
     var fileName = paths[paths.length - 1];
     AsyncStorage.getItem(this.props.url, function (err, localUrl) {
       if (localUrl) {
+        if(RNFS.stat(localUrl),function(stat){
+              if(!stat.isFile()){
+                //被清除了,重新下载
+                RNFS.downloadFile(self.props.url, localUrl, function () {
+                  //begin
+                }, function (process) {
+                  var progress = process.bytesWritten / process.contentLength;
+                  if (progress > 0.1) {
+                    if (progress - self.state.progress > 0.1) {
+                      self.setState({progress: progress});
+                    }
+                  }
+
+                }).then(function(){
+                  self.setState({localUrl: localUrl,progress: 1});
+                  AsyncStorage.setItem(self.props.url, localUrl);
+                }).catch(function(err){
+                  //下载出问题了?
+                });
+              }
+            });
         self.setState({localUrl: localUrl});
       } else {
         var localVideoUrl = osUtils.getDocmentDir() + "/" + fileName;
@@ -114,16 +135,16 @@ var Video = React.createClass({
               source={require('../../images/video_bg_default.jpg')}
               style={[styles.video,Theme.centerChild]}
               >
-              <Image
-                  source={require('../../images/video_loading.png')}
-                  style={{width: 120,height: 40,backgroundColor:'transparent'}}
-                  />
-              <ProgressBar
-                  //fillStyle={}
-                  backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
-                  style={{marginTop: 10, width: 120}}
-                  progress={this.state.progress}
-                  />
+            <Image
+                source={require('../../images/video_loading.png')}
+                style={{width: 120,height: 40,backgroundColor:'transparent'}}
+                />
+            <ProgressBar
+                //fillStyle={}
+                backgroundStyle={{backgroundColor: '#cccccc', borderRadius: 2}}
+                style={{marginTop: 10, width: 120}}
+                progress={this.state.progress}
+                />
 
           </Image>
         </View>;
@@ -150,10 +171,10 @@ var Video = React.createClass({
                 source={require('../../images/video_bg_default.jpg')}
                 style={[styles.video,Theme.centerChild]}
                 >
-                <Image
-                    source={require('../../images/video_alarm.png')}
-                    style={{width: 180,height: 40,backgroundColor:'transparent'}}
-                    />
+              <Image
+                  source={require('../../images/video_alarm.png')}
+                  style={{width: 180,height: 40,backgroundColor:'transparent'}}
+                  />
             </Image>
           </View>;
     }
