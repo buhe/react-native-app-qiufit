@@ -41,4 +41,5 @@ dependencies {
     compile project(':react-native-fs')
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile project(':react-native-i18n')
+    compile project(':react-native-facebook-login')
 }

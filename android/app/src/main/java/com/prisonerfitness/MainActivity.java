@@ -21,11 +21,13 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
     private ReactInstanceManager mReactInstanceManager;
     private ReactRootView mReactRootView;
+    private FacebookLoginPackage mFacebookLoginPackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mReactRootView = new ReactRootView(this);
+        mFacebookLoginPackage = new FacebookLoginPackage(this);
 
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
@@ -38,6 +40,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .addPackage(new RNSnapshotPackage(this))
                 .addPackage(new RNFSPackage())
                 .addPackage(new ReactNativeI18n())
+                .addPackage(mFacebookLoginPackage)
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -88,5 +91,13 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         if (mReactInstanceManager != null) {
             mReactInstanceManager.onResume(this,this);
         }
+    }
+
+    @Override
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // handle onActivityResult
+        mFacebookLoginPackage.handleActivityResult(requestCode, resultCode, data);
     }
 }
