@@ -58,26 +58,9 @@ class FB {
   /**
    * Auth login
    */
-  sendAuthReq(callback) {
+  sendAuthReq() {
     var permissions = ['email', 'public_profile'];
-    FBLoginManager.loginWithPermissions(permissions, function (e, data) {
-      var result = e || data;
-      //iOS handler
-      if (result.type === 'success' && result.profile) {
-        try {
-          result.profile = JSON.parse(result.profile)
-          result.profile.token = result.token;
-        } catch (err) {
-          console.warn('Could not parse facebook profile: ', result.profile);
-        }
-        if (result.eventName === 'onLogin' || result.eventName === 'onLoginFound') {
-          callback(result.profile);
-        } else {
-
-        }
-      }
-
-    });
+    FBLoginManager.loginWithPermissions(permissions,function(){});
   }
 
   /**
