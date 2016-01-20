@@ -16,6 +16,8 @@ import _ from 'lodash';
 import Button from '../button';
 import Promation from '../../promation';
 var I18n = require('react-native-i18n');
+var FB = require('../../fb');
+var I18nView = require('../I18nView');
 
 var {
     AppRegistry,
@@ -70,14 +72,23 @@ var ProfileView = React.createClass({
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
       if (successfulWrite) {
-        WeChat.shareImage({
-          path: imagePath,
-          tagName: I18n.t('ccpro'),
-          title: I18n.t('ccpro'),
-          desc: I18n.t('ccpro'),
-          thumbPath: imagePath,
-          scene: 1
-        });
+        if(I18nView.isZh()){
+          WeChat.shareImage({
+            path: imagePath,
+            tagName: I18n.t('ccpro'),
+            title: I18n.t('ccpro'),
+            desc: I18n.t('ccpro'),
+            thumbPath: imagePath,
+            scene: 1
+          });
+        }else{
+          FB.sendImage({
+            path: imagePath,
+            title: I18n.t('ccpro'),
+            desc: I18n.t('ccpro'),
+          },function(){})
+        }
+
       } else {
         console.log(error)
       }

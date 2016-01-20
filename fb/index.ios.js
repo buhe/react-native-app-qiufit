@@ -66,8 +66,13 @@ class FB {
   /**
    * 分享图片
    */
-  shareImage() {
-
+  sendImage(options, callback) {
+    FBLoginManager.sendImage(
+        options.path,
+        options.title,
+        options.desc,
+        callback
+    );
   }
 
 
