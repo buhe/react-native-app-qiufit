@@ -8,13 +8,9 @@ var I18n = require('react-native-i18n');
 class I18nView {
   //是不是大陆市场
   isZh(){
-    return I18n.locale === 'zh-cn';
-    //return false;
-  }
-  //所有非大陆市场
-  notZh(){
-    return I18n.locale !== 'zh-cn';
-    //return true;
+    //return I18n.locale === 'zh-cn' || I18n.locale === 'zh-CN';
+    //每次打包的时候改一下
+    return false;
   }
 
   getI18nFontRadio() {
