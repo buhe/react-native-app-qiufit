@@ -94,6 +94,8 @@ var StepsView = React.createClass({
   },
   render: function () {
     var modalText = this.state.text1.split(" ");
+    var step = modalText[0];
+    var name = this.state.text1.replace(step + ' ','');
     return (
         <View>
           <View style={styles.nav}>
@@ -122,8 +124,8 @@ var StepsView = React.createClass({
               >
             <View>
               <StepModal
-                  step={modalText[0]}
-                  name={modalText[1]}
+                  step={step}
+                  name={name}
                   actionClick={this.hideModal.bind(this)}
                   />
             </View>
