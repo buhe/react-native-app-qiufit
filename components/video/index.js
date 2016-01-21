@@ -127,6 +127,15 @@ var Video = React.createClass({
             </View>
           </View>
       ;
+    }else if(!this.props.url){//没有视频连接
+      controlView =
+          <View style={styles.controlWrapper}>
+            <View style={[styles.infoWrapper,{left: deviceScreen.width - 70}]}>
+              <TouchableWithoutFeedback onPress={this.info}>
+                <Image style={styles.infoButton} source={require('../../images/video_info.png')}/>
+              </TouchableWithoutFeedback>
+            </View>
+          </View>
     }
 
     var videoView =
