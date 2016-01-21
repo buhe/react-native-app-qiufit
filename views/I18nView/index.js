@@ -13,6 +13,10 @@ class I18nView {
     return false;
   }
 
+  localeZh(){
+    return I18n.locale.startsWith('zh');
+  }
+
   getI18nFontRadio() {
     return I18n.locale.startsWith('zh') ? 1 : 0.5;
   }
