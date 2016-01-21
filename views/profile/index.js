@@ -72,7 +72,7 @@ var ProfileView = React.createClass({
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
       if (successfulWrite) {
-        if(I18nView.isZh()){
+        if (I18nView.isZh()) {
           WeChat.shareImage({
             path: imagePath,
             tagName: I18n.t('ccpro'),
@@ -81,12 +81,13 @@ var ProfileView = React.createClass({
             thumbPath: imagePath,
             scene: 1
           });
-        }else{
+        } else {
           FB.sendImage({
             path: imagePath,
             title: I18n.t('ccpro'),
             desc: I18n.t('ccpro'),
-          },function(){})
+          }, function () {
+          })
         }
 
       } else {
@@ -130,7 +131,12 @@ var ProfileView = React.createClass({
     });
   },
   render: function () {
-
+    var promationView = <View></View>;
+    if(I18nView.isZh()){
+     promationView = <TouchableOpacity onPress={()=> Promation.openMarket()} style={{marginBottom:50}}>
+                      <Image source={require('../../images/spread.png')}/>
+                    </TouchableOpacity>
+    }
     var tableView = this.state.tableData.map(function (row) {
       return <RecordItem
           type={StepStore.stepNameMap[row.type]}
@@ -182,11 +188,9 @@ var ProfileView = React.createClass({
               <Image source={require('../../images/me_logo.png')} style={styles.bottomIcon}/>
               <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Design With ♥ By cheng zhen</Text>
               <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Code With ♥ By bu he</Text>
-              <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
+              <Text style={[styles.content,styles.bottomText,styles.lastText]}>{I18nView.version()}</Text>
             </View>
-            <TouchableOpacity onPress={()=> Promation.openMarket()} style={{marginBottom:50}}>
-              <Image source={require('../../images/spread.png')}/>
-            </TouchableOpacity>
+            {promationView}
           </ScrollView>
         </View>
     );

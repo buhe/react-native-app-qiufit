@@ -16,6 +16,10 @@ class I18nView {
   getI18nFontRadio() {
     return I18n.locale.startsWith('zh') ? 1 : 0.5;
   }
+
+  version(){
+    return 'V 1.1';
+  }
 }
 
 module.exports = new I18nView();
