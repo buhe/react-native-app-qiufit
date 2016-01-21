@@ -119,7 +119,7 @@ const stepsMap = {
     },
     {
       text1: t('_1_10'),
-      text2: "终极耐力 1×100",
+      text2: t('final_goal') + "1×100",
       videoUrl: VIDEO_PREFIX + "a10_empty.mp4",
       subStep: [
         t('_1s5') + t('side'),
@@ -238,7 +238,7 @@ const stepsMap = {
     },
     {
       text1: t('_2_10'),
-      text2: "终极耐力 2×50",
+      text2: t('final_goal') + "2×50",
       videoUrl: VIDEO_PREFIX + "b10_empty.mp4",
       subStep: [
         t('_1s10') + t('side'),
@@ -250,7 +250,7 @@ const stepsMap = {
   ],
   pullUp: [
     {
-      text1: "第一式 垂直引体",
+      text1: t('_3_1'),
       text2: t('goal') + "3×40",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c01.mp4",
@@ -262,7 +262,7 @@ const stepsMap = {
       infoImage: require('../images/c1.jpg')
     },
     {
-      text1: "第二式 水平引体向上",
+      text1: t('_3_2'),
       text2: t('goal') + "3×30",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c02.mp4",
@@ -274,7 +274,7 @@ const stepsMap = {
       infoImage: require('../images/c2.jpg')
     },
     {
-      text1: "第三式 折刀引体向上",
+      text1: t('_3_3'),
       text2: t('goal') + "3×20",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c03.mp4",
@@ -285,7 +285,7 @@ const stepsMap = {
       ],
       infoImage: require('../images/c3.jpg')
     }, {
-      text1: "第四式 半引体向上",
+      text1: t('_3_4'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c04.mp4",
@@ -296,7 +296,7 @@ const stepsMap = {
       ],
       infoImage: require('../images/c4.jpg')
     }, {
-      text1: "第五式 标准引体向上",
+      text1: t('_3_5'),
       text2: t('goal') + "2×10",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c05.mp4",
@@ -308,7 +308,7 @@ const stepsMap = {
       infoImage: require('../images/c5.jpg')
     },
     {
-      text1: "第六式 窄距引体向上",
+      text1: t('_3_6'),
       text2: t('goal') + "2×10",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c06.mp4",
@@ -320,7 +320,7 @@ const stepsMap = {
       infoImage: require('../images/c6.jpg')
     },
     {
-      text1: "第七式 偏重引体向上",
+      text1: t('_3_7'),
       text2: t('goal') + "2×9",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c07_empty.mp4",
@@ -332,7 +332,7 @@ const stepsMap = {
       infoImage: require('../images/c7.jpg')
     },
     {
-      text1: "第八式 单臂半引体向上",
+      text1: t('_3_8'),
       text2: t('goal') + "2×8",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c08_empty.mp4",
@@ -344,7 +344,7 @@ const stepsMap = {
       infoImage: require('../images/c8.jpg')
     },
     {
-      text1: "第九式 单臂辅助引体向上",
+      text1: t('_3_9'),
       text2: t('goal') + "2×7",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "c09_empty.mp4",
@@ -356,8 +356,8 @@ const stepsMap = {
       infoImage: require('../images/c9.jpg')
     },
     {
-      text1: "最终式 单臂引体向上",
-      text2: "终极耐力 2×7",
+      text1: t('_3_10'),
+      text2: t('final_goal') + "2×7",
       videoUrl: VIDEO_PREFIX + "c10_empty.mp4",
       subStep: [
         t('_1s1') + t('side'),
@@ -369,7 +369,7 @@ const stepsMap = {
   ],
   leg: [
     {
-      text1: "第一式 坐姿屈膝",
+      text1: t('_4_1'),
       text2: t('goal') + "3×40",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d01.mp4",
@@ -381,7 +381,7 @@ const stepsMap = {
       infoImage: require('../images/d1.jpg')
     },
     {
-      text1: "第二式 平卧抬膝",
+      text1: t('_4_2'),
       text2: t('goal') + "3×35",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d02.mp4",
@@ -393,7 +393,7 @@ const stepsMap = {
       infoImage: require('../images/d2.jpg')
     },
     {
-      text1: "第三式 平卧屈举腿",
+      text1: t('_4_3'),
       text2: t('goal') + "3×30",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d03.mp4",
@@ -404,7 +404,7 @@ const stepsMap = {
       ],
       infoImage: require('../images/d3.jpg')
     }, {
-      text1: "第四式 平卧蛙举腿",
+      text1: t('_4_4'),
       text2: t('goal') + "2×25",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d04.mp4",
@@ -415,7 +415,7 @@ const stepsMap = {
       ],
       infoImage: require('../images/d4.jpg')
     }, {
-      text1: "第五式 平卧直举腿",
+      text1: t('_4_5'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d05.mp4",
@@ -427,7 +427,7 @@ const stepsMap = {
       infoImage: require('../images/d5.jpg')
     },
     {
-      text1: "第六式 悬垂举腿",
+      text1: t('_4_6'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d06.mp4",
@@ -439,7 +439,7 @@ const stepsMap = {
       infoImage: require('../images/d6.jpg')
     },
     {
-      text1: "第七式 悬垂屈举腿",
+      text1: t('_4_7'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d07_empty.mp4",
@@ -451,7 +451,7 @@ const stepsMap = {
       infoImage: require('../images/d7.jpg')
     },
     {
-      text1: "第八式 悬垂蛙举腿",
+      text1: t('_4_8'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d08_empty.mp4",
@@ -463,7 +463,7 @@ const stepsMap = {
       infoImage: require('../images/d8.jpg')
     },
     {
-      text1: "第九式 悬垂半举腿",
+      text1: t('_4_9'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "d09_empty.mp4",
@@ -475,8 +475,8 @@ const stepsMap = {
       infoImage: require('../images/d9.jpg')
     },
     {
-      text1: "最终式 悬垂直举腿",
-      text2: "终极耐力 2×30",
+      text1: t('_4_10'),
+      text2: t('final_goal') + "2×30",
       videoUrl: VIDEO_PREFIX + "d10_empty.mp4",
       subStep: [
         t('_1s5'),
@@ -488,7 +488,7 @@ const stepsMap = {
   ],
   bridge: [
     {
-      text1: "第一式 短桥",
+      text1: t('_5_1'),
       text2: t('goal') + "3×50",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e01.mp4",
@@ -500,7 +500,7 @@ const stepsMap = {
       infoImage: require('../images/e1.jpg')
     },
     {
-      text1: "第二式 直桥",
+      text1: t('_5_2'),
       text2: t('goal') + "3×40",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e02.mp4",
@@ -512,7 +512,7 @@ const stepsMap = {
       infoImage: require('../images/e2.jpg')
     },
     {
-      text1: "第三式 高低桥",
+      text1: t('_5_3'),
       text2: t('goal') + "3×30",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e03.mp4",
@@ -523,7 +523,7 @@ const stepsMap = {
       ],
       infoImage: require('../images/e3.jpg')
     }, {
-      text1: "第四式 顶桥",
+      text1: t('_5_4'),
       text2: t('goal') + "2×25",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e04.mp4",
@@ -534,7 +534,7 @@ const stepsMap = {
       ],
       infoImage: require('../images/e4.jpg')
     }, {
-      text1: "第五式 半桥",
+      text1: t('_5_5'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e05.mp4",
@@ -546,7 +546,7 @@ const stepsMap = {
       infoImage: require('../images/e5.jpg')
     },
     {
-      text1: "第六式 标准桥",
+      text1: t('_5_6'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e06.mp4",
@@ -558,7 +558,7 @@ const stepsMap = {
       infoImage: require('../images/e6.jpg')
     },
     {
-      text1: "第七式 下行桥",
+      text1: t('_5_7'),
       text2: t('goal') + "2×10",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e07_empty.mp4",
@@ -570,7 +570,7 @@ const stepsMap = {
       infoImage: require('../images/e7.jpg')
     },
     {
-      text1: "第八式 上行桥",
+      text1: t('_5_8'),
       text2: t('goal') + "2×8",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e08_empty.mp4",
@@ -582,7 +582,7 @@ const stepsMap = {
       infoImage: require('../images/e8.jpg')
     },
     {
-      text1: "第九式 合桥",
+      text1: t('_5_9'),
       text2: t('goal') + "2×6",
       text3: t('next_step'),
       videoUrl: VIDEO_PREFIX + "e09_empty.mp4",
@@ -594,8 +594,8 @@ const stepsMap = {
       infoImage: require('../images/e9.jpg')
     },
     {
-      text1: "最终式 铁板桥",
-      text2: "终极耐力 2×30",
+      text1: t('_5_10'),
+      text2: t('final_goal') + "2×30",
       videoUrl: VIDEO_PREFIX + "e10_empty.mp4",
       subStep: [
         t('_1s1'),
@@ -607,8 +607,8 @@ const stepsMap = {
   ],
   handstand: [
     {
-      text1: "第一式 靠墙顶立",
-      text2: t('goal') + "2分钟",
+      text1: t('_6_1'),
+      text2: t('goal') + t('_2m'),
       text3: t('next_step'),
       subStep: [
         t('_30s'),
@@ -619,8 +619,8 @@ const stepsMap = {
       infoImage: require('../images/f1.jpg')
     },
     {
-      text1: "第二式 乌鸦式",
-      text2: t('goal') + "1分钟",
+      text1: t('_6_2'),
+      text2: t('goal') + t('_1m'),
       text3: t('next_step'),
       subStep: [
         t('_10s'),
@@ -630,8 +630,8 @@ const stepsMap = {
       infoImage: require('../images/f2.jpg')
     },
     {
-      text1: "第三式 靠墙倒立",
-      text2: t('goal') + "2分钟",
+      text1: t('_6_3'),
+      text2: t('goal') + t('_2m'),
       text3: t('next_step'),
       subStep: [
         t('_10s'),
@@ -641,7 +641,7 @@ const stepsMap = {
       videoUrl: "",
       infoImage: require('../images/f3.jpg')
     }, {
-      text1: "第四式 半倒立撑",
+      text1: t('_6_4'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
       subStep: [
@@ -652,7 +652,7 @@ const stepsMap = {
       videoUrl: "",
       infoImage: require('../images/f4.jpg')
     }, {
-      text1: "第五式 标准倒立撑",
+      text1: t('_6_5'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
       subStep: [
@@ -664,7 +664,7 @@ const stepsMap = {
       infoImage: require('../images/f5.jpg')
     },
     {
-      text1: "第六式 窄距倒立撑",
+      text1: t('_6_6'),
       text2: t('goal') + "2×12",
       text3: t('next_step'),
       subStep: [
@@ -676,7 +676,7 @@ const stepsMap = {
       infoImage: require('../images/f6.jpg')
     },
     {
-      text1: "第七式 偏重倒立撑",
+      text1: t('_6_7'),
       text2: t('goal') + "2×10",
       text3: t('next_step'),
       subStep: [
@@ -688,7 +688,7 @@ const stepsMap = {
       infoImage: require('../images/f7.jpg')
     },
     {
-      text1: "第八式 单臂半倒立撑",
+      text1: t('_6_8'),
       text2: t('goal') + "2×8",
       text3: t('next_step'),
       subStep: [
@@ -700,7 +700,7 @@ const stepsMap = {
       infoImage: require('../images/f8.jpg')
     },
     {
-      text1: "第九式 杠杆倒立撑",
+      text1: t('_6_9'),
       text2: t('goal') + "2×6",
       text3: t('next_step'),
       subStep: [
@@ -712,8 +712,8 @@ const stepsMap = {
       infoImage: require('../images/f9.jpg')
     },
     {
-      text1: "最终式 单臂倒立撑",
-      text2: "终极耐力 2×5",
+      text1: t('_6_10'),
+      text2: t('final_goal') + "2×5",
       subStep: [
         t('_1s1') + t('side'),
         t('_2s2') + t('side'),
