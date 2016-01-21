@@ -34,6 +34,7 @@ var Video = React.createClass({
       muted: false,
       localUrl: '',
       progress: 0.0,
+      showInfo: true,
     };
   },
   closeVoice(){
@@ -44,7 +45,8 @@ var Video = React.createClass({
   press(){
     this.setState({
       showControl: !this.state.showControl,
-      paused: !this.state.paused
+      paused: !this.state.paused,
+      showInfo: false,
     });
   },
   info(){
@@ -74,14 +76,14 @@ var Video = React.createClass({
                   }
 
                 }).then(function(){
-                  self.setState({localUrl: localUrl,progress: 1});
+                  self.setState({localUrl: localUrl,progress: 1,showInfo:false});
                   AsyncStorage.setItem(self.props.url, localUrl);
                 }).catch(function(err){
                   //下载出问题了?
                 });
               }
             });
-        self.setState({localUrl: localUrl});
+        self.setState({localUrl: localUrl,showInfo:false});
       } else {
         var localVideoUrl = osUtils.getDocmentDir() + "/" + fileName;
         RNFS.downloadFile(self.props.url, localVideoUrl, function () {
@@ -95,7 +97,7 @@ var Video = React.createClass({
           }
 
         }).then(function(){
-          self.setState({localUrl: localVideoUrl,progress: 1});
+          self.setState({localUrl: localVideoUrl,progress: 1,showInfo:false});
           AsyncStorage.setItem(self.props.url, localVideoUrl);
         }).catch(function(err){
           //下载出问题了?
@@ -127,7 +129,7 @@ var Video = React.createClass({
             </View>
           </View>
       ;
-    }else if(!this.props.url){//没有视频连接
+    }else if(this.state.showInfo){//视频没有播放
       controlView =
           <View style={styles.controlWrapper}>
             <View style={[styles.infoWrapper,{left: deviceScreen.width - 70}]}>
@@ -166,7 +168,7 @@ var Video = React.createClass({
                 rate={1.0}                   // 0 is paused, 1 is normal.
                 volume={1.0}                 // 0 is muted, 1 is normal.
                 muted={this.state.muted}                // Mutes the audio entirely.
-                paused={this.state.paused}               // Pauses playback entirely.
+                paused={this.props.paused || this.state.paused}               // Pauses playback entirely.
                 repeat={true}// Repeat forever.
                 style={styles.video}
                 resizeMode="cover"

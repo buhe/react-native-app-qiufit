@@ -74,6 +74,7 @@ var VideoView = React.createClass({
     ShareAction.setShareResult(this.state.ref.typeText, this.state.subStep, this.state.ref.subStep[this.state.subStepIndex]);
     VideoActionCreators.finishTurning(this.state.subStep);
     this.props.navigator.push(Router.getResult());
+    this.setState({videoFinish:true});//stop video
   },
   closeModal(){
     this.refs.modal.close();
@@ -84,6 +85,7 @@ var VideoView = React.createClass({
   ,
   getInitialState: function () {
     return {
+      videoFinish:false,
       showSendComment: false,
       subStep: I18n.t('primary'),
       subStepIndex: 0,//2 * 50 这种..
@@ -132,6 +134,7 @@ var VideoView = React.createClass({
     if (typeof this.state.ref.videoUrl !== 'undefined') {
       videoView = <Video
           url={this.state.ref.videoUrl}
+          paused={this.state.videoFinish}
           { ... this.props}
           />
     }
