@@ -6,13 +6,12 @@ import React ,{
 } from 'react-native';
 var I18n = require('react-native-i18n');
 class I18nView {
-  //是不是大陆市场
+  //是不是大陆市场,这个影响国家服务,理论上是根据地理位置判断的,目前在打包的时候写死
   isZh(){
-    //return I18n.locale === 'zh-cn' || I18n.locale === 'zh-CN';
     //每次打包的时候改一下
     return false;
   }
-
+  //是不是国语
   localeZh(){
     return I18n.locale.startsWith('zh');
   }
