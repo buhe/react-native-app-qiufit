@@ -57,7 +57,7 @@ var Welcome = React.createClass({
     var loginButton;
     if(I18nView.isZh()){
       leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
-                    <Text style={styles.text}>手机登录</Text>
+                    <Text style={styles.text}>{I18n.t('phone_login')}</Text>
                   </TouchableOpacity>;
       loginButton = <TouchableOpacity
                       //onPress={this.hideModal.bind(this)}
@@ -72,7 +72,7 @@ var Welcome = React.createClass({
                                     marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
                                     }}
                       >
-                    <Text style={styles.actionText}>微信登录</Text>
+                    <Text style={styles.actionText}>{I18n.t('wechat_login')}</Text>
                   </TouchableOpacity>
     }else{
       loginButton = <TouchableOpacity
@@ -88,7 +88,7 @@ var Welcome = React.createClass({
                                     marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
                                     }}
           >
-        <Text style={styles.actionText}>Log in with Facebook</Text>
+        <Text style={styles.actionText}>{I18n.t('fb_login')}</Text>
       </TouchableOpacity>
     }
     return (

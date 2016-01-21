@@ -180,7 +180,7 @@ var ProfileView = React.createClass({
             </View>
             <View style={styles.bottomView}>
               <Image source={require('../../images/me_logo.png')} style={styles.bottomIcon}/>
-              <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Design By cheng zhen</Text>
+              <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Design With ♥ By cheng zhen</Text>
               <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Code With ♥ By bu he</Text>
               <Text style={[styles.content,styles.bottomText,styles.lastText]}>V 1.0</Text>
             </View>

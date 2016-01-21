@@ -15,6 +15,7 @@ var deviceScreen = Dimensions.get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
 import CoolDown from 'react-native-countdown';
+var I18n = require('react-native-i18n');
 var  UserActionCreators  = require('../../../actions/UserActionCreators');
 var UserStore = require('../../../stores/UserStore');
 
@@ -53,18 +54,18 @@ var Login = React.createClass({
     return (
         <View>
           <Nav
-              navText='输入验证码'
+              navText={I18n.t('input_v_code')}
               {... this.props}
               />
           <View style={styles.textLabel}>
-            <Text style={{color: '#8e8e8e',fontSize:16}}>请稍后，你将会受到一条验证码短信</Text>
+            <Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('send_verify')}</Text>
           </View>
           <View style={styles.textInputWrapper}>
             <Image source={require('../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
-                placeholder={'验证码'}
+                placeholder={I18n.t('v_code')}
                 underlineColorAndroid={'transparent'}
                 onChangeText={this.changeText.bind(this)}
                 onSubmitEditing={this.next.bind(this)}
@@ -72,7 +73,7 @@ var Login = React.createClass({
                 />
             <CoolDown
                 onPress={this.sendAgain.bind(this)}
-                text={'再发一次'}
+                text={I18n.t('send_again')}
                 />
           </View>
           <TouchableHighlight
@@ -84,10 +85,10 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>完成</Text>
+            <Text style={styles.actionText}>{I18n.t('finish')}</Text>
           </TouchableHighlight>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>您的手机号码是
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('you_phone')}
               +86 {this.state.phone}</Text>
           </View>
         </View>
