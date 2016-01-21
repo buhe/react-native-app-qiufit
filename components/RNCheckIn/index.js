@@ -135,9 +135,13 @@ var Month = React.createClass({
         if (value && value.length > 0) {
           textView =
               <Text
-                  style={styles.month_text}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }({value.length}次)</Text>
+                  style={styles.month_text}>
+                {newDate.getFullYear() + I18n.t('year')
+                + (newDate.getMonth() + 1) + I18n.t('month')  }({value.length + I18n.t('times')})
+              </Text>
         } else {
-          textView = <Text style={styles.month_text}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
+          textView = <Text
+              style={styles.month_text}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
         }
         return (
             <View>

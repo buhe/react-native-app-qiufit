@@ -14,13 +14,15 @@ var {
 import Button from '../../button';
 import Theme from '../../theme';
 var I18n = require('react-native-i18n');
+var I18nVIew = require('../../I18nView');
 class StepModal extends React.Component {
   render() {
+    var stepName = I18nVIew.localeZh() ? this.props.step : 'Step ' + this.props.step;
     return (
         <View>
           <View style={{padding:30}}>
             <Image source={require('../../../images/popover_bg.png')} style={[styles.bg,Theme.centerChild]}>
-              <Text style={styles.nestedText}>{this.props.step}</Text>
+              <Text style={styles.nestedText}>{stepName}</Text>
             </Image>
             <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
               <Text style={[styles.title]}>{this.props.name}</Text>
@@ -46,7 +48,7 @@ var styles = StyleSheet.create({
     height: 90
   },
   nestedText: {
-    top:-10,
+    top: -10,
     backgroundColor: 'transparent',
     color: 'white',
     fontSize: 24

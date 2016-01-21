@@ -176,6 +176,7 @@ const Hans = {
   'v_code':'驗證碼',
   'send_again':'再發一次',
   'input_v_code':'輸入驗證碼',
+  'times':'次'
 };
 
 I18n.translations = {
@@ -332,6 +333,7 @@ I18n.translations = {
     'v_code':'Verification code',
     'send_again':'Send again',
     'input_v_code':'Input Verification code',
+    'times':' times'
   },
   'zh': {
     login: '登录',
@@ -486,6 +488,7 @@ I18n.translations = {
     'v_code':'验证码',
     'send_again':'再发一次',
     'input_v_code':'输入验证码',
+    'times':'次'
   },
   'zh-Hant-CN': Hans,
   'zh-TW': Hans,
