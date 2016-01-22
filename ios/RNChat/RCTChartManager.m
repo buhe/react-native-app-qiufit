@@ -7,7 +7,13 @@
 //
 
 #import "RCTChartManager.h"
+
+#if defined (EN)
+#import "PrisonerFitnessEn-Swift.h"
+#else
 #import "PrisonerFitness-Swift.h"
+#endif
+
 #import "RCTChart.h"
 #import "RCTConvert+RadarChartView.h"
 

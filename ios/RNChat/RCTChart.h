@@ -6,7 +6,11 @@
 //  Copyright © 2015 Facebook. All rights reserved.
 //
 
+#if defined (EN)
+#import "PrisonerFitnessEn-Swift.h"
+#else
 #import "PrisonerFitness-Swift.h"
+#endif
 
 @interface RCTChart : UIView
 {

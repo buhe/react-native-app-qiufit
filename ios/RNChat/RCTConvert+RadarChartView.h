@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "RCTConvert.h"
+#if defined (EN)
+#import "PrisonerFitnessEn-Swift.h"
+#else
 #import "PrisonerFitness-Swift.h"
+#endif
 
 @interface RCTConvert(RadarChartView)
 + (RadarChartData*)RadarChartData:(id)json;
