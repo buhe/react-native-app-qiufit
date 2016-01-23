@@ -402,28 +402,36 @@ class API {
       },
       error: function (userError, error) {
 
-        var currentUser = new AV.User();
-        currentUser.set('username', user.username);
-        currentUser.set('password', user.password);
-        currentUser.set('email', user.email);
-
-        currentUser.signUp(null, {
-          success: function(userServer) {
-            // 注册成功，可以使用了.
-            userServer.set('nickname', user.nickname ? user.nickname : user.email);
-            userServer.save();
-            if (success) {
-              success(userServer);
-            }
-          },
-          error: function(userServer, error) {
-            // 失败了
-            console.log('Error: ' + error.code + ' ' + error.message);
-            if (fail) {
-              fail(user, error);
-            }
+        if(error.code == 210){
+          if(fail){
+            fail(error);
           }
-        });
+        }else{
+          var currentUser = new AV.User();
+          currentUser.set('username', user.username);
+          currentUser.set('password', user.password);
+          currentUser.set('email', user.email);
+
+          currentUser.signUp(null, {
+            success: function(userServer) {
+              // 注册成功，可以使用了.
+              userServer.set('nickname', user.nickname ? user.nickname : user.email);
+              userServer.set('type', 'email');
+              userServer.save();
+              if (success) {
+                success(userServer);
+              }
+            },
+            error: function(userServer, error) {
+              // 失败了
+              console.log('Error: ' + error.code + ' ' + error.message);
+              if (fail) {
+                fail(user, error);
+              }
+            }
+          });
+        }
+
       }
     });
   }
