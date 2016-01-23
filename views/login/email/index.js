@@ -21,20 +21,40 @@ var Login = React.createClass({
   mixins: [require('../../../mixins/backandroid')()],
 
   getInitialState: function () {
-    return {text: ''}
+    return {nickname: '',password:'',email:''}
   },
 
   next() {
-    UserActionCreators.requestSmsCode(this.state.text, function () {
-      //发送成功
-    }.bind(this), function (err) {
-      //发送失败
-    });
-    this.props.navigator.push(Router.getVerify());
+    var emailUser = {
+      password: this.state.password,
+      nickname: this.state.nickname ? this.state.nickname : this.state.email,
+      username: this.state.email,
+      email: this.state.email,
+      type: 'email'
+    };
+    UserActionCreators.registerUser(emailUser,
+        function () {
+          this.props.navigator.push(Router.getTypeList());
+        }.bind(this), function (err) {
+          //FIXME alter
+          console.log(err);
+        })
   },
 
-  changeText(text) {
-    this.setState({text: text});
+  nextField(){
+
+  },
+
+  changeUsername(text) {
+    this.setState({email: text});
+  },
+
+  changePassword(text) {
+    this.setState({password: text});
+  },
+
+  changeNickname(text) {
+    this.setState({nickname: text});
   },
 
   render() {
@@ -44,7 +64,8 @@ var Login = React.createClass({
               navText={I18n.t('email_login')}
               {... this.props}
               />
-          <View style={styles.textLabel}><Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
+          <View style={styles.textLabel}><Text
+              style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
           <View style={styles.textInputWrapper}>
             <Image source={require('../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
@@ -52,9 +73,33 @@ var Login = React.createClass({
                 style={styles.textInput}
                 placeholder={I18n.t('email')}
                 underlineColorAndroid={'transparent'}
-                onChangeText={this.changeText.bind(this)}
-                onSubmitEditing={this.next.bind(this)}
+                onChangeText={this.changeUsername}
+                onSubmitEditing={this.nextField}
                 keyboardType={'email-address'}
+                />
+          </View>
+          <View style={styles.textInputWrapper}>
+            <Image source={require('../../../images/signin_phone.png')}
+                   style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
+            <TextInput
+                style={styles.textInput}
+                placeholder={I18n.t('password')}
+                underlineColorAndroid={'transparent'}
+                onChangeText={this.changePassword}
+                onSubmitEditing={this.nextField}
+                keyboardType={'default'}
+                />
+          </View>
+          <View style={styles.textInputWrapper}>
+            <Image source={require('../../../images/signin_phone.png')}
+                   style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
+            <TextInput
+                style={styles.textInput}
+                placeholder={I18n.t('nickname')}
+                underlineColorAndroid={'transparent'}
+                onChangeText={this.changeNickname}
+                onSubmitEditing={this.next}
+                keyboardType={'default'}
                 />
           </View>
           <TouchableOpacity
@@ -66,10 +111,10 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>{I18n.t('next')}</Text>
+            <Text style={styles.actionText}>{I18n.t('email_login')}</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('accept')}</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('accept_email')}</Text>
             <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('license')}</Text>
           </View>
         </View>
@@ -88,7 +133,7 @@ var styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderTopWidth: 1,
     borderColor: '#e5e5e5',
     alignItems: 'center',
   },

@@ -293,6 +293,8 @@ class API {
       this.registerMobUser(user, success, fail);
     } else if (user.type === 'fb') {
       this.registerFBUser(user, success, fail);
+    } else if (user.type === 'email') {
+      this.registerEmailUser(user, success, fail);
     } else {
 
     }
@@ -391,23 +393,58 @@ class API {
     });
   }
 
+  registerEmailUser(user, success, fail) {
+    AV.User.logIn(user.username, user.password, {
+      success: function (user) {
+        if (success) {
+          success(user);
+        }
+      },
+      error: function (userError, error) {
+
+        var currentUser = new AV.User();
+        currentUser.set('username', user.username);
+        currentUser.set('password', user.password);
+        currentUser.set('email', user.email);
+
+        currentUser.signUp(null, {
+          success: function(userServer) {
+            // 注册成功，可以使用了.
+            userServer.set('nickname', user.nickname ? user.nickname : user.email);
+            userServer.save();
+            if (success) {
+              success(userServer);
+            }
+          },
+          error: function(userServer, error) {
+            // 失败了
+            console.log('Error: ' + error.code + ' ' + error.message);
+            if (fail) {
+              fail(user, error);
+            }
+          }
+        });
+      }
+    });
+  }
+
 
   registerMobUser(user, success, fail) {
     var currentUser = new AV.User();
-    if(user.phone === '13651940170'){
+    if (user.phone === '13651940170') {
       AV.User.logIn('harebu', 'harebu', {
-        success: function(user) {
-          if(success){
+        success: function (user) {
+          if (success) {
             success(user);
           }
         },
-        error: function(user, error) {
-          if(fail){
-            fail(user,error);
+        error: function (user, error) {
+          if (fail) {
+            fail(user, error);
           }
         }
       });
-    }else{
+    } else {
       currentUser.signUpOrlogInWithMobilePhone({
             mobilePhoneNumber: user.phone,
             smsCode: user.code,

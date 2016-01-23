@@ -177,7 +177,7 @@ const Hans = {
   'send_again':'再發一次',
   'input_v_code':'輸入驗證碼',
   'times':'次',
-  'email_login':'郵件註冊',
+  'email_login':'郵件註冊登入',
 };
 
 I18n.translations = {
@@ -187,6 +187,7 @@ I18n.translations = {
     'phone_number': 'Phone Number',
     'next': 'Next',
     'accept': 'Accept after click next button',
+    'accept_email': 'Accept after click \'Register ro Login\' button',
     'license': '《Qiu Fitness License》',
     'pushUp': 'Push Up',
     'deep': 'Squat',
@@ -335,7 +336,11 @@ I18n.translations = {
     'send_again':'Send again',
     'input_v_code':'Input Verification code',
     'times':' times',
-    'email_login':'Register',
+    'email_login':'Register or Login',
+    'please_input_email':'Please input email and password for login existed account or register new account',
+    'email':'Email',
+    'password':'Password',
+    'nickname':'Nickname (optional)'
   },
   'zh': {
     login: '登录',
@@ -491,7 +496,7 @@ I18n.translations = {
     'send_again':'再发一次',
     'input_v_code':'输入验证码',
     'times':'次',
-    'email_login':'邮件注册',
+    'email_login':'邮件注册登录',
   },
   'zh-Hant-CN': Hans,
   'zh-TW': Hans,

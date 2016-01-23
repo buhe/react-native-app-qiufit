@@ -28,6 +28,11 @@ class UserLocalStorage {
       user.accessToken = serverUser.get('accessToken');
       user.openId = serverUser.get('openId');
       user.type = 'fb';
+    } else if (serverUser.get('type') === 'email') {
+      user.id = serverUser.id;
+      user.email = serverUser.get('email');
+      user.username = serverUser.get('username');
+      user.type = 'email';
     }
     return user;
 
