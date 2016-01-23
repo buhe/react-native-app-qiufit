@@ -6,6 +6,8 @@ var API = require('../api');
 const VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
 const INFO_IMAGE_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
 var I18n = require('react-native-i18n');
+var I18nView = require('../views/I18nView');
+var ImageHolder = require('../images/en');
 function t(key) {
   return I18n.t(key);
 }
@@ -21,7 +23,7 @@ const stepsMap = {
         t('_1s25'),
         t('_3s50'),
       ],
-      infoImage: require('../images/a1.jpg')
+      infoImage: ImageHolder.a1
     },
     {
       text1: t('_1_2'),
@@ -33,7 +35,7 @@ const stepsMap = {
         t('_2s20'),
         t('_3s40'),
       ],
-      infoImage: require('../images/a2.jpg')
+      infoImage: ImageHolder.a2
     },
     {
       text1: t('_1_3'),
@@ -45,7 +47,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s30'),
       ],
-      infoImage: require('../images/a3.jpg')
+      infoImage: ImageHolder.a3
     }, {
       text1: t('_1_4'),
       text2: t('goal') + "2×25",
@@ -56,7 +58,7 @@ const stepsMap = {
         t('_2s12'),
         t('_1s25'),
       ],
-      infoImage: require('../images/a4.jpg')
+      infoImage: ImageHolder.a4
     }, {
       text1: t('_1_5'),
       text2: t('goal') + "2×20",
@@ -67,7 +69,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s20'),
       ],
-      infoImage: require('../images/a5.jpg')
+      infoImage: ImageHolder.a5
     },
     {
       text1: t('_1_6'),
@@ -79,7 +81,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s20'),
       ],
-      infoImage: require('../images/a6.jpg')
+      infoImage: ImageHolder.a6
     },
     {
       text1: t('_1_7'),
@@ -91,7 +93,7 @@ const stepsMap = {
         t('_2s10') + t('side'),
         t('_3s20') + t('side'),
       ],
-      infoImage: require('../images/a7.jpg')
+      infoImage: ImageHolder.a7
     },
     {
       text1: t('_1_8'),
@@ -103,7 +105,7 @@ const stepsMap = {
         t('_2s10') + t('side'),
         t('_2s20') + t('side'),
       ],
-      infoImage: require('../images/a8.jpg')
+      infoImage: ImageHolder.a8
     },
     {
       text1: t('_1_9'),
@@ -115,7 +117,7 @@ const stepsMap = {
         t('_2s10') + t('side'),
         t('_2s20') + t('side'),
       ],
-      infoImage: require('../images/a9.jpg')
+      infoImage: ImageHolder.a9
     },
     {
       text1: t('_1_10'),
@@ -126,7 +128,7 @@ const stepsMap = {
         t('_2s20') + t('side'),
         t('_1s100') + t('side'),
       ],
-      infoImage: require('../images/a10.jpg')
+      infoImage: ImageHolder.a10
     }
   ],
   deep: [
@@ -140,7 +142,7 @@ const stepsMap = {
         t('_1s25'),
         t('_3s50'),
       ],
-      infoImage: require('../images/b1.jpg')
+      infoImage: ImageHolder.b1
     },
     {
       text1: t('_2_2'),
@@ -152,7 +154,7 @@ const stepsMap = {
         t('_2s20'),
         t('_3s40'),
       ],
-      infoImage: require('../images/b2.jpg')
+      infoImage: ImageHolder.b2
     },
     {
       text1: t('_2_3'),
@@ -164,7 +166,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s30'),
       ],
-      infoImage: require('../images/b3.jpg')
+      infoImage: ImageHolder.b3
     }, {
       text1: t('_2_4'),
       text2: t('goal') + "2×50",
@@ -175,7 +177,7 @@ const stepsMap = {
         t('_2s35'),
         t('_2s50'),
       ],
-      infoImage: require('../images/b4.jpg')
+      infoImage: ImageHolder.b4
     }, {
       text1: t('_2_5'),
       text2: t('goal') + "2×30",
@@ -186,7 +188,7 @@ const stepsMap = {
         t('_2s10'),
         t('_3s30'),
       ],
-      infoImage: require('../images/b5.jpg')
+      infoImage: ImageHolder.b5
     },
     {
       text1: t('_2_6'),
@@ -198,7 +200,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s20'),
       ],
-      infoImage: require('../images/b6.jpg')
+      infoImage: ImageHolder.b6
     },
     {
       text1: t('_2_7'),
@@ -210,7 +212,7 @@ const stepsMap = {
         t('_2s10'),
         t('_3s20'),
       ],
-      infoImage: require('../images/b7.jpg')
+      infoImage: ImageHolder.b7
     },
     {
       text1: t('_2_8'),
@@ -222,7 +224,7 @@ const stepsMap = {
         t('_2s10'),
         t('_3s10'),
       ],
-      infoImage: require('../images/b8.jpg')
+      infoImage: ImageHolder.b8
     },
     {
       text1: t('_2_9'),
@@ -234,7 +236,7 @@ const stepsMap = {
         t('_2s10') + t('side'),
         t('_2s20') + t('side'),
       ],
-      infoImage: require('../images/b9.jpg')
+      infoImage: ImageHolder.b9
     },
     {
       text1: t('_2_10'),
@@ -245,7 +247,7 @@ const stepsMap = {
         t('_2s10') + t('side'),
         t('_2s50') + t('side'),
       ],
-      infoImage: require('../images/b10.jpg')
+      infoImage: ImageHolder.b10
     }
   ],
   pullUp: [
@@ -259,7 +261,7 @@ const stepsMap = {
         t('_2s20'),
         t('_3s40'),
       ],
-      infoImage: require('../images/c1.jpg')
+      infoImage: ImageHolder.c1
     },
     {
       text1: t('_3_2'),
@@ -271,7 +273,7 @@ const stepsMap = {
         t('_2s20'),
         t('_3s30'),
       ],
-      infoImage: require('../images/c2.jpg')
+      infoImage: ImageHolder.c2
     },
     {
       text1: t('_3_3'),
@@ -283,7 +285,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s20'),
       ],
-      infoImage: require('../images/c3.jpg')
+      infoImage: ImageHolder.c3
     }, {
       text1: t('_3_4'),
       text2: t('goal') + "2×15",
@@ -294,7 +296,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      infoImage: require('../images/c4.jpg')
+      infoImage: ImageHolder.c4
     }, {
       text1: t('_3_5'),
       text2: t('goal') + "2×10",
@@ -305,7 +307,7 @@ const stepsMap = {
         t('_2s8'),
         t('_2s10'),
       ],
-      infoImage: require('../images/c5.jpg')
+      infoImage: ImageHolder.c5
     },
     {
       text1: t('_3_6'),
@@ -317,7 +319,7 @@ const stepsMap = {
         t('_2s8'),
         t('_2s10'),
       ],
-      infoImage: require('../images/c6.jpg')
+      infoImage: ImageHolder.c6
     },
     {
       text1: t('_3_7'),
@@ -329,7 +331,7 @@ const stepsMap = {
         t('_2s7') + t('side'),
         t('_2s9') + t('side'),
       ],
-      infoImage: require('../images/c7.jpg')
+      infoImage: ImageHolder.c7
     },
     {
       text1: t('_3_8'),
@@ -341,7 +343,7 @@ const stepsMap = {
         t('_1s8') + t('side'),
         t('_2s8') + t('side'),
       ],
-      infoImage: require('../images/c8.jpg')
+      infoImage: ImageHolder.c8
     },
     {
       text1: t('_3_9'),
@@ -353,7 +355,7 @@ const stepsMap = {
         t('_2s5') + t('side'),
         t('_2s7') + t('side'),
       ],
-      infoImage: require('../images/c9.jpg')
+      infoImage: ImageHolder.c9
     },
     {
       text1: t('_3_10'),
@@ -364,7 +366,7 @@ const stepsMap = {
         t('_2s3') + t('side'),
         t('_2s7') + t('side'),
       ],
-      infoImage: require('../images/c10.jpg')
+      infoImage: ImageHolder.c10
     }
   ],
   leg: [
@@ -378,7 +380,7 @@ const stepsMap = {
         t('_1s25'),
         t('_4s40'),
       ],
-      infoImage: require('../images/d1.jpg')
+      infoImage: ImageHolder.d1
     },
     {
       text1: t('_4_2'),
@@ -390,7 +392,7 @@ const stepsMap = {
         t('_2s20'),
         t('_3s35'),
       ],
-      infoImage: require('../images/d2.jpg')
+      infoImage: ImageHolder.d2
     },
     {
       text1: t('_4_3'),
@@ -402,7 +404,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s30'),
       ],
-      infoImage: require('../images/d3.jpg')
+      infoImage: ImageHolder.d3
     }, {
       text1: t('_4_4'),
       text2: t('goal') + "2×25",
@@ -413,7 +415,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s25'),
       ],
-      infoImage: require('../images/d4.jpg')
+      infoImage: ImageHolder.d4
     }, {
       text1: t('_4_5'),
       text2: t('goal') + "2×20",
@@ -424,7 +426,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s20'),
       ],
-      infoImage: require('../images/d5.jpg')
+      infoImage: ImageHolder.d5
     },
     {
       text1: t('_4_6'),
@@ -436,7 +438,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      infoImage: require('../images/d6.jpg')
+      infoImage: ImageHolder.d6
     },
     {
       text1: t('_4_7'),
@@ -448,7 +450,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      infoImage: require('../images/d7.jpg')
+      infoImage: ImageHolder.d7
     },
     {
       text1: t('_4_8'),
@@ -460,7 +462,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      infoImage: require('../images/d8.jpg')
+      infoImage: ImageHolder.d8
     },
     {
       text1: t('_4_9'),
@@ -472,7 +474,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      infoImage: require('../images/d9.jpg')
+      infoImage: ImageHolder.d9
     },
     {
       text1: t('_4_10'),
@@ -483,7 +485,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s30'),
       ],
-      infoImage: require('../images/d10.jpg')
+      infoImage: ImageHolder.d10
     }
   ],
   bridge: [
@@ -497,7 +499,7 @@ const stepsMap = {
         t('_1s25'),
         t('_3s50'),
       ],
-      infoImage: require('../images/e1.jpg')
+      infoImage: ImageHolder.e1
     },
     {
       text1: t('_5_2'),
@@ -509,7 +511,7 @@ const stepsMap = {
         t('_2s20'),
         t('_3s40'),
       ],
-      infoImage: require('../images/e2.jpg')
+      infoImage: ImageHolder.e2
     },
     {
       text1: t('_5_3'),
@@ -521,7 +523,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s30'),
       ],
-      infoImage: require('../images/e3.jpg')
+      infoImage: ImageHolder.e3
     }, {
       text1: t('_5_4'),
       text2: t('goal') + "2×25",
@@ -532,7 +534,7 @@ const stepsMap = {
         t('_2s15'),
         t('_3s25'),
       ],
-      infoImage: require('../images/e4.jpg')
+      infoImage: ImageHolder.e4
     }, {
       text1: t('_5_5'),
       text2: t('goal') + "2×20",
@@ -543,7 +545,7 @@ const stepsMap = {
         t('_2s15'),
         t('_2s20'),
       ],
-      infoImage: require('../images/e5.jpg')
+      infoImage: ImageHolder.e5
     },
     {
       text1: t('_5_6'),
@@ -555,7 +557,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      infoImage: require('../images/e6.jpg')
+      infoImage: ImageHolder.e6
     },
     {
       text1: t('_5_7'),
@@ -567,7 +569,7 @@ const stepsMap = {
         t('_2s6'),
         t('_2s10'),
       ],
-      infoImage: require('../images/e7.jpg')
+      infoImage: ImageHolder.e7
     },
     {
       text1: t('_5_8'),
@@ -579,7 +581,7 @@ const stepsMap = {
         t('_2s4'),
         t('_2s8'),
       ],
-      infoImage: require('../images/e8.jpg')
+      infoImage: ImageHolder.e8
     },
     {
       text1: t('_5_9'),
@@ -591,7 +593,7 @@ const stepsMap = {
         t('_2s3'),
         t('_2s6'),
       ],
-      infoImage: require('../images/e9.jpg')
+      infoImage: ImageHolder.e9
     },
     {
       text1: t('_5_10'),
@@ -602,7 +604,7 @@ const stepsMap = {
         t('_2s3'),
         t('_2s30'),
       ],
-      infoImage: require('../images/e10.jpg')
+      infoImage: ImageHolder.e10
     }
   ],
   handstand: [
@@ -616,7 +618,7 @@ const stepsMap = {
         t('_2m'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f1.jpg')
+      infoImage: ImageHolder.f1
     },
     {
       text1: t('_6_2'),
@@ -627,7 +629,7 @@ const stepsMap = {
         t('_30s'),
         t('_1m'),
       ],
-      infoImage: require('../images/f2.jpg')
+      infoImage: ImageHolder.f2
     },
     {
       text1: t('_6_3'),
@@ -639,7 +641,7 @@ const stepsMap = {
         t('_2m'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f3.jpg')
+      infoImage: ImageHolder.f3
     }, {
       text1: t('_6_4'),
       text2: t('goal') + "2×20",
@@ -650,7 +652,7 @@ const stepsMap = {
         t('_2s20'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f4.jpg')
+      infoImage: ImageHolder.f4
     }, {
       text1: t('_6_5'),
       text2: t('goal') + "2×15",
@@ -661,7 +663,7 @@ const stepsMap = {
         t('_2s15'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f5.jpg')
+      infoImage: ImageHolder.f5
     },
     {
       text1: t('_6_6'),
@@ -673,7 +675,7 @@ const stepsMap = {
         t('_2s12'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f6.jpg')
+      infoImage: ImageHolder.f6
     },
     {
       text1: t('_6_7'),
@@ -685,7 +687,7 @@ const stepsMap = {
         t('_2s10') + t('side'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f7.jpg')
+      infoImage: ImageHolder.f7
     },
     {
       text1: t('_6_8'),
@@ -697,7 +699,7 @@ const stepsMap = {
         t('_2s8') + t('side'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f8.jpg')
+      infoImage: ImageHolder.f8
     },
     {
       text1: t('_6_9'),
@@ -709,7 +711,7 @@ const stepsMap = {
         t('_2s6') + t('side'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f9.jpg')
+      infoImage: ImageHolder.f9
     },
     {
       text1: t('_6_10'),
@@ -720,7 +722,7 @@ const stepsMap = {
         t('_2s5') + t('side'),
       ],
       videoUrl: "",
-      infoImage: require('../images/f10.jpg')
+      infoImage: ImageHolder.f10
     }
   ],
 };
