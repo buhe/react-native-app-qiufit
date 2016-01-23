@@ -16,15 +16,17 @@ import Nav from '../../nav/CommonNav';
 var UserActionCreators = require('../../../actions/UserActionCreators');
 var UserStore = require('../../../stores/UserStore');
 var I18n = require('react-native-i18n');
+import Spinner from 'react-native-loading-spinner-overlay';
 
 var Login = React.createClass({
   mixins: [require('../../../mixins/backandroid')()],
 
   getInitialState: function () {
-    return {nickname: '',password:'',email:''}
+    return {nickname: '',password:'',email:'',visible: false}
   },
 
   next() {
+    this.setState({visible:true});
     var emailUser = {
       password: this.state.password,
       nickname: this.state.nickname ? this.state.nickname : this.state.email,
@@ -34,11 +36,18 @@ var Login = React.createClass({
     };
     UserActionCreators.registerUser(emailUser,
         function () {
+          this.setState({visible:false});
           this.props.navigator.push(Router.getTypeList());
         }.bind(this), function (err) {
           //FIXME alter
           console.log(err);
-        })
+          this.setState({visible:false});
+          if(err.code === 210){
+            //账户密码错误
+          }else{
+
+          }
+        }.bind(this))
   },
 
   nextField(){
@@ -64,6 +73,9 @@ var Login = React.createClass({
               navText={I18n.t('email_login')}
               {... this.props}
               />
+          <View style={{ flex: 1 }}>
+            <Spinner visible={this.state.visible} />
+          </View>
           <View style={styles.textLabel}><Text
               style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
           <View style={styles.textInputWrapper}>

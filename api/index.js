@@ -424,9 +424,8 @@ class API {
             },
             error: function(userServer, error) {
               // 失败了
-              console.log('Error: ' + error.code + ' ' + error.message);
               if (fail) {
-                fail(user, error);
+                fail(error);
               }
             }
           });
