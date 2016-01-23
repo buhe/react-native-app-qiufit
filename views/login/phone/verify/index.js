@@ -12,12 +12,12 @@ import React, {
 } from 'react-native';
 var Reflux = require('reflux');
 var deviceScreen = Dimensions.get('window');
-var Router = require('../../router');
-import Nav from '../../nav/CommonNav';
+var Router = require('../../../router');
+import Nav from '../../../nav/CommonNav';
 import CoolDown from 'react-native-countdown';
 var I18n = require('react-native-i18n');
-var  UserActionCreators  = require('../../../actions/UserActionCreators');
-var UserStore = require('../../../stores/UserStore');
+var  UserActionCreators  = require('../../../../actions/UserActionCreators');
+var UserStore = require('../../../../stores/UserStore');
 
 var Login = React.createClass({
 
@@ -61,7 +61,7 @@ var Login = React.createClass({
             <Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('send_verify')}</Text>
           </View>
           <View style={styles.textInputWrapper}>
-            <Image source={require('../../../images/signin_phone.png')}
+            <Image source={require('../../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}

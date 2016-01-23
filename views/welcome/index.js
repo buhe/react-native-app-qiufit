@@ -53,7 +53,7 @@ var Welcome = React.createClass({
   },
 
   render() {
-    var leftButton = <View></View>;
+    var leftButton;
     var loginButton;
     if(I18nView.isZh()){
       leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
@@ -75,6 +75,9 @@ var Welcome = React.createClass({
                     <Text style={styles.actionText}>{I18n.t('wechat_login')}</Text>
                   </TouchableOpacity>
     }else{
+      leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getEmailLogin())}>
+        <Text style={styles.text}>{I18n.t('email_login')}</Text>
+      </TouchableOpacity>;
       loginButton = <TouchableOpacity
           //onPress={this.hideModal.bind(this)}
           onPress={this.fbLogin}

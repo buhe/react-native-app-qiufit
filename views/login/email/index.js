@@ -11,14 +11,14 @@ import React, {
     Dimensions,
 } from 'react-native';
 var deviceScreen = Dimensions.get('window');
-var Router = require('../router');
-import Nav from '../nav/CommonNav';
-var UserActionCreators = require('../../actions/UserActionCreators');
-var UserStore = require('../../stores/UserStore');
+var Router = require('../../router');
+import Nav from '../../nav/CommonNav';
+var UserActionCreators = require('../../../actions/UserActionCreators');
+var UserStore = require('../../../stores/UserStore');
 var I18n = require('react-native-i18n');
 
 var Login = React.createClass({
-  mixins: [require('../../mixins/backandroid')()],
+  mixins: [require('../../../mixins/backandroid')()],
 
   getInitialState: function () {
     return {text: ''}
@@ -41,20 +41,20 @@ var Login = React.createClass({
     return (
         <View>
           <Nav
-              navText={I18n.t('login')}
+              navText={I18n.t('email_login')}
               {... this.props}
               />
-          <View style={styles.textLabel}><Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_phone_number')}</Text></View>
+          <View style={styles.textLabel}><Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
           <View style={styles.textInputWrapper}>
-            <Image source={require('../../images/signin_phone.png')}
+            <Image source={require('../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
-                placeholder={I18n.t('phone_number')}
+                placeholder={I18n.t('email')}
                 underlineColorAndroid={'transparent'}
                 onChangeText={this.changeText.bind(this)}
                 onSubmitEditing={this.next.bind(this)}
-                keyboardType={'numeric'}
+                keyboardType={'email-address'}
                 />
           </View>
           <TouchableOpacity

@@ -17,14 +17,21 @@ let YourRouter = {
   getVerify(){
     return {
       getSceneClass(){
-        return require('./login/verify');
+        return require('./login/phone/verify');
       }
     }
   },
   getLogin(){
     return {
       getSceneClass(){
-        return require('./login');
+        return require('./login/phone');
+      }
+    }
+  },
+  getEmailLogin(){
+    return {
+      getSceneClass(){
+        return require('./login/email');
       }
     }
   },
