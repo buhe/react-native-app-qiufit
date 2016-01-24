@@ -20,12 +20,13 @@ var I18n = require('react-native-i18n');
 import Spinner from 'react-native-loading-spinner-overlay';
 var Animatable = require('react-native-animatable');
 var Theme = require('../../theme');
+var emailRegex = require('email-regex');
 
 var Login = React.createClass({
   mixins: [require('../../../mixins/backandroid')(), TimerMixin],
 
   getInitialState: function () {
-    return {nickname: '', password: '', email: '', visible: false, alert: false, alertMsg: ''}
+    return {nickname: '', password: '', email: '', visible: false, alert: false, alertMsg: '',errorStyle:{}}
   },
 
   next() {
@@ -60,6 +61,19 @@ var Login = React.createClass({
 
   changeUsername(text) {
     this.setState({email: text});
+    if(emailRegex({exact: true}).test(text)){
+      this.setState({
+        errorStyle:{
+        }
+      });
+    }else{
+      this.setState({
+        errorStyle:{
+          borderWidth: 1,
+          borderColor: 'red',
+        }
+      });
+    }
   },
 
   changePassword(text) {
@@ -105,7 +119,7 @@ var Login = React.createClass({
           </View>
           <View style={styles.textLabel}><Text
               style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
-          <View style={styles.textInputWrapper}>
+          <View style={[styles.textInputWrapper,this.state.errorStyle]}>
             <Image source={require('../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
