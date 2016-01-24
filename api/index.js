@@ -245,7 +245,8 @@ class API {
         var trends = [];
         for (var i = 0; i < results.length; i++) {
           var data = results[i];
-          var nickname = data.get('user').get('username');
+          var user = data.get('user');
+          var nickname = user.get('nickname') ? user.get('nickname') : user.get('username');
           var date = data.updatedAt;
           trends.push({
             nickname: nickname,

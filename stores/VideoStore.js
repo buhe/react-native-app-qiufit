@@ -19,7 +19,7 @@ var CommentStore = Reflux.createStore({
         var date = data.get('date');
         var comment = data.get('comment');
         this.comments.push({
-          nickname: user.get('username'),
+          nickname: user.get('nickname') ? user.get('nickname') : user.get('username'),
           avatarUrl: user.get('avatarUrl'),
           time: moment(date).format('YYYY-MM-DD'),
           commentContent: comment
@@ -39,7 +39,7 @@ var CommentStore = Reflux.createStore({
         var date = data.get('date');
         var comment = data.get('comment');
         this.comments.push({
-          nickname: user.get('username'),
+          nickname: user.get('nickname') ? user.get('nickname') : user.get('username'),
           time: moment(date).format('YYYY-MM-DD'),
           commentContent: comment
         });
