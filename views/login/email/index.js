@@ -22,14 +22,14 @@ var Animatable = require('react-native-animatable');
 var Theme = require('../../theme');
 
 var Login = React.createClass({
-  mixins: [require('../../../mixins/backandroid')(),TimerMixin],
+  mixins: [require('../../../mixins/backandroid')(), TimerMixin],
 
   getInitialState: function () {
-    return {nickname: '',password:'',email:'',visible: false,alert:false,alertMsg:''}
+    return {nickname: '', password: '', email: '', visible: false, alert: false, alertMsg: ''}
   },
 
   next() {
-    this.setState({visible:true});
+    this.setState({visible: true});
     var emailUser = {
       password: this.state.password,
       nickname: this.state.nickname ? this.state.nickname : this.state.email,
@@ -39,17 +39,17 @@ var Login = React.createClass({
     };
     UserActionCreators.registerUser(emailUser,
         function () {
-          this.setState({visible:false});
+          this.setState({visible: false});
           this.props.navigator.push(Router.getTypeList());
         }.bind(this), function (err) {
           //FIXME alter
           console.log(err);
-          this.setState({visible:false});
-          if(err.code === 210){
+          this.setState({visible: false});
+          if (err.code === 210) {
             //账户密码错误
-            this.setState({alertMsg:I18n.t('passwordWrong'),alert:true});
-          }else{
-            this.setState({alertMsg:I18n.t('registerFail'),alert:true});
+            this.setState({alertMsg: I18n.t('passwordWrong'), alert: true});
+          } else {
+            this.setState({alertMsg: err.message ? err.message : I18n.t('registerFail'), alert: true});
           }
         }.bind(this))
   },
@@ -72,21 +72,21 @@ var Login = React.createClass({
 
   hideAlert(){
     var self = this;
-    this.setTimeout(function(){
-      self.setState({alert:false});
+    this.setTimeout(function () {
+      self.setState({alert: false});
     }, 2000);
   },
 
   render() {
     var alert = <View></View>;
-    if(this.state.alert){
+    if (this.state.alert) {
       alert = <Animatable.View animation="fadeInDown" ref='alert'
                                style={[{position:'absolute',
                                left:0,top:0,height:60,width:deviceScreen.width,
                                backgroundColor:'red'
                                },Theme.centerChild]}
-                               //iterationCount={2} direction="alternate"
-                               onAnimationEnd = {this.hideAlert.bind(this)}
+          //iterationCount={2} direction="alternate"
+                               onAnimationEnd={this.hideAlert.bind(this)}
           >
         <Text
             style={{color:'white',fontWeight:'bold'}}
@@ -101,7 +101,7 @@ var Login = React.createClass({
               />
           {alert}
           <View style={{ flex: 1 }}>
-            <Spinner visible={this.state.visible} />
+            <Spinner visible={this.state.visible}/>
           </View>
           <View style={styles.textLabel}><Text
               style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
