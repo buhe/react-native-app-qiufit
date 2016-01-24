@@ -122,10 +122,10 @@ var VideoView = React.createClass({
   _onScroll(event){
     var y = event.nativeEvent.contentOffset.y;
     if(y < offsetY){
-      this.showCommentButton();
+      this.hideCommentButton();
       offsetY = y;
     }else{
-      this.hideCommentButton();
+      this.showCommentButton();
       offsetY = y;
     }
   },
