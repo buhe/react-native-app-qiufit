@@ -43,7 +43,7 @@ var Welcome = React.createClass({
       var user = {
         username: profile.name,
         gender: profile.gender,
-        //avatarUrl: profile.headimgurl,
+        avatarUrl: profile.picture.data.url,
         openId: profile.id,
         accessToken: profile.token,
         type: 'fb'

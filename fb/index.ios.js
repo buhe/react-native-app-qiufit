@@ -15,7 +15,7 @@ var FBLoginManager = NativeModules.FBLoginManager;
 var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
 
 function _getInfo(user, callback) {
-  var api = `https://graph.facebook.com/v2.3/${user.userId}?fields=name,email,gender&access_token=${user.token}`;
+  var api = `https://graph.facebook.com/v2.3/${user.userId}?fields=name,email,gender,picture&access_token=${user.token}`;
 
   fetch(api)
       .then((response) => response.json())
@@ -29,7 +29,7 @@ function _registerUser(profile) {
   var user = {
     username: profile.name,
     gender: profile.gender,
-    //avatarUrl: profile.headimgurl,
+    avatarUrl: profile.picture.data.url,
     openId: profile.id,
     accessToken: profile.token,
     type: 'fb'

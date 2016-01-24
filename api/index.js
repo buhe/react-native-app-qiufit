@@ -374,7 +374,7 @@ class API {
           success: function (userServer) {
             // 注册成功，可以使用了.
             userServer.set('gender', wechatUser.gender);
-            //userServer.set('avatarUrl', wechatUser.avatarUrl); //FIXME 没有头像
+            userServer.set('avatarUrl', wechatUser.avatarUrl);
             userServer.set('accessToken', wechatUser.accessToken);
             userServer.set('openId', wechatUser.openId);
             userServer.set('type', 'fb');
