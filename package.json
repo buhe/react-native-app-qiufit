@@ -25,6 +25,7 @@
     "react-native-view-snapshot": "0.0.1",
     "react-native-wechat-android": "git://github.com/buhe/react-native-wechat-android.git#449209c",
     "react-native-wechat-ios": "git://github.com/buhe/react-native-wechat-ios.git#2d00cd6",
+    "react-timer-mixin": "^0.13.3",
     "reflux": "^0.3.0",
     "superagent": "^1.4.0",
     "superagent-prefix": "0.0.2"

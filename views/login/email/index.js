@@ -10,6 +10,7 @@ import React, {
     TouchableOpacity,
     Dimensions,
 } from 'react-native';
+var TimerMixin = require('react-timer-mixin');
 var deviceScreen = Dimensions.get('window');
 var Router = require('../../router');
 import Nav from '../../nav/CommonNav';
@@ -17,12 +18,14 @@ var UserActionCreators = require('../../../actions/UserActionCreators');
 var UserStore = require('../../../stores/UserStore');
 var I18n = require('react-native-i18n');
 import Spinner from 'react-native-loading-spinner-overlay';
+var Animatable = require('react-native-animatable');
+var Theme = require('../../theme');
 
 var Login = React.createClass({
-  mixins: [require('../../../mixins/backandroid')()],
+  mixins: [require('../../../mixins/backandroid')(),TimerMixin],
 
   getInitialState: function () {
-    return {nickname: '',password:'',email:'',visible: false}
+    return {nickname: '',password:'',email:'',visible: false,alert:false,alertMsg:''}
   },
 
   next() {
@@ -44,8 +47,9 @@ var Login = React.createClass({
           this.setState({visible:false});
           if(err.code === 210){
             //账户密码错误
+            this.setState({alertMsg:I18n.t('passwordWrong'),alert:true});
           }else{
-
+            this.setState({alertMsg:I18n.t('registerFail'),alert:true});
           }
         }.bind(this))
   },
@@ -66,13 +70,36 @@ var Login = React.createClass({
     this.setState({nickname: text});
   },
 
+  hideAlert(){
+    var self = this;
+    this.setTimeout(function(){
+      self.setState({alert:false});
+    }, 2000);
+  },
+
   render() {
+    var alert = <View></View>;
+    if(this.state.alert){
+      alert = <Animatable.View animation="fadeInDown" ref='alert'
+                               style={[{position:'absolute',
+                               left:0,top:0,height:60,width:deviceScreen.width,
+                               backgroundColor:'red'
+                               },Theme.centerChild]}
+                               //iterationCount={2} direction="alternate"
+                               onAnimationEnd = {this.hideAlert.bind(this)}
+          >
+        <Text
+            style={{color:'white',fontWeight:'bold'}}
+            >{this.state.alertMsg}</Text>
+      </Animatable.View>
+    }
     return (
         <View>
           <Nav
               navText={I18n.t('email_login')}
               {... this.props}
               />
+          {alert}
           <View style={{ flex: 1 }}>
             <Spinner visible={this.state.visible} />
           </View>

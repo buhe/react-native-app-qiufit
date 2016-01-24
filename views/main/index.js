@@ -340,7 +340,9 @@ I18n.translations = {
     'please_input_email':'Please input email and password for login existed account or register new account',
     'email':'Email',
     'password':'Password',
-    'nickname':'Nickname (optional)'
+    'nickname':'Nickname (optional)',
+    'passwordWrong':'Username and password is mismatch',
+    'registerFail':'Register account failed,Check network please',
   },
   'zh': {
     login: '登录',
