@@ -41,7 +41,7 @@ var Welcome = React.createClass({
   },
 
   fbLogin(){
-    FB.sendAuthReq(function(profile){
+    FB.sendAuthReq(function (profile) {
       var user = {
         username: profile.name,
         gender: profile.gender,
@@ -57,32 +57,13 @@ var Welcome = React.createClass({
   render() {
     var leftButton;
     var loginButton;
-    if(I18nView.isZh()){
+    if (I18nView.isZh()) {
       leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
-                    <Text style={[styles.text,Theme.subTitleFont]}>{I18n.t('phone_login')}</Text>
-                  </TouchableOpacity>;
-      loginButton = <TouchableOpacity
-                      //onPress={this.hideModal.bind(this)}
-                      onPress={this.wechatLogin}
-                      style={{
-                                    height:70,
-                                    alignItems:'center',  //水平居中
-                                    justifyContent:'center', //垂直居中
-                                    backgroundColor: 'black',
-                                    marginRight:15,
-                                    marginLeft:15,
-                                    marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
-                                    }}
-                      >
-                    <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('wechat_login')}</Text>
-                  </TouchableOpacity>
-    }else{
-      leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getEmailLogin())}>
-        <Text style={styles.text}>{I18n.t('email_login')}</Text>
+        <Text style={[styles.text,Theme.subTitleFont]}>{I18n.t('phone_login')}</Text>
       </TouchableOpacity>;
       loginButton = <TouchableOpacity
           //onPress={this.hideModal.bind(this)}
-          onPress={this.fbLogin}
+          onPress={this.wechatLogin}
           style={{
                                     height:70,
                                     alignItems:'center',  //水平居中
@@ -93,7 +74,29 @@ var Welcome = React.createClass({
                                     marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
                                     }}
           >
-        <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('fb_login')}</Text>
+        <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('wechat_login')}</Text>
+      </TouchableOpacity>
+    } else {
+      leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getEmailLogin())}>
+        <Text style={styles.text}>{I18n.t('email_login')}</Text>
+      </TouchableOpacity>;
+      loginButton = <TouchableOpacity
+          //onPress={this.hideModal.bind(this)}
+          onPress={this.fbLogin}
+          style={{
+                                    height:70,
+                                    flexDirection:'row',
+                                    alignItems:'center',  //水平居中
+                                    justifyContent:'center', //垂直居中
+                                    backgroundColor: 'black',
+                                    marginRight:15,
+                                    marginLeft:15,
+                                    marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
+                                    }}
+          >
+        <Image source={require('../../images/ico_facebook.png')} style={{width:20,height:20,marginRight:10}}/>
+        <Text
+          style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('fb_login')}</Text>
       </TouchableOpacity>
     }
     return (
