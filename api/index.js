@@ -395,45 +395,44 @@ class API {
   }
 
   registerEmailUser(user, success, fail) {
-    AV.User.logIn(user.username, user.password, {
-      success: function (user) {
-        if (success) {
-          success(user);
+    if(user.action === 'login'){
+      AV.User.logIn(user.username, user.password, {
+        success: function (user) {
+          if (success) {
+            success(user);
+          }
+        },
+        error: function (userError, error) {
+            if(fail){
+              fail(error);
+            }
         }
-      },
-      error: function (userError, error) {
+      });
+    }else if(user.action === 'register'){
+      var currentUser = new AV.User();
+      currentUser.set('username', user.username);
+      currentUser.set('password', user.password);
+      currentUser.set('email', user.email);
 
-        if(error.code == 210){
-          if(fail){
+      currentUser.signUp(null, {
+        success: function(userServer) {
+          // 注册成功，可以使用了.
+          userServer.set('nickname', user.nickname ? user.nickname : user.email);
+          userServer.set('type', 'email');
+          userServer.save();
+          if (success) {
+            success(userServer);
+          }
+        },
+        error: function(userServer, error) {
+          // 失败了
+          if (fail) {
             fail(error);
           }
-        }else{
-          var currentUser = new AV.User();
-          currentUser.set('username', user.username);
-          currentUser.set('password', user.password);
-          currentUser.set('email', user.email);
-
-          currentUser.signUp(null, {
-            success: function(userServer) {
-              // 注册成功，可以使用了.
-              userServer.set('nickname', user.nickname ? user.nickname : user.email);
-              userServer.set('type', 'email');
-              userServer.save();
-              if (success) {
-                success(userServer);
-              }
-            },
-            error: function(userServer, error) {
-              // 失败了
-              if (fail) {
-                fail(error);
-              }
-            }
-          });
         }
+      });
+    }
 
-      }
-    });
   }
 
 

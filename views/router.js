@@ -35,6 +35,13 @@ let YourRouter = {
       }
     }
   },
+  getEmailRegister(){
+    return {
+      getSceneClass(){
+        return require('./login/email/register');
+      }
+    }
+  },
   getWelcome(){
     return {
       getSceneClass(){

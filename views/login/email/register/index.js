@@ -12,31 +12,32 @@ import React, {
 } from 'react-native';
 var TimerMixin = require('react-timer-mixin');
 var deviceScreen = Dimensions.get('window');
-var Router = require('../../router');
-import Nav from '../../nav/CommonNavRightButton';
-var UserActionCreators = require('../../../actions/UserActionCreators');
-var UserStore = require('../../../stores/UserStore');
+var Router = require('../../../router');
+import Nav from '../../../nav/CommonNav';
+var UserActionCreators = require('../../../../actions/UserActionCreators');
+var UserStore = require('../../../../stores/UserStore');
 var I18n = require('react-native-i18n');
 import Spinner from 'react-native-loading-spinner-overlay';
 var Animatable = require('react-native-animatable');
-var Theme = require('../../theme');
+var Theme = require('../../../theme');
 var emailRegex = require('email-regex');
 
 var Login = React.createClass({
-  mixins: [require('../../../mixins/backandroid')(), TimerMixin],
+  mixins: [require('../../../../mixins/backandroid')(), TimerMixin],
 
   getInitialState: function () {
-    return {nickname: '', password: '', email: '', visible: false, alert: false, alertMsg: '', errorStyle: {}}
+    return {nickname: '', password: '', email: '', visible: false, alert: false, alertMsg: '',errorStyle:{}}
   },
 
   next() {
     this.setState({visible: true});
     var emailUser = {
       password: this.state.password,
+      nickname: this.state.nickname ? this.state.nickname : this.state.email,
       username: this.state.email,
       email: this.state.email,
       type: 'email',
-      action: 'login'
+      action:'register'
     };
     UserActionCreators.registerUser(emailUser,
         function () {
@@ -61,13 +62,14 @@ var Login = React.createClass({
 
   changeUsername(text) {
     this.setState({email: text});
-    if (emailRegex({exact: true}).test(text)) {
+    if(emailRegex({exact: true}).test(text)){
       this.setState({
-        errorStyle: {}
+        errorStyle:{
+        }
       });
-    } else {
+    }else{
       this.setState({
-        errorStyle: {
+        errorStyle:{
           borderWidth: 1,
           borderColor: 'red',
         }
@@ -77,6 +79,10 @@ var Login = React.createClass({
 
   changePassword(text) {
     this.setState({password: text});
+  },
+
+  changeNickname(text) {
+    this.setState({nickname: text});
   },
 
   hideAlert(){
@@ -107,15 +113,15 @@ var Login = React.createClass({
           <Nav
               navText={I18n.t('email_login')}
               {... this.props}
-              rightText={I18n.t('email_register')}
-              rightAction={()=> this.props.navigator.push(Router.getEmailRegister())}
               />
           {alert}
           <View style={{ flex: 1 }}>
             <Spinner visible={this.state.visible}/>
           </View>
+          <View style={styles.textLabel}><Text
+              style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
           <View style={[styles.textInputWrapper,this.state.errorStyle]}>
-            <Image source={require('../../../images/signin_phone.png')}
+            <Image source={require('../../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
@@ -127,7 +133,7 @@ var Login = React.createClass({
                 />
           </View>
           <View style={styles.textInputWrapper}>
-            <Image source={require('../../../images/signin_phone.png')}
+            <Image source={require('../../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
@@ -135,6 +141,18 @@ var Login = React.createClass({
                 underlineColorAndroid={'transparent'}
                 onChangeText={this.changePassword}
                 onSubmitEditing={this.nextField}
+                keyboardType={'default'}
+                />
+          </View>
+          <View style={styles.textInputWrapper}>
+            <Image source={require('../../../../images/signin_phone.png')}
+                   style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
+            <TextInput
+                style={styles.textInput}
+                placeholder={I18n.t('nickname')}
+                underlineColorAndroid={'transparent'}
+                onChangeText={this.changeNickname}
+                onSubmitEditing={this.next}
                 keyboardType={'default'}
                 />
           </View>
@@ -147,8 +165,12 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>{I18n.t('email_login')}</Text>
+            <Text style={styles.actionText}>{I18n.t('email_register')}</Text>
           </TouchableOpacity>
+          <View style={{alignItems: 'center'}}>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('accept_email')}</Text>
+            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('license')}</Text>
+          </View>
         </View>
     );
   }
