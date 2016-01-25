@@ -104,7 +104,7 @@ var Login = React.createClass({
                                onAnimationEnd={this.hideAlert.bind(this)}
           >
         <Text
-            style={{color:'white',fontWeight:'bold'}}
+            style={[{color:'white',fontWeight:'bold'},Theme.descFont]}
             >{this.state.alertMsg}</Text>
       </Animatable.View>
     }
@@ -119,7 +119,7 @@ var Login = React.createClass({
             <Spinner visible={this.state.visible}/>
           </View>
           <View style={styles.textLabel}><Text
-              style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_email')}</Text></View>
+              style={[{color: '#8e8e8e',fontSize:16},Theme.descFont]}>{I18n.t('please_input_email')}</Text></View>
           <View style={[styles.textInputWrapper,this.state.errorStyle]}>
             <Image source={require('../../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
@@ -130,6 +130,8 @@ var Login = React.createClass({
                 onChangeText={this.changeUsername}
                 onSubmitEditing={this.nextField}
                 keyboardType={'email-address'}
+                autoFocus={true}
+                autoCorrect={false}
                 />
           </View>
           <View style={styles.textInputWrapper}>
@@ -142,6 +144,7 @@ var Login = React.createClass({
                 onChangeText={this.changePassword}
                 onSubmitEditing={this.nextField}
                 keyboardType={'default'}
+                autoCorrect={false}
                 />
           </View>
           <View style={styles.textInputWrapper}>
@@ -154,6 +157,7 @@ var Login = React.createClass({
                 onChangeText={this.changeNickname}
                 onSubmitEditing={this.next}
                 keyboardType={'default'}
+                autoCorrect={false}
                 />
           </View>
           <TouchableOpacity
@@ -165,11 +169,11 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>{I18n.t('email_register')}</Text>
+            <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('email_register')}</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('accept_email')}</Text>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('license')}</Text>
+            <Text style={[{fontSize:12,color:'#8c8c8c',marginTop:20},Theme.descFont]}>{I18n.t('accept_email')}</Text>
+            <Text style={[{fontSize:12,color:'#8c8c8c',marginTop:20},Theme.descFont]}>{I18n.t('license')}</Text>
           </View>
         </View>
     );

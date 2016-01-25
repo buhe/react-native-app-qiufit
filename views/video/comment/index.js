@@ -47,6 +47,7 @@ class Comment extends React.Component {
               numberOfLines={100}
               textAlignVertical={'top'}
               placeholderTextColor={'#cccccc'}
+              autoFocus={true}
               />
         </View>
     );

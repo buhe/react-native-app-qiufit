@@ -162,7 +162,7 @@ var ProfileView = React.createClass({
               >
             <View style={styles.turningAnalytics}>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
-              <Text style={styles.turningAnalyticsText}>{I18n.t('analytics')}</Text>
+              <Text style={[styles.turningAnalyticsText,Theme.subTitleFont]}>{I18n.t('analytics')}</Text>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
             </View>
             <View style={styles.chartWrapper}>
@@ -176,7 +176,7 @@ var ProfileView = React.createClass({
             </View>
             <View style={styles.turningAnalytics}>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
-              <Text style={styles.turningAnalyticsText}>{I18n.t('record')}</Text>
+              <Text style={[styles.turningAnalyticsText,Theme.subTitleFont]}>{I18n.t('record')}</Text>
               <Image source={require('../../images/ico_x02.png')} style={styles.x02}/>
             </View>
             <View style={{width:deviceScreen.width}}>
@@ -186,9 +186,9 @@ var ProfileView = React.createClass({
             </View>
             <View style={styles.bottomView}>
               <Image source={require('../../images/me_logo.png')} style={styles.bottomIcon}/>
-              <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Design With ♥ By cheng zhen</Text>
-              <Text style={[styles.content,styles.bottomText]}>{I18n.t('ccpro')} Code With ♥ By bu he</Text>
-              <Text style={[styles.content,styles.bottomText,styles.lastText]}>{I18nView.version()}</Text>
+              <Text style={[styles.content,styles.bottomText,Theme.descFont]}>{I18n.t('ccpro')} Design With ♥ By cheng zhen</Text>
+              <Text style={[styles.content,styles.bottomText,Theme.descFont]}>{I18n.t('ccpro')} Code With ♥ By bu he</Text>
+              <Text style={[styles.content,styles.bottomText,styles.lastText,Theme.descFont]}>{I18nView.version()}</Text>
             </View>
             {promationView}
           </ScrollView>
@@ -218,11 +218,11 @@ class RecordItem extends React.Component {
     return (
         <View style={styles.recordWrapper}>
           <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text
-              style={styles.content}>{this.props.type}</Text></View>
+              style={[styles.content,Theme.descFont]}>{this.props.type}</Text></View>
           <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.5}]}><Text
-              style={styles.content}>{this.props.desc}</Text></View>
+              style={[styles.content,Theme.descFont]}>{this.props.desc}</Text></View>
           <View style={[styles.contentWrapper,Theme.centerChild,{width: deviceScreen.width * 0.25}]}><Text
-              style={styles.content}>{this.props.step}</Text></View>
+              style={[styles.content,Theme.descFont]}>{this.props.step}</Text></View>
         </View>
     )
   }

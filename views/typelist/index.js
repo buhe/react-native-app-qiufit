@@ -9,6 +9,7 @@ var StepActionCreators = require('../../actions/StepActionCreators');
 var ProfileStore = require('../../stores/ProfileStore');
 var StepStore = require('../../stores/StepStore');
 import Promation from '../../promation';
+import Theme from '../theme';
 
 
 var {
@@ -99,8 +100,8 @@ var TypeItem = React.createClass({
           <View style={styles.container}>
             {icon}
             <View style={styles.itemTextWrapper}>
-              <Text style={styles.itemText}>{this.props.type}</Text>
-              <Text style={styles.itemProcessText}>{process}/10</Text>
+              <Text style={[styles.itemText,Theme.titleFont]}>{this.props.type}</Text>
+              <Text style={[styles.itemProcessText,Theme.titleFont]}>{process}/10</Text>
             </View>
           </View>
           <View style={styles.separator}/>

@@ -14,6 +14,7 @@ var {
     TouchableOpacity,
     Image
     } = React;
+import Theme from '../../views/theme';
 var I18n = require('react-native-i18n');
 /**
  *
@@ -37,25 +38,25 @@ class MonthHeader extends React.Component {
     return (
         <View style={[styles.row, styles.row_header]}>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>{I18n.t('mon')}</Text>
+            <Text style={[styles.headerStyle,Theme.subTitleFont]}>{I18n.t('mon')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>{I18n.t('tue')}</Text>
+            <Text style={[styles.headerStyle,Theme.subTitleFont]}>{I18n.t('tue')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>{I18n.t('wed')}</Text>
+            <Text style={[styles.headerStyle,Theme.subTitleFont]}>{I18n.t('wed')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>{I18n.t('thu')}</Text>
+            <Text style={[styles.headerStyle,Theme.subTitleFont]}>{I18n.t('thu')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={styles.headerStyle}>{I18n.t('fri')}</Text>
+            <Text style={[styles.headerStyle,Theme.subTitleFont]}>{I18n.t('fri')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={[styles.headerStyle]}>{I18n.t('sat')}</Text>
+            <Text style={[[styles.headerStyle,Theme.subTitleFont]]}>{I18n.t('sat')}</Text>
           </View>
           <View style={[styles.flex_1]}>
-            <Text style={[styles.headerStyle]}>{I18n.t('sun')}</Text>
+            <Text style={[[styles.headerStyle,Theme.subTitleFont]]}>{I18n.t('sun')}</Text>
           </View>
         </View>
     );
@@ -135,13 +136,13 @@ var Month = React.createClass({
         if (value && value.length > 0) {
           textView =
               <Text
-                  style={styles.month_text}>
+                  style={[styles.month_text,Theme.subTitleFont]}>
                 {newDate.getFullYear() + I18n.t('year')
                 + (newDate.getMonth() + 1) + I18n.t('month')  }({value.length + I18n.t('times')})
               </Text>
         } else {
           textView = <Text
-              style={styles.month_text}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
+              style={[styles.month_text,Theme.subTitleFont]}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
         }
         return (
             <View>

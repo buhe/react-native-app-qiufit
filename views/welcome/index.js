@@ -19,7 +19,7 @@ var I18n = require('react-native-i18n');
 var FB = require('../../fb');
 import UserActionCreators from '../../actions/UserActionCreators';
 import UserStore from '../../stores/UserStore';
-
+import Theme from '../theme';
 var Welcome = React.createClass({
 
   componentWillMount(){
@@ -57,7 +57,7 @@ var Welcome = React.createClass({
     var loginButton;
     if(I18nView.isZh()){
       leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
-                    <Text style={styles.text}>{I18n.t('phone_login')}</Text>
+                    <Text style={[styles.text,Theme.subTitleFont]}>{I18n.t('phone_login')}</Text>
                   </TouchableOpacity>;
       loginButton = <TouchableOpacity
                       //onPress={this.hideModal.bind(this)}
@@ -72,7 +72,7 @@ var Welcome = React.createClass({
                                     marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
                                     }}
                       >
-                    <Text style={styles.actionText}>{I18n.t('wechat_login')}</Text>
+                    <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('wechat_login')}</Text>
                   </TouchableOpacity>
     }else{
       leftButton = <TouchableOpacity onPress={() => this.props.navigator.push(Router.getEmailLogin())}>
@@ -91,7 +91,7 @@ var Welcome = React.createClass({
                                     marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
                                     }}
           >
-        <Text style={styles.actionText}>{I18n.t('fb_login')}</Text>
+        <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('fb_login')}</Text>
       </TouchableOpacity>
     }
     return (

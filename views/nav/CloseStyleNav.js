@@ -9,6 +9,7 @@ import React, {
     ScrollView,
     Image,
 } from 'react-native';
+import Theme from '../theme';
 export default class CloseStyleNav extends React.Component {
   render(){
     return (
@@ -16,7 +17,7 @@ export default class CloseStyleNav extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
           </TouchableOpacity>
-          <Text style={styles.logoText}>{this.props.navText}</Text>
+          <Text style={[styles.logoText,Theme.title]}>{this.props.navText}</Text>
         </View>
     )
   }

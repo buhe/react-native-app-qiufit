@@ -19,14 +19,15 @@ import VideoStore from '../../../stores/VideoStore';
 import Separator from '../../../components/Separator'
 var deviceScreen = Dimensions.get('window');
 var I18n = require('react-native-i18n');
+import Theme from '../../theme';
 
 class TrendItem extends React.Component {
   render() {
     var avatarIcon;
-    if(this.props.avatarUrl){
+    if (this.props.avatarUrl) {
       avatarIcon = <Image style={styles.commentAvatar}
                           source={{uri: this.props.avatarUrl}}/>
-    }else{
+    } else {
       avatarIcon = <Image style={styles.commentAvatar} source={require('../../../images/default_head.png')}/>
     }
     return (
@@ -34,9 +35,9 @@ class TrendItem extends React.Component {
           <View style={styles.container}>
             <View style={{flexDirection:'row', alignItems: 'center'}}>
               {avatarIcon}
-              <Text>{this.props.nickname}</Text>
+              <Text style={Theme.subTitleFont}>{this.props.nickname}</Text>
             </View>
-            <Text style={{marginRight:10,fontSize:12,color:'gray'}}>{this.props.date}</Text>
+            <Text style={[{marginRight:10,fontSize:12,color:'gray'},Theme.descFont]}>{this.props.date}</Text>
           </View>
           <Separator />
         </View>

@@ -16,6 +16,7 @@ import Nav from '../../nav/CommonNav';
 var UserActionCreators = require('../../../actions/UserActionCreators');
 var UserStore = require('../../../stores/UserStore');
 var I18n = require('react-native-i18n');
+import Theme from '../../theme';
 
 var Login = React.createClass({
   mixins: [require('../../../mixins/backandroid')()],
@@ -44,7 +45,7 @@ var Login = React.createClass({
               navText={I18n.t('login')}
               {... this.props}
               />
-          <View style={styles.textLabel}><Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('please_input_phone_number')}</Text></View>
+          <View style={styles.textLabel}><Text style={[{color: '#8e8e8e',fontSize:16},Theme.descFont]}>{I18n.t('please_input_phone_number')}</Text></View>
           <View style={styles.textInputWrapper}>
             <Image source={require('../../../images/signin_phone.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
@@ -69,8 +70,8 @@ var Login = React.createClass({
             <Text style={styles.actionText}>{I18n.t('next')}</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('accept')}</Text>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('license')}</Text>
+            <Text style={[{fontSize:12,color:'#8c8c8c',marginTop:20},Theme.descFont]}>{I18n.t('accept')}</Text>
+            <Text style={[{fontSize:12,color:'#8c8c8c',marginTop:20},Theme.descFont]}>{I18n.t('license')}</Text>
           </View>
         </View>
     );

@@ -17,15 +17,15 @@ var I18n = require('react-native-i18n');
 var I18nVIew = require('../../I18nView');
 class StepModal extends React.Component {
   render() {
-    var stepName = I18nVIew.localeZh() ? this.props.step : 'Step ' + this.props.step;
+    var stepName = this.props.step;
     return (
         <View>
           <View style={{padding:30}}>
             <Image source={require('../../../images/popover_bg.png')} style={[styles.bg,Theme.centerChild]}>
-              <Text style={styles.nestedText}>{stepName}</Text>
+              <Text style={[styles.nestedText,Theme.subTitleFont]}>{stepName}</Text>
             </Image>
             <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
-              <Text style={[styles.title]}>{this.props.name}</Text>
+              <Text style={[styles.title,Theme.titleFont]}>{this.props.name}</Text>
             </View>
             <Button
                 style={{

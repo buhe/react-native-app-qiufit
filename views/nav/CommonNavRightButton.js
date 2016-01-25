@@ -21,9 +21,9 @@ export default class CommonNav extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={require('../../images/navigation_back.png')} style={styles.closeImage}/>
           </TouchableOpacity>
-          <Text style={styles.logoText}>{this.props.navText}</Text>
+          <Text style={[styles.logoText,Theme.title]}>{this.props.navText}</Text>
           <TouchableOpacity onPress={() => this.props.rightAction()}>
-            <Text style={styles.rightButton}>{this.props.rightText}</Text>
+            <Text style={[styles.rightButton,Theme.subTitleFont]}>{this.props.rightText}</Text>
           </TouchableOpacity>
         </View>
     )

@@ -6,15 +6,11 @@
 var React = require('react-native');
 var {
     StyleSheet,
-    Text,
     View,
-    ListView,
     TouchableHighlight,
     TouchableWithoutFeedback,
-    ScrollView,
     Image,
     AsyncStorage,
-    Alert,
     Dimensions
     } = React;
 var Router = require('../../views/router');

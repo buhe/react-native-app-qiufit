@@ -26,6 +26,7 @@ import moment_en from 'moment/locale/en-au';
 var I18n = require('react-native-i18n');
 var I18nView = require('../../I18nView');
 var FB = require('../../../fb');
+import Theme from '../../theme';
 
 var Result = React.createClass({
   mixins: [
@@ -39,7 +40,7 @@ var Result = React.createClass({
     var ref = React.findNodeHandle(this.refs.shareView);
     ViewSnapshotter.saveSnapshotToPath(React.findNodeHandle(ref), imagePath, (error, successfulWrite) => {
       if (successfulWrite) {
-        if(I18nView.isZh()){
+        if (I18nView.isZh()) {
           WeChat.shareImage({
             path: imagePath,
             tagName: I18n.t('ccpro'),
@@ -48,12 +49,13 @@ var Result = React.createClass({
             thumbPath: imagePath,
             scene: 1
           });
-        }else{
+        } else {
           FB.sendImage({
             path: imagePath,
             title: I18n.t('ccpro'),
             desc: I18n.t('ccpro'),
-          },function(){})
+          }, function () {
+          })
         }
 
       } else {
@@ -63,38 +65,41 @@ var Result = React.createClass({
   },
 
   render() {
-    if(I18nView.isZh()){
+    if (I18nView.isZh()) {
       moment.locale('zh-cn');
-    }else{
+    } else {
       moment.locale('en-au');
     }
     var m = moment();
     var month = moment.monthsShort(m.month());
     var day = m.day();
     return (
-        <View  ref='shareView'>
+        <View ref='shareView'>
           <View style={{alignItems:'center'}}>
             <Image source={require('../../../images/result.png')} style={styles.mainLogo}/>
             <View style={{borderWidth:5,marginTop:30,marginBottom:20,width:deviceScreen.width - 20}}>
-              <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',height:(deviceScreen.width - 20) / 4}}>
-                <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>{I18n.t('new_record')}</Text>
+              <View
+                  style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',height:(deviceScreen.width - 20) / 4}}>
+                <Text
+                    style={[{fontSize:60,fontWeight:'bold',color:'#1d1d1d'},Theme.titleFont]}>{I18n.t('new_record')}</Text>
                 <View
                     style={{backgroundColor:'black',alignItems:'center',justifyContent:'center',width:60,height:60}}>
-                  <Text style={{fontSize:16,color:'white',fontWeight:'bold'}}>{month}</Text>
-                  <Text style={{fontSize:28,color:'white',fontWeight:'bold'}}>{day}</Text>
+                  <Text style={[{fontSize:16,color:'white',fontWeight:'bold'},Theme.subTitleFont]}>{month}</Text>
+                  <Text style={[{fontSize:28,color:'white',fontWeight:'bold'},Theme.subTitleFont]}>{day}</Text>
                 </View>
               </View>
               <View
                   style={{backgroundColor:'black',paddingTop:10,paddingBottom:10,width:deviceScreen.width - 30,alignItems:'center'}}>
-                <Text style={{fontSize:30,color:'white',fontWeight:'bold'}}>{this.state.stepName}</Text>
+                <Text
+                    style={[{fontSize:30,color:'white',fontWeight:'bold'},Theme.titleFont]}>{this.state.stepName}</Text>
               </View>
               <View style={{flexDirection:'row'}}>
-                <View style={styles.column}><Text style={styles.row}>{I18n.t('level')}</Text><Text
-                    style={styles.cell}>{this.state.subStepName}</Text></View>
-                <View style={styles.column}><Text style={styles.row}>{I18n.t('action')}</Text><Text
-                    style={styles.cell}>{this.state.actionCount}</Text></View>
-                <View style={styles.column}><Text style={styles.row}>{I18n.t('group')}</Text><Text
-                    style={styles.cell}>{this.state.groupCount}</Text></View>
+                <View style={styles.column}><Text style={[styles.row,Theme.subTitleFont]}>{I18n.t('level')}</Text><Text
+                    style={[styles.cell,Theme.subTitleFont]}>{this.state.subStepName}</Text></View>
+                <View style={styles.column}><Text style={[styles.row,Theme.subTitleFont]}>{I18n.t('action')}</Text><Text
+                    style={[styles.cell,Theme.titleFont]}>{this.state.actionCount}</Text></View>
+                <View style={styles.column}><Text style={[styles.row,Theme.subTitleFont]}>{I18n.t('group')}</Text><Text
+                    style={[styles.cell,Theme.titleFont]}>{this.state.groupCount}</Text></View>
               </View>
             </View>
           </View>
@@ -134,11 +139,11 @@ var styles = StyleSheet.create({
   row: {
     fontSize: 16,
     margin: 10,
-    color:'#1d1d1d'
+    color: '#1d1d1d'
   },
   cell: {
-    fontSize:21,
-    color:'#1d1d1d'
+    fontSize: 21,
+    color: '#1d1d1d'
   }
 });
 

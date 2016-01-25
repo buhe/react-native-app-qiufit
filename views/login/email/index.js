@@ -98,7 +98,7 @@ var Login = React.createClass({
                                onAnimationEnd={this.hideAlert.bind(this)}
           >
         <Text
-            style={{color:'white',fontWeight:'bold'}}
+            style={[{color:'white',fontWeight:'bold'},Theme.descFont]}
             >{this.state.alertMsg}</Text>
       </Animatable.View>
     }
@@ -124,6 +124,8 @@ var Login = React.createClass({
                 onChangeText={this.changeUsername}
                 onSubmitEditing={this.nextField}
                 keyboardType={'email-address'}
+                autoFocus={true}
+                autoCorrect={false}
                 />
           </View>
           <View style={styles.textInputWrapper}>
@@ -136,6 +138,7 @@ var Login = React.createClass({
                 onChangeText={this.changePassword}
                 onSubmitEditing={this.nextField}
                 keyboardType={'default'}
+                autoCorrect={false}
                 />
           </View>
           <TouchableOpacity
@@ -147,7 +150,7 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>{I18n.t('email_login')}</Text>
+            <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('email_login')}</Text>
           </TouchableOpacity>
         </View>
     );

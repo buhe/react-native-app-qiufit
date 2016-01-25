@@ -18,7 +18,7 @@ import CoolDown from 'react-native-countdown';
 var I18n = require('react-native-i18n');
 var  UserActionCreators  = require('../../../../actions/UserActionCreators');
 var UserStore = require('../../../../stores/UserStore');
-
+import Theme from '../../../theme';
 var Login = React.createClass({
 
   mixins: [Reflux.connect(UserStore)],
@@ -58,7 +58,7 @@ var Login = React.createClass({
               {... this.props}
               />
           <View style={styles.textLabel}>
-            <Text style={{color: '#8e8e8e',fontSize:16}}>{I18n.t('send_verify')}</Text>
+            <Text style={[{color: '#8e8e8e',fontSize:16},Theme.subTitleFont]}>{I18n.t('send_verify')}</Text>
           </View>
           <View style={styles.textInputWrapper}>
             <Image source={require('../../../../images/signin_phone.png')}
@@ -85,10 +85,10 @@ var Login = React.createClass({
                         backgroundColor: 'black',
                         }}
               >
-            <Text style={styles.actionText}>{I18n.t('finish')}</Text>
+            <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('finish')}</Text>
           </TouchableHighlight>
           <View style={{alignItems: 'center'}}>
-            <Text style={{fontSize:12,color:'#8c8c8c',marginTop:20}}>{I18n.t('you_phone')}
+            <Text style={[{fontSize:12,color:'#8c8c8c',marginTop:20},Theme.descFont]}>{I18n.t('you_phone')}
               +86 {this.state.phone}</Text>
           </View>
         </View>

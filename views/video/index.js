@@ -48,14 +48,14 @@ class CommentItem extends React.Component {
     }
     return (
         <View>
-          <View style={styles.commentTitle}>
+          <View style={[styles.commentTitle,Theme.subTitleFont]}>
             <View style={{flexDirection:'row',alignItems: 'center'}}>
               {avatarIcon}
-              <Text style={{fontWeight:'bold',fontSize:18}}>{this.props.nickname}</Text>
+              <Text style={[{fontWeight:'bold',fontSize:18},Theme.descFont]}>{this.props.nickname}</Text>
             </View>
-            <Text style={{marginRight:10,fontSize:12,color:'gray'}}>{this.props.time}</Text>
+            <Text style={[{marginRight:10,fontSize:12,color:'gray'},Theme.descFont]}>{this.props.time}</Text>
           </View>
-          <Text style={{marginLeft:45,marginTop:25,marginBottom:20,fontSize:18}}>{this.props.commentContent}</Text>
+          <Text style={[{marginLeft:45,marginTop:25,marginBottom:20,fontSize:18},Theme.descFont]}>{this.props.commentContent}</Text>
           <View style={[styles.separator,{backgroundColor: '#CCCCCC',}]}/>
         </View>
     )
@@ -165,7 +165,7 @@ var VideoView = React.createClass({
                       scrollEventThrottle={10}
               >
             <View style={{alignItems: 'center',flex:1}}>
-              <Text style={styles.title_text}>{this.state.ref.typeText}</Text>
+              <Text style={[styles.title_text,Theme.title]}>{this.state.ref.typeText}</Text>
               <Picker
                   items={[I18n.t('primary'),I18n.t('intermediate'),I18n.t('advanced')]}
                   onChangeItem={(index,text)=>this.setState({subStepIndex:index,subStep:text})}
@@ -173,7 +173,7 @@ var VideoView = React.createClass({
               <View style={styles.turningAnalytics}>
                 <Image source={require('../../images/ico_x01.png')} style={styles.x02}/>
                 <Text
-                    style={styles.turningAnalyticsText}>{this.state.ref.subStep ? this.state.ref.subStep[this.state.subStepIndex] : ''}</Text>
+                    style={[styles.turningAnalyticsText,Theme.subTitleFont]}>{this.state.ref.subStep ? this.state.ref.subStep[this.state.subStepIndex] : ''}</Text>
                 <Image source={require('../../images/ico_x01.png')} style={styles.x02}/>
               </View>
             </View>
@@ -188,16 +188,16 @@ var VideoView = React.createClass({
                         height:60,
                         backgroundColor: 'black',},Theme.centerChild]}
                 >
-              <Text style={styles.actionText}>{I18n.t('complete')}</Text>
+              <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('complete')}</Text>
             </TouchableHighlight>
             <TouchableWithoutFeedback onPress={() => this.props.navigator.push(Router.getTrend())}
                 >
               <View style={[Theme.centerChild,{paddingBottom:20,paddingTop:20,}]}>
-                <Text style={styles.turingText}>{this.state.trendCount + I18n.t('finish_turning')}</Text>
+                <Text style={[styles.turingText,Theme.descFont]}>{this.state.trendCount + I18n.t('finish_turning')}</Text>
               </View>
             </TouchableWithoutFeedback>
             <View style={[styles.separator,{height: 2,}]}/>
-            <Text style={{marginLeft:10,marginTop:15}}>{this.state.comments.length + I18n.t('comments')}</Text>
+            <Text style={[{marginLeft:10,marginTop:15},Theme.descFont]}>{this.state.comments.length + I18n.t('comments')}</Text>
             {commentView}
           </ScrollView>
           <Animated.View
@@ -215,7 +215,7 @@ var VideoView = React.createClass({
                         height: 60
                         }]}
                 >
-              <Text style={styles.actionText}>{I18n.t('comment')}</Text>
+              <Text style={[styles.actionText,Theme.subTitleFont]}>{I18n.t('comment')}</Text>
             </TouchableHighlight>
           </Animated.View>
           <Modal

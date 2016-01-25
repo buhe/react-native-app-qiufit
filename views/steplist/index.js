@@ -13,6 +13,7 @@ var StepActionCreators = require('../../actions/StepActionCreators');
 import VideoActionCreators from '../../actions/VideoActionCreators';
 import I18nView from '../I18nView';
 var _ = require('lodash');
+var Theme = require('../theme');
 
 var {
     StyleSheet,
@@ -41,9 +42,9 @@ var StepItem = React.createClass({
         <View>
           <TouchableOpacity onPress={this.pushPaperById}>
             <View style={myStyles}>
-              <Text style={styles.itemTitle}>{this.props.text1}</Text>
-              <Text style={styles.itemDesc}>{this.props.text2}</Text>
-              <Text style={styles.itemDesc2}>{this.props.text3}</Text>
+              <Text style={[styles.itemTitle,Theme.titleFont]}>{this.props.text1}</Text>
+              <Text style={[styles.itemDesc,Theme.subTitleFont]}>{this.props.text2}</Text>
+              <Text style={[styles.itemDesc2,Theme.subTitleFont]}>{this.props.text3}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -103,12 +104,12 @@ var StepsView = React.createClass({
             <TouchableOpacity onPress={this.pop}>
               <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
             </TouchableOpacity>
-            <Text style={{
+            <Text style={[{
                           fontSize: 30,
                           marginRight: (deviceScreen.width - 30 * this.state.stepName.length * I18nView.getI18nFontRadio() ) / 2,
                           fontWeight: 'bold',
                           color: '#1d1d1d'
-                        }}>{this.state.stepName}</Text>
+                        },Theme.titleFont]}>{this.state.stepName}</Text>
           </View>
           <ListView
               dataSource={this.state.dataSource.cloneWithRows(this.state.steps)}

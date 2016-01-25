@@ -9,6 +9,7 @@ import React, {
     TouchableWithoutFeedback,
     ScrollView,
 } from 'react-native';
+import Theme from '../theme';
 
 export default class Picker extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ export default class Picker extends React.Component {
           <TouchableWithoutFeedback onPress={this.prev.bind(this)}>
             <Image source={require('../../images/btn_arrow_left01.png')} style={styles.buttonIcon}/>
           </TouchableWithoutFeedback>
-          <Text style={styles.month_text}>{this.state.item}</Text>
+          <Text style={[styles.month_text,Theme.subTitleFont]}>{this.state.item}</Text>
           <TouchableWithoutFeedback onPress={this.next.bind(this)}>
             <Image source={require('../../images/btn_arrow_right01.png')} style={styles.buttonIcon}/>
           </TouchableWithoutFeedback>

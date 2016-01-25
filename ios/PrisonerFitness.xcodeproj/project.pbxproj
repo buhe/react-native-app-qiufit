@@ -156,6 +156,12 @@
 		787FD4B01C51D927000688B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		787FD4B11C51D927000688B6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B25AA61C044A3500A6A92F /* Info.plist */; };
 		787FD4B21C51D927000688B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
+		787FD50C1C560AEA000688B6 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD5091C560ADB000688B6 /* Roboto-Light.ttf */; };
+		787FD50D1C560AEA000688B6 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD50A1C560ADB000688B6 /* RobotoCondensed-Bold.ttf */; };
+		787FD50E1C560AEA000688B6 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD50B1C560ADB000688B6 /* RobotoCondensed-Regular.ttf */; };
+		787FD50F1C560AF3000688B6 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD5091C560ADB000688B6 /* Roboto-Light.ttf */; };
+		787FD5101C560AF3000688B6 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD50A1C560ADB000688B6 /* RobotoCondensed-Bold.ttf */; };
+		787FD5111C560AF3000688B6 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD50B1C560ADB000688B6 /* RobotoCondensed-Regular.ttf */; };
 		78B25AEA1C044A3500A6A92F /* ChartAnimationEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A401C044A3500A6A92F /* ChartAnimationEasing.swift */; };
 		78B25AEB1C044A3500A6A92F /* ChartAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A411C044A3500A6A92F /* ChartAnimator.swift */; };
 		78B25AEC1C044A3500A6A92F /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A431C044A3500A6A92F /* BarChartView.swift */; };
@@ -432,6 +438,9 @@
 		784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RCTConvert+RadarChartView.m"; path = "RNChat/RCTConvert+RadarChartView.m"; sourceTree = "<group>"; };
 		787FD4B71C51D927000688B6 /* PrisonerFitnessEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrisonerFitnessEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		787FD4B81C51D927000688B6 /* PrisonerFitness copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PrisonerFitness copy-Info.plist"; path = "/Users/guguyanhua/front_workspace/PrisonerFitness/ios/PrisonerFitness copy-Info.plist"; sourceTree = "<absolute>"; };
+		787FD5091C560ADB000688B6 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Resources/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		787FD50A1C560ADB000688B6 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "Resources/RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		787FD50B1C560ADB000688B6 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Regular.ttf"; path = "Resources/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		78B25A401C044A3500A6A92F /* ChartAnimationEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartAnimationEasing.swift; sourceTree = "<group>"; };
 		78B25A411C044A3500A6A92F /* ChartAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartAnimator.swift; sourceTree = "<group>"; };
 		78B25A431C044A3500A6A92F /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
@@ -742,6 +751,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		787FD4ED1C560A79000688B6 /* Reources */ = {
+			isa = PBXGroup;
+			children = (
+				787FD5091C560ADB000688B6 /* Roboto-Light.ttf */,
+				787FD50A1C560ADB000688B6 /* RobotoCondensed-Bold.ttf */,
+				787FD50B1C560ADB000688B6 /* RobotoCondensed-Regular.ttf */,
+			);
+			name = Reources;
+			sourceTree = "<group>";
+		};
 		78B259D41C044A3500A6A92F /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,6 +1042,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				787FD4ED1C560A79000688B6 /* Reources */,
 				782D52B71C4796600034A0F8 /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* PrisonerFitness */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -1350,6 +1370,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787FD50F1C560AF3000688B6 /* Roboto-Light.ttf in Resources */,
+				787FD5101C560AF3000688B6 /* RobotoCondensed-Bold.ttf in Resources */,
+				787FD5111C560AF3000688B6 /* RobotoCondensed-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				78B25B451C044A3500A6A92F /* Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -1360,6 +1383,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787FD50C1C560AEA000688B6 /* Roboto-Light.ttf in Resources */,
+				787FD50D1C560AEA000688B6 /* RobotoCondensed-Bold.ttf in Resources */,
+				787FD50E1C560AEA000688B6 /* RobotoCondensed-Regular.ttf in Resources */,
 				787FD4B01C51D927000688B6 /* Images.xcassets in Resources */,
 				787FD4B11C51D927000688B6 /* Info.plist in Resources */,
 				787FD4B21C51D927000688B6 /* LaunchScreen.xib in Resources */,

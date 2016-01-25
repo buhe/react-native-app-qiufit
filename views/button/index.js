@@ -20,10 +20,10 @@ export default class Button extends React.Component {
                         height:60,
                         backgroundColor: 'black',},Theme.centerChild,this.props.style]}
             >
-          <Text style={{
+          <Text style={[{
           fontSize: 20,
           color: 'white'
-          }}>{this.props.text}</Text>
+          },Theme.subTitleFont]}>{this.props.text}</Text>
         </TouchableHighlight>
     );
   }

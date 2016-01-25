@@ -21,12 +21,12 @@ export default class CommonNav extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={require('../../images/navigation_back.png')} style={styles.closeImage}/>
           </TouchableOpacity>
-          <Text style={{
+          <Text style={[{
                     marginRight: (deviceScreen.width - 21 * this.props.navText.length  * I18nView.getI18nFontRadio() ) / 2,
                     fontWeight: 'bold',
                     color: 'white',
                     fontSize: 21
-                  }}>{this.props.navText}</Text>
+                  },Theme.title]}>{this.props.navText}</Text>
         </View>
     )
   }
