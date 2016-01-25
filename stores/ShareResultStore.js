@@ -33,10 +33,10 @@ var CommentStore = Reflux.createStore({
   },
 
   getInitialState: function () {
-    this.stepName = this.stepName || '';
-    this.subStepName = this.subStepName || '';
-    this.groupCount = this.groupCount || '';
-    this.actionCount = this.actionCount || '';
+    this.stepName = this.stepName || '8 Half One-Arm Handstand Pushups';
+    this.subStepName = this.subStepName || 'Intermediate';
+    this.groupCount = this.groupCount || '1';
+    this.actionCount = this.actionCount || '6 (each side)';
     return {
       stepName: this.stepName,
       subStepName: this.subStepName,

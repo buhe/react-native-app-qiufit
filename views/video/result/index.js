@@ -72,23 +72,20 @@ var Result = React.createClass({
     var month = moment.monthsShort(m.month());
     var day = m.day();
     return (
-        <View>
-          <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-            <Image source={require('../../../images/btn_close.png')} style={styles.closeImage}/>
-          </TouchableOpacity>
-          <View style={{alignItems:'center'}} ref='shareView'>
+        <View  ref='shareView'>
+          <View style={{alignItems:'center'}}>
             <Image source={require('../../../images/result.png')} style={styles.mainLogo}/>
-            <View style={{borderWidth:5,marginTop:30,marginBottom:20}}>
-              <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+            <View style={{borderWidth:5,marginTop:30,marginBottom:20,width:deviceScreen.width - 20}}>
+              <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',height:(deviceScreen.width - 20) / 4}}>
                 <Text style={{fontSize:60,fontWeight:'bold',color:'#1d1d1d'}}>{I18n.t('new_record')}</Text>
                 <View
-                    style={{backgroundColor:'black',alignItems:'center',justifyContent:'center',width:60,height:60,marginLeft:10}}>
+                    style={{backgroundColor:'black',alignItems:'center',justifyContent:'center',width:60,height:60}}>
                   <Text style={{fontSize:16,color:'white',fontWeight:'bold'}}>{month}</Text>
                   <Text style={{fontSize:28,color:'white',fontWeight:'bold'}}>{day}</Text>
                 </View>
               </View>
               <View
-                  style={{backgroundColor:'black',margin:0,paddingTop:10,paddingBottom:10,width:270,alignItems:'center'}}>
+                  style={{backgroundColor:'black',paddingTop:10,paddingBottom:10,width:deviceScreen.width - 30,alignItems:'center'}}>
                 <Text style={{fontSize:30,color:'white',fontWeight:'bold'}}>{this.state.stepName}</Text>
               </View>
               <View style={{flexDirection:'row'}}>
@@ -101,6 +98,9 @@ var Result = React.createClass({
               </View>
             </View>
           </View>
+          <TouchableOpacity onPress={() => this.props.navigator.pop()} style={styles.closeImage}>
+            <Image source={require('../../../images/btn_close.png')}/>
+          </TouchableOpacity>
           <Button
               style={{
                marginLeft:40,
@@ -116,11 +116,9 @@ var Result = React.createClass({
 
 var styles = StyleSheet.create({
   closeImage: {
-    //position: 'absolute', //有的就可以,有的就显示不出来
+    position: 'absolute', //有的就可以,有的就显示不出来
     left: 0,
     top: 0,
-    width: 64,
-    height: 64,
   },
   mainLogo: {
     marginTop: 20,
@@ -128,7 +126,10 @@ var styles = StyleSheet.create({
     height: 150,
   },
   column: {
-    width: 90, alignItems: 'center', justifyContent: 'center', padding: 2
+    width: (deviceScreen.width - 30) / 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 2
   },
   row: {
     fontSize: 16,
