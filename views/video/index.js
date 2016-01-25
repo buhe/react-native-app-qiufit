@@ -40,10 +40,10 @@ let videoHeight = deviceScreen.width / 1.73;
 class CommentItem extends React.Component {
   render() {
     var avatarIcon;
-    if(this.props.avatarUrl){
+    if (this.props.avatarUrl) {
       avatarIcon = <Image style={styles.commentAvatar}
-             source={{uri: this.props.avatarUrl}}/>
-    }else{
+                          source={{uri: this.props.avatarUrl}}/>
+    } else {
       avatarIcon = <Image style={styles.commentAvatar} source={require('../../images/default_head.png')}/>
     }
     return (
@@ -55,7 +55,8 @@ class CommentItem extends React.Component {
             </View>
             <Text style={[{marginRight:10,fontSize:12,color:'gray'},Theme.descFont]}>{this.props.time}</Text>
           </View>
-          <Text style={[{marginLeft:45,marginTop:25,marginBottom:20,fontSize:18},Theme.descFont]}>{this.props.commentContent}</Text>
+          <Text
+              style={[{marginLeft:45,marginTop:25,marginBottom:20,fontSize:18},Theme.descFont]}>{this.props.commentContent}</Text>
           <View style={[styles.separator,{backgroundColor: '#CCCCCC',}]}/>
         </View>
     )
@@ -74,7 +75,7 @@ var VideoView = React.createClass({
     ShareAction.setShareResult(this.state.ref.typeText, this.state.subStep, this.state.ref.subStep[this.state.subStepIndex]);
     VideoActionCreators.finishTurning(this.state.subStep);
     this.props.navigator.push(Router.getResult());
-    this.setState({videoFinish:true});//stop video
+    this.setState({videoFinish: true});//stop video
   },
   closeModal(){
     this.refs.modal.close();
@@ -85,7 +86,7 @@ var VideoView = React.createClass({
   ,
   getInitialState: function () {
     return {
-      videoFinish:false,
+      videoFinish: false,
       showSendComment: false,
       subStep: I18n.t('primary'),
       subStepIndex: 0,//2 * 50 这种..
@@ -105,13 +106,13 @@ var VideoView = React.createClass({
   showCommentButton(){
     Animated.timing(          // Uses easing functions
         this.state.commentButtonTop,    // The value to drive
-        {toValue: deviceScreen.height - 60 - osUtils.getStatusHeight(),duration:100}
+        {toValue: deviceScreen.height - 60 - osUtils.getStatusHeight(), duration: 100}
     ).start();
   },
   hideCommentButton(){
     Animated.timing(          // Uses easing functions
         this.state.commentButtonTop,    // The value to drive
-        {toValue: deviceScreen.height,duration:100}           // Configuration
+        {toValue: deviceScreen.height, duration: 100}           // Configuration
     ).start();
   },
   switchCommentButton(){
@@ -121,10 +122,10 @@ var VideoView = React.createClass({
   },
   _onScroll(event){
     var y = event.nativeEvent.contentOffset.y;
-    if(y < offsetY){
+    if (y < offsetY) {
       this.hideCommentButton();
       offsetY = y;
-    }else{
+    } else {
       this.showCommentButton();
       offsetY = y;
     }
@@ -193,11 +194,13 @@ var VideoView = React.createClass({
             <TouchableWithoutFeedback onPress={() => this.props.navigator.push(Router.getTrend())}
                 >
               <View style={[Theme.centerChild,{paddingBottom:20,paddingTop:20,}]}>
-                <Text style={[styles.turingText,Theme.descFont]}>{this.state.trendCount + I18n.t('finish_turning')}</Text>
+                <Text
+                    style={[styles.turingText,Theme.descFont]}>{this.state.trendCount + I18n.t('finish_turning')}</Text>
               </View>
             </TouchableWithoutFeedback>
             <View style={[styles.separator,{height: 2,}]}/>
-            <Text style={[{marginLeft:10,marginTop:15},Theme.descFont]}>{this.state.comments.length + I18n.t('comments')}</Text>
+            <Text
+                style={[{marginLeft:10,marginTop:15},Theme.descFont]}>{this.state.comments.length + I18n.t('comments')}</Text>
             {commentView}
           </ScrollView>
           <Animated.View
@@ -267,6 +270,7 @@ var styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginTop: 20,
+    textAlign: 'center'
   },
   commentTitle: {
     justifyContent: 'space-between',
@@ -296,7 +300,7 @@ var styles = StyleSheet.create({
   },
   turingText: {},
   main: {
-    height: deviceScreen.height - videoHeight ,
+    height: deviceScreen.height - videoHeight,
   },
   commentAvatar: {
     height: 25,
