@@ -115,7 +115,7 @@ var Login = React.createClass({
             <Spinner visible={this.state.visible}/>
           </View>
           <View style={[styles.textInputWrapper,this.state.errorStyle]}>
-            <Image source={require('../../../images/signin_phone.png')}
+            <Image source={require('../../../images/signin_mail.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
@@ -129,7 +129,7 @@ var Login = React.createClass({
                 />
           </View>
           <View style={styles.textInputWrapper}>
-            <Image source={require('../../../images/signin_phone.png')}
+            <Image source={require('../../../images/signin_pwd.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}

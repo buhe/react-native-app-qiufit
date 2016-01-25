@@ -18,6 +18,7 @@ import Promation from '../../promation';
 var I18n = require('react-native-i18n');
 var FB = require('../../fb');
 var I18nView = require('../I18nView');
+var ImageHolder = require('../../images/en');
 
 var {
     AppRegistry,
@@ -151,7 +152,7 @@ var ProfileView = React.createClass({
               <Image source={require('../../images/navigation_back.png')} style={styles.profileImage}/>
             </TouchableOpacity>
             <View style={styles.logo}>
-              <Image source={require('../../images/start_02.png')} style={styles.icon}/>
+              <Image source={ImageHolder.start_02} style={styles.icon}/>
             </View>
             <TouchableOpacity onPress={this.share} style={styles.shareWrapper}>
               <Image source={require('../../images/navifation_share.png')} style={styles.profileImage}/>
@@ -185,7 +186,7 @@ var ProfileView = React.createClass({
                   />
             </View>
             <View style={styles.bottomView}>
-              <Image source={require('../../images/me_logo.png')} style={styles.bottomIcon}/>
+              <Image source={ImageHolder.me_logo} style={styles.bottomIcon}/>
               <Text style={[styles.content,styles.bottomText,Theme.descFont]}>{I18n.t('ccpro')} Design With ♥ By cheng zhen</Text>
               <Text style={[styles.content,styles.bottomText,Theme.descFont]}>{I18n.t('ccpro')} Code With ♥ By bu he</Text>
               <Text style={[styles.content,styles.bottomText,styles.lastText,Theme.descFont]}>{I18nView.version()}</Text>

@@ -27,6 +27,7 @@ var I18n = require('react-native-i18n');
 var I18nView = require('../../I18nView');
 var FB = require('../../../fb');
 import Theme from '../../theme';
+var ImageHolder = require('../../../images/en');
 
 var Result = React.createClass({
   mixins: [
@@ -76,7 +77,7 @@ var Result = React.createClass({
     return (
         <View ref='shareView'>
           <View style={{alignItems:'center'}}>
-            <Image source={require('../../../images/result.png')} style={styles.mainLogo}/>
+            <Image source={ImageHolder.result_logo} style={styles.mainLogo}/>
             <View style={{borderWidth:5,marginTop:30,marginBottom:20,width:deviceScreen.width - 20}}>
               <View
                   style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',height:(deviceScreen.width - 20) / 4}}>

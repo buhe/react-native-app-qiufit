@@ -64,6 +64,10 @@ var Holder = {
   f8: require('./f8.jpg'),
   f9: require('./f9.jpg'),
   f10: require('./f10.jpg'),
+  me_logo:require('./me_logo.png'),
+  result_logo:require('./result_logo.png'),
+  signin_logo:require('./signin_logo.png'),
+  start_02:require('./start_02.png'),
 }
 
 module.exports = Holder;

@@ -121,7 +121,7 @@ var Login = React.createClass({
           <View style={styles.textLabel}><Text
               style={[{color: '#8e8e8e',fontSize:16},Theme.descFont]}>{I18n.t('please_input_email')}</Text></View>
           <View style={[styles.textInputWrapper,this.state.errorStyle]}>
-            <Image source={require('../../../../images/signin_phone.png')}
+            <Image source={require('../../../../images/signin_mail.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
@@ -135,7 +135,7 @@ var Login = React.createClass({
                 />
           </View>
           <View style={styles.textInputWrapper}>
-            <Image source={require('../../../../images/signin_phone.png')}
+            <Image source={require('../../../../images/signin_pwd.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}
@@ -148,7 +148,7 @@ var Login = React.createClass({
                 />
           </View>
           <View style={styles.textInputWrapper}>
-            <Image source={require('../../../../images/signin_phone.png')}
+            <Image source={require('../../../../images/signin_nikname.png')}
                    style={{height:30,width:30,marginLeft:10,marginTop:15,marginBottom:15,marginRight:20}}/>
             <TextInput
                 style={styles.textInput}

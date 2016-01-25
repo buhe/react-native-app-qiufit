@@ -10,7 +10,7 @@ var ProfileStore = require('../../stores/ProfileStore');
 var StepStore = require('../../stores/StepStore');
 import Promation from '../../promation';
 import Theme from '../theme';
-
+var ImageHolder = require('../../images/en');
 
 var {
     AppRegistry,
@@ -135,7 +135,7 @@ var TypesView = React.createClass({
               <Image source={require('../../images/navigation_me.png')} style={styles.profileImage}/>
             </TouchableOpacity>
             <View style={styles.logo}>
-              <Image source={require('../../images/start_02.png')} style={styles.icon}/>
+              <Image source={ImageHolder.start_02} style={styles.icon}/>
             </View>
             <TouchableOpacity onPress={()=> Promation.review()}>
               <Image source={require('../../images/navigation_like.png')}  style={styles.likeImage}/>

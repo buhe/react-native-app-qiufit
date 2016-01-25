@@ -20,6 +20,8 @@ var FB = require('../../fb');
 import UserActionCreators from '../../actions/UserActionCreators';
 import UserStore from '../../stores/UserStore';
 import Theme from '../theme';
+var ImageHolder = require('../../images/en');
+
 var Welcome = React.createClass({
 
   componentWillMount(){
@@ -105,7 +107,7 @@ var Welcome = React.createClass({
               <Text style={styles.text}>{I18n.t('skip')}</Text>
             </TouchableOpacity>
           </View>
-          <Image source={require('../../images/signin_logo.png')} style={{
+          <Image source={ImageHolder.signin_logo} style={{
             marginLeft: (deviceScreen.width - 150) / 2,
             height:150,
             width:150,
