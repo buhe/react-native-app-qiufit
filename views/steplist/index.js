@@ -12,7 +12,7 @@ var API = require('../../api');
 var StepActionCreators = require('../../actions/StepActionCreators');
 import VideoActionCreators from '../../actions/VideoActionCreators';
 import I18nView from '../I18nView';
-//var _ = require('lodash');
+var _ = require('lodash');
 
 var {
     StyleSheet,
@@ -96,6 +96,7 @@ var StepsView = React.createClass({
     var modalText = this.state.text1.split(" ");
     var step = modalText[0];
     var name = this.state.text1.replace(step + ' ','');
+    var lines = _.ceil(name.length / 17);
     return (
         <View>
           <View style={styles.nav}>
@@ -118,7 +119,10 @@ var StepsView = React.createClass({
               ref={'modal'}
               duration={10}
               tween={'linear'}
-              modalStyle={styles.modalStyle}
+              modalStyle={[styles.modalStyle,{
+                height: 280 + lines * 50,
+                marginTop: (deviceScreen.height - (280 + lines * 50)) / 2,
+              }]}
               hideStatusBar={false}
               closeOnTouch={true}
               >
@@ -159,12 +163,11 @@ var styles = StyleSheet.create({
     //justifyContent: 'center',
     backgroundColor: 'black',
     alignItems: 'center',
-    height: 150,
+    //height: 150,
     marginTop: 10,
     marginLeft: 35,
     marginRight: 35,
-    paddingTop: 15,
-    paddingBottom: 15,
+    padding:15,
   },
   selected: {
     backgroundColor: 'gray'
@@ -172,17 +175,20 @@ var styles = StyleSheet.create({
   itemTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
+    textAlign:'center'
   },
   itemDesc: {
     marginTop: 20,
     fontSize: 20,
-    color: 'white'
+    color: 'white',
+    textAlign:'center'
   },
   itemDesc2: {
     marginTop: 10,
     fontSize: 20,
-    color: 'white'
+    color: 'white',
+    textAlign:'center'
   },
   nav: {
     flexDirection: 'row',
@@ -196,9 +202,9 @@ var styles = StyleSheet.create({
     backgroundColor: '#CCCCCC',
   },
   modalStyle: {
-    height: 330,
+    //height: 330,
     width: 315,
-    marginTop: (deviceScreen.height - 330) / 2,
+    //marginTop: (deviceScreen.height - 330) / 2,
     marginLeft: (deviceScreen.width - 315 - 40) / 2,
   },
   closeImage: {

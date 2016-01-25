@@ -51,12 +51,14 @@ var styles = StyleSheet.create({
     top: -10,
     backgroundColor: 'transparent',
     color: 'white',
-    fontSize: 24
+    fontSize: 24,
+    textAlign:'center'
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#1d1d1d'
+    color: '#1d1d1d',
+    textAlign:'center'
   },
   actionText: {
     fontSize: 20,
