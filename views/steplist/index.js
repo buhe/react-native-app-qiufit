@@ -96,7 +96,7 @@ var StepsView = React.createClass({
     var modalText = this.state.text1.split(" ");
     var step = modalText[0];
     var name = this.state.text1.replace(step + ' ','');
-    var lines = _.ceil(name.length / 17);
+    var lines = _.ceil(name.length / 16);
     return (
         <View>
           <View style={styles.nav}>
