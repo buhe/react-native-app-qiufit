@@ -629,6 +629,7 @@ const stepsMap = {
         t('_30s'),
         t('_1m'),
       ],
+      videoUrl: "",
       infoImage: ImageHolder.f2
     },
     {
