@@ -7,7 +7,7 @@ import React, {
 } from 'react-native';
 var deviceScreen = Dimensions.get('window');
 var I18nView = require('../I18nView');
-var titleFont = {};
+var titleFont = {fontWeight:'bold'};
 var subTitleFont = {};
 var descFont = {};
 if (!I18nView.localeZh()) {

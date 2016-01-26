@@ -38,8 +38,8 @@ class VideoModal extends React.Component {
               {icon}
             </View>
             <View style={[Theme.centerChild,{marginTop: 40,marginBottom:40}]}>
-              <Text style={[styles.nestedText,Theme.subTitleFont]}>{this.props.stepName}</Text>
-              <Text style={[styles.title,Theme.title]}>{this.props.subStep}</Text>
+              <Text style={[styles.nestedText,Theme.titleFont]}>{this.props.stepName}</Text>
+              <Text style={[styles.title,Theme.titleFont]}>{this.props.subStep}</Text>
             </View>
             <Button
                 style={{
@@ -63,7 +63,7 @@ var styles = StyleSheet.create({
   },
   nestedText: {
     top: -10,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     fontSize: 24
   },
   title: {

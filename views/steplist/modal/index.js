@@ -56,7 +56,7 @@ var styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     color: '#1d1d1d',
     textAlign:'center'
   },

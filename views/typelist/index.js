@@ -10,7 +10,13 @@ var ProfileStore = require('../../stores/ProfileStore');
 var StepStore = require('../../stores/StepStore');
 import Promation from '../../promation';
 import Theme from '../theme';
-var ImageHolder = require('../../images/en');
+var I18nView = require('../I18nView');
+var ImageHolder;
+if(I18nView.localeZh()){
+  ImageHolder = require('../../images/zh');
+}else{
+  ImageHolder = require('../../images/en');
+}
 
 var {
     AppRegistry,
@@ -209,12 +215,12 @@ var styles = StyleSheet.create({
   itemText: {
     paddingLeft: 10,
     fontSize: 24,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     color: '#1d1d1d'
   },
   itemProcessText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     marginRight: 10,
     color: '#1d1d1d'
   },

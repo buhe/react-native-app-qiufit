@@ -136,13 +136,13 @@ var Month = React.createClass({
         if (value && value.length > 0) {
           textView =
               <Text
-                  style={[styles.month_text,Theme.subTitleFont]}>
+                  style={[styles.month_text,Theme.titleFont]}>
                 {newDate.getFullYear() + I18n.t('year')
                 + (newDate.getMonth() + 1) + I18n.t('month')  }({value.length + I18n.t('times')})
               </Text>
         } else {
           textView = <Text
-              style={[styles.month_text,Theme.subTitleFont]}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
+              style={[styles.month_text,Theme.titleFont]}>{newDate.getFullYear() + I18n.t('year') + (newDate.getMonth() + 1) + I18n.t('month')  }</Text>
         }
         return (
             <View>
@@ -254,7 +254,7 @@ var styles = StyleSheet.create({
   },
   month_text: {
     fontSize: 18,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     color: 'white'
   },
   border_1: {

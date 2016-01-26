@@ -175,7 +175,7 @@ var styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     color: 'white',
     textAlign:'center'
   },

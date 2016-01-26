@@ -49,7 +49,7 @@ export default class Picker extends React.Component {
           <TouchableWithoutFeedback onPress={this.prev.bind(this)}>
             <Image source={require('../../images/btn_arrow_left01.png')} style={styles.buttonIcon}/>
           </TouchableWithoutFeedback>
-          <Text style={[styles.month_text,Theme.subTitleFont]}>{this.state.item}</Text>
+          <Text style={[styles.month_text,Theme.titleFont]}>{this.state.item}</Text>
           <TouchableWithoutFeedback onPress={this.next.bind(this)}>
             <Image source={require('../../images/btn_arrow_right01.png')} style={styles.buttonIcon}/>
           </TouchableWithoutFeedback>

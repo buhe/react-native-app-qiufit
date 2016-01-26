@@ -24,11 +24,15 @@ import moment from 'moment';
 import moment_cn from 'moment/locale/zh-cn';
 import moment_en from 'moment/locale/en-au';
 var I18n = require('react-native-i18n');
-var I18nView = require('../../I18nView');
 var FB = require('../../../fb');
 import Theme from '../../theme';
-var ImageHolder = require('../../../images/en');
-
+var I18nView = require('../../I18nView');
+var ImageHolder;
+if(I18nView.localeZh()){
+  ImageHolder = require('../../../images/zh');
+}else{
+  ImageHolder = require('../../../images/en');
+}
 var Result = React.createClass({
   mixins: [
     Reflux.connect(ShareResultStore)
@@ -82,17 +86,17 @@ var Result = React.createClass({
               <View
                   style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',height:(deviceScreen.width - 20) / 4}}>
                 <Text
-                    style={[{fontSize:60,fontWeight:'bold',color:'#1d1d1d'},Theme.titleFont]}>{I18n.t('new_record')}</Text>
+                    style={[{fontSize:60,color:'#1d1d1d'},Theme.titleFont]}>{I18n.t('new_record')}</Text>
                 <View
                     style={{backgroundColor:'black',alignItems:'center',justifyContent:'center',width:60,height:60}}>
-                  <Text style={[{fontSize:16,color:'white',fontWeight:'bold'},Theme.subTitleFont]}>{month}</Text>
-                  <Text style={[{fontSize:28,color:'white',fontWeight:'bold'},Theme.subTitleFont]}>{day}</Text>
+                  <Text style={[{fontSize:16,color:'white'},Theme.subTitleFont]}>{month}</Text>
+                  <Text style={[{fontSize:28,color:'white'},Theme.subTitleFont]}>{day}</Text>
                 </View>
               </View>
               <View
                   style={{backgroundColor:'black',paddingTop:10,paddingBottom:10,width:deviceScreen.width - 30,alignItems:'center'}}>
                 <Text
-                    style={[{fontSize:30,color:'white',fontWeight:'bold'},Theme.titleFont]}>{this.state.stepName}</Text>
+                    style={[{fontSize:30,color:'white'},Theme.titleFont]}>{this.state.stepName}</Text>
               </View>
               <View style={{flexDirection:'row'}}>
                 <View style={styles.column}><Text style={[styles.row,Theme.subTitleFont]}>{I18n.t('level')}</Text><Text

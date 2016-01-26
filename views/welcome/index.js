@@ -14,14 +14,18 @@ var deviceScreen = Dimensions.get('window');
 var Router = require('../router');
 var WeChat = require('../../wechat').default;
 var SDK = require('../../wechat/SDK');
-import I18nView from '../I18nView';
 var I18n = require('react-native-i18n');
 var FB = require('../../fb');
 import UserActionCreators from '../../actions/UserActionCreators';
 import UserStore from '../../stores/UserStore';
 import Theme from '../theme';
-var ImageHolder = require('../../images/en');
-
+var I18nView = require('../I18nView');
+var ImageHolder;
+if(I18nView.localeZh()){
+  ImageHolder = require('../../images/zh');
+}else{
+  ImageHolder = require('../../images/en');
+}
 var Welcome = React.createClass({
 
   componentWillMount(){

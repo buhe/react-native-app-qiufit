@@ -18,7 +18,12 @@ import Promation from '../../promation';
 var I18n = require('react-native-i18n');
 var FB = require('../../fb');
 var I18nView = require('../I18nView');
-var ImageHolder = require('../../images/en');
+var ImageHolder;
+if(I18nView.localeZh()){
+  ImageHolder = require('../../images/zh');
+}else{
+  ImageHolder = require('../../images/en');
+}
 
 var {
     AppRegistry,
