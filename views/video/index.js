@@ -166,7 +166,7 @@ var VideoView = React.createClass({
                       scrollEventThrottle={10}
               >
             <View style={{alignItems: 'center',flex:1}}>
-              <Text style={[styles.title_text,Theme.title]}>{this.state.ref.typeText}</Text>
+              <Text style={[styles.title_text,Theme.titleFont]}>{this.state.ref.typeText}</Text>
               <Picker
                   items={[I18n.t('primary'),I18n.t('intermediate'),I18n.t('advanced')]}
                   onChangeItem={(index,text)=>this.setState({subStepIndex:index,subStep:text})}
@@ -268,8 +268,9 @@ var styles = StyleSheet.create({
   },
   title_text: {
     fontSize: 25,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     marginTop: 20,
+    color:'#1d1d1d',
     textAlign: 'center'
   },
   commentTitle: {
@@ -292,7 +293,8 @@ var styles = StyleSheet.create({
   },
   turningAnalyticsText: {
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    color:'#1d1d1d'
   },
   actionText: {
     fontSize: 20,

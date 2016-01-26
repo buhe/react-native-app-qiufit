@@ -23,10 +23,10 @@ export default class CommonNav extends React.Component {
           </TouchableOpacity>
           <Text style={[{
                     marginRight: (deviceScreen.width - 21 * this.props.navText.length  * I18nView.getI18nFontRadio() ) / 2,
-                    fontWeight: 'bold',
+                    //fontWeight: 'bold',
                     color: 'white',
                     fontSize: 21
-                  },Theme.title]}>{this.props.navText}</Text>
+                  },Theme.titleFont]}>{this.props.navText}</Text>
         </View>
     )
   }

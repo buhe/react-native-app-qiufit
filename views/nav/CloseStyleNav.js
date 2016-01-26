@@ -17,7 +17,7 @@ export default class CloseStyleNav extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
             <Image source={require('../../images/btn_close.png')} style={styles.closeImage}/>
           </TouchableOpacity>
-          <Text style={[styles.logoText,Theme.title]}>{this.props.navText}</Text>
+          <Text style={[styles.logoText,Theme.titleFont]}>{this.props.navText}</Text>
         </View>
     )
   }
@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
   },
   logoText: {
     marginTop: 20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     color: 'black'
   },
   closeImage: {

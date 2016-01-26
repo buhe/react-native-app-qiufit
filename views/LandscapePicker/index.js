@@ -69,7 +69,8 @@ var styles = StyleSheet.create({
   },
   month_text: {
     fontSize: 18,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
+    color:'#1d1d1d',
   },
   buttonIcon: {
     width: 32,
