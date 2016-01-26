@@ -7,7 +7,13 @@ const VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
 const INFO_IMAGE_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
 var I18n = require('react-native-i18n');
 var I18nView = require('../views/I18nView');
-var ImageHolder = require('../images/en');
+var ImageHolder;
+if(I18nView.localeZh()){
+  ImageHolder = require('../images/zh');
+}else{
+  ImageHolder = require('../images/en');
+}
+
 function t(key) {
   return I18n.t(key);
 }
