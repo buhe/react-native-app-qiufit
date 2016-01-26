@@ -34,6 +34,11 @@ var Welcome = React.createClass({
     });
   },
 
+  skip(){
+    UserActionCreators.skip();
+    this.props.navigator.push(Router.getTypeList())
+  },
+
   wechatLogin() {
     let scope = 'snsapi_userinfo';
     let state = 'wechat_sdk_test';
@@ -110,7 +115,7 @@ var Welcome = React.createClass({
         }}>
           <View style={styles.topView}>
             {leftButton}
-            <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTypeList())}>
+            <TouchableOpacity onPress={this.skip}>
               <Text style={styles.text}>{I18n.t('skip')}</Text>
             </TouchableOpacity>
           </View>

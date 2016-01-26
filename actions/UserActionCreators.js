@@ -6,6 +6,7 @@ var UserActionCreators = Reflux.createActions([
   'registerUser',
   'reset',//重置store,
   'requestSmsCode',
+  'skip'
 ]);
 
 

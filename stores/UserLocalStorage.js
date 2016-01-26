@@ -56,6 +56,20 @@ class UserLocalStorage {
       key: 'user',
     }).then(cb);
   }
+
+  getSkip(cb){
+    storage.load({
+      key: 'skip',
+    }).then(cb);
+  }
+
+  skip(){
+    storage.save({
+      key: 'skip',
+      rawData: {skip:true},
+      expires: null,
+    });
+  }
 }
 
 export default new UserLocalStorage();

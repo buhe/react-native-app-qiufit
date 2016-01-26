@@ -30,6 +30,10 @@ var UserStore = Reflux.createStore({
 
   },
 
+  skip(){
+    UserLocalStorage.skip();
+  },
+
   getInitialState: function () {
     global.userId = 'unset';
     if (!this.user) {
@@ -40,10 +44,21 @@ var UserStore = Reflux.createStore({
         this.trigger(this);
       }.bind(this));
     }
+    if (!this.skip) {
+      UserLocalStorage.getSkip(function (skip) {
+        if(skip){
+          this.skip = true;
+        }else{
+          this.skip = false;
+        }
+        this.trigger(this);
+      }.bind(this));
+    }
     this.phone = '';
     return {
       user: this.user,
       phone:this.phone,
+      skip:this.skip,
     };
   },
   reset(){

@@ -119,7 +119,7 @@ var TypeItem = React.createClass({
 var TypesView = React.createClass({
   mixins: [require('../../mixins/backandroid')()],
   profile(){
-    this.props.navigator.push(Router.getProfile());
+    userId === 'unset' ? this.props.navigator.push(Router.getWelcome()) : this.props.navigator.push(Router.getProfile());
   },
   componentDidMount(){
     ProfileActionCreators.pullTurningDate();
