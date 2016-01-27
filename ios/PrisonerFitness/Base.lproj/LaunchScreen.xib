@@ -14,23 +14,13 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-Hl-qne">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="start_01" translatesAutoresizingMaskIntoConstraints="NO" id="wQN-4V-hqu">
-                    <rect key="frame" x="198" y="260" width="85" height="55"/>
-                </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="start_02" translatesAutoresizingMaskIntoConstraints="NO" id="7Kz-GB-zmW">
-                    <rect key="frame" x="173" y="390" width="135" height="30"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gvk-Hl-qne" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="59l-qp-fJP"/>
-                <constraint firstAttribute="bottom" secondItem="7Kz-GB-zmW" secondAttribute="bottom" constant="60" id="KK0-Jp-soX"/>
                 <constraint firstItem="gvk-Hl-qne" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MLf-Vz-baL"/>
                 <constraint firstAttribute="trailing" secondItem="gvk-Hl-qne" secondAttribute="trailing" id="Ouz-2n-i2J"/>
-                <constraint firstItem="7Kz-GB-zmW" firstAttribute="centerX" secondItem="wQN-4V-hqu" secondAttribute="centerX" id="boa-GR-V6V"/>
-                <constraint firstItem="wQN-4V-hqu" firstAttribute="centerX" secondItem="gvk-Hl-qne" secondAttribute="centerX" id="chB-oU-aYq"/>
                 <constraint firstItem="gvk-Hl-qne" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="hF0-Lv-JK8"/>
-                <constraint firstItem="7Kz-GB-zmW" firstAttribute="top" secondItem="wQN-4V-hqu" secondAttribute="bottom" constant="75" id="kg8-Fv-zEZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -39,7 +29,5 @@
     </objects>
     <resources>
         <image name="splash" width="375" height="667"/>
-        <image name="start_01" width="85" height="55"/>
-        <image name="start_02" width="135" height="30"/>
     </resources>
 </document>

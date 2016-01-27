@@ -31,6 +31,8 @@
 		7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB81C293E4300219A32 /* SystemConfiguration.framework */; };
 		7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */; };
 		784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */; };
+		784CEAF51C587B3A004E6725 /* Images_en.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 784CEAF41C587B3A004E6725 /* Images_en.xcassets */; };
+		784CEAF61C587B56004E6725 /* Images_en.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 784CEAF41C587B3A004E6725 /* Images_en.xcassets */; };
 		787FD4341C51D927000688B6 /* ChartLegendRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A8D1C044A3500A6A92F /* ChartLegendRenderer.swift */; };
 		787FD4351C51D927000688B6 /* PieChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A9A1C044A3500A6A92F /* PieChartRenderer.swift */; };
 		787FD4361C51D927000688B6 /* ChartTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25AA01C044A3500A6A92F /* ChartTransformer.swift */; };
@@ -153,7 +155,6 @@
 		787FD4AC1C51D927000688B6 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		787FD4AD1C51D927000688B6 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9340F2577264343AED694A3 /* libRCTActionSheet.a */; };
 		787FD4AE1C51D927000688B6 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */; };
-		787FD4B01C51D927000688B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		787FD4B11C51D927000688B6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B25AA61C044A3500A6A92F /* Info.plist */; };
 		787FD4B21C51D927000688B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		787FD50C1C560AEA000688B6 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787FD5091C560ADB000688B6 /* Roboto-Light.ttf */; };
@@ -436,6 +437,10 @@
 		7846B7F61C3E523D0077B3DC /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		784BA1A01C05536E0063ADB7 /* RCTConvert+RadarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RCTConvert+RadarChartView.h"; path = "RNChat/RCTConvert+RadarChartView.h"; sourceTree = "<group>"; };
 		784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RCTConvert+RadarChartView.m"; path = "RNChat/RCTConvert+RadarChartView.m"; sourceTree = "<group>"; };
+		784CEACD1C587835004E6725 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		784CEAE11C58783C004E6725 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		784CEAF41C587B3A004E6725 /* Images_en.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images_en.xcassets; path = PrisonerFitness/Images_en.xcassets; sourceTree = "<group>"; };
+		784CEAF81C587B71004E6725 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		787FD4B71C51D927000688B6 /* PrisonerFitnessEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrisonerFitnessEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		787FD4B81C51D927000688B6 /* PrisonerFitness copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PrisonerFitness copy-Info.plist"; path = "/Users/guguyanhua/front_workspace/PrisonerFitness/ios/PrisonerFitness copy-Info.plist"; sourceTree = "<absolute>"; };
 		787FD5091C560ADB000688B6 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Resources/Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -702,6 +707,7 @@
 				78B259D41C044A3500A6A92F /* Charts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				784CEAF41C587B3A004E6725 /* Images_en.xcassets */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -1375,6 +1381,7 @@
 				787FD5111C560AF3000688B6 /* RobotoCondensed-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				78B25B451C044A3500A6A92F /* Info.plist in Resources */,
+				784CEAF51C587B3A004E6725 /* Images_en.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1383,10 +1390,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				784CEAF61C587B56004E6725 /* Images_en.xcassets in Resources */,
 				787FD50C1C560AEA000688B6 /* Roboto-Light.ttf in Resources */,
 				787FD50D1C560AEA000688B6 /* RobotoCondensed-Bold.ttf in Resources */,
 				787FD50E1C560AEA000688B6 /* RobotoCondensed-Regular.ttf in Resources */,
-				787FD4B01C51D927000688B6 /* Images.xcassets in Resources */,
 				787FD4B11C51D927000688B6 /* Info.plist in Resources */,
 				787FD4B21C51D927000688B6 /* LaunchScreen.xib in Resources */,
 			);
@@ -1654,6 +1661,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				13B07FB21A68108700A75B9A /* Base */,
+				784CEACD1C587835004E6725 /* zh-Hans */,
+				784CEAE11C58783C004E6725 /* zh-Hant */,
+				784CEAF81C587B71004E6725 /* en */,
 			);
 			name = LaunchScreen.xib;
 			path = PrisonerFitness;
