@@ -625,7 +625,7 @@ const stepsMap = {
         t('_1m'),
         t('_2m'),
       ],
-      videoUrl: "",
+      videoUrl: VIDEO_PREFIX + "f01.mp4",
       infoImage: ImageHolder.f1
     },
     {
@@ -637,7 +637,7 @@ const stepsMap = {
         t('_30s'),
         t('_1m'),
       ],
-      videoUrl: "",
+      videoUrl:  VIDEO_PREFIX + "f02.mp4",
       infoImage: ImageHolder.f2
     },
     {
@@ -649,7 +649,7 @@ const stepsMap = {
         t('_1m'),
         t('_2m'),
       ],
-      videoUrl: "",
+      videoUrl:  VIDEO_PREFIX + "f03.mp4",
       infoImage: ImageHolder.f3
     }, {
       text1: t('_6_4'),
@@ -660,7 +660,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s20'),
       ],
-      videoUrl: "",
+      videoUrl:  VIDEO_PREFIX + "f04.mp4",
       infoImage: ImageHolder.f4
     }, {
       text1: t('_6_5'),
@@ -671,7 +671,7 @@ const stepsMap = {
         t('_2s10'),
         t('_2s15'),
       ],
-      videoUrl: "",
+      videoUrl:  VIDEO_PREFIX + "f05.mp4",
       infoImage: ImageHolder.f5
     },
     {
@@ -683,7 +683,7 @@ const stepsMap = {
         t('_2s9'),
         t('_2s12'),
       ],
-      videoUrl: "",
+      videoUrl: VIDEO_PREFIX + "f06.mp4",
       infoImage: ImageHolder.f6
     },
     {
@@ -695,7 +695,7 @@ const stepsMap = {
         t('_2s8') + t('side'),
         t('_2s10') + t('side'),
       ],
-      videoUrl: "",
+      videoUrl:  VIDEO_PREFIX + "f07.mp4",
       infoImage: ImageHolder.f7
     },
     {
@@ -707,7 +707,7 @@ const stepsMap = {
         t('_2s6') + t('side'),
         t('_2s8') + t('side'),
       ],
-      videoUrl: "",
+      videoUrl: VIDEO_PREFIX + "f08.mp4",
       infoImage: ImageHolder.f8
     },
     {
@@ -719,7 +719,7 @@ const stepsMap = {
         t('_2s4') + t('side'),
         t('_2s6') + t('side'),
       ],
-      videoUrl: "",
+      videoUrl:  VIDEO_PREFIX + "f09.mp4",
       infoImage: ImageHolder.f9
     },
     {
