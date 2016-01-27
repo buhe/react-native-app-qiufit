@@ -3,15 +3,17 @@
 var Reflux = require('reflux');
 var Actions = require('../actions/StepActionCreators');
 var API = require('../api');
-const VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
 const INFO_IMAGE_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
 var I18n = require('react-native-i18n');
 var I18nView = require('../views/I18nView');
 var ImageHolder;
-if(I18nView.localeZh()){
+var VIDEO_PREFIX;
+if (I18nView.localeZh()) {
   ImageHolder = require('../images/zh');
-}else{
+  VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
+} else {
   ImageHolder = require('../images/en');
+  VIDEO_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
 }
 
 function t(key) {
@@ -93,7 +95,7 @@ const stepsMap = {
       text1: t('_1_7'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "a07_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "a07" + (I18nView.localeZh() ? "" + (I18nView.localeZh() ? "_empty" : "") + "" : "") + ".mp4",
       subStep: [
         t('_1s5') + t('side'),
         t('_2s10') + t('side'),
@@ -105,7 +107,7 @@ const stepsMap = {
       text1: t('_1_8'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "a08_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "a08" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5') + t('side'),
         t('_2s10') + t('side'),
@@ -117,7 +119,7 @@ const stepsMap = {
       text1: t('_1_9'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "a09_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "a09" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5') + t('side'),
         t('_2s10') + t('side'),
@@ -128,7 +130,7 @@ const stepsMap = {
     {
       text1: t('_1_10'),
       text2: t('final_goal') + "1×100",
-      videoUrl: VIDEO_PREFIX + "a10_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "a10" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5') + t('side'),
         t('_2s20') + t('side'),
@@ -212,7 +214,7 @@ const stepsMap = {
       text1: t('_2_7'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "b07_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "b07" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5'),
         t('_2s10'),
@@ -224,7 +226,7 @@ const stepsMap = {
       text1: t('_2_8'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "b08_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "b08" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s10'),
         t('_2s10'),
@@ -236,7 +238,7 @@ const stepsMap = {
       text1: t('_2_9'),
       text2: t('goal') + "2×20",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "b09_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "b09" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5') + t('side'),
         t('_2s10') + t('side'),
@@ -247,7 +249,7 @@ const stepsMap = {
     {
       text1: t('_2_10'),
       text2: t('final_goal') + "2×50",
-      videoUrl: VIDEO_PREFIX + "b10_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "b10" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s10') + t('side'),
         t('_2s10') + t('side'),
@@ -331,7 +333,7 @@ const stepsMap = {
       text1: t('_3_7'),
       text2: t('goal') + "2×9",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "c07_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "c07" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5') + t('side'),
         t('_2s7') + t('side'),
@@ -343,7 +345,7 @@ const stepsMap = {
       text1: t('_3_8'),
       text2: t('goal') + "2×8",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "c08_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "c08" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s4') + t('side'),
         t('_1s8') + t('side'),
@@ -355,7 +357,7 @@ const stepsMap = {
       text1: t('_3_9'),
       text2: t('goal') + "2×7",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "c09_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "c09" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s3') + t('side'),
         t('_2s5') + t('side'),
@@ -366,7 +368,7 @@ const stepsMap = {
     {
       text1: t('_3_10'),
       text2: t('final_goal') + "2×7",
-      videoUrl: VIDEO_PREFIX + "c10_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "c10" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s1') + t('side'),
         t('_2s3') + t('side'),
@@ -450,7 +452,7 @@ const stepsMap = {
       text1: t('_4_7'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "d07_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "d07" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5'),
         t('_2s10'),
@@ -462,7 +464,7 @@ const stepsMap = {
       text1: t('_4_8'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "d08_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "d08" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5'),
         t('_2s10'),
@@ -474,7 +476,7 @@ const stepsMap = {
       text1: t('_4_9'),
       text2: t('goal') + "2×15",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "d09_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "d09" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5'),
         t('_2s10'),
@@ -485,7 +487,7 @@ const stepsMap = {
     {
       text1: t('_4_10'),
       text2: t('final_goal') + "2×30",
-      videoUrl: VIDEO_PREFIX + "d10_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "d10" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s5'),
         t('_2s10'),
@@ -569,7 +571,7 @@ const stepsMap = {
       text1: t('_5_7'),
       text2: t('goal') + "2×10",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "e07_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "e07" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s3'),
         t('_2s6'),
@@ -581,7 +583,7 @@ const stepsMap = {
       text1: t('_5_8'),
       text2: t('goal') + "2×8",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "e08_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "e08" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s2'),
         t('_2s4'),
@@ -593,7 +595,7 @@ const stepsMap = {
       text1: t('_5_9'),
       text2: t('goal') + "2×6",
       text3: t('next_step'),
-      videoUrl: VIDEO_PREFIX + "e09_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "e09" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s1'),
         t('_2s3'),
@@ -604,7 +606,7 @@ const stepsMap = {
     {
       text1: t('_5_10'),
       text2: t('final_goal') + "2×30",
-      videoUrl: VIDEO_PREFIX + "e10_empty.mp4",
+      videoUrl: VIDEO_PREFIX + "e10" + (I18nView.localeZh() ? "_empty" : "") + ".mp4",
       subStep: [
         t('_1s1'),
         t('_2s3'),
