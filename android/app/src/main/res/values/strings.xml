@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">专业囚徒健身</string>
-    <string name="fb_app_id">119799841732371</string>
+    <string name="fb_app_id" translatable="false">119799841732371</string>
 </resources>
