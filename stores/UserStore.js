@@ -44,12 +44,12 @@ var UserStore = Reflux.createStore({
         this.trigger(this);
       }.bind(this));
     }
-    if (!this.skip) {
-      UserLocalStorage.getSkip(function (skip) {
-        if(skip){
-          this.skip = true;
+    if (!this.skipState) {
+      UserLocalStorage.getSkip(function (skipState) {
+        if(skipState){
+          this.skipState = true;
         }else{
-          this.skip = false;
+          this.skipState = false;
         }
         this.trigger(this);
       }.bind(this));
@@ -58,7 +58,7 @@ var UserStore = Reflux.createStore({
     return {
       user: this.user,
       phone:this.phone,
-      skip:this.skip,
+      skipState:this.skipState,
     };
   },
   reset(){
