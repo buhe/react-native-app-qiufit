@@ -112,7 +112,7 @@ var TypeItem = React.createClass({
 var TypesView = React.createClass({
   mixins: [require('../../mixins/backandroid')()],
   profile(){
-    this.props.navigator.push(Router.getProfile());
+    userId === 'unset' ? this.props.navigator.push(Router.getWelcome()) : this.props.navigator.push(Router.getProfile());
   },
   componentDidMount(){
     ProfileActionCreators.pullTurningDate();
@@ -137,7 +137,7 @@ var TypesView = React.createClass({
               <Image source={require('../../images/start_02.png')} style={styles.icon}/>
             </View>
             <TouchableOpacity onPress={()=> Promation.review()}>
-              <Image source={require('../../images/navigation_like.png')}  style={styles.likeImage}/>
+              <Image source={require('../../images/navigation_like.png')} style={styles.likeImage}/>
             </TouchableOpacity>
           </View>
           <ListView

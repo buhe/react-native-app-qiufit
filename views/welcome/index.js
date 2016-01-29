@@ -18,9 +18,59 @@ var SDK = require('../../wechat/SDK');
 
 var Welcome = React.createClass({
 
+  getInitialState(){
+    return {
+      loginButton:null,
+      leftButton:null,
+    }
+  },
+
   componentWillMount(){
+    var self = this;
     WeChat.registerApp(SDK.APPID, (res) => {
       //AlertIOS.alert(JSON.stringify(res)); // true or false
+    });
+    this.setState({
+      loginButton:<TouchableOpacity
+          onPress={() => this.props.navigator.push(Router.getLogin())}
+          style={{
+                                    height:70,
+                                    alignItems:'center',  //水平居中
+                                    justifyContent:'center', //垂直居中
+                                    backgroundColor: 'black',
+                                    marginRight:15,
+                                    marginLeft:15,
+                                    marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
+                                    }}
+          >
+        <Text style={styles.actionText}>手机登录</Text>
+      </TouchableOpacity>
+    ,leftButton:<View />
+    });
+
+    WeChat.isInstall(function (installed) {
+      if(installed){
+        self.setState({
+          loginButton:<TouchableOpacity
+                          //onPress={this.hideModal.bind(this)}
+                          onPress={this.wechatLogin}
+                          style={{
+                                    height:70,
+                                    alignItems:'center',  //水平居中
+                                    justifyContent:'center', //垂直居中
+                                    backgroundColor: 'black',
+                                    marginRight:15,
+                                    marginLeft:15,
+                                    marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
+                                    }}
+                          >
+                        <Text style={styles.actionText}>微信登录</Text>
+                      </TouchableOpacity>,
+          leftButton:<TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
+                        <Text style={styles.text}>手机登录</Text>
+                      </TouchableOpacity>
+        });
+      }
     });
   },
 
@@ -35,15 +85,14 @@ var Welcome = React.createClass({
   },
 
   render() {
+
     return (
         <View style={{
         justifyContent: 'space-between',   //三个组件分散开
          flex:1
         }}>
           <View style={styles.topView}>
-            <TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
-              <Text style={styles.text}>手机登录</Text>
-            </TouchableOpacity>
+            {this.state.leftButton}
             <TouchableOpacity onPress={() => this.props.navigator.push(Router.getTypeList())}>
               <Text style={styles.text}>随便看看</Text>
             </TouchableOpacity>
@@ -53,21 +102,7 @@ var Welcome = React.createClass({
             height:150,
             width:150,
           }}/>
-          <TouchableOpacity
-              //onPress={this.hideModal.bind(this)}
-              onPress={this.wechatLogin}
-              style={{
-                        height:70,
-                        alignItems:'center',  //水平居中
-                        justifyContent:'center', //垂直居中
-                        backgroundColor: 'black',
-                        marginRight:15,
-                        marginLeft:15,
-                        marginBottom: 50,  //三个组件分散开  这里可以指定下面的间距
-                        }}
-              >
-            <Text style={styles.actionText}>微信登录</Text>
-          </TouchableOpacity>
+          {this.state.loginButton}
         </View>
     );
   }
