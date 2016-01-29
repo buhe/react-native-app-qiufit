@@ -50,6 +50,17 @@ var Result = React.createClass({
   },
 
   render() {
+    var shareButton = <View />;
+    if(installWechat){
+      shareButton = <Button
+          style={{
+               marginLeft:40,
+               marginRight:40
+              }}
+          text={'分享'}
+          press={this.share.bind(this)}
+          />;
+    }
     moment.locale('zh-cn');
     var m = moment();
     var month = moment.months(m.month());
@@ -84,14 +95,7 @@ var Result = React.createClass({
               </View>
             </View>
           </View>
-          <Button
-              style={{
-               marginLeft:40,
-               marginRight:40
-              }}
-              text={'分享'}
-              press={this.share.bind(this)}
-              />
+          {shareButton}
         </View>
     )
   }

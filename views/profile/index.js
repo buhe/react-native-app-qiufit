@@ -126,6 +126,12 @@ var ProfileView = React.createClass({
           step={row.level}
           />;
     });
+    var shareButton = <View />;
+    if(installWechat){
+     shareButton = <TouchableOpacity onPress={this.share} style={styles.shareWrapper}>
+                      <Image source={require('../../images/navifation_share.png')} style={styles.profileImage}/>
+                  </TouchableOpacity>;
+    }
     return (
         <View style={{backgroundColor: '#1d1d1d'}}>
           <View style={styles.nav}>
@@ -135,9 +141,7 @@ var ProfileView = React.createClass({
             <View style={styles.logo}>
               <Image source={require('../../images/start_02.png')} style={styles.icon}/>
             </View>
-            <TouchableOpacity onPress={this.share} style={styles.shareWrapper}>
-              <Image source={require('../../images/navifation_share.png')} style={styles.profileImage}/>
-            </TouchableOpacity>
+            {shareButton}
           </View>
           <ScrollView style={styles.main} ref='shareView'
                       contentContainerStyle={{alignItems:'center'}}

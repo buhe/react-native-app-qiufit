@@ -49,6 +49,7 @@ var Welcome = React.createClass({
     });
 
     WeChat.isInstall(function (installed) {
+      global.installWechat = installed;
       if(installed){
         self.setState({
           loginButton:<TouchableOpacity
