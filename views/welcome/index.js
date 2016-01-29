@@ -53,7 +53,7 @@ var Welcome = React.createClass({
         self.setState({
           loginButton:<TouchableOpacity
                           //onPress={this.hideModal.bind(this)}
-                          onPress={this.wechatLogin}
+                          onPress={self.wechatLogin}
                           style={{
                                     height:70,
                                     alignItems:'center',  //水平居中
@@ -66,7 +66,7 @@ var Welcome = React.createClass({
                           >
                         <Text style={styles.actionText}>微信登录</Text>
                       </TouchableOpacity>,
-          leftButton:<TouchableOpacity onPress={() => this.props.navigator.push(Router.getLogin())}>
+          leftButton:<TouchableOpacity onPress={() => self.props.navigator.push(Router.getLogin())}>
                         <Text style={styles.text}>手机登录</Text>
                       </TouchableOpacity>
         });
