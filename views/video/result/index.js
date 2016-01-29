@@ -64,7 +64,7 @@ var Result = React.createClass({
     moment.locale('zh-cn');
     var m = moment();
     var month = moment.months(m.month());
-    var day = m.day();
+    var day = m.date();
     return (
         <View>
           <TouchableOpacity onPress={() => this.props.navigator.pop()}>
