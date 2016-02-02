@@ -85,6 +85,7 @@ var Welcome = React.createClass({
         }
       });
     } else {
+      global.installWechat = true;//TODO 这里名字要改一下
       this.setState({
         leftButton: <TouchableOpacity onPress={() => self.props.navigator.push(Router.getEmailLogin())}>
           <Text style={styles.text}>{I18n.t('email_login')}</Text>
