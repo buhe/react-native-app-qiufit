@@ -49,7 +49,7 @@ export default {
   ,
 
   isInstall(callback){
-    //WeChat.isWXAppInstalled(callback);
-    callback(true);
+    WeChat.isWXAppInstalled(callback);
+    //callback(true);
   }
 }

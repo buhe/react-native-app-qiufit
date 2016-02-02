@@ -37,9 +37,6 @@ var Welcome = React.createClass({
 
   componentWillMount(){
     var self = this;
-    WeChat.registerApp(SDK.APPID, (res) => {
-      //AlertIOS.alert(JSON.stringify(res)); // true or false
-    });
     this.setState({
       loginButton: <TouchableOpacity
           onPress={() => this.props.navigator.push(Router.getLogin())}
@@ -59,6 +56,9 @@ var Welcome = React.createClass({
     });
 
     if (I18nView.isZh()) {
+      WeChat.registerApp(SDK.APPID, (res) => {
+        //AlertIOS.alert(JSON.stringify(res)); // true or false
+      });
       WeChat.isInstall(function (installed) {
         global.installWechat = installed;
         if (installed) {
