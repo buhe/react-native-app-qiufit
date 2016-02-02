@@ -50,15 +50,15 @@ public class ChartRendererBase: NSObject
     }
     
     /// Calculates the minimum and maximum x-value the chart can currently display (with the given zoom level).
-    public func calcXBounds(chart chart: BarLineChartViewBase, xAxisModulus: Int)
-    {
-        let low = chart.lowestVisibleXIndex
-        let high = chart.highestVisibleXIndex
-        
-        let subLow = (low % xAxisModulus == 0) ? xAxisModulus : 0
-        
-        _minX = max((low / xAxisModulus) * (xAxisModulus) - subLow, 0)
-        _maxX = min((high / xAxisModulus) * (xAxisModulus) + xAxisModulus, Int(chart.chartXMax))
-    }
+//    public func calcXBounds(chart chart: BarLineChartViewBase, xAxisModulus: Int)
+//    {
+//        let low = chart.lowestVisibleXIndex
+//        let high = chart.highestVisibleXIndex
+//        
+//        let subLow = (low % xAxisModulus == 0) ? xAxisModulus : 0
+//        
+//        _minX = max((low / xAxisModulus) * (xAxisModulus) - subLow, 0)
+//        _maxX = min((high / xAxisModulus) * (xAxisModulus) + xAxisModulus, Int(chart.chartXMax))
+//    }
 }
         
