@@ -120,6 +120,9 @@ var Result = React.createClass({
               </View>
             </View>
           </View>
+          <TouchableOpacity onPress={() => this.props.navigator.pop()} style={styles.closeImage}>
+            <Image source={require('../../../images/btn_close.png')}/>
+          </TouchableOpacity>
           {shareButton}
         </View>
     )
