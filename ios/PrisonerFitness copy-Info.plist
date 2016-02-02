@@ -55,6 +55,8 @@
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+    <string>wechat</string>
+    <string>weixin</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

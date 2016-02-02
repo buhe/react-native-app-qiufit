@@ -76,8 +76,20 @@ var Result = React.createClass({
       moment.locale('en-au');
     }
     var m = moment();
-    var month = moment.monthsShort(m.month());
-    var day = m.day();
+    var month = moment.months(m.month());
+    var day = m.date();
+    var shareButton = <View />;
+
+    if(installWechat){
+      shareButton = <Button
+          style={{
+               marginLeft:40,
+               marginRight:40
+              }}
+          text={'分享'}
+          press={this.share.bind(this)}
+          />;
+    }
     return (
         <View ref='shareView'>
           <View style={{alignItems:'center'}}>
@@ -108,17 +120,7 @@ var Result = React.createClass({
               </View>
             </View>
           </View>
-          <TouchableOpacity onPress={() => this.props.navigator.pop()} style={styles.closeImage}>
-            <Image source={require('../../../images/btn_close.png')}/>
-          </TouchableOpacity>
-          <Button
-              style={{
-               marginLeft:40,
-               marginRight:40
-              }}
-              text={I18n.t('share')}
-              press={this.share.bind(this)}
-              />
+          {shareButton}
         </View>
     )
   }

@@ -31,7 +31,6 @@
 		7825FDB91C293E4300219A32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FDB81C293E4300219A32 /* SystemConfiguration.framework */; };
 		7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7846B7F41C3E523D0077B3DC /* libMobClickLibrary.a */; };
 		784BA1A21C05536E0063ADB7 /* RCTConvert+RadarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784BA1A11C05536E0063ADB7 /* RCTConvert+RadarChartView.m */; };
-		784CEAF51C587B3A004E6725 /* Images_en.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 784CEAF41C587B3A004E6725 /* Images_en.xcassets */; };
 		784CEAF61C587B56004E6725 /* Images_en.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 784CEAF41C587B3A004E6725 /* Images_en.xcassets */; };
 		787FD4341C51D927000688B6 /* ChartLegendRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A8D1C044A3500A6A92F /* ChartLegendRenderer.swift */; };
 		787FD4351C51D927000688B6 /* PieChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B25A9A1C044A3500A6A92F /* PieChartRenderer.swift */; };
@@ -1381,7 +1380,6 @@
 				787FD5111C560AF3000688B6 /* RobotoCondensed-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				78B25B451C044A3500A6A92F /* Info.plist in Resources */,
-				784CEAF51C587B3A004E6725 /* Images_en.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

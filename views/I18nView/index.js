@@ -9,7 +9,7 @@ class I18nView {
   //是不是大陆市场,这个影响国家服务,理论上是根据地理位置判断的,目前在打包的时候写死
   isZh(){
     //每次打包的时候改一下
-    return false;
+    return true;
   }
   //是不是国语
   localeZh(){

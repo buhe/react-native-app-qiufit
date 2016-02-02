@@ -46,4 +46,10 @@ export default {
   shareImage(options, callback){
     WeChat.sendImage(options, callback);
   }
+  ,
+
+  isInstall(callback){
+    //WeChat.isWXAppInstalled(callback);
+    callback(true);
+  }
 }

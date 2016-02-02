@@ -144,7 +144,7 @@ var TypesView = React.createClass({
               <Image source={ImageHolder.start_02} style={styles.icon}/>
             </View>
             <TouchableOpacity onPress={()=> Promation.review()}>
-              <Image source={require('../../images/navigation_like.png')}  style={styles.likeImage}/>
+              <Image source={require('../../images/navigation_like.png')} style={styles.likeImage}/>
             </TouchableOpacity>
           </View>
           <ListView
