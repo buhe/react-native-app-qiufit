@@ -111,22 +111,6 @@ public class ChartTransformer: NSObject
         return valuePoints
     }
     
-    /// Transforms an arraylist of Entry into a double array containing the x and y values transformed with all matrices for the CANDLESTICKCHART.
-    public func generateTransformedValuesCandle(entries: [CandleChartDataEntry], phaseY: CGFloat) -> [CGPoint]
-    {
-        var valuePoints = [CGPoint]()
-        valuePoints.reserveCapacity(entries.count)
-        
-        for (var j = 0; j < entries.count; j++)
-        {
-            let e = entries[j]
-            valuePoints.append(CGPoint(x: CGFloat(e.xIndex), y: CGFloat(e.high) * phaseY))
-        }
-        
-        pointValuesToPixel(&valuePoints)
-        
-        return valuePoints
-    }
     
     /// Transforms an arraylist of Entry into a double array containing the x and y values transformed with all matrices for the BARCHART.
     public func generateTransformedValuesBarChart(entries: [BarChartDataEntry], dataSet: Int, barData: BarChartData, phaseY: CGFloat) -> [CGPoint]
