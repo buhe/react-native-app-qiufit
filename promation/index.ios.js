@@ -3,6 +3,7 @@
  */
 
 var React = require('react-native');
+var I18nView = require('../views/I18nView');
 
 
 var {
@@ -16,7 +17,10 @@ export default {
   }
   ,
   review(){
-    LinkingIOS.openURL('itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1074599488')
-
+    if(I18nView.isZh()){
+      LinkingIOS.openURL('itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1074599488')
+    }else{
+      LinkingIOS.openURL('itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1080567031')
+    }
   }
 }
