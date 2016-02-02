@@ -772,11 +772,6 @@ public class PieRadarChartViewBase: ChartViewBase
             {
                 var angle = angleForPoint(x: location.x, y: location.y)
                 
-                if (self.isKindOfClass(PieChartView))
-                {
-                    angle /= _animator.phaseY
-                }
-                
                 let index = indexForAngle(angle)
                 
                 // check if the index could be found

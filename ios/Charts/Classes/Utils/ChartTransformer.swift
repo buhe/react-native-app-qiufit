@@ -112,57 +112,6 @@ public class ChartTransformer: NSObject
     }
     
     
-    /// Transforms an arraylist of Entry into a double array containing the x and y values transformed with all matrices for the BARCHART.
-    public func generateTransformedValuesBarChart(entries: [BarChartDataEntry], dataSet: Int, barData: BarChartData, phaseY: CGFloat) -> [CGPoint]
-    {
-        var valuePoints = [CGPoint]()
-        valuePoints.reserveCapacity(entries.count)
-
-        let setCount = barData.dataSetCount
-        let space = barData.groupSpace
-
-        for (var j = 0; j < entries.count; j++)
-        {
-            let e = entries[j]
-
-            // calculate the x-position, depending on datasetcount
-            let x = CGFloat(e.xIndex + (e.xIndex * (setCount - 1)) + dataSet) + space * CGFloat(e.xIndex) + space / 2.0
-            let y = e.value
-            
-            valuePoints.append(CGPoint(x: x, y: CGFloat(y) * phaseY))
-        }
-
-        pointValuesToPixel(&valuePoints)
-
-        return valuePoints
-    }
-    
-    /// Transforms an arraylist of Entry into a double array containing the x and y values transformed with all matrices for the BARCHART.
-    public func generateTransformedValuesHorizontalBarChart(entries: [ChartDataEntry], dataSet: Int, barData: BarChartData, phaseY: CGFloat) -> [CGPoint]
-    {
-        var valuePoints = [CGPoint]()
-        valuePoints.reserveCapacity(entries.count)
-        
-        let setCount = barData.dataSetCount
-        let space = barData.groupSpace
-        
-        for (var j = 0; j < entries.count; j++)
-        {
-            let e = entries[j]
-            let i = e.xIndex
-
-            // calculate the x-position, depending on datasetcount
-            let x = CGFloat(i + (i * (setCount - 1)) + dataSet) + space * CGFloat(i) + space / 2.0
-            let y = e.value
-            
-            valuePoints.append(CGPoint(x: CGFloat(y) * phaseY, y: x))
-        }
-
-        pointValuesToPixel(&valuePoints)
-
-        return valuePoints
-    }
-
     /// Transform an array of points with all matrices.
     // VERY IMPORTANT: Keep matrix order "value-touch-offset" when transforming.
     public func pointValuesToPixel(inout pts: [CGPoint])

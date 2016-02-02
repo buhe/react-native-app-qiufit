@@ -43,44 +43,7 @@ public class ChartLegendRenderer: ChartRendererBase
                 let entryCount = dataSet.entryCount
                 
                 // if we have a barchart with stacked bars
-                if (dataSet.isKindOfClass(BarChartDataSet) && (dataSet as! BarChartDataSet).isStacked)
-                {
-                    let bds = dataSet as! BarChartDataSet
-                    var sLabels = bds.stackLabels
-                    
-                    for (var j = 0; j < clrs.count && j < bds.stackSize; j++)
-                    {
-                        labels.append(sLabels[j % sLabels.count])
-                        colors.append(clrs[j])
-                    }
-                    
-                    if (bds.label != nil)
-                    {
-                        // add the legend description label
-                        colors.append(nil)
-                        labels.append(bds.label)
-                    }
-                }
-                else if (dataSet.isKindOfClass(PieChartDataSet))
-                {
-                    var xVals = data.xVals
-                    let pds = dataSet as! PieChartDataSet
-                    
-                    for (var j = 0; j < clrs.count && j < entryCount && j < xVals.count; j++)
-                    {
-                        labels.append(xVals[j])
-                        colors.append(clrs[j])
-                    }
-                    
-                    if (pds.label != nil)
-                    {
-                        // add the legend description label
-                        colors.append(nil)
-                        labels.append(pds.label)
-                    }
-                }
-                else
-                { // all others
+              
                     
                     for (var j = 0; j < clrs.count && j < entryCount; j++)
                     {
@@ -96,7 +59,7 @@ public class ChartLegendRenderer: ChartRendererBase
                         
                         colors.append(clrs[j])
                     }
-                }
+                
             }
             
             _legend.colors = colors + _legend._extraColors
