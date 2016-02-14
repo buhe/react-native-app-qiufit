@@ -1,6 +1,7 @@
 package com.prisonerfitness;
 
 import android.app.Activity;
+import cn.reactnative.modules.jpush.JPushPackage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -37,6 +38,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
+                .addPackage(new JPushPackage())
                 .addPackage(new RNChartPackage())
                 .addPackage(new ReactVideoPackage())
                 .addPackage(new WeChatPackage())

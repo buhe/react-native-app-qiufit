@@ -19,6 +19,7 @@
     "react-native-fs": "^1.1.0",
     "react-native-fs-modal": "git://github.com/buhe/react-native-fs-modal.git#275c225",
     "react-native-i18n": "0.0.7",
+    "react-native-jpush": "^1.0.5",
     "react-native-loading-spinner-overlay": "0.0.6",
     "react-native-progress-bar": "git://github.com/buhe/react-native-progress-bar.git#72a7217",
     "react-native-storage": "0.0.9",

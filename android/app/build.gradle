@@ -13,6 +13,10 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [
+                JPush_APPID: "f3551f9226b217c655a6eb27",   //在此修改JPush的APPID
+                APP_CHANNEL: "android"      //应用渠道号
+        ]
     }
     signingConfigs {
         release {
@@ -32,6 +36,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-jpush')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile "com.facebook.react:react-native:0.17.+"

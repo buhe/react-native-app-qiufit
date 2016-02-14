@@ -20,6 +20,7 @@ import UserActionCreators from '../../actions/UserActionCreators';
 import UserStore from '../../stores/UserStore';
 import Theme from '../theme';
 var I18nView = require('../I18nView');
+import Push from '../../jpush';
 var ImageHolder;
 if (I18nView.localeZh()) {
   ImageHolder = require('../../images/zh');
@@ -34,8 +35,12 @@ var Welcome = React.createClass({
       leftButton: null,
     }
   },
-
+  componentWillUnmount() {
+    Push.destory();
+  },
   componentWillMount(){
+    Push.setNav(this.props.navigator);
+    Push.init();
     var self = this;
     this.setState({
       loginButton: <TouchableOpacity

@@ -20,6 +20,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		632A5A104E23491FA5B49DD9 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE9BF05B124442891FF60A8 /* libCodePush.a */; };
 		7802D7DD1C2BFB0D00247616 /* ViewSnapshotter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802D7DC1C2BFB0D00247616 /* ViewSnapshotter.m */; };
 		7802D7F21C2C011200247616 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7802D7F11C2C00E000247616 /* libRNFS.a */; };
 		7825FCBB1C1FE09300219A32 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7825FCB81C1FB04C00219A32 /* libRCTVideo.a */; };
@@ -168,6 +169,8 @@
 		78D998231C4E41A1009FC600 /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D998221C4E418F009FC600 /* libRCTFBLogin.a */; };
 		78F928571C4BD7560071E098 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F928541C4BD7260071E098 /* libRNI18n.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		A5B7476E48E74E80B9D8269F /* IntegrationTests.app in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A641293A95C44F2AD9AA23B /* IntegrationTests.app */; };
+		E169975C63D44626AC2892B2 /* libRCTJPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7403034B2E4C8D9ED1233C /* libRCTJPush.a */; };
 		F59D1C3F19D643B5AE8059E5 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9340F2577264343AED694A3 /* libRCTActionSheet.a */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +287,48 @@
 			remoteGlobalIDString = 4F3A6B5B1ACFBCC500CA65F7;
 			remoteInfo = RCTFBLogin;
 		};
+		78F0949C1C6E17DF00EDFCBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7A3606D553A4BD7BCE7152A /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
+		};
+		78F094A01C6E17DF00EDFCBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CA338C3F01E48D7B05ADE99 /* example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 13B07F961A680F5B00A75B9A;
+			remoteInfo = example;
+		};
+		78F094A21C6E17DF00EDFCBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CA338C3F01E48D7B05ADE99 /* example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00E356EE1AD99517003FC87E;
+			remoteInfo = exampleTests;
+		};
+		78F094A81C6E17DF00EDFCBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2FF54A2F6E4496484706A20 /* IntegrationTests.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 13B07F961A680F5B00A75B9A;
+			remoteInfo = IntegrationTests;
+		};
+		78F094AA1C6E17DF00EDFCBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2FF54A2F6E4496484706A20 /* IntegrationTests.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 004D289E1AAF61C70097A701;
+			remoteInfo = IntegrationTestsTests;
+		};
+		78F094B11C6E17DF00EDFCBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 808E7163C4DB4D389B3ED0BD /* RCTJPush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 919F832C1C44AB9D00D40C24;
+			remoteInfo = RCTJPush;
+		};
 		78F928531C4BD7260071E098 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */;
@@ -325,6 +370,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PrisonerFitness/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PrisonerFitness/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1CA338C3F01E48D7B05ADE99 /* example.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = example.xcodeproj; path = "../node_modules/react-native-facebook-login/example/ios/example.xcodeproj"; sourceTree = "<group>"; };
 		42FAA14C189B485CB92F1836 /* Example.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = "../node_modules/react-native-wechat-ios/Example/ios/Example.xcodeproj"; sourceTree = "<group>"; };
 		7802D7DB1C2BFB0D00247616 /* ViewSnapshotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewSnapshotter.h; path = "../node_modules/react-native-view-snapshot/ViewSnapshotter.h"; sourceTree = "<group>"; };
 		7802D7DC1C2BFB0D00247616 /* ViewSnapshotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewSnapshotter.m; path = "../node_modules/react-native-view-snapshot/ViewSnapshotter.m"; sourceTree = "<group>"; };
@@ -407,8 +453,14 @@
 		78D998191C4E4187009FC600 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../node_modules/react-native-facebook-login/FacebookSDK/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		78D9981D1C4E418E009FC600 /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
 		78F9284E1C4BD7260071E098 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
+		808E7163C4DB4D389B3ED0BD /* RCTJPush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTJPush.xcodeproj; path = "../node_modules/react-native-jpush/ios/RCTJPush.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		9A641293A95C44F2AD9AA23B /* IntegrationTests.app */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.application; path = IntegrationTests.app; sourceTree = "<group>"; };
+		9E7403034B2E4C8D9ED1233C /* libRCTJPush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTJPush.a; sourceTree = "<group>"; };
+		AEE9BF05B124442891FF60A8 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
+		C7A3606D553A4BD7BCE7152A /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		E9340F2577264343AED694A3 /* libRCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTActionSheet.a; sourceTree = "<group>"; };
+		F2FF54A2F6E4496484706A20 /* IntegrationTests.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = IntegrationTests.xcodeproj; path = "../node_modules/react-native-fs/IntegrationTests/IntegrationTests.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +500,9 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				F59D1C3F19D643B5AE8059E5 /* libRCTActionSheet.a in Frameworks */,
 				7846B7F71C3E523D0077B3DC /* libMobClickLibrary.a in Frameworks */,
+				632A5A104E23491FA5B49DD9 /* libCodePush.a in Frameworks */,
+				A5B7476E48E74E80B9D8269F /* IntegrationTests.app in Frameworks */,
+				E169975C63D44626AC2892B2 /* libRCTJPush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +858,40 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		78F094931C6E17DF00EDFCBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78F0949D1C6E17DF00EDFCBE /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		78F094951C6E17DF00EDFCBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78F094A11C6E17DF00EDFCBE /* example.app */,
+				78F094A31C6E17DF00EDFCBE /* exampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		78F094971C6E17DF00EDFCBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78F094A91C6E17DF00EDFCBE /* IntegrationTests.app */,
+				78F094AB1C6E17DF00EDFCBE /* IntegrationTestsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		78F094991C6E17DF00EDFCBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78F094B21C6E17DF00EDFCBE /* libRCTJPush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		78F9284F1C4BD7260071E098 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +933,10 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				42FAA14C189B485CB92F1836 /* Example.xcodeproj */,
+				C7A3606D553A4BD7BCE7152A /* CodePush.xcodeproj */,
+				1CA338C3F01E48D7B05ADE99 /* example.xcodeproj */,
+				F2FF54A2F6E4496484706A20 /* IntegrationTests.xcodeproj */,
+				808E7163C4DB4D389B3ED0BD /* RCTJPush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -954,9 +1047,19 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = N22PJBS26Y;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					787FD4321C51D927000688B6 = {
 						DevelopmentTeam = N22PJBS26Y;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -973,8 +1076,20 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 78F094931C6E17DF00EDFCBE /* Products */;
+					ProjectRef = C7A3606D553A4BD7BCE7152A /* CodePush.xcodeproj */;
+				},
+				{
+					ProductGroup = 78F094951C6E17DF00EDFCBE /* Products */;
+					ProjectRef = 1CA338C3F01E48D7B05ADE99 /* example.xcodeproj */;
+				},
+				{
 					ProductGroup = 7825FDD11C293F4C00219A32 /* Products */;
 					ProjectRef = 42FAA14C189B485CB92F1836 /* Example.xcodeproj */;
+				},
+				{
+					ProductGroup = 78F094971C6E17DF00EDFCBE /* Products */;
+					ProjectRef = F2FF54A2F6E4496484706A20 /* IntegrationTests.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -991,6 +1106,10 @@
 				{
 					ProductGroup = 00C302BC1ABCB91800DB3ED1 /* Products */;
 					ProjectRef = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
+				},
+				{
+					ProductGroup = 78F094991C6E17DF00EDFCBE /* Products */;
+					ProjectRef = 808E7163C4DB4D389B3ED0BD /* RCTJPush.xcodeproj */;
 				},
 				{
 					ProductGroup = 78C398B11ACF4ADC00677621 /* Products */;
@@ -1150,6 +1269,48 @@
 			fileType = archive.ar;
 			path = libRCTFBLogin.a;
 			remoteRef = 78D998211C4E418F009FC600 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F0949D1C6E17DF00EDFCBE /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 78F0949C1C6E17DF00EDFCBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F094A11C6E17DF00EDFCBE /* example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = example.app;
+			remoteRef = 78F094A01C6E17DF00EDFCBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F094A31C6E17DF00EDFCBE /* exampleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = exampleTests.xctest;
+			remoteRef = 78F094A21C6E17DF00EDFCBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F094A91C6E17DF00EDFCBE /* IntegrationTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = IntegrationTests.app;
+			remoteRef = 78F094A81C6E17DF00EDFCBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F094AB1C6E17DF00EDFCBE /* IntegrationTestsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = IntegrationTestsTests.xctest;
+			remoteRef = 78F094AA1C6E17DF00EDFCBE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		78F094B21C6E17DF00EDFCBE /* libRCTJPush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTJPush.a;
+			remoteRef = 78F094B11C6E17DF00EDFCBE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		78F928541C4BD7260071E098 /* libRNI18n.a */ = {
@@ -1406,6 +1567,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrisonerFitness.app/PrisonerFitness";
@@ -1427,6 +1591,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrisonerFitness.app/PrisonerFitness";
@@ -1446,6 +1613,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
+					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-jpush/ios/**",
 				);
 				INFOPLIST_FILE = PrisonerFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1475,6 +1646,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
+					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-jpush/ios/**",
 				);
 				INFOPLIST_FILE = PrisonerFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1510,6 +1685,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
+					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-jpush/ios/**",
 				);
 				INFOPLIST_FILE = "PrisonerFitness copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1517,6 +1696,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.prisonerfitness.en;
@@ -1540,6 +1722,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
+					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-jpush/ios/**",
 				);
 				INFOPLIST_FILE = "PrisonerFitness copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1547,6 +1733,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.prisonerfitness.en;
@@ -1596,6 +1785,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
+					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-jpush/ios/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1637,6 +1830,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
+					"$(SRCROOT)/../node_modules/react-native-facebook-login/RCTFBLogin/**",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-jpush/ios/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
