@@ -68,6 +68,7 @@ var Holder = {
   result_logo:require('./result_logo.png'),
   signin_logo:require('./signin_logo.png'),
   start_02:require('./start_02.png'),
+  video_loading:require('./video_loading.png')
 }
 
 module.exports = Holder;
