@@ -1458,7 +1458,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.prisonerfitness;
 				PRODUCT_NAME = PrisonerFitness;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -1487,7 +1487,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.prisonerfitness;
 				PRODUCT_NAME = PrisonerFitness;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
