@@ -86,7 +86,7 @@ var Result = React.createClass({
                marginLeft:40,
                marginRight:40
               }}
-          text={'分享'}
+          text={I18n.t('share')}
           press={this.share.bind(this)}
           />;
     }

@@ -11,8 +11,17 @@ var {
     TouchableWithoutFeedback,
     Image,
     AsyncStorage,
-    Dimensions
+    Dimensions,
+    ToastAndroid
     } = React;
+var I18n = require('react-native-i18n');
+var ImageHolder;
+var I18nView = require('../../views/I18nView');
+if(I18nView.localeZh()){
+  ImageHolder = require('../../images/zh');
+}else{
+  ImageHolder = require('../../images/en');
+}
 var Router = require('../../views/router');
 var RNVideo = require('react-native-video');
 var deviceScreen = Dimensions.get('window');
@@ -76,6 +85,7 @@ var Video = React.createClass({
                   AsyncStorage.setItem(self.props.url, localUrl);
                 }).catch(function(err){
                   //下载出问题了?
+                  ToastAndroid.show(I18n.t('downloadFail'), ToastAndroid.LONG);
                 });
               }
             });
@@ -96,6 +106,7 @@ var Video = React.createClass({
           self.setState({localUrl: localVideoUrl,progress: 1,showInfo:false});
           AsyncStorage.setItem(self.props.url, localVideoUrl);
         }).catch(function(err){
+          ToastAndroid.show(I18n.t('downloadFail'), ToastAndroid.LONG);
           //下载出问题了?
         });
       }
@@ -143,7 +154,7 @@ var Video = React.createClass({
               style={[styles.video,Theme.centerChild]}
               >
               <Image
-                  source={require('../../images/video_loading.png')}
+                  source={ImageHolder.video_loading}
                   style={{width: 120,height: 40,backgroundColor:'transparent'}}
                   />
               <ProgressBar

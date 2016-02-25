@@ -13,7 +13,7 @@ if (I18nView.localeZh()) {
   VIDEO_PREFIX = 'http://7xpb7b.media1.z0.glb.clouddn.com/';
 } else {
   ImageHolder = require('../images/en');
-  VIDEO_PREFIX = 'http://7xp0wd.com2.z0.glb.qiniucdn.com/';
+  VIDEO_PREFIX = 'http://s3-us-west-2.amazonaws.com/pf-video/'; //en use aws s3
 }
 
 function t(key) {

@@ -53,7 +53,45 @@
       "idiom" : "iphone",
       "filename" : "180.png",
       "scale" : "3x"
-    }
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "29x29",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "29x29",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "40x40",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "40x40",
+      "scale" : "2x"
+    },
+    {
+      "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "76.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "152.png",
+      "scale" : "2x"
+    },
+    {
+		"filename": "167.png",
+		"size": "83.5x83.5",
+		"scale": "2x",
+		"idiom": "ipad"
+	}
   ],
   "info" : {
     "version" : 1,

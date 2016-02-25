@@ -186,6 +186,7 @@ const Hans = {
   'nickname': '綽號（可選）',
   'passwordWrong': '哎呦，這個賬戶已經被註冊了，而且密碼不正確:( ',
   'registerFail': '註冊失敗，看看是不是忘了聯網:)',
+  'downloadFail': '下载失败，看看是不是忘了聯網:)',
 };
 
 I18n.translations = {
@@ -352,6 +353,7 @@ I18n.translations = {
     'nickname': 'Nickname (optional)',
     'passwordWrong': 'Username and password is mismatch',
     'registerFail': 'Register account failed,Check network please',
+    'downloadFail': 'Download fail ! Please check network.',
   },
   'zh': {
     login: '登录',
@@ -516,6 +518,7 @@ I18n.translations = {
     'nickname': '昵称 (可选)',
     'passwordWrong': '哎呦，这个账户已经被注册了，而且密码不正确:(',
     'registerFail': '注册失败，看看是不是忘了联网:)',
+    'downloadFail': '下载失败，看看是不是忘了联网:)',
   },
   'zh-Hant-CN': Hans,
   'zh-TW': Hans,
