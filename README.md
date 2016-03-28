@@ -1,7 +1,5 @@
-囚徒健身
-
+Convict Conditioning Tracker
 
 design by chengzhen
 
-
-code with ♥ by fiteam team
+code with ♥ by buhe
