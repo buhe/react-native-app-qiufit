@@ -1,24 +1,24 @@
-#Convict Conditioning Tracker
+# Convict Conditioning Tracker
 
-##Screenshot
+## Screenshot
 <img src="/screenshot/1.jpg" width=320 height=568 />
 <img src="/screenshot/2.jpg" width=320 height=568 />
 <img src="/screenshot/3.jpg" width=320 height=568 />
 <img src="/screenshot/4.jpg" width=320 height=568 />
 <img src="/screenshot/5.jpg" width=320 height=568 />
 
-##App Store
+## App Store
 ![App Store](/qrcode/ios.png)
-##Play Store
+## Play Store
 ![Play Store](/qrcode/android.png)
 
-##AUTHOR
+## AUTHOR
 
 Design by chengzhen
 
 Code with ♥ by buhe
 
-##LICENSE
+## LICENSE
                    GNU LESSER GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
