@@ -9,7 +9,7 @@
 
 ## App Store
 ![App Store](/qrcode/ios.png)
-##Play Store
+## Play Store
 ![Play Store](/qrcode/android.png)
 
 ## AUTHOR
